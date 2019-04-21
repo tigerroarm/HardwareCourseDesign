@@ -6,6 +6,3 @@ School of Electronic Information and Communications, </br>
 Advanced Class 2016.</br>
 
 ### 学习资源
-
-[百度](http://www.baidu.com)
-

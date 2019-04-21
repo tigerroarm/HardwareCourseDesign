@@ -4,3 +4,8 @@ Hardware course design for HUST EIC, grouped by Liu Kaixin, Mu Difan, Li Binglin
 > Huazhong University of Science and Technology, </br>
 School of Electronic Information and Communications, </br>
 Advanced Class 2016.</br>
+
+### 学习资源
+
+[百度](http://www.baidu.com)
+

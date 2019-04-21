@@ -1,0 +1,6 @@
+18:27:57 **** Clean-only build of configuration Nios II for project ED2platform0 ****
+make clean 
+[BSP clean complete]
+
+18:28:01 Build Finished (took 3s.224ms)
+

@@ -1,0 +1,16 @@
+16:29:07 **** Incremental Build of configuration Nios II for project testED2 ****
+make all 
+Info: Building ../testED2_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../testED2_bsp/
+[BSP build complete]
+Info: Compiling board_diag.c to obj/default/board_diag.o
+nios2-elf-gcc -xc -MP -MMD -c -I../testED2_bsp//HAL/inc -I../testED2_bsp/ -I../testED2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/board_diag.o board_diag.c
+In file included from board_diag.c:56:0:
+board_diag.h:14:36: fatal error: altera_avalon_pio_regs.h: No such file or directory
+ #include "altera_avalon_pio_regs.h"
+                                    ^
+compilation terminated.
+make: *** [obj/default/board_diag.o] Error 1
+
+16:29:09 Build Finished (took 2s.594ms)
+

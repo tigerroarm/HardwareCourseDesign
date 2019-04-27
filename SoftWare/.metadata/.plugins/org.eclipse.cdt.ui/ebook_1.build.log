@@ -1,0 +1,18 @@
+23:12:57 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 19 KBytes program size (code + initialized data).
+Info:               131046 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+
+23:13:03 Build Finished (took 5s.612ms)
+

@@ -1,0 +1,18 @@
+/*
+ * screen.h
+ *
+ * 本库实现屏幕内容的显示
+ *
+ *  Created on: 2019年4月27日
+ *      Author: 12757
+ */
+
+#ifndef SCREEN_H_
+#define SCREEN_H_
+
+#include "screen_type.h"
+
+
+
+
+#endif /* SCREEN_H_ */

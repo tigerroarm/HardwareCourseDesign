@@ -1,0 +1,38 @@
+/*
+ * screen.h
+ *
+ * 本库实现屏幕内容的显示
+ *
+ *  Created on: 2019年4月27日
+ *      Author: 12757
+ */
+
+#ifndef SCREEN_H_
+#define SCREEN_H_
+
+#include "screen_type.h"
+
+#define SCR_WIDTH 320
+#define SCR_HEIGHT 480
+
+#define DEFAULT_BORDER_COLOR 0x0000
+#define DEFAULT_BKG_COLOR 0x1234
+#define DEFAULT_WORD_COLOR 0xffff
+
+//设置区域范围
+void setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max );
+
+//初始化屏幕
+void screenInit();
+
+void screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short height );
+void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+
+void screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height );
+void screenMainBookInit( ScreenBook *scrBookInst, short width, short height );
+void screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short height );
+void screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short width, short height );
+
+void screenMainAreaInfo( ScrMainAreaInfo *mainAreaInfoInst );
+
+#endif /* SCREEN_H_ */

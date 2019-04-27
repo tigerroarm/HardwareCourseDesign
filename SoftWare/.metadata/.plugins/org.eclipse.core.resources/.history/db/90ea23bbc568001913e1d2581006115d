@@ -1,0 +1,13 @@
+/*
+ * screen.h
+ *
+ *  Created on: 2019Äê4ÔÂ27ÈÕ
+ *      Author: 12757
+ */
+
+#ifndef SCREEN_H_
+#define SCREEN_H_
+
+#include "screen_type.h"
+
+#endif /* SCREEN_H_ */

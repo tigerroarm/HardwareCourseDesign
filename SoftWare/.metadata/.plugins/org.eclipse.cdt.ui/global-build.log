@@ -1,0 +1,1291 @@
+18:17:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:13:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.headerArea.
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:17:56 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:13:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.headerArea
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:18:37 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.headerArea
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:20:43 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.scrHeader.tagTime.tagText.text = "haha\n";
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:20:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.scrHeader.tagTime.tagText.text = "haha";
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:21:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.scrHeader.tagTime.tagText.text = NULL;
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:22:28 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '->' token
+ tftlcdScreenInst->scrHeader.tagTime.tagText.text = NULL;
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:26:48 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:8:0:
+screen_type.h:60:12: error: expected ':', ',', ';', '}' or '__attribute__' before '=' token
+  char *text="haha";
+            ^
+make: *** [obj/default/screen.o] Error 1
+18:27:00 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 17 KBytes program size (code + initialized data).
+Info:               131048 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:27:24 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:14:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.scrHeader.tagTime.tagText.text = NULL;
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:28:59 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:17:1: warning: data definition has no type or storage class
+ haha = "cadcda";
+ ^
+screen.c:17:1: warning: type defaults to 'int' in declaration of 'haha' [-Wimplicit-int]
+screen.c:17:1: error: conflicting types for 'haha'
+screen.c:16:6: note: previous declaration of 'haha' was here
+ char haha[12];
+      ^
+screen.c:17:8: warning: initialization makes integer from pointer without a cast
+ haha = "cadcda";
+        ^
+make: *** [obj/default/screen.o] Error 1
+18:29:16 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:17:1: warning: data definition has no type or storage class
+ haha = "cadcda";
+ ^
+screen.c:17:1: warning: type defaults to 'int' in declaration of 'haha' [-Wimplicit-int]
+screen.c:17:1: error: conflicting types for 'haha'
+screen.c:16:7: note: previous declaration of 'haha' was here
+ char *haha;
+       ^
+screen.c:17:8: warning: initialization makes integer from pointer without a cast
+ haha = "cadcda";
+        ^
+make: *** [obj/default/screen.o] Error 1
+18:29:19 **** Build of configuration Nios II for project ebook_1_bsp ****
+make all 
+[BSP build complete]
+18:29:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 17 KBytes program size (code + initialized data).
+Info:               131048 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:34:11 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:16:17: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ tftlcdScreenInst.scrHeader.tagTime.tagText.text = str1;
+                 ^
+make: *** [obj/default/screen.o] Error 1
+18:36:12 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:19:6: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ temp1.textSize = 1;
+      ^
+make: *** [obj/default/screen.o] Error 1
+18:36:42 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:19:6: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ temp1.textSize = 1;
+      ^
+make: *** [obj/default/screen.o] Error 1
+18:37:21 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:19:6: error: expected '=', ',', ';', 'asm' or '__attribute__' before '.' token
+ temp1.textSize = 1;
+      ^
+make: *** [obj/default/screen.o] Error 1
+18:39:23 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 17 KBytes program size (code + initialized data).
+Info:               131048 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:09:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:34:1: warning: return type defaults to 'int' [-Wreturn-type]
+ screenHeaderInit( ScreenHeaderTime *scrHeaderInst )
+ ^
+screen.c:34:1: warning: conflicting types for 'screenHeaderInit'
+In file included from screen.c:9:0:
+screen.h:20:6: note: previous declaration of 'screenHeaderInit' was here
+ void screenHeaderInit( ScreenHeaderTime *scrHeaderInst );
+      ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 18 KBytes program size (code + initialized data).
+Info:               131048 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:42:42 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:22:2: error: too many arguments to function 'setAreaRange'
+  setAreaRange( &(tftlcdScreenInst.screenArea), 1, SCR_WIDE, 1, SCR_HEIGHT );
+  ^
+In file included from screen.c:9:0:
+screen.h:23:6: note: declared here
+ void setAreaRange( AreaRange *areaPtr, int );
+      ^
+screen.c:26:2: error: too many arguments to function 'setAreaRange'
+  setAreaRange( &(tftlcdScreenInst.headerArea), 1, SCR_WIDE, 1, headerHeight );
+  ^
+In file included from screen.c:9:0:
+screen.h:23:6: note: declared here
+ void setAreaRange( AreaRange *areaPtr, int );
+      ^
+screen.c:32:2: error: too many arguments to function 'setAreaRange'
+  setAreaRange( &(tftlcdScreenInst.headerArea), 1, SCR_WIDE, SCR_HEIGHT - footerHeight + 1, SCR_HEIGHT );
+  ^
+In file included from screen.c:9:0:
+screen.h:23:6: note: declared here
+ void setAreaRange( AreaRange *areaPtr, int );
+      ^
+screen.c:35:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: At top level:
+screen.c:46:6: error: conflicting types for 'screenFooterInit'
+ void screenFooterInit( ScreenFooterBtn *scrFooterInst )
+      ^
+In file included from screen.c:9:0:
+screen.h:21:6: note: previous declaration of 'screenFooterInit' was here
+ void screenFooterInit( ScreenHeaderTime *scrHeaderInst );
+      ^
+screen.c:51:6: error: conflicting types for 'setAreaRange'
+ void setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max )
+      ^
+In file included from screen.c:9:0:
+screen.h:23:6: note: previous declaration of 'setAreaRange' was here
+ void setAreaRange( AreaRange *areaPtr, int );
+      ^
+make: *** [obj/default/screen.o] Error 1
+20:44:26 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:35:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 18 KBytes program size (code + initialized data).
+Info:               131047 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:53:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 18 KBytes program size (code + initialized data).
+Info:               131047 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:01:07 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+obj/default/screen.o: In function `screenInit':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen.c:50: undefined reference to `screenMainHomeInit'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen.c:51: undefined reference to `screenMainBookInit'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen.c:52: undefined reference to `screenMainSettingInit'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen.c:53: undefined reference to `screenMainColorPickerInit'
+collect2.exe: error: ld returned 1 exit status
+make: *** [ebook_1.elf] Error 1
+21:01:29 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 18 KBytes program size (code + initialized data).
+Info:               131047 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:05:28 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 18 KBytes program size (code + initialized data).
+Info:               131047 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:29:31 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:32:51: error: 'SCR_WIDE' undeclared (first use in this function)
+  setAreaRange( &(tftlcdScreenInst.screenArea), 1, SCR_WIDE, 1, SCR_HEIGHT );
+                                                   ^
+screen.c:32:51: note: each undeclared identifier is reported only once for each function it appears in
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: At top level:
+screen.c:60:6: error: conflicting types for 'screenHeaderInit'
+ void screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short height, short width )
+      ^
+In file included from screen.c:9:0:
+screen.h:28:6: note: previous declaration of 'screenHeaderInit' was here
+ void screenHeaderInit( ScreenHeaderTime *scrHeaderInst );
+      ^
+screen.c: In function 'screenHeaderInit':
+screen.c:69:50: error: 'SCR_WIDE' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                  ^
+screen.c:69:60: error: 'headerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                            ^
+screen.c:69:91: error: 'footerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                                                           ^
+screen.c:67:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = 10;
+        ^
+screen.c:66:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = 10;
+        ^
+screen.c: In function 'screenMainAreaInfo':
+screen.c:104:2: error: 'for' loop initial declarations are only allowed in C99 or C11 mode
+  for ( int i = 1; i < 4; i ++ )
+  ^
+screen.c:104:2: note: use option -std=c99, -std=gnu99, -std=c11 or -std=gnu11 to compile your code
+make: *** [obj/default/screen.o] Error 1
+21:30:16 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:38:2: error: too few arguments to function 'screenHeaderInit'
+  screenHeaderInit( &(tftlcdScreenInst.scrHeader) );
+  ^
+In file included from screen.c:9:0:
+screen.h:28:6: note: declared here
+ void screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short height, short width );
+      ^
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:69:50: error: 'SCR_WIDE' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                  ^
+screen.c:69:50: note: each undeclared identifier is reported only once for each function it appears in
+screen.c:69:60: error: 'headerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                            ^
+screen.c:69:91: error: 'footerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDE, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                                                           ^
+screen.c:67:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = 10;
+        ^
+screen.c:66:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = 10;
+        ^
+screen.c: In function 'screenMainAreaInfo':
+screen.c:104:2: error: 'for' loop initial declarations are only allowed in C99 or C11 mode
+  for ( int i = 1; i < 4; i ++ )
+  ^
+screen.c:104:2: note: use option -std=c99, -std=gnu99, -std=c11 or -std=gnu11 to compile your code
+make: *** [obj/default/screen.o] Error 1
+21:30:28 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:38:2: error: too few arguments to function 'screenHeaderInit'
+  screenHeaderInit( &(tftlcdScreenInst.scrHeader) );
+  ^
+In file included from screen.c:9:0:
+screen.h:28:6: note: declared here
+ void screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short height, short width );
+      ^
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:69:61: error: 'headerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDTH, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                             ^
+screen.c:69:61: note: each undeclared identifier is reported only once for each function it appears in
+screen.c:69:92: error: 'footerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDTH, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                                                            ^
+screen.c:67:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = 10;
+        ^
+screen.c:66:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = 10;
+        ^
+screen.c: In function 'screenMainAreaInfo':
+screen.c:104:2: error: 'for' loop initial declarations are only allowed in C99 or C11 mode
+  for ( int i = 1; i < 4; i ++ )
+  ^
+screen.c:104:2: note: use option -std=c99, -std=gnu99, -std=c11 or -std=gnu11 to compile your code
+make: *** [obj/default/screen.o] Error 1
+21:31:41 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:69:61: error: 'headerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDTH, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                             ^
+screen.c:69:61: note: each undeclared identifier is reported only once for each function it appears in
+screen.c:69:92: error: 'footerHeight' undeclared (first use in this function)
+  setAreaRange( &(scrHeaderInst->tagTimeArea), 1, SCR_WIDTH, headerHeight + 1, SCR_HEIGHT - footerHeight );
+                                                                                            ^
+screen.c:67:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = 10;
+        ^
+screen.c:66:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = 10;
+        ^
+screen.c: In function 'screenMainAreaInfo':
+screen.c:104:2: error: 'for' loop initial declarations are only allowed in C99 or C11 mode
+  for ( int i = 1; i < 4; i ++ )
+  ^
+screen.c:104:2: note: use option -std=c99, -std=gnu99, -std=c11 or -std=gnu11 to compile your code
+make: *** [obj/default/screen.o] Error 1
+21:32:57 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:67:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = 10;
+        ^
+screen.c:66:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = 10;
+        ^
+screen.c: In function 'screenMainAreaInfo':
+screen.c:104:2: error: 'for' loop initial declarations are only allowed in C99 or C11 mode
+  for ( int i = 1; i < 4; i ++ )
+  ^
+screen.c:104:2: note: use option -std=c99, -std=gnu99, -std=c11 or -std=gnu11 to compile your code
+make: *** [obj/default/screen.o] Error 1
+21:39:46 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:29:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'screenInit':
+screen.c:44:2: error: too few arguments to function 'screenFooterInit'
+  screenFooterInit( &(tftlcdScreenInst.scrFooter) );
+  ^
+In file included from screen.c:9:0:
+screen.h:29:11: note: declared here
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+           ^
+screen.c:50:2: error: too few arguments to function 'screenMainHomeInit'
+  screenMainHomeInit( &(tftlcdScreenInst.scrHome) );
+  ^
+In file included from screen.c:9:0:
+screen.h:31:6: note: declared here
+ void screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height );
+      ^
+screen.c:51:2: error: too few arguments to function 'screenMainBookInit'
+  screenMainBookInit( &(tftlcdScreenInst.scrBook) );
+  ^
+In file included from screen.c:9:0:
+screen.h:32:6: note: declared here
+ void screenMainBookInit( ScreenBook *scrBookInst, short width, short height );
+      ^
+screen.c:52:2: error: too few arguments to function 'screenMainSettingInit'
+  screenMainSettingInit( &(tftlcdScreenInst.scrSetting) );
+  ^
+In file included from screen.c:9:0:
+screen.h:33:6: note: declared here
+ void screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short height );
+      ^
+screen.c:53:2: error: too few arguments to function 'screenMainColorPickerInit'
+  screenMainColorPickerInit( &(tftlcdScreenInst.scrColorPicker) );
+  ^
+In file included from screen.c:9:0:
+screen.h:34:6: note: declared here
+ void screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short width, short height );
+      ^
+screen.c:47:8: warning: unused variable 'mainAreaHeight' [-Wunused-variable]
+  short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
+        ^
+make: *** [obj/default/screen.o] Error 1
+21:43:31 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:29:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+make: *** [obj/default/screen.o] Error 1
+21:51:19 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:29:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'screenHeaderInit':
+screen.c:78:7: error: expected expression before ']' token
+  str1[] = "string";
+       ^
+screen.c:76:7: warning: variable 'str1' set but not used [-Wunused-but-set-variable]
+  char str1[10];
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:33:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:31:0: warning: "DEFAULT_WORD_SPACING" redefined
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+ ^
+screen.h:27:0: note: this is the location of the previous definition
+ #define DEFAULT_WORD_SPACING 2//间距
+ ^
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c:27:6: error: conflicting types for 'setTagBlock'
+ void setTagBlock( TagBlock *tagPtr, short width, short height )
+      ^
+In file included from screen.c:9:0:
+screen.h:36:6: note: previous declaration of 'setTagBlock' was here
+ void setTagBlock( TagBlock *tagPtr, char *text, short width, short height );
+      ^
+screen.c: In function 'screenHeaderInit':
+screen.c:89:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:124:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:82:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:38:36 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:31:0: warning: "DEFAULT_WORD_SPACING" redefined
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+ ^
+screen.h:27:0: note: this is the location of the previous definition
+ #define DEFAULT_WORD_SPACING 2//间距
+ ^
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c:15:74: error: 'DEFAULT_OBJ_COLOR' undeclared here (not in a function)
+ ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR };
+                                                                          ^
+screen.c: In function 'setTagBlock':
+screen.c:32:2: warning: statement with no effect [-Wunused-value]
+  tagPtr->tagColorInfo
+  ^
+screen.c:33:1: error: expected ';' before '}' token
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:92:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:127:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:85:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:39:14 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:31:0: warning: "DEFAULT_WORD_SPACING" redefined
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+ ^
+screen.h:27:0: note: this is the location of the previous definition
+ #define DEFAULT_WORD_SPACING 2//间距
+ ^
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'setTagBlock':
+screen.c:32:2: warning: statement with no effect [-Wunused-value]
+  tagPtr->tagColorInfo
+  ^
+screen.c:33:1: error: expected ';' before '}' token
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:92:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:127:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:85:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:39:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:31:0: warning: "DEFAULT_WORD_SPACING" redefined
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+ ^
+screen.h:27:0: note: this is the location of the previous definition
+ #define DEFAULT_WORD_SPACING 2//间距
+ ^
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'setTagBlock':
+screen.c:32:2: warning: statement with no effect [-Wunused-value]
+  tagPtr->tagColorInfo
+  ^
+screen.c:33:1: error: expected ';' before '}' token
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:92:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:127:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:85:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:40:18 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:31:0: warning: "DEFAULT_WORD_SPACING" redefined
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+ ^
+screen.h:27:0: note: this is the location of the previous definition
+ #define DEFAULT_WORD_SPACING 2//间距
+ ^
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'setTagBlock':
+screen.h:31:30: error: expected expression before '{' token
+ #define DEFAULT_WORD_SPACING {DEFAULT_WORD_SPACING/2} //间距
+                              ^
+screen.c:33:24: note: in expansion of macro 'DEFAULT_WORD_SPACING'
+  tagPtr->wordSpacing = DEFAULT_WORD_SPACING;
+                        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:93:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:128:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:86:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:41:01 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:9:0:
+screen.h:42:6: error: two or more data types in declaration specifiers
+ void void screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.c: In function 'screenHeaderInit':
+screen.c:93:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:128:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:86:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:41:19 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenHeaderInit':
+screen.c:94:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:129:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:87:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:44:08 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:35:2: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
+  (tagPtr->tagText).textSize =  strlen(text);
+  ^
+screen.c:35:32: warning: incompatible implicit declaration of built-in function 'strlen'
+  (tagPtr->tagText).textSize =  strlen(text);
+                                ^
+screen.c: In function 'screenHeaderInit':
+screen.c:95:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:130:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:88:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:44:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenHeaderInit':
+screen.c:96:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:131:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:89:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+make: *** [obj/default/screen.o] Error 1
+22:52:50 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:47:2: error: expected expression before 'short'
+  short marginX = width -
+  ^
+screen.c: In function 'screenHeaderInit':
+screen.c:109:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c:144:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:102:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c: In function 'setDefaultTagBlock':
+screen.c:144:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:45:8: warning: unused variable 'textWidthSum' [-Wunused-variable]
+  short textWidthSum = SRC_WORD_SIZE_X *
+        ^
+screen.c:144:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+22:53:19 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:47:2: error: expected expression before 'short'
+  short marginX = width -
+  ^
+screen.c: In function 'screenInit':
+screen.c:85:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:109:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c: In function 'screenFooterInit':
+screen.c:113:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:118:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainBookInit':
+screen.c:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:126:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:144:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:102:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c:144:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'setDefaultTagBlock':
+screen.c:144:1: error: expected declaration or statement at end of input
+screen.c:45:8: warning: unused variable 'textWidthSum' [-Wunused-variable]
+  short textWidthSum = SRC_WORD_SIZE_X *
+        ^
+screen.c:144:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+22:58:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:54:1: error: expected expression before '}' token
+ }
+ ^
+screen.c:53:2: error: too few arguments to function 'setAreaRange'
+  setAreaRange( &(tagPtr->textArea),
+  ^
+screen.c:21:6: note: declared here
+ void setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max )
+      ^
+screen.c:54:1: error: expected ';' before '}' token
+ }
+ ^
+screen.c:51:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = ( height - SRC_WORD_SIZE_Y )>> 1;
+        ^
+screen.c:50:8: warning: unused variable 'marginX' [-Wunused-variable]
+  short marginX = ( width - textWidthSum ) >> 1;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:113:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c: In function 'screenFooterInit':
+screen.c:117:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainBookInit':
+screen.c:126:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:134:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:106:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c: In function 'setDefaultTagBlock':
+screen.c:54:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenInit':
+screen.c:89:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:00:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:53:36: error: expected expression before ')' token
+  setAreaRange( &(tagPtr->textArea, ), marginX+1, width-marginX, marginY+1, height-marginY );
+                                    ^
+screen.c:53:34: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+  setAreaRange( &(tagPtr->textArea, ), marginX+1, width-marginX, marginY+1, height-marginY );
+                                  ^
+screen.c:53:2: error: too few arguments to function 'setAreaRange'
+  setAreaRange( &(tagPtr->textArea, ), marginX+1, width-marginX, marginY+1, height-marginY );
+  ^
+screen.c:21:6: note: declared here
+ void setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max )
+      ^
+screen.c:51:8: warning: unused variable 'marginY' [-Wunused-variable]
+  short marginY = ( height - SRC_WORD_SIZE_Y )>> 1;
+        ^
+screen.c: In function 'screenHeaderInit':
+screen.c:113:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c: In function 'screenFooterInit':
+screen.c:117:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainBookInit':
+screen.c:126:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:134:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:106:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c: In function 'setDefaultTagBlock':
+screen.c:54:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenInit':
+screen.c:89:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:00:48 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenHeaderInit':
+screen.c:113:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c: In function 'screenFooterInit':
+screen.c:117:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:122:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainBookInit':
+screen.c:126:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:130:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:134:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:106:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c: In function 'setDefaultTagBlock':
+screen.c:54:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenInit':
+screen.c:89:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:148:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:03:34 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenHeaderInit':
+screen.c:127:1: error: expected identifier or '(' before '}' token
+ }
+ ^
+screen.c: In function 'screenFooterInit':
+screen.c:131:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:136:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainBookInit':
+screen.c:140:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:144:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:148:1: warning: no return statement in function returning non-void [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:162:1: error: expected declaration or statement at end of input
+ }
+ ^
+screen.c:120:7: warning: unused variable 'str1' [-Wunused-variable]
+  char str1[10] = "00:00";//0时0分
+       ^
+screen.c: In function 'screenInit':
+screen.c:103:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+screen.c: In function 'screenHeaderInit':
+screen.c:162:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:10:05 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenInit':
+screen.c:78:7: warning: unused variable 'status' [-Wunused-variable]
+  bool status = true;
+       ^
+screen.c:107:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 19 KBytes program size (code + initialized data).
+Info:               131046 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:12:57 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 19 KBytes program size (code + initialized data).
+Info:               131046 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]

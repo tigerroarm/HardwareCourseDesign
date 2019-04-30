@@ -1,0 +1,32 @@
+/*
+ * font_manage.h
+ *
+ *  Created on: 2019年4月28日
+ *      Author: 12757
+ */
+
+#ifndef FONT_MANAGE_H_
+#define FONT_MANAGE_H_
+
+typedef unsigned char alt_u8;
+
+//ASCII字符尺寸：8*16
+//数组大小：（8*16）/8*128
+#define ASCII_X_SIZE 8
+#define ASCII_Y_SIZE 16
+#define ASCII_LETTER_BYTES 16//1个字母的字节数
+#define ASCII_X8_Y16_ARRAY_SIZE ( ASCII_LETTER_BYTES * 128 )
+
+//得到ASCII字符的地址
+alt_u8 *getAsciiFont( char asciiVal );
+
+//GBK字符尺寸：16*16
+#define GBK_X_SIZE 16
+#define GBK_Y_SIZE 16
+#define GBK_WORD_BYTES 32//1个汉字的字节数
+#define GBK_X16_Y16_ARRAY_SIZE ( 23940 * 32 )
+
+//得到GBK中文字符的地址
+alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte );
+
+#endif /* FONT_MANAGE_H_ */

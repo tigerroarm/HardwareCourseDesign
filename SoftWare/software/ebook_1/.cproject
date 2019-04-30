@@ -10,7 +10,11 @@
 					<folderInfo id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1904240346." name="/" resourcePath="">
 						<toolChain id="altera.nios2.mingw.gcc4.2037577803" name="MinGW Nios II GCC4" superClass="altera.nios2.mingw.gcc4">
 							<targetPlatform id="altera.nios2.mingw.gcc4.2126030664" name="Nios II" superClass="altera.nios2.mingw.gcc4"/>
-							<builder buildPath="${workspace_loc://ebook_1}" id="altera.tool.gnu.builder.mingw.1533315472" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="altera.tool.gnu.builder.mingw"/>
+							<builder buildPath="${workspace_loc://ebook_1}" id="altera.tool.gnu.builder.mingw.1533315472" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="Gnu Make Builder" superClass="altera.tool.gnu.builder.mingw">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name=""/>
+								</outputEntries>
+							</builder>
 							<tool id="altera.tool.gnu.c.compiler.mingw.1692803984" name="Nios II GCC C Compiler" superClass="altera.tool.gnu.c.compiler.mingw">
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1295416677" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -24,6 +28,9 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="screen" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="preference.org.eclipse.cdt.managedbuilder.core.configurationDataProvider.1904240346" moduleId="org.eclipse.cdt.core.settings" name="Nios II">
@@ -80,4 +87,5 @@
 			</target>
 		</buildTargets>
 	</storageModule>
+	<storageModule moduleId="refreshScope"/>
 </cproject>

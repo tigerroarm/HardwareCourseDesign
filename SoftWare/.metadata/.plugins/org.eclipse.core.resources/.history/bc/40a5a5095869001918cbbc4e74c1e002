@@ -1,0 +1,15 @@
+/*
+ * font_manage.h
+ *
+ *  Created on: 2019Äê4ÔÂ28ÈÕ
+ *      Author: 12757
+ */
+
+#ifndef FONT_MANAGE_H_
+#define FONT_MANAGE_H_
+
+#include "/inc/alt_types.h"
+
+alt_u8 *getAsciiFont();
+
+#endif /* FONT_MANAGE_H_ */

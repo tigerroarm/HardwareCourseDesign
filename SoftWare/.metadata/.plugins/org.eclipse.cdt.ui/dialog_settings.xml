@@ -12,6 +12,7 @@
 		<item value="true" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="content"/>
 			<item value="ok"/>
 			<item value="*FLASE"/>
 			<item value="FLASE"/>

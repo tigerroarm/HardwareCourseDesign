@@ -143,10 +143,15 @@ ELF := ebook_1.elf
 
 # Paths to C, C++, and assembly source files.
 C_SRCS += main.c
-C_SRCS += screen.c
 C_SRCS += time_count.c
 C_SRCS += txt_read.c
 C_SRCS += touch_resp.c
+C_SRCS += icon_pic.c
+C_SRCS += ascii_font.c
+C_SRCS += font_manage.c
+C_SRCS += screen.c
+C_SRCS += gbk_font.c
+C_SRCS += color.c
 CXX_SRCS :=
 ASM_SRCS :=
 

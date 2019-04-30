@@ -12,6 +12,7 @@
 
 #include "screen_type.h"
 
+
 //txt文件名最大长度(读取SD卡文件名时使用)
 #define TXT_FILE_NAME_SIZE 51
 
@@ -27,7 +28,7 @@ typedef struct
 
 } TxtFile;
 
-//SD卡根目录下所有tx文件的信息
+//SD卡根目录下所有txt文件的信息
 typedef struct
 {
 	TxtFile *txtFileList;//动态数组
@@ -35,9 +36,8 @@ typedef struct
 	int curOpenFileIndex;//当前打开的txt文件下标
 } TxtFilesInfo;
 
-//屏幕每一行的字节数
-#define BOOK_ROW_BYTES 16
-#define BOOK_COL_NUM 20
+extern TxtFilesInfo txtFilesInfoSpace;
+extern char txtBookSpace[][BOOK_ROW_BYTES+1];
 
 
 #endif /* TXTSD_H_ */

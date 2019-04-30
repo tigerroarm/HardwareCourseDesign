@@ -12,9 +12,51 @@
 #define SCREEN_TYPE_H_
 
 #include "stdbool.h"
+#include "alt_types.h"
+#include "color.h"
 
-#define SRC_WORD_SIZE_X 16
-#define SRC_WORD_SIZE_Y 16
+
+
+
+//屏幕基本尺寸
+#define SCR_WIDTH 320
+#define SCR_HEIGHT 480
+
+#define SCR_HEADER_HEIGHT 40
+#define SCR_FOTTER_HEIGHT 60
+#define SCR_MAIN_HEIGHT (SCR_HEIGHT - SCR_HEADER_HEIGHT - SCR_FOTTER_HEIGHT)
+
+
+
+//默认中文字符大小
+#define SRC_WORD_SIZE_X GBK_X_SIZE
+#define SRC_WORD_SIZE_Y GBK_Y_SIZE
+#define DEFAULT_WORD_SPACING 2//间距（纯中文间距，中英文之间间距）
+//默认英文字母大小
+#define SRC_LETTER_SIZE_X ASCII_X_SIZE
+#define SRC_LETTER_SIZE_Y ASCII_Y_SIZE
+#define DEFAULT_LETTER_SPACING 1 //间距（纯英文间距）
+
+
+//电子书区域每一行的字节数
+#define BOOK_ROW_BYTES 34 //min( 320/(16+2)*2, 320/(8+1) ),再向下取偶数
+#define BOOK_ROW_HEIGHT (SRC_WORD_SIZE_Y + 2)
+#define BOOK_COL_NUM 21 //SCR_MAIN_HEIGHT / BOOK_ROW_HEIGHT
+
+//目录列表的元素高度
+#define CATALOG_ROW_HEIGHT BOOK_ROW_HEIGHT
+
+//默认颜色
+#define DEFAULT_BORDER_COLOR 0x0000
+#define DEFAULT_BKG_COLOR 0x1234
+#define DEFAULT_OBJ_COLOR 0xffff
+
+
+
+
+
+
+
 
 //屏幕编号
 enum scrID { SCR_NONE = 0, SCR_HOME=1, SCR_BOOK=2, \
@@ -23,17 +65,13 @@ enum scrID { SCR_NONE = 0, SCR_HOME=1, SCR_BOOK=2, \
 //屏幕页面栈(用于保证能够回退到上一个屏幕页面
 typedef struct
 {
-	short scrIDStack[4];//屏幕页面栈
+	enum scrID scrIDStack[4];//屏幕页面栈
 	short curScrIndex;//当前屏幕在数组中的下标
 } ScrMainAreaInfo;
 
-//翻页模式
-enum turnPageMode { TURN_PAGE_MANUAL=0, TURN_PAGE_AUTO=1};
+////翻页模式
+//enum turnPageMode { TURN_PAGE_MANUAL=0, TURN_PAGE_AUTO=1};
 
-
-
-
-typedef unsigned short color_u16;
 
 //颜色变量
 typedef struct
@@ -43,12 +81,6 @@ typedef struct
 	color_u16 objColor;//文本或图标颜色
 } ColorInfo;
 
-typedef struct
-{
-	unsigned char redVal;  //5bit [15:11]
-	unsigned char greenVal;//6bit [10: 5]
-	unsigned char blueVal; //5bit [4 : 0]
-} ColorRGB;
 
 
 //区域变量(x为横向坐标，y为纵向坐标）
@@ -61,13 +93,52 @@ typedef struct
 	short y_max;
 } AreaRange;
 
+//区域定位(通过中心点定位）
+typedef struct
+{
+	short center;
+	short half;
+} AreaFmtCenter;//1维方向
+
+
+//区域定位（通过边距定位）
+typedef struct
+{
+	short margin_LU;//左或上
+	short margin_RD;//右或下
+} AreaFmtMargin;
+
+
+enum areaFmtID { AREA_FMT_CENTER = 0, AREA_FMT_MARGIN=1 };
+
+union areaFmtVal
+{
+	AreaFmtCenter fmtCenterVal;
+	AreaFmtMargin fmtMarginVal;
+};
+
+
+//区域定位总类型
+typedef struct
+{
+	enum areaFmtID fmtTypeX;
+	enum areaFmtID fmtTypeY;
+	union areaFmtVal fmtValX;
+	union areaFmtVal fmtValY;
+} AreaFmt;
+
 //文本变量
 typedef struct
 {
 	char *text;
-	short textSize;
+	short textLen;
 } TextType;
 
+typedef struct
+{
+	TextType *textArray;
+	short textNum;
+} TextList;
 
 //标签模块
 typedef struct
@@ -78,6 +149,8 @@ typedef struct
 
 	ColorInfo tagColorInfo;
 	short wordSpacing;//文字间距
+	short letterSpacing;//字母间距
+	short lineSpacing;//行距
 	TextType tagText;
 } TagBlock;
 
@@ -102,8 +175,11 @@ typedef struct
 	AreaRange picArea;
 	bool borderVisible;
 	bool picVisible;
-	ColorInfo tagColorInfo;
-	unsigned char *iconPic;
+	ColorInfo iconColorInfo;
+	const alt_u8 *iconPic;
+	short iconWidth;
+	short iconXSizeInByte;//icon横向字节数
+	short iconYSizeInByte;//icon纵向字节数，同时也为icon的高度
 } IconBlock;
 
 //数字加减图标+数字显示标签
@@ -164,32 +240,42 @@ typedef struct
 
 } ScreenFooterBtn;
 
-//list（垂直列表）由多个elem（元素）组成，elem为一个长方形框，里面有背景颜色，字符串，边界
+//list（垂直列表）由多个elem（Tag元素）组成，elem为一个长方形框，里面有背景颜色，字符串，边界
 typedef struct
 {
-	AreaRange elemArea;//元素尺寸
+	AreaRange elemBaseArea;//元素尺寸
 	AreaRange textArea;//元素中文本区位置
 	short wordSpacing;//文字间距
+	short letterSpacing;//字母间距
 	bool elemBorderVisible;
 
 	ColorInfo elemColorInfo;//元素颜色信息
 
-	TextType *elemText;//列表元素文本数组
-
 	short elemNum;//列表元素总个数
-} VirtualList;
+
+	AreaRange *elemArea;//列表元素区域（数组）
+	TagBlock *elemBlock;//列表元素显示信息(数组)
+
+} TagList;
 
 //垂直滚动条
 typedef struct
 {
+	bool borderVisible;
+	color_u16 borderColor;//边界颜色
+	color_u16 bkgColor;//背景颜色
+
 	AreaRange iconMoveUpArea;//上移键
 	IconBlock iconMoveUp;//上移键图标
 
 	AreaRange iconMoveDownArea;//下移键
 	IconBlock iconMoveDown;//下移键图标
 
-	AreaRange iconBarMoveArea;//滚动条移动范围
-	AreaRange iconBarArea;//滚动条
+	AreaRange barBaseArea;//滚动条基本区域（偏移量为0）
+	short barYoffset;//滚动条纵向偏移量
+	short barYOffsetMax;
+	short barHeight;//滚动条高度
+	short barMoveHeight;//滚动条运动覆盖范围的高度
 	IconBlock iconBar;//滚动条图标
 
 } ScrollBarY;
@@ -197,12 +283,18 @@ typedef struct
 //进度条
 typedef struct
 {
-	AreaRange axisArea;//运动轴
-	IconBlock iconAxis;
+	bool borderVisible;
+	color_u16 borderColor;//边界颜色
+	color_u16 bkgColor;//背景颜色
 
-	AreaRange dotMoveArea;//进度点移动范围
-	AreaRange dotArea;
+	AreaRange axisArea;//运动轴
+	IconBlock axis;
+
+	AreaRange dotBaseArea;//进度点基本区域（无偏移量时）
 	IconBlock dot;
+
+	short xOffset;
+	short xOffsetMax;
 
 } ProgressBar;
 
@@ -213,20 +305,28 @@ typedef struct
 	color_u16 borderColor;//边界颜色
 	color_u16 bkgColor;//背景颜色
 
-	AreaRange realHomePageArea;//主页面滚动区显示区在虚拟页面中的区域
+	short listYOffset;//列表显示时的纵向偏移量
+	short listYOffsetMax;//列表显示时的纵向偏移量最大值
+	short listYSize;//列表纵向全长
+	short listYStepSize;//列表纵向移动步长
 
-	AreaRange numberBarArea;//数字编号条
-	VirtualList numberBar;
+	AreaRange numBarArea;//数字编号条
+	TagList numBar;
 
-	AreaRange txtContentArea;//txt文件名
-	VirtualList txtContent;
-	bool txtScrollable;//允许滚动否
-	short txtScrollrow;//可滚动的行数（一次只有一行可以滚动）
+	AreaRange txtCatalogArea;//txt文件名
+	TagList txtCatalog;
 
-	AreaRange turnContentBarArea;//文件上下翻动条
-	ScrollBarY turnContentBarY;
+	bool txtScrollable;//某行允许水平滚动否
+	short txtScrollrow;//可滚动的某行行数（一次只有一行可以滚动）
+	short txtScrollxOffset;//当前滚动偏移量
+	short txtScrollwidth;//滚动文本的真实像素宽度（可以超出屏幕宽度）
+	short txtScrollSpacing;//滚动文本循环时文本尾与新文本头的间隔
+
+	AreaRange turnCatalogBarArea;//文件上下翻动条
+	ScrollBarY turnCatalogBarY;
 
 } ScreenHome;
+
 
 
 //屏幕二的悬浮窗：进度条区域
@@ -239,16 +339,11 @@ typedef struct
 	AreaRange prgBarArea;//水平进度条
 	ProgressBar prgBarX;
 
+	AreaRange tagPagePercTageArea;//"百分数进度"（标签组），格式为"53.33%"
+	TagBlock tagPagePercTage;
 
-	AreaRange tagCurPageArea;//"当前阅读页数"（标签组）
-	TagBlockGroup tagCurPage;
-
-
-	AreaRange tagTotalPageArea;//"总页数"（标签组）
-	TagBlockGroup tagTotalPage;
-
-	AreaRange tagCurPagePctArea;//"进度"（标签组）
-	TagBlockGroup tagCurPagePct;
+	AreaRange tagPageNumArea;//页数标签，格式为：" 1234/99999", 1234为当前页数，99999为总页数
+	TagBlock tagPageNum;
 
 	int curPageNum;//当前阅读页数
 	int totalPageNum;//总页数
@@ -261,15 +356,17 @@ typedef struct
 typedef struct
 {
 	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	color_u16 borderColor;//上下边界颜色
+
+	color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+	color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
 
 	AreaRange txtBookArea;//电子书区域
-	VirtualList txtBook;
+	TagList txtBook;
 
-	AreaRange tureBackPageAreaPos;//点击该区域（左），翻到上一页
-	AreaRange tureNextPageAreaPos;//点击该区域（右），翻到下一页
-	AreaRange txtPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+	AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+	AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+	AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
 
 	AreaRange pageInfoArea;
 	ScreenPageInfo pageInfo;
@@ -288,10 +385,10 @@ typedef struct
 	TagBlock tag1;
 
 	AreaRange editAlarmHourArea;//编辑休息定时：时
-	TagIconGroup tagAlarmHour;
+	TagIconGroup editAlarmHour;
 
 	AreaRange editAlarmMinuteArea;//编辑休息定时：分
-	TagIconGroup tagAlarmMinute;
+	TagIconGroup editAlarmMinute;
 
 	AreaRange editBkgColorArea;//编辑背景颜色
 	TagBlockGroup editBkgColor;
@@ -308,41 +405,43 @@ typedef struct
 	AreaRange editTurnPageSecArea;//编辑自动翻页时间间隔
 	TagIconGroup editTurnPageSec;
 
+
 	bool turnPageMod;//翻页模式
 
 } ScreenSetting;
 
+//颜色表（16*16=256色)
+typedef struct
+{
+	//每个色块
+	short colorXSize;//横向长度
+	short colorYSize;//纵向长度
+	//色块个数
+	short colorXNum;//横向颜色个数
+	short colorYNum;//纵向颜色个数
+
+	//256色->16位色，颜色映射表
+	const color_u16 *colorSpace;
+
+	//选中的颜色在映射表中的位置
+	color_u8 *colorIndex;
+
+} ColorTable;
+
 //屏幕四：电子书拾色器页面（COLOR_PICKER）（目前保留，暂时不做）
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
+	bool borderVisible;//上下边界（不包括左右）
+	color_u16 borderColor;//上下边界颜色（不包括左右）
 	color_u16 bkgColor;//背景颜色
 
-	AreaRange areaAbsPos;//本区域位置(绝对位置)
-	short wordSpacing;//文字间距
-	short lineSpacing;//行距
+	AreaRange colorPickerArea;//取色板
 
-	AreaRange redBarArea;
-	ProgressBar redBarY;
-
-	AreaRange greenBarArea;
-	ProgressBar greenBarY;
-
-	AreaRange blueBarArea;
-	ProgressBar blueBarY;
-
-	//三基色的值
-	ColorRGB colorValue;
-
-	AreaRange tag1Area;//"点击色块确认"
-	TagBlock tag1;
-
-	//调色板调出的颜色
-	AreaRange tagMixColorArea;//调色板区域
-	TagBlock tagMixColor;//调色板,文字采用"调色板",颜色采用混合得到的颜色
+	ColorTable colorPicker;
 
 } ScreenColorPicker;
+
+
 
 
 

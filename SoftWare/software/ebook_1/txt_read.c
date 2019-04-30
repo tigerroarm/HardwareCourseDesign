@@ -11,6 +11,6 @@
 //临时存储从SD卡中读出的文件名
 char sdCardFileName[TXT_FILE_NAME_SIZE];
 
-TxtFilesInfo txtFilesInfoInst;
+TxtFilesInfo txtFilesInfoSpace;
 
 char txtBookSpace[BOOK_COL_NUM][BOOK_ROW_BYTES+1];

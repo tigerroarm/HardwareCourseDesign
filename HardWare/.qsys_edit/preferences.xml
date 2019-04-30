@@ -18,6 +18,7 @@
   </columns>
  </clocktable>
  <window width="1366" height="728" x="0" y="0" />
- <library expandedCategories="Library,Project" />
+ <library
+   expandedCategories="Library/Basic Functions,Library/Interface Protocols/Ethernet,Library/Interface Protocols/Ethernet/Reference Design Components,Library/Interface Protocols,Library,Library/Processors and Peripherals,Library/Processors and Peripherals/Peripherals,Library/Basic Functions/Bridges and Adaptors,Project,Library/Basic Functions/Bridges and Adaptors/Memory Mapped" />
  <hdlexample language="VERILOG" />
 </preferences>

@@ -30,4 +30,9 @@ extern const alt_u8 icon_minus[];
 //进度条进度点的图标
 extern const alt_u8 icon_dot[];
 
+//滚动条上翻键的图标
+extern const alt_u8 icon_move_up[];
+//滚动条下翻键的图标
+extern const alt_u8 icon_move_down[];
+
 #endif /* ICON_PIC_EXTERN_H_ */

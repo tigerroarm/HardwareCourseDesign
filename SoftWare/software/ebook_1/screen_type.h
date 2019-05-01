@@ -272,11 +272,14 @@ typedef struct
 	IconBlock iconMoveDown;//下移键图标
 
 	AreaRange barBaseArea;//滚动条基本区域（偏移量为0）
+	IconBlock iconBar;//滚动条图标
+
+	AreaRange barMoveArea;//滚动条可以运动的区域
 	short barYoffset;//滚动条纵向偏移量
 	short barYOffsetMax;
 	short barHeight;//滚动条高度
-	short barMoveHeight;//滚动条运动覆盖范围的高度
-	IconBlock iconBar;//滚动条图标
+	bool iconBarVisable;//滚动条是否可见
+
 
 } ScrollBarY;
 
@@ -309,6 +312,8 @@ typedef struct
 	short listYOffsetMax;//列表显示时的纵向偏移量最大值
 	short listYSize;//列表纵向全长
 	short listYStepSize;//列表纵向移动步长
+	short listShowHeight;//显示在屏幕上的列表的高度（即列表AreaRange的高度)
+	float listShowYRatio;//显示在屏幕上的列表占总列表的比率
 
 	AreaRange numBarArea;//数字编号条
 	TagList numBar;

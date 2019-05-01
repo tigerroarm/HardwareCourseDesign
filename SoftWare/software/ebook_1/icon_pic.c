@@ -30,3 +30,9 @@ const alt_u8 icon_minus[ICON_MINUS_BYTES];
 
 //进度条进度点的图标
 const alt_u8 icon_dot[ICON_DOT_BYTES];
+
+
+//滚动条上翻键的图标
+const alt_u8 icon_move_up[ICON_MOVE_UP_BYTES];
+//滚动条下翻键的图标
+const alt_u8 icon_move_down[ICON_MOVE_DOWN_BYTES];

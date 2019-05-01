@@ -222,15 +222,63 @@ bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height )
 
 }
 //设置默认垂直滚动条
-bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height )
+bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height, float barYRatio )
 {
 	bool status = true;
 
-	/*
-	 *
-	 * 该函数等待完成
-	 *
-	 */
+	scrollBarYInst->borderVisible = true;
+	scrollBarYInst->borderColor = DEFAULT_BORDER_COLOR;
+	scrollBarYInst->bkgColor = DEFAULT_BKG_COLOR;
+
+	short iconMarginXL = 1;
+	short iconMarginXR = 1;
+	short iconUpMarginYU = 1;
+	short iconDownMarginYD = 1;
+	short iconWidth = width - iconMarginXL - iconMarginXR;
+	short iconUpHeight = iconWidth;
+	short iconDownHeight = iconWidth;
+	short iconDownMarginYU = height - iconDownHeight - iconUpMarginYU;
+	short iconSpacing = 2;//iconBlock之间的纵向间隔
+	short iconBarMoveMarginYU = iconUpMarginYU + iconUpHeight + iconSpacing;
+	short iconBarMoveHeight = height - iconDownMarginYD - iconDownHeight - iconSpacing - iconBarMoveMarginYU;
+
+	//上移键图标
+	status = status && setAreaRange( &(scrollBarYInst->iconMoveUpArea), iconMarginXL+1, iconMarginXL+iconWidth,\
+					iconUpMarginYU+1, iconUpMarginYU+iconUpHeight );
+	status = status && setDefaultIconBlock( &(scrollBarYInst->iconMoveUp), icon_move_up, iconWidth, iconUpHeight,\
+					ICON_MOVE_UP_X_SIZE, ICON_MOVE_UP_Y_SIZE );
+
+	//下移键图标
+	status = status && setAreaRange( &(scrollBarYInst->iconMoveDownArea), iconMarginXL+1, iconMarginXL+iconWidth,\
+					iconDownMarginYU+1, iconDownMarginYU+iconDownHeight );
+	status = status && setDefaultIconBlock( &(scrollBarYInst->iconMoveDown), icon_move_down, iconWidth, iconDownHeight,\
+					ICON_MOVE_DOWN_X_SIZE, ICON_MOVE_DOWN_Y_SIZE );
+
+
+	//滚动条
+	//运动区
+	status = status && setAreaRange( &(scrollBarYInst->barMoveArea), iconMarginXL+1, iconMarginXL+iconWidth, \
+					iconBarMoveMarginYU+1, iconBarMoveMarginYU+iconBarMoveHeight );
+
+	//滚动条纵向偏移量
+	scrollBarYInst->barHeight = barYRatio * iconBarMoveHeight;//计算滚动条的长度，barYRatio是滚动条高度占整个运动区高度的比率
+	if ( scrollBarYInst->barHeight > iconBarMoveHeight )//文件数很少，不需要滚动条
+	{
+		scrollBarYInst->iconBarVisable = false;
+		scrollBarYInst->barHeight = iconBarMoveHeight;
+	}
+	else//文件很多，需要滚动条
+	{
+		scrollBarYInst->iconBarVisable = true;
+	}
+
+	scrollBarYInst->barYOffsetMax = iconBarMoveHeight - scrollBarYInst->barHeight;
+	scrollBarYInst->barYoffset = 0;
+
+	//基本区（纵向偏移量为0时的位置）
+	status = status && setAreaRange( &(scrollBarYInst->barBaseArea), iconMarginXL+1, iconMarginXL+iconWidth,\
+					iconBarMoveMarginYU+1, iconBarMoveMarginYU+scrollBarYInst->barHeight );
+	status = status && setDefaultIconBlock( &(scrollBarYInst->iconMoveDown), (void*)0, iconWidth, scrollBarYInst->barHeight, 0, 0 );
 
 
 	return status;
@@ -507,7 +555,7 @@ bool screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height
 	return status;
 }
 
-bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, TxtFilesInfo *txtFilesInfoPtr )
+bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, const TxtFilesInfo *txtFilesInfoPtr )
 {
 	scrHomeInst->borderVisible = true;
 	scrHomeInst->borderColor = DEFAULT_BORDER_COLOR;
@@ -535,41 +583,73 @@ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, Txt
 	short listElemNum = txtFilesInfoPtr->txtFilesNum;//列表元素个数
 	short listElemHeight = CATALOG_ROW_HEIGHT;//列表元素高度
 
+
+
+
 	//列表内容设置
-	TextList *numListPtr;
-	TextList *catalogListPtr;
-	/*
-	 *
-	 *
-	 *
-	 * 此处要对上面两个TextList变量malloc索要空间，并将txtFilesInfoPtr中的有效信息保存到索要的空间中
-	 *
-	 *
-	 */
+	//两个TextList变量malloc索要空间，并将txtFilesInfoPtr中的有效信息保存到索要的TextList空间中
+	TextList numList;
+	numList.textNum = listElemNum;
+	numList.textArray = (TextType*)malloc( sizeof(TextType) * listElemNum );
+	TextType *textAry = numList.textArray;
+	int i;
+	char tempStr[10];
+	for ( i = 0; i < listElemNum; i ++ )
+	{
+		sprintf(tempStr, "%2d", i + 1 );//获取编号字符串（从" 1"开始,最大"99"）
+		(textAry[i]).text = (char*)malloc( sizeof(char) * 3 );
+		((textAry[i]).text)[0] = tempStr[0];
+		((textAry[i]).text)[1] = tempStr[1];
+		((textAry[i]).text)[2] = 0;
+		(textAry[i]).textLen = 2;
+	}
+
+
+	TextList catalogList;
+	catalogList.textNum = listElemNum;
+	catalogList.textArray = (TextType*)malloc( sizeof(TextType) * listElemNum );
+	TextType *catalogAry = catalogList.textArray;
+	TxtFile *txtFileArray = txtFilesInfoPtr->txtFileList;
+
+	for ( i = 0; i < listElemNum; i ++ )
+	{
+		catalogAry[i] = (txtFileArray[i]).txtFileName;
+	}
+
+
 
 
 	//数字编号列表
 	status = status && setAreaRange( &(scrHomeInst->numBarArea), numListMarginXL+1, numListMarginXL+numListWidth,\
 							blockMarginY+1, height-blockMarginY );
-	status = status && setDefaultTagList( &(scrHomeInst->numBar), numListWidth, listElemNum, numListPtr, true,\
+	status = status && setDefaultTagList( &(scrHomeInst->numBar), numListWidth, listElemNum, &numList, true,\
 							&defaultColorInfo );
 	//txt文件目录列表
 	status = status && setAreaRange( &(scrHomeInst->txtCatalogArea), catalogListMarginXL+1, catalogListMarginXL+catalogListWidth,\
 							blockMarginY+1, height-blockMarginY );
-	status = status && setDefaultTagList( &(scrHomeInst->txtCatalog), numListWidth, listElemNum, catalogListPtr, true,\
+	status = status && setDefaultTagList( &(scrHomeInst->txtCatalog), numListWidth, listElemNum, &catalogList, true,\
 							&defaultColorInfo );
 
-	//滚动条
-	status = status && setAreaRange( &(scrHomeInst->turnCatalogBarArea), scrollBarMarginXL + 1, scrollBarMarginXL + scrollBarWidth,\
-							blockMarginY+1, height-blockMarginY );
-	status = status && setDefaultScrollBarY( &(scrHomeInst->turnCatalogBarY), scrollBarWidth, blockHeight );
+	//释放使用完毕的numListPtr与catalogListPtr空间
+	free(numList.textArray);
+
+	free(catalogList.textArray);
 
 
 	//列表纵向移动显示设置
 	scrHomeInst->listYOffset = 0;//列表显示时的纵向偏移量
+	scrHomeInst->listShowHeight = blockHeight;//列表显示在屏幕上时的高度
 	scrHomeInst->listYSize = listElemNum * listElemHeight;//列表纵向全长
+	scrHomeInst->listShowYRatio = scrHomeInst->listShowHeight / scrHomeInst->listYSize;
 	scrHomeInst->listYOffsetMax = scrHomeInst->listYSize - blockHeight;
 	scrHomeInst->listYStepSize = CATALOG_ROW_HEIGHT;
+
+	//滚动条
+	status = status && setAreaRange( &(scrHomeInst->turnCatalogBarArea), scrollBarMarginXL + 1, scrollBarMarginXL + scrollBarWidth,\
+							blockMarginY+1, height-blockMarginY );
+	status = status && setDefaultScrollBarY( &(scrHomeInst->turnCatalogBarY), scrollBarWidth, blockHeight, scrHomeInst->listShowYRatio );
+
+
 
 
 	//某行目录文件名水平滚动设置
@@ -582,7 +662,7 @@ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, Txt
 
 	return status;
 }
-//设置默认文本列表
+//设置默认文本标签列表
 bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight, TextList *textListPtr, bool elemBorderVisible,\
 		                 ColorInfo *colorInfoPtr )
 {
@@ -688,7 +768,7 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 	}
 
 	ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
-	//设置电子书文本域（文本域为由TagBlock组成的TagList文本列表）
+	//设置电子书文本域（文本域为由TagBlock组成的TagList文本标签列表）
 	TextList textList = { textArray, BOOK_COL_NUM };
 	status = status && setDefaultTagList( &(scrBookInst->txtBook), width, BOOK_ROW_HEIGHT, &textList, false, &colorSel );
 

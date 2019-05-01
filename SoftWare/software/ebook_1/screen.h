@@ -29,11 +29,11 @@ bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short wid
 //设置默认进度条
 bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height );
 //设置默认垂直滚动条
-bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height );
+bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height, float barYRatio );
 //设置默认取色板信息
 void setDefaultColorTable( ColorTable *colorPickerInst, color_u8 *colorSel, short width, short height );
 
-//设置默认文本列表
+//设置默认文本标签列表
 bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight, TextList *textListPtr, bool elemBorderVisible,\
 						ColorInfo *colorInfoPtr );
 
@@ -52,7 +52,7 @@ bool screenInit();
 bool screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short height );
 bool screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
 
-bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, TxtFilesInfo *txtFilesInfoPtr );
+bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, const TxtFilesInfo *txtFilesInfoPtr );
 bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height );
 bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short height );
 bool screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short width, short height );

@@ -76,11 +76,25 @@ alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte );
 
 
 //进度条的进度点图标
-//进度条点的图标
 #define ICON_DOT_X_SIZE 8
 #define ICON_DOT_Y_SIZE 8
 #define ICON_DOT_BYTE_X 1 // (ICON_DOT_X_SIZE/8 = 2)
 #define ICON_DOT_BYTE_Y ICON_DOT_Y_SIZE
 #define ICON_DOT_BYTES (ICON_DOT_BYTE_X * ICON_DOT_BYTE_Y)
+
+
+//上移键的图标
+#define ICON_MOVE_UP_X_SIZE 8
+#define ICON_MOVE_UP_Y_SIZE 8
+#define ICON_MOVE_UP_BYTE_X 1 // (ICON_MOVE_UP_X_SIZE/8 = 2)
+#define ICON_MOVE_UP_BYTE_Y ICON_MOVE_UP_Y_SIZE
+#define ICON_MOVE_UP_BYTES (ICON_MOVE_UP_BYTE_X * ICON_MOVE_UP_BYTE_Y)
+
+//下移键图标
+#define ICON_MOVE_DOWN_X_SIZE 8
+#define ICON_MOVE_DOWN_Y_SIZE 8
+#define ICON_MOVE_DOWN_BYTE_X 1 // (ICON_MOVE_DOWN_X_SIZE/8 = 2)
+#define ICON_MOVE_DOWN_BYTE_Y ICON_MOVE_DOWN_Y_SIZE
+#define ICON_MOVE_DOWN_BYTES (ICON_MOVE_DOWN_BYTE_X * ICON_MOVE_DOWN_BYTE_Y)
 
 #endif /* FONT_MANAGE_H_ */

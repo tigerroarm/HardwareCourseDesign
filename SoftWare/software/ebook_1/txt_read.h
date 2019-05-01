@@ -15,7 +15,8 @@
 
 //txt文件名最大长度(读取SD卡文件名时使用)
 #define TXT_FILE_NAME_SIZE 51
-
+//最多读取SD卡中的99个文件
+#define TXT_FILES_NUM_MAX 99
 
 typedef struct
 {
@@ -32,7 +33,7 @@ typedef struct
 typedef struct
 {
 	TxtFile *txtFileList;//动态数组
-	int txtFilesNum;
+	int txtFilesNum;//最大值为99，即最多读取SD卡中的99个文件
 	int curOpenFileIndex;//当前打开的txt文件下标
 } TxtFilesInfo;
 

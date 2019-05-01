@@ -21,7 +21,7 @@
 //整个屏幕变量
 ScreenContainer tftlcdScreenInst;
 
-ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR };
+ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR, true, true };
 
 char *str1 = "Happy";
 
@@ -166,26 +166,23 @@ bool setAreaRangeCentered( AreaRange *areaPtr, short width, short height, short 
 //设置默认居中标签
 bool setDefaultTagBlock( TagBlock *tagPtr, char *text, short width, short height )
 {
-	tagPtr->borderVisible = true;
 	tagPtr->tagColorInfo = defaultColorInfo;
+
 	tagPtr->wordSpacing = DEFAULT_WORD_SPACING;
 	tagPtr->letterSpacing = DEFAULT_LETTER_SPACING;
+	tagPtr->wordXSize = SRC_WORD_SIZE_X;//汉字横向宽度
+	tagPtr->letterXSize = SRC_LETTER_SIZE_X;//字母横向宽度
+	tagPtr->objYSize = SRC_OBJ_SIZE_Y;//文字纵向高度
 	(tagPtr->tagText).text = text;
 
 	short textLen = strlen(text);
 	(tagPtr->tagText).textLen = textLen;
 
-	if ( text == NULL )
-	{
-		tagPtr->textVisible = false;
-	}
-	else
-	{
-		tagPtr->textVisible = true;
-	}
+	(tagPtr->tagColorInfo).objVisible = ( text == NULL ) ? false : true;
+
 	short textWidthSum = getWidthOfText( text, textLen );
 
-	bool status = setAreaRangeCentered( &(tagPtr->textArea ), width, height, textWidthSum, SRC_WORD_SIZE_Y );
+	bool status = setAreaRangeCentered( &(tagPtr->textArea ), width, height, textWidthSum, SRC_OBJ_SIZE_Y );
 
 	return status;
 }
@@ -194,9 +191,7 @@ bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height )
 {
 	bool status = true;
 	//基本信息
-	prgBarInst->bkgColor = DEFAULT_BKG_COLOR;
-	prgBarInst->borderColor = DEFAULT_BORDER_COLOR;
-	prgBarInst->borderVisible = true;
+	prgBarInst->bkgBorderColor = defaultColorInfo;
 
 	prgBarInst->xOffset = 0;
 	prgBarInst->xOffsetMax = 280;
@@ -226,9 +221,7 @@ bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height
 {
 	bool status = true;
 
-	scrollBarYInst->borderVisible = true;
-	scrollBarYInst->borderColor = DEFAULT_BORDER_COLOR;
-	scrollBarYInst->bkgColor = DEFAULT_BKG_COLOR;
+	scrollBarYInst->barYColorInfo = defaultColorInfo;
 
 	short iconMarginXL = 1;
 	short iconMarginXR = 1;
@@ -264,12 +257,12 @@ bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height
 	scrollBarYInst->barHeight = barYRatio * iconBarMoveHeight;//计算滚动条的长度，barYRatio是滚动条高度占整个运动区高度的比率
 	if ( scrollBarYInst->barHeight > iconBarMoveHeight )//文件数很少，不需要滚动条
 	{
-		scrollBarYInst->iconBarVisable = false;
+		scrollBarYInst->iconBarVisible = false;
 		scrollBarYInst->barHeight = iconBarMoveHeight;
 	}
 	else//文件很多，需要滚动条
 	{
-		scrollBarYInst->iconBarVisable = true;
+		scrollBarYInst->iconBarVisible = true;
 	}
 
 	scrollBarYInst->barYOffsetMax = iconBarMoveHeight - scrollBarYInst->barHeight;
@@ -286,21 +279,15 @@ bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height
 //设置默认居中图标
 bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short width, short height, short iconXSize, short iconYSize )
 {
-	iconPtr->borderVisible = true;
-	iconPtr->iconPic = iconModel;
-	iconPtr->iconWidth = iconXSize;
-	iconPtr->iconXSizeInByte = (iconXSize+7)>>3;//除8，向上取整
-	iconPtr->iconYSizeInByte = iconYSize;
-
-	if ( iconModel == (void*)0 )
-	{
-		iconPtr->picVisible = false;
-	}
-	else
-	{
-		iconPtr->picVisible = true;
-	}
 	iconPtr->iconColorInfo = defaultColorInfo;
+
+	iconPtr->iconPic = iconModel;
+	iconPtr->iconXSize = iconXSize;
+	iconPtr->iconYSize = iconYSize;
+
+	(iconPtr->iconColorInfo).objVisible = ( iconModel == NULL )? false : true;
+
+
 
 	bool status = setAreaRangeCentered( &(iconPtr->picArea ), width, height, iconXSize, iconYSize );
 
@@ -318,10 +305,10 @@ void setDefaultColorTable( ColorTable *colorPickerInst, color_u8 *colorSel, shor
 	colorPickerInst->colorSpace = color_form;
 }
 
-//计算有效文本全部显示时的像素宽度
-short getWidthOfText( char *str, short len )
+//获取文本中汉字与字母的分布表(值为'c'，代表汉字，值为'e'，代表英文字母
+char *getWordLetterArrange( char *str, short len )
 {
-	char *strType = (char*)malloc( sizeof( char ) );
+	char *strType = (char*)malloc( sizeof( char ) * (len+1) );
 	short strTypeVaildNum = 0;
 
 	int i;
@@ -336,20 +323,41 @@ short getWidthOfText( char *str, short len )
 		{
 			strType[strTypeVaildNum] = 'c';//中文CHINESE
 			i = i + 1;
-			if ( i == len || str[i] == 0 )//低字节不存在，有问题，返回文本长度为0，表示文本*str有误
+			if ( i == len || str[i] == 0 )//到了字符串结束，低字节却不存在，有问题
 			{
-				free(strType);
-				return 0;
+				strType[strTypeVaildNum] = 0;//结束标志
+				return strType;
 			}
 		}
 		else
 		{
 			strType[strTypeVaildNum] = 'e';//英文ENGLISH
 		}
-		strTypeVaildNum += 1;
+		strTypeVaildNum ++;
 	}
+	strType[strTypeVaildNum] = 0;//结束标志
+	return strType;
+}
+
+//计算有效文本全部显示时的像素宽度
+short getWidthOfText( char *str, short len )
+{
+	char *strType = getWordLetterArrange( str, len );
+
+	if ( strType == NULL )
+	{
+		return 0;
+	}
+	if ( strType[0] == 0 )
+	{
+		free(strType);
+		return 0;
+	}
+
 	short textWidth = ( strType[0] == 'e' ) ? SRC_LETTER_SIZE_X : SRC_WORD_SIZE_X;
-	for ( i = 1; i < strTypeVaildNum; i ++ )
+
+	int i;
+	for ( i = 1; strType[i] != 0; i ++ )
 	{
 		if( strType[i-1] == 'e' && strType[i] == 'e' )
 		{
@@ -379,9 +387,7 @@ bool setDefaultTagBlockGroup( TagBlockGroup *tagGroupInst, AreaFmt *tagStaticPos
 {
 	bool status = true;
 
-	tagGroupInst->bkgColor = DEFAULT_BKG_COLOR;
-	tagGroupInst->borderColor = DEFAULT_BORDER_COLOR;
-	tagGroupInst->borderVisible = true;
+	tagGroupInst->bkgBorderColor = defaultColorInfo;
 
 	//设置静态标签的位置
 	AreaRange *tempArea = &(tagGroupInst->staticTagArea);
@@ -407,9 +413,7 @@ bool setDefaultNumEditGroup( TagIconGroup *numEditGrpInst, short width, short he
 	bool status = true;
 
 	//设置基本信息
-	numEditGrpInst->bkgColor = DEFAULT_BKG_COLOR;
-	numEditGrpInst->borderColor=  DEFAULT_BORDER_COLOR;
-	numEditGrpInst->borderVisible = true;
+	numEditGrpInst->bkgBorderColor = defaultColorInfo;
 
 	//设置数字变化范围
 	numEditGrpInst->value = num;
@@ -493,7 +497,7 @@ bool screenInit()
 	//3.初始化主栏  ( headerHeight + 1 ≤ y ≤ SCR_HEIGHT - footerHeight )
 	short mainAreaHeight = SCR_HEIGHT - headerHeight - footerHeight;
 	setAreaRange( &(tftlcdScreenInst.mainArea), 1, SCR_WIDTH, headerHeight + 1, SCR_HEIGHT - footerHeight );
-
+	//注意：txtFilesInfoSpace内的数据必须提前填充好，否则可能运行出错。因此，执行screenInit()之前，首先运行txtFilesInfoSpace信息填充
 	status = status && screenMainHomeInit( &(tftlcdScreenInst.scrHome), SCR_WIDTH, mainAreaHeight, &txtFilesInfoSpace );
 	status = status && screenMainBookInit( &(tftlcdScreenInst.scrBook), SCR_WIDTH, mainAreaHeight );
 	status = status && screenMainSettingInit( &(tftlcdScreenInst.scrSetting), SCR_WIDTH, mainAreaHeight );
@@ -508,9 +512,7 @@ bool screenInit()
 bool screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short height )
 {
 
-	scrHeaderInst->borderVisible = true;
-	scrHeaderInst->bkgColor = DEFAULT_BKG_COLOR;
-	scrHeaderInst->borderColor = DEFAULT_BORDER_COLOR;
+	scrHeaderInst->bkgBorderColor = defaultColorInfo;
 
 	short marginX = 100;//横向边距
 	short marginY = 5;//纵向边距
@@ -531,9 +533,7 @@ bool screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short heigh
 }
 bool screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height )
 {
-	scrFooterInst->borderVisible = true;
-	scrFooterInst->borderColor = DEFAULT_BORDER_COLOR;
-	scrFooterInst->bkgColor = DEFAULT_BKG_COLOR;
+	scrFooterInst->bkgBorderColor = defaultColorInfo;
 
 	//SETTING键,HOME键,BACK键分别处于下边栏的左、中、右位置
 	short marginX = 20;
@@ -557,9 +557,7 @@ bool screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height
 
 bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, const TxtFilesInfo *txtFilesInfoPtr )
 {
-	scrHomeInst->borderVisible = true;
-	scrHomeInst->borderColor = DEFAULT_BORDER_COLOR;
-	scrHomeInst->bkgColor = DEFAULT_BKG_COLOR;
+	scrHomeInst->bkgBorderColor = defaultColorInfo;
 
 	bool status = true;
 
@@ -694,13 +692,14 @@ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight,
 	TagListInst->letterSpacing = DEFAULT_LETTER_SPACING;
 
 	TagListInst->elemNum = elemNum;
-	TagListInst->elemBorderVisible = elemBorderVisible;
 	TagListInst->elemColorInfo = *colorInfoPtr;
 
 	int i;
 
 	AreaRange *elemAreaArray = (AreaRange*)malloc( sizeof( AreaRange ) * elemNum );
+	TagListInst->elemArea = elemAreaArray;
 	TagBlock *tagBolckArray = (TagBlock*)malloc( sizeof( TagBlock ) * elemNum );
+	TagListInst->elemBlock = tagBolckArray;
 
 	AreaRange *curElemAreaPtr;
 	TagBlock *curTagPtr;
@@ -712,12 +711,10 @@ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight,
 		curTagPtr = &(tagBolckArray[i]);
 		curElemAreaPtr = &(elemAreaArray[i]);
 
-		curTagPtr->borderVisible = TagListInst->elemBorderVisible;
 		curTagPtr->tagColorInfo = TagListInst->elemColorInfo;
 		curTagPtr->wordSpacing = TagListInst->wordSpacing;
 		curTagPtr->letterSpacing = TagListInst->letterSpacing;
 		curTagPtr->tagText = textArray[i];
-		curTagPtr->textVisible = true;
 		curTagPtr->textArea = TagListInst->textArea;
 		setAreaRange( curElemAreaPtr, 1, elemWidth, elemYPos + 1, elemYPos + elemHeight );
 		elemYPos = elemYPos + elemHeight;
@@ -756,7 +753,7 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 	status = status && setAreaRange( &(scrBookInst->pageInfoArea), 1, width, height-pageInfoAreaHeight, height-1 );
 
 	//设置电子书阅读进度信息页面是否可见
-	scrBookInst->pageInfoVisable = false;
+	scrBookInst->pageInfoVisible = false;
 
 	TextType textArray[BOOK_COL_NUM];
 
@@ -782,9 +779,7 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 bool ScreenMainPageInfoInit( ScreenPageInfo *scrPageInfoInst, short width, short height )
 {
 	//基本信息
-	scrPageInfoInst->bkgColor = DEFAULT_BKG_COLOR;
-	scrPageInfoInst->borderColor = DEFAULT_BORDER_COLOR;
-	scrPageInfoInst->borderVisible = true;
+	scrPageInfoInst->bkgBorderColor = defaultColorInfo;
 	scrPageInfoInst->curPageNum = 0;
 	scrPageInfoInst->curPagePercent = 0;
 	scrPageInfoInst->totalPageNum = 0;
@@ -826,10 +821,7 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 {
 	bool status = true;
 
-	scrSettingInst->borderVisible = true;
-
-	scrSettingInst->bkgColor = DEFAULT_BKG_COLOR;
-	scrSettingInst->borderColor = DEFAULT_BORDER_COLOR;
+	scrSettingInst->bkgBorderColor = defaultColorInfo;
 
 	//设置左侧所有标签的位置
 	short LeftTagMarginXL = 20;//左侧所有标签的左边距
@@ -950,10 +942,7 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 }
 bool screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short width, short height )
 {
-	scrColorPickerInst->borderVisible = true;
-
-	scrColorPickerInst->borderColor = DEFAULT_BORDER_COLOR;//上下边界颜色（不包括左右）
-	scrColorPickerInst->bkgColor = DEFAULT_BKG_COLOR;//背景颜色
+	scrColorPickerInst->bkgBorderColor = defaultColorInfo;
 
 
 	bool status = true;

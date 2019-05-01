@@ -29,12 +29,13 @@
 
 
 //默认中文字符大小
+#define SRC_OBJ_SIZE_Y OBJ_Y_SIZE
 #define SRC_WORD_SIZE_X GBK_X_SIZE
-#define SRC_WORD_SIZE_Y GBK_Y_SIZE
+#define SRC_WORD_SIZE_Y SRC_OBJ_SIZE_Y
 #define DEFAULT_WORD_SPACING 2//间距（纯中文间距，中英文之间间距）
 //默认英文字母大小
 #define SRC_LETTER_SIZE_X ASCII_X_SIZE
-#define SRC_LETTER_SIZE_Y ASCII_Y_SIZE
+#define SRC_LETTER_SIZE_Y SRC_OBJ_SIZE_Y
 #define DEFAULT_LETTER_SPACING 1 //间距（纯英文间距）
 
 
@@ -79,8 +80,9 @@ typedef struct
 	color_u16 borderColor;//边界颜色
 	color_u16 bkgColor;//背景颜色
 	color_u16 objColor;//文本或图标颜色
+	bool borderVisible;
+	bool objVisible;
 } ColorInfo;
-
 
 
 //区域变量(x为横向坐标，y为纵向坐标）
@@ -134,6 +136,7 @@ typedef struct
 	short textLen;
 } TextType;
 
+//文本列表
 typedef struct
 {
 	TextType *textArray;
@@ -144,22 +147,21 @@ typedef struct
 typedef struct
 {
 	AreaRange textArea;
-	bool borderVisible;
-	bool textVisible;
 
 	ColorInfo tagColorInfo;
 	short wordSpacing;//文字间距
 	short letterSpacing;//字母间距
 	short lineSpacing;//行距
+	short wordXSize;//汉字横向宽度
+	short letterXSize;//字母横向宽度
+	short objYSize;//文字纵向高度
 	TextType tagText;
 } TagBlock;
 
 //静态标签+动态标签
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange staticTagArea;
 	TagBlock staticTag;
@@ -173,21 +175,18 @@ typedef struct
 typedef struct
 {
 	AreaRange picArea;
-	bool borderVisible;
-	bool picVisible;
+
 	ColorInfo iconColorInfo;
+
 	const alt_u8 *iconPic;
-	short iconWidth;
-	short iconXSizeInByte;//icon横向字节数
-	short iconYSizeInByte;//icon纵向字节数，同时也为icon的高度
+	short iconXSize;//icon横向宽度
+	short iconYSize;//icon纵向高度
 } IconBlock;
 
 //数字加减图标+数字显示标签
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange plusIconArea;
 	IconBlock plusIcon;
@@ -210,9 +209,7 @@ typedef struct
 //屏幕上边栏：时钟显示区域
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange tagTimeArea;//时间标签区域
 	TagBlock tagTime;//时间标签
@@ -225,9 +222,7 @@ typedef struct
 //屏幕下边栏：基本按钮区
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange iconSettingArea;//编辑键区域
 	IconBlock iconSetting;//编辑键图标
@@ -247,7 +242,6 @@ typedef struct
 	AreaRange textArea;//元素中文本区位置
 	short wordSpacing;//文字间距
 	short letterSpacing;//字母间距
-	bool elemBorderVisible;
 
 	ColorInfo elemColorInfo;//元素颜色信息
 
@@ -261,9 +255,7 @@ typedef struct
 //垂直滚动条
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo barYColorInfo;
 
 	AreaRange iconMoveUpArea;//上移键
 	IconBlock iconMoveUp;//上移键图标
@@ -278,7 +270,7 @@ typedef struct
 	short barYoffset;//滚动条纵向偏移量
 	short barYOffsetMax;
 	short barHeight;//滚动条高度
-	bool iconBarVisable;//滚动条是否可见
+	bool iconBarVisible;//滚动条是否可见
 
 
 } ScrollBarY;
@@ -286,9 +278,7 @@ typedef struct
 //进度条
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange axisArea;//运动轴
 	IconBlock axis;
@@ -304,9 +294,7 @@ typedef struct
 //屏幕一：电子书书名页面(HOME)
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	short listYOffset;//列表显示时的纵向偏移量
 	short listYOffsetMax;//列表显示时的纵向偏移量最大值
@@ -337,9 +325,7 @@ typedef struct
 //屏幕二的悬浮窗：进度条区域
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange prgBarArea;//水平进度条
 	ProgressBar prgBarX;
@@ -375,16 +361,14 @@ typedef struct
 
 	AreaRange pageInfoArea;
 	ScreenPageInfo pageInfo;
-	bool pageInfoVisable;
+	bool pageInfoVisible;
 
 } ScreenBook;
 
 //屏幕三：电子书设置页面（SETTING ）
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//边界颜色
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange tag1Area;//"休息定时"（闹钟定时提醒读者休息）
 	TagBlock tag1;
@@ -436,9 +420,7 @@ typedef struct
 //屏幕四：电子书拾色器页面（COLOR_PICKER）（目前保留，暂时不做）
 typedef struct
 {
-	bool borderVisible;//上下边界（不包括左右）
-	color_u16 borderColor;//上下边界颜色（不包括左右）
-	color_u16 bkgColor;//背景颜色
+	ColorInfo bkgBorderColor;
 
 	AreaRange colorPickerArea;//取色板
 

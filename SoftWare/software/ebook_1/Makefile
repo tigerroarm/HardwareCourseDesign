@@ -152,6 +152,7 @@ C_SRCS += font_manage.c
 C_SRCS += screen.c
 C_SRCS += gbk_font.c
 C_SRCS += color.c
+C_SRCS += screen_display.c
 CXX_SRCS :=
 ASM_SRCS :=
 

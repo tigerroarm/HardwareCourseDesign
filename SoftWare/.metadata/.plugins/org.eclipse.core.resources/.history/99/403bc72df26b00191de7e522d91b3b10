@@ -1,0 +1,26 @@
+/*
+ * screen_display.h
+ *
+ *  Created on: 2019年5月1日
+ *      Author: 12757
+ */
+
+#ifndef SCREEN_DISPLAY_H_
+#define SCREEN_DISPLAY_H_
+
+
+#include "screen_type.h"
+
+extern color_u16 screenShowSpace[SCR_HEIGHT][SCR_WIDTH];
+
+//画边界
+void showBorder( const AreaRange *borderPos, color_u16 borderColor );
+
+//显示边界与背景
+bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+
+//显示screen_header
+bool showScreenHeader( ScreenHeaderTime *scrHeaderInst, AreaRange *scrHeaderArea );
+
+
+#endif /* SCREEN_DISPLAY_H_ */

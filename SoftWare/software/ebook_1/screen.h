@@ -46,6 +46,9 @@ bool setDefaultNumEditGroup( TagIconGroup *numEditGrpInst, short width, short he
 //计算有效文本全部显示时的像素宽度
 short getWidthOfText( char *str, short len );
 
+//获取文本中汉字与字母的分布表(返回动态数组，记得free)
+char *getWordLetterArrange( char *str, short len );
+
 //初始化屏幕
 bool screenInit();
 

@@ -17,6 +17,12 @@ int main( void )
 {
 
 	bool x = true;
-	x = x+1;
+
+	//1.读取并保存SD卡中的所有txt文件的文件名
+
+	//2.初始化ScreenContainer屏幕显示信息结构体
+
+	//3.执行屏幕显示函数
+
 	return 0;
 }

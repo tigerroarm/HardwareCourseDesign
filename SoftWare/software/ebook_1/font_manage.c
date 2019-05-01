@@ -30,7 +30,7 @@ alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte )
 	}
 	else
 	{
-		int wordPos = ( gbkHighByte - 0x81 ) * 190L;
+		int wordPos = ( gbkHighByte - 0x81 ) * 190;
 		if ( gbkLowByte < 0x7F )
 		{
 			wordPos = wordPos + gbkLowByte - 0x40;

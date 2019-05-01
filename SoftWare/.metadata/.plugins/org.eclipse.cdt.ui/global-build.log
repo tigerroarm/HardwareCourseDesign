@@ -5095,3 +5095,2805 @@ Info:               130235 KBytes free for stack + heap.
 Info: Creating ebook_1.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
 [ebook_1 build complete]
+11:15:22 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 830 KBytes program size (code + initialized data).
+Info:               130234 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+13:06:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 830 KBytes program size (code + initialized data).
+Info:               130234 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:36:20 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.h:13:0,
+                 from screen.c:13:
+screen_type.h:185:8: error: unknown type name 'alt_u8'
+  const alt_u8 *iconPic;
+        ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:290:19: warning: assignment from incompatible pointer type
+  iconPtr->iconPic = iconModel;
+                   ^
+make: *** [obj/default/screen.o] Error 1
+15:36:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:15:7: warning: unused variable 'status' [-Wunused-variable]
+  bool status = true;
+       ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:38:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:37:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:36:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:34:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:33:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:31:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:30:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:29:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:22:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 830 KBytes program size (code + initialized data).
+Info:               130234 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:38:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:24:7: warning: unused variable 'status' [-Wunused-variable]
+  bool status = true;
+       ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:47:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:46:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:45:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:43:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:42:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:40:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:39:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:38:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:31:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 980 KBytes program size (code + initialized data).
+Info:               130084 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+17:05:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultProgressBar':
+screen.c:197:12: error: 'ProgressBar' has no member named 'bkgColor'
+  prgBarInst->bkgColor = DEFAULT_BKG_COLOR;
+            ^
+screen.c:198:12: error: 'ProgressBar' has no member named 'borderColor'
+  prgBarInst->borderColor = DEFAULT_BORDER_COLOR;
+            ^
+screen.c:199:12: error: 'ProgressBar' has no member named 'borderVisible'
+  prgBarInst->borderVisible = true;
+            ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'borderVisible'
+  scrollBarYInst->borderVisible = true;
+                ^
+screen.c:230:16: error: 'ScrollBarY' has no member named 'borderColor'
+  scrollBarYInst->borderColor = DEFAULT_BORDER_COLOR;
+                ^
+screen.c:231:16: error: 'ScrollBarY' has no member named 'bkgColor'
+  scrollBarYInst->bkgColor = DEFAULT_BKG_COLOR;
+                ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:382:14: error: 'TagBlockGroup' has no member named 'bkgColor'
+  tagGroupInst->bkgColor = DEFAULT_BKG_COLOR;
+              ^
+screen.c:383:14: error: 'TagBlockGroup' has no member named 'borderColor'
+  tagGroupInst->borderColor = DEFAULT_BORDER_COLOR;
+              ^
+screen.c:384:14: error: 'TagBlockGroup' has no member named 'borderVisible'
+  tagGroupInst->borderVisible = true;
+              ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:410:16: error: 'TagIconGroup' has no member named 'bkgColor'
+  numEditGrpInst->bkgColor = DEFAULT_BKG_COLOR;
+                ^
+screen.c:411:16: error: 'TagIconGroup' has no member named 'borderColor'
+  numEditGrpInst->borderColor=  DEFAULT_BORDER_COLOR;
+                ^
+screen.c:412:16: error: 'TagIconGroup' has no member named 'borderVisible'
+  numEditGrpInst->borderVisible = true;
+                ^
+screen.c: In function 'screenHeaderInit':
+screen.c:511:15: error: 'ScreenHeaderTime' has no member named 'borderVisible'
+  scrHeaderInst->borderVisible = true;
+               ^
+screen.c:512:15: error: 'ScreenHeaderTime' has no member named 'bkgColor'
+  scrHeaderInst->bkgColor = DEFAULT_BKG_COLOR;
+               ^
+screen.c:513:15: error: 'ScreenHeaderTime' has no member named 'borderColor'
+  scrHeaderInst->borderColor = DEFAULT_BORDER_COLOR;
+               ^
+screen.c: In function 'screenFooterInit':
+screen.c:534:15: error: 'ScreenFooterBtn' has no member named 'borderVisible'
+  scrFooterInst->borderVisible = true;
+               ^
+screen.c:535:15: error: 'ScreenFooterBtn' has no member named 'borderColor'
+  scrFooterInst->borderColor = DEFAULT_BORDER_COLOR;
+               ^
+screen.c:536:15: error: 'ScreenFooterBtn' has no member named 'bkgColor'
+  scrFooterInst->bkgColor = DEFAULT_BKG_COLOR;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:560:13: error: 'ScreenHome' has no member named 'borderVisible'
+  scrHomeInst->borderVisible = true;
+             ^
+screen.c:561:13: error: 'ScreenHome' has no member named 'borderColor'
+  scrHomeInst->borderColor = DEFAULT_BORDER_COLOR;
+             ^
+screen.c:562:13: error: 'ScreenHome' has no member named 'bkgColor'
+  scrHomeInst->bkgColor = DEFAULT_BKG_COLOR;
+             ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:787:17: error: 'ScreenPageInfo' has no member named 'bkgColor'
+  scrPageInfoInst->bkgColor = DEFAULT_BKG_COLOR;
+                 ^
+screen.c:788:17: error: 'ScreenPageInfo' has no member named 'borderColor'
+  scrPageInfoInst->borderColor = DEFAULT_BORDER_COLOR;
+                 ^
+screen.c:789:17: error: 'ScreenPageInfo' has no member named 'borderVisible'
+  scrPageInfoInst->borderVisible = true;
+                 ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:831:16: error: 'ScreenSetting' has no member named 'borderVisible'
+  scrSettingInst->borderVisible = true;
+                ^
+screen.c:833:16: error: 'ScreenSetting' has no member named 'bkgColor'
+  scrSettingInst->bkgColor = DEFAULT_BKG_COLOR;
+                ^
+screen.c:834:16: error: 'ScreenSetting' has no member named 'borderColor'
+  scrSettingInst->borderColor = DEFAULT_BORDER_COLOR;
+                ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:955:20: error: 'ScreenColorPicker' has no member named 'borderVisible'
+  scrColorPickerInst->borderVisible = true;
+                    ^
+screen.c:957:20: error: 'ScreenColorPicker' has no member named 'borderColor'
+  scrColorPickerInst->borderColor = DEFAULT_BORDER_COLOR;//上下边界颜色（不包括左右）
+                    ^
+screen.c:958:20: error: 'ScreenColorPicker' has no member named 'bkgColor'
+  scrColorPickerInst->bkgColor = DEFAULT_BKG_COLOR;//背景颜色
+                    ^
+make: *** [obj/default/screen.o] Error 1
+17:09:46 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenHeaderInit':
+screen.c:505:15: error: 'ScreenHeaderTime' has no member named 'borderVisible'
+  scrHeaderInst->borderVisible->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:15: error: 'ScreenFooterBtn' has no member named 'borderVisible'
+  scrFooterInst->borderVisible->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'borderVisible'
+  scrHomeInst->borderVisible->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+make: *** [obj/default/screen.o] Error 1
+17:10:11 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'borderVisible'
+  scrHomeInst->borderVisible->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+make: *** [obj/default/screen.o] Error 1
+17:10:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:54:3: error: incompatible type for argument 1 of 'showBorder'
+   showBorder( absPos, bkgBorderColor->borderColor );
+   ^
+screen_display.c:14:6: note: expected 'const struct AreaRange *' but argument is of type 'AreaRange'
+ void showBorder( const AreaRange *borderPos, color_u16 borderColor )
+      ^
+screen_display.c:56:9: error: invalid type argument of '->' (have 'AreaRange')
+   absPos->x_min += 1 ;
+         ^
+screen_display.c:57:9: error: invalid type argument of '->' (have 'AreaRange')
+   absPos->x_max -= 1 ;
+         ^
+screen_display.c:58:9: error: invalid type argument of '->' (have 'AreaRange')
+   absPos->y_min += 1 ;
+         ^
+screen_display.c:59:9: error: invalid type argument of '->' (have 'AreaRange')
+   absPos->y_max -= 1 ;
+         ^
+screen_display.c:64:22: error: invalid type argument of '->' (have 'AreaRange')
+  short width = absPos->x_max - absPos->x_min + 1;
+                      ^
+screen_display.c:64:38: error: invalid type argument of '->' (have 'AreaRange')
+  short width = absPos->x_max - absPos->x_min + 1;
+                                      ^
+screen_display.c:65:23: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                       ^
+screen_display.c:65:39: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                                       ^
+screen_display.c:66:2: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+  ^
+screen_display.c:66:26: warning: incompatible implicit declaration of built-in function 'malloc'
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+                          ^
+screen_display.c:68:25: error: invalid type argument of '->' (have 'AreaRange')
+  short xBasePos = absPos->x_min - 1;
+                         ^
+screen_display.c:69:25: error: invalid type argument of '->' (have 'AreaRange')
+  short yBasePos = absPos->y_min - 1;
+                         ^
+screen_display.c:83:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:107:2: warning: implicit declaration of function 'free' [-Wimplicit-function-declaration]
+  free(exceptXposInRow);
+  ^
+screen_display.c:107:2: warning: incompatible implicit declaration of built-in function 'free'
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:118:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:118:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:47:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:129:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:128:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:127:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:125:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:124:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:122:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:121:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:120:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:12:07 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:54:3: error: incompatible type for argument 1 of 'showBorder'
+   showBorder( absPos, bkgBorderColor->borderColor );
+   ^
+screen_display.c:14:6: note: expected 'const struct AreaRange *' but argument is of type 'AreaRange'
+ void showBorder( const AreaRange *borderPos, color_u16 borderColor )
+      ^
+screen_display.c:65:23: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                       ^
+screen_display.c:65:39: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                                       ^
+screen_display.c:66:2: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+  ^
+screen_display.c:66:26: warning: incompatible implicit declaration of built-in function 'malloc'
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+                          ^
+screen_display.c:83:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:107:2: warning: implicit declaration of function 'free' [-Wimplicit-function-declaration]
+  free(exceptXposInRow);
+  ^
+screen_display.c:107:2: warning: incompatible implicit declaration of built-in function 'free'
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:118:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:118:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:47:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:129:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:128:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:127:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:125:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:124:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:122:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:121:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:120:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:13:10 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:65:23: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                       ^
+screen_display.c:65:39: error: invalid type argument of '->' (have 'AreaRange')
+  short height = absPos->y_max - absPos->y_min + 1;
+                                       ^
+screen_display.c:66:2: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+  ^
+screen_display.c:66:26: warning: incompatible implicit declaration of built-in function 'malloc'
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+                          ^
+screen_display.c:83:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:107:2: warning: implicit declaration of function 'free' [-Wimplicit-function-declaration]
+  free(exceptXposInRow);
+  ^
+screen_display.c:107:2: warning: incompatible implicit declaration of built-in function 'free'
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:118:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:118:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:47:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:129:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:128:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:127:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:125:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:124:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:122:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:121:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:120:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:13:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:66:2: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+  ^
+screen_display.c:66:26: warning: incompatible implicit declaration of built-in function 'malloc'
+  bool *exceptXposInRow = malloc( sizeof(char) * width );
+                          ^
+screen_display.c:83:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:107:2: warning: implicit declaration of function 'free' [-Wimplicit-function-declaration]
+  free(exceptXposInRow);
+  ^
+screen_display.c:107:2: warning: incompatible implicit declaration of built-in function 'free'
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:118:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:118:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:47:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:129:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:128:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:127:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:125:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:124:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:122:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:121:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:120:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:14:02 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:85:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:120:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:120:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:49:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:131:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:130:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:129:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:127:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:126:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:124:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:123:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:122:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:15:50 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:120:20: error: expected expression before 'const'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+                    ^
+screen_display.c:120:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum );
+  ^
+screen_display.c:49:6: note: declared here
+ bool showBkgAndBorder( const BkgBorderInfo *bkgBorderColor, AreaRange absPos, const AreaRange *exceptAreaArray, const short exceptAreaNum )
+      ^
+screen_display.c:131:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:130:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:129:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:127:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:126:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:124:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:123:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:122:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+17:26:11 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:53:22: error: request for member 'x_max' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                      ^
+screen_display.c:53:37: error: request for member 'x_min' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                                     ^
+screen_display.c:54:23: error: request for member 'y_max' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                       ^
+screen_display.c:54:38: error: request for member 'y_min' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                                      ^
+screen_display.c:55:25: error: request for member 'x_min' in something not a structure or union
+  short xBasePos = absPos.x_min - 1;
+                         ^
+screen_display.c:56:25: error: request for member 'y_min' in something not a structure or union
+  short yBasePos = absPos.y_min - 1;
+                         ^
+screen_display.c:63:9: error: request for member 'x_min' in something not a structure or union
+   absPos.x_min += 1 ;
+         ^
+screen_display.c:64:9: error: request for member 'x_max' in something not a structure or union
+   absPos.x_max -= 1 ;
+         ^
+screen_display.c:65:9: error: request for member 'y_min' in something not a structure or union
+   absPos.y_min += 1 ;
+         ^
+screen_display.c:66:9: error: request for member 'y_max' in something not a structure or union
+   absPos.y_max -= 1 ;
+         ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:138:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:137:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:136:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:134:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:133:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+screen_display.c:131:12: warning: unused variable 'bkgColor' [-Wunused-variable]
+  color_u16 bkgColor;//背景颜色
+            ^
+screen_display.c:130:12: warning: unused variable 'borderColor' [-Wunused-variable]
+  color_u16 borderColor;//边界颜色
+            ^
+screen_display.c:129:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+make: *** [obj/default/screen_display.o] Error 1
+18:10:06 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:53:22: error: request for member 'x_max' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                      ^
+screen_display.c:53:37: error: request for member 'x_min' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                                     ^
+screen_display.c:54:23: error: request for member 'y_max' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                       ^
+screen_display.c:54:38: error: request for member 'y_min' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                                      ^
+screen_display.c:55:25: error: request for member 'x_min' in something not a structure or union
+  short xBasePos = absPos.x_min - 1;
+                         ^
+screen_display.c:56:25: error: request for member 'y_min' in something not a structure or union
+  short yBasePos = absPos.y_min - 1;
+                         ^
+screen_display.c:63:9: error: request for member 'x_min' in something not a structure or union
+   absPos.x_min += 1 ;
+         ^
+screen_display.c:64:9: error: request for member 'x_max' in something not a structure or union
+   absPos.x_max -= 1 ;
+         ^
+screen_display.c:65:9: error: request for member 'y_min' in something not a structure or union
+   absPos.y_min += 1 ;
+         ^
+screen_display.c:66:9: error: request for member 'y_max' in something not a structure or union
+   absPos.y_max -= 1 ;
+         ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:135:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:134:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:133:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:131:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:130:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+18:10:44 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.h:13:0,
+                 from screen.c:13:
+screen_type.h:145:11: error: flexible array member not at end of struct
+  TextType textArray[];
+           ^
+make: *** [obj/default/screen.o] Error 1
+18:10:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:53:22: error: request for member 'x_max' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                      ^
+screen_display.c:53:37: error: request for member 'x_min' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                                     ^
+screen_display.c:54:23: error: request for member 'y_max' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                       ^
+screen_display.c:54:38: error: request for member 'y_min' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                                      ^
+screen_display.c:55:25: error: request for member 'x_min' in something not a structure or union
+  short xBasePos = absPos.x_min - 1;
+                         ^
+screen_display.c:56:25: error: request for member 'y_min' in something not a structure or union
+  short yBasePos = absPos.y_min - 1;
+                         ^
+screen_display.c:63:9: error: request for member 'x_min' in something not a structure or union
+   absPos.x_min += 1 ;
+         ^
+screen_display.c:64:9: error: request for member 'x_max' in something not a structure or union
+   absPos.x_max -= 1 ;
+         ^
+screen_display.c:65:9: error: request for member 'y_min' in something not a structure or union
+   absPos.y_min += 1 ;
+         ^
+screen_display.c:66:9: error: request for member 'y_max' in something not a structure or union
+   absPos.y_max -= 1 ;
+         ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:135:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:134:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:133:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:131:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:130:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+18:11:21 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:53:22: error: request for member 'x_max' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                      ^
+screen_display.c:53:37: error: request for member 'x_min' in something not a structure or union
+  short width = absPos.x_max - absPos.x_min + 1;
+                                     ^
+screen_display.c:54:23: error: request for member 'y_max' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                       ^
+screen_display.c:54:38: error: request for member 'y_min' in something not a structure or union
+  short height = absPos.y_max - absPos.y_min + 1;
+                                      ^
+screen_display.c:55:25: error: request for member 'x_min' in something not a structure or union
+  short xBasePos = absPos.x_min - 1;
+                         ^
+screen_display.c:56:25: error: request for member 'y_min' in something not a structure or union
+  short yBasePos = absPos.y_min - 1;
+                         ^
+screen_display.c:63:9: error: request for member 'x_min' in something not a structure or union
+   absPos.x_min += 1 ;
+         ^
+screen_display.c:64:9: error: request for member 'x_max' in something not a structure or union
+   absPos.x_max -= 1 ;
+         ^
+screen_display.c:65:9: error: request for member 'y_min' in something not a structure or union
+   absPos.y_min += 1 ;
+         ^
+screen_display.c:66:9: error: request for member 'y_max' in something not a structure or union
+   absPos.y_max -= 1 ;
+         ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:135:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:134:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:133:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:131:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:130:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+18:15:32 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:63:17: error: assignment of member 'x_min' in read-only object
+   absPos->x_min += 1 ;
+                 ^
+screen_display.c:64:17: error: assignment of member 'x_max' in read-only object
+   absPos->x_max -= 1 ;
+                 ^
+screen_display.c:65:17: error: assignment of member 'y_min' in read-only object
+   absPos->y_min += 1 ;
+                 ^
+screen_display.c:66:17: error: assignment of member 'y_max' in read-only object
+   absPos->y_max -= 1 ;
+                 ^
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:135:8: warning: unused variable 'timeSecond' [-Wunused-variable]
+  short timeSecond;//秒（不参与显示，只用于时钟计数）
+        ^
+screen_display.c:134:8: warning: unused variable 'timeMinute' [-Wunused-variable]
+  short timeMinute;//阅读时间,分
+        ^
+screen_display.c:133:8: warning: unused variable 'timeHour' [-Wunused-variable]
+  short timeHour;//阅读时间,时
+        ^
+screen_display.c:131:11: warning: unused variable 'tagTime' [-Wunused-variable]
+  TagBlock tagTime;//时间标签
+           ^
+screen_display.c:130:12: warning: unused variable 'tagTimeArea' [-Wunused-variable]
+  AreaRange tagTimeArea;//时间标签区域
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+18:52:20 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.h:13:0,
+                 from screen.c:13:
+screen_type.h:209:2: error: unknown type name 'BkgBorderInfo'
+  BkgBorderInfo bkgBorderColor;
+  ^
+screen_type.h:278:2: error: unknown type name 'BkgBorderInfo'
+  BkgBorderInfo bkgBorderColor;
+  ^
+screen_type.h:325:2: error: unknown type name 'BkgBorderInfo'
+  BkgBorderInfo bkgBorderColor;
+  ^
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:14: error: 'TagBlockGroup' has no member named 'bkgBorderColor'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+              ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:16: error: 'TagIconGroup' has no member named 'bkgBorderColor'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:15: error: 'ScreenFooterBtn' has no member named 'bkgBorderColor'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'bkgBorderColor'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:16: error: 'ScreenSetting' has no member named 'bkgBorderColor'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+18:52:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.h:13:0,
+                 from screen.c:13:
+screen_type.h:325:2: error: unknown type name 'BkgBorderInfo'
+  BkgBorderInfo bkgBorderColor;
+  ^
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:199:29: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                             ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:14: error: 'TagBlockGroup' has no member named 'bkgBorderColor'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+              ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:16: error: 'TagIconGroup' has no member named 'bkgBorderColor'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenHeaderInit':
+screen.c:505:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:15: error: 'ScreenFooterBtn' has no member named 'bkgBorderColor'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'bkgBorderColor'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:16: error: 'ScreenSetting' has no member named 'bkgBorderColor'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+18:52:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:199:29: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                             ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:14: error: 'TagBlockGroup' has no member named 'bkgBorderColor'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+              ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:16: error: 'TagIconGroup' has no member named 'bkgBorderColor'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenHeaderInit':
+screen.c:505:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:15: error: 'ScreenFooterBtn' has no member named 'bkgBorderColor'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'bkgBorderColor'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:775:34: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:16: error: 'ScreenSetting' has no member named 'bkgBorderColor'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+18:56:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:199:29: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                             ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c:265:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = false;
+                 ^
+screen.c:270:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = true;
+                 ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:14: error: 'TagBlockGroup' has no member named 'bkgBorderColor'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+              ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:16: error: 'TagIconGroup' has no member named 'bkgBorderColor'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenHeaderInit':
+screen.c:505:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:15: error: 'ScreenFooterBtn' has no member named 'bkgBorderColor'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+               ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:13: error: 'ScreenHome' has no member named 'bkgBorderColor'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+             ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainBookInit':
+screen.c:749:13: error: 'ScreenBook' has no member named 'pageInfoVisable'
+  scrBookInst->pageInfoVisable = false;
+             ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:775:34: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:16: error: 'ScreenSetting' has no member named 'bkgBorderColor'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+19:03:40 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:199:29: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                             ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c:265:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = false;
+                 ^
+screen.c:270:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = true;
+                 ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:31: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+                               ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:33: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'screenHeaderInit':
+screen.c:505:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:30: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+                              ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainBookInit':
+screen.c:749:13: error: 'ScreenBook' has no member named 'pageInfoVisable'
+  scrBookInst->pageInfoVisable = false;
+             ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:775:34: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:33: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+19:04:34 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c:26:1: error: unknown type name 'BkgBorderInfo'
+ BkgBorderInfo defaultBkgBorderInfo = { true, DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR };
+ ^
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c:26:1: warning: excess elements in scalar initializer
+screen.c:26:1: warning: (near initialization for 'defaultBkgBorderInfo')
+screen.c: In function 'setDefaultTagBlock':
+screen.c:171:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:182:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:186:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:199:29: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                             ^
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:229:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c:265:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = false;
+                 ^
+screen.c:270:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = true;
+                 ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:287:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:295:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:299:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:380:31: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+                               ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:406:33: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'screenHeaderInit':
+screen.c:505:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenFooterInit':
+screen.c:526:32: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:550:30: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+                              ^
+screen.c: In function 'setDefaultTagList':
+screen.c:685:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:705:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:705:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:710:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainBookInit':
+screen.c:749:13: error: 'ScreenBook' has no member named 'pageInfoVisable'
+  scrBookInst->pageInfoVisable = false;
+             ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:775:34: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:817:33: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:938:37: error: incompatible types when assigning to type 'ColorInfo' from type 'int'
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                     ^
+make: *** [obj/default/screen.o] Error 1
+19:05:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:169:8: error: 'TagBlock' has no member named 'borderVisible'
+  tagPtr->borderVisible = true;
+        ^
+screen.c:180:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = false;
+         ^
+screen.c:184:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:197:31: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                               ^
+screen.c:197:31: note: each undeclared identifier is reported only once for each function it appears in
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:227:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c:227:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c:263:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = false;
+                 ^
+screen.c:268:17: error: 'ScrollBarY' has no member named 'iconBarVisable'
+   scrollBarYInst->iconBarVisable = true;
+                 ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:285:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:293:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:297:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:378:33: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:404:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'screenHeaderInit':
+screen.c:503:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenFooterInit':
+screen.c:524:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:548:32: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'setDefaultTagList':
+screen.c:683:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:703:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:703:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:708:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'screenMainBookInit':
+screen.c:747:13: error: 'ScreenBook' has no member named 'pageInfoVisable'
+  scrBookInst->pageInfoVisable = false;
+             ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:773:36: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                    ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:815:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:936:39: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                       ^
+make: *** [obj/default/screen.o] Error 1
+19:07:43 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagBlock':
+screen.c:184:9: error: 'TagBlock' has no member named 'textVisible'
+   tagPtr->textVisible = true;
+         ^
+screen.c: In function 'setDefaultProgressBar':
+screen.c:197:31: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  prgBarInst->bkgBorderColor = defaultBkgBorderInfo;
+                               ^
+screen.c:197:31: note: each undeclared identifier is reported only once for each function it appears in
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:227:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                ^
+screen.c:227:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrollBarYInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:285:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:293:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:297:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'setDefaultTagBlockGroup':
+screen.c:378:33: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  tagGroupInst->bkgBorderColor = defaultBkgBorderInfo;
+                                 ^
+screen.c: In function 'setDefaultNumEditGroup':
+screen.c:404:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  numEditGrpInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'screenHeaderInit':
+screen.c:503:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenFooterInit':
+screen.c:524:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'screenMainHomeInit':
+screen.c:548:32: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrHomeInst->bkgBorderColor = defaultBkgBorderInfo;
+                                ^
+screen.c: In function 'setDefaultTagList':
+screen.c:683:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:703:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:703:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:708:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:773:36: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                    ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:815:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:936:39: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                       ^
+make: *** [obj/default/screen.o] Error 1
+19:09:26 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:221:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultColorInfo;
+                ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:279:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:287:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = false;
+          ^
+screen.c:291:10: error: 'IconBlock' has no member named 'picVisible'
+   iconPtr->picVisible = true;
+          ^
+screen.c: In function 'screenHeaderInit':
+screen.c:497:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrHeaderInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c:497:34: note: each undeclared identifier is reported only once for each function it appears in
+screen.c: In function 'screenFooterInit':
+screen.c:518:34: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrFooterInst->bkgBorderColor = defaultBkgBorderInfo;
+                                  ^
+screen.c: In function 'setDefaultTagList':
+screen.c:677:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:697:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:697:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:702:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:767:36: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrPageInfoInst->bkgBorderColor = defaultBkgBorderInfo;
+                                    ^
+screen.c: In function 'screenMainSettingInit':
+screen.c:809:35: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrSettingInst->bkgBorderColor = defaultBkgBorderInfo;
+                                   ^
+screen.c: In function 'screenMainColorPickerInit':
+screen.c:930:39: error: 'defaultBkgBorderInfo' undeclared (first use in this function)
+  scrColorPickerInst->bkgBorderColor = defaultBkgBorderInfo;
+                                       ^
+make: *** [obj/default/screen.o] Error 1
+19:10:50 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:221:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultColorInfo;
+                ^
+screen.c: In function 'setDefaultIconBlock':
+screen.c:279:9: error: 'IconBlock' has no member named 'borderVisible'
+  iconPtr->borderVisible = true;
+         ^
+screen.c:285:9: error: 'IconBlock' has no member named 'picVisible'
+  iconPtr->picVisible = ( iconModel == NULL )? false : true;
+         ^
+screen.c: In function 'setDefaultTagList':
+screen.c:671:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:691:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:691:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:696:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+make: *** [obj/default/screen.o] Error 1
+19:11:54 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultScrollBarY':
+screen.c:221:16: error: 'ScrollBarY' has no member named 'bkgBorderColor'
+  scrollBarYInst->bkgBorderColor = defaultColorInfo;
+                ^
+screen.c: In function 'setDefaultTagList':
+screen.c:672:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:692:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:692:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:697:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+make: *** [obj/default/screen.o] Error 1
+19:12:15 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagList':
+screen.c:672:13: error: 'TagList' has no member named 'elemBorderVisible'
+  TagListInst->elemBorderVisible = elemBorderVisible;
+             ^
+screen.c:692:12: error: 'TagBlock' has no member named 'borderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+            ^
+screen.c:692:41: error: 'TagList' has no member named 'elemBorderVisible'
+   curTagPtr->borderVisible = TagListInst->elemBorderVisible;
+                                         ^
+screen.c:697:12: error: 'TagBlock' has no member named 'textVisible'
+   curTagPtr->textVisible = true;
+            ^
+make: *** [obj/default/screen.o] Error 1
+19:12:18 **** Build of configuration Nios II for project ebook_1_bsp ****
+make all 
+[BSP build complete]
+19:14:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenHeader':
+screen_display.c:127:2: warning: passing argument 1 of 'getAbsPos' from incompatible pointer type
+  getAbsPos( &scrHeaderPos, &(scrHeaderInst->tagTimeArea), &tagTimeAbsPos );
+  ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: expected 'const struct AreaRange *' but argument is of type 'const struct AreaRange **'
+ void getAbsPos( const AreaRange *absPos, const AreaRange *relativePos, AreaRange *newAbsPos );
+      ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1132 KBytes program size (code + initialized data).
+Info:               129933 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+19:15:14 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1132 KBytes program size (code + initialized data).
+Info:               129933 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+19:16:11 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:150:45: error: expected expression before 'const'
+  showBkgAndBorder( &(tagPtr->tagColorInfo), const AreaRange *absPos, const AreaRange exceptAreaArray[], const short exceptAreaNum );
+                                             ^
+screen_display.c:150:2: error: too few arguments to function 'showBkgAndBorder'
+  showBkgAndBorder( &(tagPtr->tagColorInfo), const AreaRange *absPos, const AreaRange exceptAreaArray[], const short exceptAreaNum );
+  ^
+screen_display.c:49:6: note: declared here
+ bool showBkgAndBorder( const ColorInfo *bkgBorderColor, const AreaRange *absPos, const AreaRange exceptAreaArray[], const short exceptAreaNum )
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+19:17:17 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:150:2: error: incompatible type for argument 3 of 'showBkgAndBorder'
+  showBkgAndBorder( &(tagPtr->tagColorInfo), absPos, tagPtr->textArea, 1 );
+  ^
+screen_display.c:49:6: note: expected 'const struct AreaRange *' but argument is of type 'AreaRange'
+ bool showBkgAndBorder( const ColorInfo *bkgBorderColor, const AreaRange *absPos, const AreaRange exceptAreaArray[], const short exceptAreaNum )
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+19:17:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1132 KBytes program size (code + initialized data).
+Info:               129933 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:08:41 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showIconBlock':
+screen_display.c:195:15: warning: suggest parentheses around comparison in operand of '&' [-Wparentheses]
+     if ( xPos & 0x7 == 0x1 )//xPos低三位为001（等效为xPos % 8 == 1 )
+               ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1133 KBytes program size (code + initialized data).
+Info:               129932 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:09:35 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1133 KBytes program size (code + initialized data).
+Info:               129932 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:44:18 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'main':
+main.c:19:7: warning: unused variable 'x' [-Wunused-variable]
+  bool x = true;
+       ^
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showIconBlock':
+screen_display.c:175:3: error: incompatible type for argument 2 of 'getAbsPos'
+   getAbsPos( absPos, (blockPtr->picArea), &iconPicAbsPos );
+   ^
+screen_display.c:139:6: note: expected 'const struct AreaRange *' but argument is of type 'AreaRange'
+ void getAbsPos( const AreaRange *absPos, const AreaRange *relativePos, AreaRange *newAbsPos )
+      ^
+screen_display.c:177:3: error: too many arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, blockPtr->iconPic, (blockPtr->iconColorInfo).bkgColor, (blockPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPic );
+      ^
+screen_display.c: At top level:
+screen_display.c:188:6: error: conflicting types for 'showTextOrIcon'
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 iconPicColor )
+      ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: previous declaration of 'showTextOrIcon' was here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPic );
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+21:45:09 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showIconBlock':
+screen_display.c:177:3: error: too many arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, blockPtr->iconPic, (blockPtr->iconColorInfo).bkgColor, (blockPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPic );
+      ^
+screen_display.c: At top level:
+screen_display.c:188:6: error: conflicting types for 'showTextOrIcon'
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 iconPicColor )
+      ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: previous declaration of 'showTextOrIcon' was here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPic );
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+21:45:23 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1133 KBytes program size (code + initialized data).
+Info:               129932 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:46:38 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1133 KBytes program size (code + initialized data).
+Info:               129932 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+22:00:12 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:166:3: error: incompatible type for argument 2 of 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->tagText, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: expected 'const alt_u8 *' but argument is of type 'TextType'
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 iconPicColor );
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+22:16:56 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:166:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+make: *** [obj/default/screen_display.o] Error 1
+22:34:36 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling ascii_font.c to obj/default/ascii_font.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/ascii_font.o ascii_font.c
+Info: Compiling font_manage.c to obj/default/font_manage.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/font_manage.o font_manage.c
+font_manage.c: In function 'getAsciiFont':
+font_manage.c:19:2: warning: return discards 'const' qualifier from pointer target type
+  return ascii_font_x8y16 + (((int)asciiVal)*ASCII_LETTER_BYTES);
+  ^
+font_manage.c: In function 'getGbkFont':
+font_manage.c:37:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+font_manage.c:42:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+Info: Compiling gbk_font.c to obj/default/gbk_font.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/gbk_font.o gbk_font.c
+Info: Compiling icon_pic.c to obj/default/icon_pic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/icon_pic.o icon_pic.c
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:166:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:166:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showIconBlock':
+screen_display.c:196:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, iconPtr->iconPic, (iconPtr->iconColorInfo).bkgColor, (iconPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showTextOrIcon':
+screen_display.c:213:2: error: expected expression before 'short'
+  short width = absPos->x_max - absPos->x_min + 1;
+  ^
+screen_display.c:225:27: error: 'width' undeclared (first use in this function)
+   for ( xPos = 1; xPos <= width; xPos ++ )
+                           ^
+screen_display.c:225:27: note: each undeclared identifier is reported only once for each function it appears in
+screen_display.c:211:8: warning: unused variable 'objXByte' [-Wunused-variable]
+  short objXByte =
+        ^
+make: *** [obj/default/screen_display.o] Error 1
+22:36:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:166:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:166:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showIconBlock':
+screen_display.c:196:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, iconPtr->iconPic, (iconPtr->iconColorInfo).bkgColor, (iconPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showTextOrIcon':
+screen_display.c:212:8: warning: unused variable 'objXByte' [-Wunused-variable]
+  short objXByte = (objXSize+7)>>3;//除8，向上取整
+        ^
+make: *** [obj/default/screen_display.o] Error 1
+22:39:52 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:168:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:168:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:10:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showIconBlock':
+screen_display.c:198:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, iconPtr->iconPic, (iconPtr->iconColorInfo).bkgColor, (iconPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:10:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showTextOrIcon':
+screen_display.c:217:2: warning: implicit declaration of function 'min' [-Wimplicit-function-declaration]
+  short height = min( absPos->y_max - absPos->y_min + 1, objYSize );
+  ^
+make: *** [obj/default/screen_display.o] Error 1
+22:53:23 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:167:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:167:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c: In function 'showIconBlock':
+screen_display.c:197:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &iconPicAbsPos, iconPtr->iconPic, (iconPtr->iconColorInfo).bkgColor, (iconPtr->iconColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+22:54:17 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:167:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:167:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+23:13:15 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:15:0:
+icon_pic_extern.h: In function 'getWordLetterArrange':
+icon_pic_extern.h:14:21: error: storage class specified for parameter 'icon_setting'
+ extern const alt_u8 icon_setting[];
+                     ^
+icon_pic_extern.h:17:21: error: storage class specified for parameter 'icon_home'
+ extern const alt_u8 icon_home[];
+                     ^
+icon_pic_extern.h:20:21: error: storage class specified for parameter 'icon_back'
+ extern const alt_u8 icon_back[];
+                     ^
+icon_pic_extern.h:24:21: error: storage class specified for parameter 'icon_plus'
+ extern const alt_u8 icon_plus[];
+                     ^
+icon_pic_extern.h:27:21: error: storage class specified for parameter 'icon_minus'
+ extern const alt_u8 icon_minus[];
+                     ^
+icon_pic_extern.h:31:21: error: storage class specified for parameter 'icon_dot'
+ extern const alt_u8 icon_dot[];
+                     ^
+icon_pic_extern.h:34:21: error: storage class specified for parameter 'icon_move_up'
+ extern const alt_u8 icon_move_up[];
+                     ^
+icon_pic_extern.h:36:21: error: storage class specified for parameter 'icon_move_down'
+ extern const alt_u8 icon_move_down[];
+                     ^
+screen.c:24:1: error: parameter 'defaultColorInfo' is initialized
+ ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR, true, true };
+ ^
+screen.c:26:1: error: parameter 'str1' is initialized
+ char *str1 = "Happy";
+ ^
+screen.c:30:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:43:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:108:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:146:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:168:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:191:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:221:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:281:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:299:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:310:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:343:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:377:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:402:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:468:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:503:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:525:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:549:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:656:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:718:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:770:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:811:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:934:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:953:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+In file included from screen.c:13:0:
+screen.h:50:7: error: old-style parameter declarations in prototyped function definition
+ char *getWordLetterArrange( char *str, short len )
+       ^
+screen.c:964:1: error: expected '{' at end of input
+ }
+ ^
+screen.c:964:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:13:40 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:15:0:
+icon_pic_extern.h: In function 'getWordLetterArrange':
+icon_pic_extern.h:14:21: error: storage class specified for parameter 'icon_setting'
+ extern const alt_u8 icon_setting[];
+                     ^
+icon_pic_extern.h:17:21: error: storage class specified for parameter 'icon_home'
+ extern const alt_u8 icon_home[];
+                     ^
+icon_pic_extern.h:20:21: error: storage class specified for parameter 'icon_back'
+ extern const alt_u8 icon_back[];
+                     ^
+icon_pic_extern.h:24:21: error: storage class specified for parameter 'icon_plus'
+ extern const alt_u8 icon_plus[];
+                     ^
+icon_pic_extern.h:27:21: error: storage class specified for parameter 'icon_minus'
+ extern const alt_u8 icon_minus[];
+                     ^
+icon_pic_extern.h:31:21: error: storage class specified for parameter 'icon_dot'
+ extern const alt_u8 icon_dot[];
+                     ^
+icon_pic_extern.h:34:21: error: storage class specified for parameter 'icon_move_up'
+ extern const alt_u8 icon_move_up[];
+                     ^
+icon_pic_extern.h:36:21: error: storage class specified for parameter 'icon_move_down'
+ extern const alt_u8 icon_move_down[];
+                     ^
+screen.c:24:1: error: parameter 'defaultColorInfo' is initialized
+ ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR, true, true };
+ ^
+screen.c:26:1: error: parameter 'str1' is initialized
+ char *str1 = "Happy";
+ ^
+screen.c:30:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:43:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:108:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:146:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:168:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:191:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:221:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:281:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:299:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:310:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:343:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:377:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:402:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:468:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:503:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:525:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:549:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:656:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:718:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:770:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:811:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:934:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:953:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+In file included from screen.c:13:0:
+screen.h:50:7: error: old-style parameter declarations in prototyped function definition
+ char *getWordLetterArrange( char *str, short len )
+       ^
+screen.c:964:1: error: expected '{' at end of input
+ }
+ ^
+screen.c:964:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:26:37 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.c:15:0:
+icon_pic_extern.h: In function 'getWordLetterArrange':
+icon_pic_extern.h:14:21: error: storage class specified for parameter 'icon_setting'
+ extern const alt_u8 icon_setting[];
+                     ^
+icon_pic_extern.h:17:21: error: storage class specified for parameter 'icon_home'
+ extern const alt_u8 icon_home[];
+                     ^
+icon_pic_extern.h:20:21: error: storage class specified for parameter 'icon_back'
+ extern const alt_u8 icon_back[];
+                     ^
+icon_pic_extern.h:24:21: error: storage class specified for parameter 'icon_plus'
+ extern const alt_u8 icon_plus[];
+                     ^
+icon_pic_extern.h:27:21: error: storage class specified for parameter 'icon_minus'
+ extern const alt_u8 icon_minus[];
+                     ^
+icon_pic_extern.h:31:21: error: storage class specified for parameter 'icon_dot'
+ extern const alt_u8 icon_dot[];
+                     ^
+icon_pic_extern.h:34:21: error: storage class specified for parameter 'icon_move_up'
+ extern const alt_u8 icon_move_up[];
+                     ^
+icon_pic_extern.h:36:21: error: storage class specified for parameter 'icon_move_down'
+ extern const alt_u8 icon_move_down[];
+                     ^
+screen.c:24:1: error: parameter 'defaultColorInfo' is initialized
+ ColorInfo defaultColorInfo = {  DEFAULT_BORDER_COLOR, DEFAULT_BKG_COLOR, DEFAULT_OBJ_COLOR, true, true };
+ ^
+screen.c:26:1: error: parameter 'str1' is initialized
+ char *str1 = "Happy";
+ ^
+screen.c:30:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:43:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:108:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:146:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:168:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:191:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:221:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:281:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:299:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:310:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:344:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:378:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:403:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:469:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:504:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:526:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:550:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:657:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:719:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:771:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:812:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:935:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen.c:954:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+In file included from screen.c:13:0:
+screen.h:50:7: error: old-style parameter declarations in prototyped function definition
+ char *getWordLetterArrange( char *str, short len )
+       ^
+screen.c:965:1: error: expected '{' at end of input
+ }
+ ^
+screen.c:965:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen.o] Error 1
+23:27:07 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'getWidthOfText':
+screen.c:351:8: error: 'i' undeclared (first use in this function)
+  for ( i = 1; strType[i] != 0; i ++ )
+        ^
+screen.c:351:8: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [obj/default/screen.o] Error 1
+23:28:47 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:176:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:176:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c:167:13: warning: variable 'objAbsPos' set but not used [-Wunused-but-set-variable]
+   AreaRange objAbsPos;//字符的绝对位置
+             ^
+make: *** [obj/default/screen_display.o] Error 1
+23:30:42 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'getWidthOfText':
+screen.c:354:3: warning: 'return' with no value, in function returning non-void [-Wreturn-type]
+   return;
+   ^
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:176:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:176:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c:167:13: warning: variable 'objAbsPos' set but not used [-Wunused-but-set-variable]
+   AreaRange objAbsPos;//字符的绝对位置
+             ^
+make: *** [obj/default/screen_display.o] Error 1
+23:30:51 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:176:40: error: expected identifier before ',' token
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+                                        ^
+screen_display.c:176:3: error: too few arguments to function 'showTextOrIcon'
+   showTextOrIcon( &textAbsPos, tagPtr->, (tagPtr->tagColorInfo).bkgColor, (tagPtr->tagColorInfo).objColor );
+   ^
+In file included from screen_display.c:9:0:
+screen_display.h:32:6: note: declared here
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize );
+      ^
+screen_display.c:167:13: warning: variable 'objAbsPos' set but not used [-Wunused-but-set-variable]
+   AreaRange objAbsPos;//字符的绝对位置
+             ^
+make: *** [obj/default/screen_display.o] Error 1
+00:51:48 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagBlock':
+screen_display.c:165:3: warning: passing argument 3 of 'getAbsPos' discards 'const' qualifier from pointer target type
+   getAbsPos( absPos, &(tagPtr->textArea), &textAbsPos );
+   ^
+screen_display.c:140:6: note: expected 'struct AreaRange *' but argument is of type 'const struct AreaRange *'
+ void getAbsPos( const AreaRange *baseAbsPos, const AreaRange *relativePos, AreaRange *newAbsPos )
+      ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1134 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+00:52:50 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1134 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+01:11:54 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling font_manage.c to obj/default/font_manage.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/font_manage.o font_manage.c
+font_manage.c: In function 'getAsciiFont':
+font_manage.c:19:2: warning: return discards 'const' qualifier from pointer target type
+  return ascii_font_x8y16 + (((int)asciiVal)*ASCII_LETTER_BYTES);
+  ^
+font_manage.c: In function 'getGbkFont':
+font_manage.c:37:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+font_manage.c:42:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenFooter':
+screen_display.c:154:13: warning: unused variable 'iconBack' [-Wunused-variable]
+   IconBlock iconBack;//返回键图标
+             ^
+screen_display.c:153:13: warning: unused variable 'iconBackArea' [-Wunused-variable]
+   AreaRange iconBackArea;//返回键区域（退回上一级屏幕）
+             ^
+screen_display.c:151:13: warning: unused variable 'iconHome' [-Wunused-variable]
+   IconBlock iconHome;//主页键图标
+             ^
+screen_display.c:150:13: warning: unused variable 'iconHomeArea' [-Wunused-variable]
+   AreaRange iconHomeArea;//主页键区域
+             ^
+screen_display.c:148:13: warning: unused variable 'iconSetting' [-Wunused-variable]
+   IconBlock iconSetting;//编辑键图标
+             ^
+screen_display.c:147:13: warning: unused variable 'iconSettingArea' [-Wunused-variable]
+   AreaRange iconSettingArea;//编辑键区域
+             ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+01:15:00 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenFooter':
+screen_display.c:153:2: warning: passing argument 1 of 'showTagBlock' from incompatible pointer type
+  showTagBlock( &(scrFooterInst->iconSetting), &iconAbsPos );
+  ^
+In file included from screen_display.c:9:0:
+screen_display.h:28:6: note: expected 'const struct TagBlock *' but argument is of type 'const struct IconBlock *'
+ bool showTagBlock( const TagBlock *tagPtr, const AreaRange *absPos );
+      ^
+screen_display.c:157:2: warning: passing argument 1 of 'showTagBlock' from incompatible pointer type
+  showTagBlock( &(scrFooterInst->iconHome), &iconAbsPos );
+  ^
+In file included from screen_display.c:9:0:
+screen_display.h:28:6: note: expected 'const struct TagBlock *' but argument is of type 'const struct IconBlock *'
+ bool showTagBlock( const TagBlock *tagPtr, const AreaRange *absPos );
+      ^
+screen_display.c:161:2: warning: passing argument 1 of 'showTagBlock' from incompatible pointer type
+  showTagBlock( &(scrFooterInst->iconBack), &iconAbsPos );
+  ^
+In file included from screen_display.c:9:0:
+screen_display.h:28:6: note: expected 'const struct TagBlock *' but argument is of type 'const struct IconBlock *'
+ bool showTagBlock( const TagBlock *tagPtr, const AreaRange *absPos );
+      ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+01:15:55 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]

@@ -11,10 +11,13 @@
 
 typedef unsigned char alt_u8;
 
+//ASCII码字库与GBK中文字库高度必须相等
+#define OBJ_Y_SIZE 16
+
 //ASCII字符尺寸：8*16
 //数组大小：（8*16）/8*128
 #define ASCII_X_SIZE 8
-#define ASCII_Y_SIZE 16
+#define ASCII_Y_SIZE OBJ_Y_SIZE
 #define ASCII_LETTER_BYTE_X 1 //(ASCII_X_SIZE/8=1)
 #define ASCII_LETTER_BYTE_Y ASCII_Y_SIZE
 #define ASCII_LETTER_BYTES (ASCII_LETTER_BYTE_X*ASCII_LETTER_BYTE_Y)//1个字母的字节数
@@ -25,7 +28,7 @@ alt_u8 *getAsciiFont( char asciiVal );
 
 //GBK字符尺寸：16*16
 #define GBK_X_SIZE 16
-#define GBK_Y_SIZE 16
+#define GBK_Y_SIZE OBJ_Y_SIZE
 #define GBK_WORD_BYTE_X 2 //(GBK_X_SIZE/2=8)
 #define GBK_WORD_BYTE_Y GBK_Y_SIZE
 #define GBK_WORD_BYTES (GBK_WORD_BYTE_X*GBK_WORD_BYTE_Y)//1个汉字的字节数

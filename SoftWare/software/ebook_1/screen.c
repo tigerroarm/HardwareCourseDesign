@@ -187,7 +187,7 @@ bool setDefaultTagBlock( TagBlock *tagPtr, char *text, short width, short height
 	return status;
 }
 //设置默认进度条
-bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height )
+bool setDefaultProgressBarX( ProgressBarX *prgBarInst, short width, short height )
 {
 	bool status = true;
 	//基本信息
@@ -204,6 +204,7 @@ bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height )
 	//轴采用长方形区域的边界和填充的颜色体现
 	status = status && setDefaultIconBlock( &(prgBarInst->axis), (void*)0, axisWidth, axisHeight, 0, 0 );
 
+
 	//进度点基本区域（无偏移量时）
 	short dotWidth = ICON_DOT_X_SIZE;
 	short dotMarginXL = (prgBarInst->axisArea).x_min - dotWidth/2 - 1;
@@ -211,6 +212,9 @@ bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height )
 	status = status && setAreaRange( &(prgBarInst->dotBaseArea), dotMarginXL + 1, dotMarginXL + dotWidth,\
 					dotMarginYU + 1, dotMarginYU + dotHeight);
 	status = status && setDefaultIconBlock( &(prgBarInst->dot), icon_dot, axisWidth, axisHeight, dotWidth, dotHeight );
+
+	//用户点击区
+	status = status && setAreaRangeCentered( &(prgBarInst->clickArea), width, height, axisWidth + dotWidth/2, height / 2 );
 
 
 	return status;
@@ -295,11 +299,11 @@ bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short wid
 }
 
 //设置取色板信息(颜色的位置colorPos表示屏幕中选中的位置，根据该位置，显示器会突出该块颜色的边界)
-void setDefaultColorTable( ColorTable *colorPickerInst, color_u8 *colorSel, short width, short height )
+void setDefaultColorBoard( ColorBoard *colorPickerInst, color_u8 *colorSel, short width, short height )
 {
 	colorPickerInst->colorIndex = colorSel;
-	colorPickerInst->colorXNum = 16;//颜色有16行
-	colorPickerInst->colorYNum = 16;//颜色有16列
+	colorPickerInst->colorXNum = COLOR_FORM_X_NUM;//颜色有16行
+	colorPickerInst->colorYNum = COLOR_FORM_Y_NUM;//颜色有16列
 	colorPickerInst->colorXSize = width / 16;
 	colorPickerInst->colorYSize = height / 16;
 	colorPickerInst->colorSpace = color_form;
@@ -382,7 +386,7 @@ short getWidthOfText( char *str, short len )
 
 
 //设置默认标签组
-bool setDefaultTagBlockGroup( TagBlockGroup *tagGroupInst, AreaFmt *tagStaticPos, AreaFmt *tagVarPos, short width, short height,\
+bool setDefaultTagGroup( TagGroup *tagGroupInst, AreaFmt *tagStaticPos, AreaFmt *tagVarPos, short width, short height,\
 			char *tagStaText, char *tagVarText )
 {
 	bool status = true;
@@ -653,7 +657,8 @@ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, con
 	//某行目录文件名水平滚动设置
 	scrHomeInst->txtScrollable = false;//允许滚动否
 	scrHomeInst->txtScrollrow = 0;//可滚动的某行行数（一次只有一行可以滚动）
-	scrHomeInst->txtScrollxOffset = 0;//当前滚动偏移量
+	scrHomeInst->txtScrollXOffset = 0;//当前水平滚动偏移量
+	scrHomeInst->txtScrollXStepSize = 0;//水平滚动步长
 	scrHomeInst->txtScrollwidth = 0;//滚动文本的真实像素宽度（可以超出屏幕宽度）
 	scrHomeInst->txtScrollSpacing = width / 2;//滚动文本循环时文本尾与新文本头的间隔
 
@@ -696,12 +701,12 @@ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight,
 
 	int i;
 
-	AreaRange *elemAreaArray = (AreaRange*)malloc( sizeof( AreaRange ) * elemNum );
-	TagListInst->elemArea = elemAreaArray;
+//	AreaRange *elemAreaArray = (AreaRange*)malloc( sizeof( AreaRange ) * elemNum );
+//	TagListInst->elemArea = elemAreaArray;
 	TagBlock *tagBolckArray = (TagBlock*)malloc( sizeof( TagBlock ) * elemNum );
 	TagListInst->elemBlock = tagBolckArray;
 
-	AreaRange *curElemAreaPtr;
+//	AreaRange *curElemAreaPtr;
 	TagBlock *curTagPtr;
 	TextType *textArray = textListPtr->textArray;
 
@@ -709,14 +714,14 @@ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight,
 	for ( i = 0; i < elemNum; i ++ )
 	{
 		curTagPtr = &(tagBolckArray[i]);
-		curElemAreaPtr = &(elemAreaArray[i]);
+//		curElemAreaPtr = &(elemAreaArray[i]);
 
 		curTagPtr->tagColorInfo = TagListInst->elemColorInfo;
 		curTagPtr->wordSpacing = TagListInst->wordSpacing;
 		curTagPtr->letterSpacing = TagListInst->letterSpacing;
 		curTagPtr->tagText = textArray[i];
 		curTagPtr->textArea = TagListInst->textArea;
-		setAreaRange( curElemAreaPtr, 1, elemWidth, elemYPos + 1, elemYPos + elemHeight );
+//		setAreaRange( curElemAreaPtr, 1, elemWidth, elemYPos + 1, elemYPos + elemHeight );
 		elemYPos = elemYPos + elemHeight;
 	}
 
@@ -728,11 +733,8 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 {
 	bool status = true;
 
-	scrBookInst->borderVisible = true;
-	scrBookInst->borderColor = DEFAULT_BORDER_COLOR;
-	//可编辑的颜色（电子书背景颜色与字体颜色）
-	scrBookInst->bkgColorIndex = 0;
-	scrBookInst->txtColorIndex = 255;
+	scrBookInst->bookColorInfo = defaultColorInfo;
+
 
 	//设置左中右点击区范围
 	short leftAreaWidth = width/3;
@@ -752,6 +754,9 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 	short pageInfoAreaHeight = height/4;
 	status = status && setAreaRange( &(scrBookInst->pageInfoArea), 1, width, height-pageInfoAreaHeight, height-1 );
 
+	//设置电子书窄区范围（当电子书阅读进度显示时，电子书范围变窄）
+	status = status && setAreaRange( &(scrBookInst->txtBookNarrowArea), 1, width, marginYU+1, height-pageInfoAreaHeight-1 );
+
 	//设置电子书阅读进度信息页面是否可见
 	scrBookInst->pageInfoVisible = false;
 
@@ -764,10 +769,10 @@ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height )
 		(textArray[i]).textLen = BOOK_ROW_BYTES;
 	}
 
-	ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
+	ColorInfo *colorSel = &(scrBookInst->bookColorInfo);
 	//设置电子书文本域（文本域为由TagBlock组成的TagList文本标签列表）
 	TextList textList = { textArray, BOOK_COL_NUM };
-	status = status && setDefaultTagList( &(scrBookInst->txtBook), width, BOOK_ROW_HEIGHT, &textList, false, &colorSel );
+	status = status && setDefaultTagList( &(scrBookInst->txtBook), width, BOOK_ROW_HEIGHT, &textList, false, colorSel );
 
 
 	//设置电子书阅读进度信息页面
@@ -792,7 +797,7 @@ bool ScreenMainPageInfoInit( ScreenPageInfo *scrPageInfoInst, short width, short
 	short prgBarMarginX = 2;
 	status = status && setAreaRange( &(scrPageInfoInst->prgBarArea), prgBarMarginX+1, width-prgBarMarginX, prgBarMarginYU+1,\
 						prgBarMarginYU + prgBarHeight  );
-	status = status && setDefaultProgressBar( &(scrPageInfoInst->prgBarX), width - (prgBarMarginX<<1), prgBarHeight );
+	status = status && setDefaultProgressBarX( &(scrPageInfoInst->prgBarX), width - (prgBarMarginX<<1), prgBarHeight );
 
 	//动态文本标签(高度设定)
 	short tagHeight = ( height - prgBarMarginYU - prgBarHeight );
@@ -822,6 +827,10 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 	bool status = true;
 
 	scrSettingInst->bkgBorderColor = defaultColorInfo;
+
+	//颜色信息编辑存储区
+	scrSettingInst->bkgColorIndex = 0;
+	scrSettingInst->txtColorIndex = 255;
 
 	//设置左侧所有标签的位置
 	short LeftTagMarginXL = 20;//左侧所有标签的左边距
@@ -856,12 +865,12 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 
 
 	//"自动翻页定时"
-	short textWidth2 = getWidthOfText( "自动翻页定时", 12 );//6字汉字文本的像素宽度
+	short textWidth2 = getWidthOfText( "翻页定时", 8 );//4字汉字文本的像素宽度
 	short staticTag2XLen = (LeftTextMarginInTagX<<1)+textWidth2;
 	short staticTag2XMax = LeftTagMarginXL+staticTag2XLen;
 
 	status = status && setAreaRange( &(scrSettingInst->tag1Area), LeftTagMarginXL+1, LeftTagMarginXL+staticTag2XLen, tag2CenterY-tag2HalfH+1, tag2CenterY+tag2HalfH );
-	status = status && setDefaultTagBlock( &(scrSettingInst->tag1), "自动翻页定时", (LeftTextMarginInTagX<<1)+textWidth2, tag2HalfH<<1 );
+	status = status && setDefaultTagBlock( &(scrSettingInst->tag1), "翻页定时", (LeftTextMarginInTagX<<1)+textWidth2, tag2HalfH<<1 );
 
 	//声明2个定位变量
 	AreaFmt tempAreaFmt1;
@@ -895,17 +904,17 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 				rightTagMarginInGroupXL, tagGroupWidth - leftTagMarginInGroupXL - rightTagWidth, editBkgColorCenterY, editBkgColorHalfH );
 
 	//设置标签组
-	status = status && setDefaultTagBlockGroup( &(scrSettingInst->editBkgColor), &tempAreaFmt1, &tempAreaFmt2, \
+	status = status && setDefaultTagGroup( &(scrSettingInst->editBkgColor), &tempAreaFmt1, &tempAreaFmt2, \
 				tagGroupWidth, tagGroupHalfH<<1,"背景颜色", (void*)0 );
 
 	tempAreaFmt1.fmtValY.fmtCenterVal.half = editWordColorHalfH;
 	tempAreaFmt2.fmtValY.fmtCenterVal.half = editWordColorHalfH;
-	status = status && setDefaultTagBlockGroup( &(scrSettingInst->editWordColor), &tempAreaFmt1, &tempAreaFmt2, \
+	status = status && setDefaultTagGroup( &(scrSettingInst->editWordColor), &tempAreaFmt1, &tempAreaFmt2, \
 				tagGroupWidth, tagGroupHalfH<<1,"字体颜色", (void*)0 );
 
 	tempAreaFmt1.fmtValY.fmtCenterVal.half = editTurnPageModHalfH;
 	tempAreaFmt2.fmtValY.fmtCenterVal.half = editTurnPageModHalfH;
-	status = status && setDefaultTagBlockGroup( &(scrSettingInst->editTurnPageMod), &tempAreaFmt1, &tempAreaFmt2, \
+	status = status && setDefaultTagGroup( &(scrSettingInst->editTurnPageMod), &tempAreaFmt1, &tempAreaFmt2, \
 				tagGroupWidth, tagGroupHalfH<<1,"自动翻页", "off" );
 
 
@@ -954,7 +963,7 @@ bool screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short wid
 
 	status = status && setAreaRange( &(scrColorPickerInst->colorPickerArea), 1, width, marginYU + 1, height - marginYU );
 
-	setDefaultColorTable( &(scrColorPickerInst->colorPicker), (void*)0, width, width );
+	setDefaultColorBoard( &(scrColorPickerInst->colorPicker), (void*)0, width, width );
 
 	return status;
 }

@@ -7897,3 +7897,2076 @@ Info:               129930 KBytes free for stack + heap.
 Info: Creating ebook_1.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
 [ebook_1 build complete]
+10:11:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+10:24:48 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling color.c to obj/default/color.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/color.o color.c
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+In file included from screen.h:14:0,
+                 from screen_display.c:10:
+font_manage.h: In function 'showColorBoard':
+font_manage.h:12:23: error: storage class specified for parameter 'alt_u8'
+ typedef unsigned char alt_u8;
+                       ^
+font_manage.h:27:1: error: expected declaration specifiers before 'alt_u8'
+ alt_u8 *getAsciiFont( char asciiVal );
+ ^
+font_manage.h:38:1: error: expected declaration specifiers before 'alt_u8'
+ alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte );
+ ^
+In file included from screen.h:15:0,
+                 from screen_display.c:10:
+txt_read.h:30:3: error: storage class specified for parameter 'TxtFile'
+ } TxtFile;
+   ^
+txt_read.h:35:2: error: expected specifier-qualifier-list before 'TxtFile'
+  TxtFile *txtFileList;//动态数组
+  ^
+txt_read.h:38:3: error: storage class specified for parameter 'TxtFilesInfo'
+ } TxtFilesInfo;
+   ^
+txt_read.h:40:21: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'txtFilesInfoSpace'
+ extern TxtFilesInfo txtFilesInfoSpace;
+                     ^
+txt_read.h:41:13: error: storage class specified for parameter 'txtBookSpace'
+ extern char txtBookSpace[][BOOK_ROW_BYTES+1];
+             ^
+In file included from screen_display.c:10:0:
+screen.h:28:53: warning: type defaults to 'int' in declaration of 'alt_u8' [-Wimplicit-int]
+ bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short width, short height, short iconXSize, short iconYSize );
+                                                     ^
+screen.h:28:60: error: expected ';', ',' or ')' before '*' token
+ bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short width, short height, short iconXSize, short iconYSize );
+                                                            ^
+screen.h:58:84: warning: type defaults to 'int' in declaration of 'TxtFilesInfo' [-Wimplicit-int]
+ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, const TxtFilesInfo *txtFilesInfoPtr );
+                                                                                    ^
+screen.h:58:97: error: expected ';', ',' or ')' before '*' token
+ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, const TxtFilesInfo *txtFilesInfoPtr );
+                                                                                                 ^
+screen_display.c:18:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:27:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:63:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:130:53: warning: type defaults to 'int' in declaration of 'alt_u8' [-Wimplicit-int]
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize )
+                                                     ^
+screen_display.c:130:60: error: expected ';', ',' or ')' before '*' token
+ bool showTextOrIcon( const AreaRange *absPos, const alt_u8 *objPicPtr, color_u16 bkgColor, color_u16 objColor, short objXSize, short objYSize )
+                                                            ^
+screen_display.c:186:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:320:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:352:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:370:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:397:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:404:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:411:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:418:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+ {
+ ^
+screen_display.c:14:11: error: declaration for parameter 'screenShowSpace' but no such parameter
+ color_u16 screenShowSpace[SCR_HEIGHT][SCR_WIDTH];
+           ^
+In file included from screen_display.c:10:0:
+screen.h:65:6: error: declaration for parameter 'screenMainAreaInfo' but no such parameter
+ void screenMainAreaInfo( ScrMainAreaInfo *mainAreaInfoInst );
+      ^
+screen.h:63:6: error: declaration for parameter 'ScreenMainPageInfoInit' but no such parameter
+ bool ScreenMainPageInfoInit( ScreenPageInfo *scrPageInfoInst, short width, short height );
+      ^
+screen.h:61:6: error: declaration for parameter 'screenMainColorPickerInit' but no such parameter
+ bool screenMainColorPickerInit( ScreenColorPicker *scrColorPickerInst, short width, short height );
+      ^
+screen.h:60:6: error: declaration for parameter 'screenMainSettingInit' but no such parameter
+ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short height );
+      ^
+screen.h:59:6: error: declaration for parameter 'screenMainBookInit' but no such parameter
+ bool screenMainBookInit( ScreenBook *scrBookInst, short width, short height );
+      ^
+screen.h:56:6: error: declaration for parameter 'screenFooterInit' but no such parameter
+ bool screenFooterInit( ScreenFooterBtn *scrFooterInst, short width, short height );
+      ^
+screen.h:55:6: error: declaration for parameter 'screenHeaderInit' but no such parameter
+ bool screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short height );
+      ^
+screen.h:53:6: error: declaration for parameter 'screenInit' but no such parameter
+ bool screenInit();
+      ^
+screen.h:50:7: error: declaration for parameter 'getWordLetterArrange' but no such parameter
+ char *getWordLetterArrange( char *str, short len );
+       ^
+screen.h:47:7: error: declaration for parameter 'getWidthOfText' but no such parameter
+ short getWidthOfText( char *str, short len );
+       ^
+screen.h:44:6: error: declaration for parameter 'setDefaultNumEditGroup' but no such parameter
+ bool setDefaultNumEditGroup( TagIconGroup *numEditGrpInst, short width, short height, short numMax, short numMin, short num, char *unitName );
+      ^
+screen.h:41:6: error: declaration for parameter 'setDefaultTagBlockGroup' but no such parameter
+ bool setDefaultTagBlockGroup( TagBlockGroup *tagGroupInst, AreaFmt *tagStaticPos, AreaFmt *tagVarPos, short width, short height,\
+      ^
+screen.h:37:6: error: declaration for parameter 'setDefaultTagList' but no such parameter
+ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight, TextList *textListPtr, bool elemBorderVisible,\
+      ^
+screen.h:34:6: error: declaration for parameter 'setDefaultColorBoard' but no such parameter
+ void setDefaultColorBoard( ColorBoard *colorPickerInst, color_u8 *colorSel, short width, short height );
+      ^
+screen.h:32:6: error: declaration for parameter 'setDefaultScrollBarY' but no such parameter
+ bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height, float barYRatio );
+      ^
+screen.h:30:6: error: declaration for parameter 'setDefaultProgressBar' but no such parameter
+ bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height );
+      ^
+screen.h:26:6: error: declaration for parameter 'setDefaultTagBlock' but no such parameter
+ bool setDefaultTagBlock( TagBlock *tagPtr, char *text, short width, short height );
+      ^
+In file included from screen_display.c:10:0:
+screen.h:24:6: error: declaration for parameter 'setAreaFmt' but no such parameter
+ bool setAreaFmt( AreaFmt *areaFmtPos, enum areaFmtID fmtXID, enum areaFmtID fmtYID, short xC_xML, short xHf_xMR, short yC_yMU, short yHf_yMD );
+      ^
+screen.h:22:6: error: declaration for parameter 'setAreaRangeByAreaFmt' but no such parameter
+ bool setAreaRangeByAreaFmt( AreaRange *areaPtr, AreaFmt *areaFmtPos, short width, short height );
+      ^
+screen.h:20:6: error: declaration for parameter 'setAreaRangeCentered' but no such parameter
+ bool setAreaRangeCentered( AreaRange *areaPtr, short width, short height, short objXSize, short objYSize );
+      ^
+screen.h:18:6: error: declaration for parameter 'setAreaRange' but no such parameter
+ bool setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max );
+      ^
+In file included from screen.h:15:0,
+                 from screen_display.c:10:
+txt_read.h:41:13: error: declaration for parameter 'txtBookSpace' but no such parameter
+ extern char txtBookSpace[][BOOK_ROW_BYTES+1];
+             ^
+txt_read.h:38:3: error: declaration for parameter 'TxtFilesInfo' but no such parameter
+ } TxtFilesInfo;
+   ^
+txt_read.h:30:3: error: declaration for parameter 'TxtFile' but no such parameter
+ } TxtFile;
+   ^
+In file included from screen.h:14:0,
+                 from screen_display.c:10:
+font_manage.h:12:23: error: declaration for parameter 'alt_u8' but no such parameter
+ typedef unsigned char alt_u8;
+                       ^
+In file included from screen_display.c:9:0:
+screen_display.h:52:6: error: declaration for parameter 'showScreenMainColorPicker' but no such parameter
+ bool showScreenMainColorPicker( const ScreenColorPicker *scrColorPickerInst, const AreaRange *scrMainAbsPos );
+      ^
+screen_display.h:50:6: error: declaration for parameter 'showScreenMainSetting' but no such parameter
+ bool showScreenMainSetting( const ScreenSetting *scrSettingInst, const AreaRange *scrMainAbsPos );
+      ^
+screen_display.h:48:6: error: declaration for parameter 'showScreenMainBook' but no such parameter
+ bool showScreenMainBook( const ScreenBook *scrBookInst, const AreaRange *scrMainAbsPos );
+      ^
+screen_display.h:46:6: error: declaration for parameter 'showScreenMainHome' but no such parameter
+ bool showScreenMainHome( const ScreenHome *scrHomeInst, const AreaRange *scrMainAbsPos );
+      ^
+screen_display.h:44:6: error: declaration for parameter 'showScreenFooter' but no such parameter
+ bool showScreenFooter( const ScreenFooterBtn *scrFooterInst, const AreaRange *scrFooterAbsPos );
+      ^
+screen_display.h:42:6: error: declaration for parameter 'showScreenHeader' but no such parameter
+ bool showScreenHeader( const ScreenHeaderTime *scrHeaderInst, const AreaRange *scrHeaderAbsPos );
+      ^
+screen_display.c:430:1: error: expected '{' at end of input
+ }
+ ^
+screen_display.c:430:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen_display.o] Error 1
+10:26:05 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+10:31:16 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen_type.h:16:0,
+                 from screen.h:13,
+                 from screen.c:13:
+screen.c: In function 'setDefaultColorBoard':
+color.h:25:26: error: expected identifier before numeric constant
+ #define COLOR_FORM_X_NUM 16//横向颜色个数
+                          ^
+screen.c:301:19: note: in expansion of macro 'COLOR_FORM_X_NUM'
+  colorPickerInst->COLOR_FORM_X_NUM;//颜色有16行
+                   ^
+color.h:26:26: error: expected identifier before numeric constant
+ #define COLOR_FORM_Y_NUM 16//纵向颜色个数
+                          ^
+screen.c:302:19: note: in expansion of macro 'COLOR_FORM_Y_NUM'
+  colorPickerInst->COLOR_FORM_Y_NUM;//颜色有16列
+                   ^
+make: *** [obj/default/screen.o] Error 1
+10:31:52 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showColorBoard':
+screen_display.c:353:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1135 KBytes program size (code + initialized data).
+Info:               129930 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+11:38:44 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling ascii_font.c to obj/default/ascii_font.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/ascii_font.o ascii_font.c
+Info: Compiling font_manage.c to obj/default/font_manage.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/font_manage.o font_manage.c
+font_manage.c: In function 'getAsciiFont':
+font_manage.c:19:2: warning: return discards 'const' qualifier from pointer target type
+  return ascii_font_x8y16 + (((int)asciiVal)*ASCII_LETTER_BYTES);
+  ^
+font_manage.c: In function 'getGbkFont':
+font_manage.c:37:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+font_manage.c:42:4: warning: return discards 'const' qualifier from pointer target type
+    return gbk_font_x16y16 + (wordPos*GBK_WORD_BYTES);
+    ^
+Info: Compiling gbk_font.c to obj/default/gbk_font.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/gbk_font.o gbk_font.c
+Info: Compiling icon_pic.c to obj/default/icon_pic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/icon_pic.o icon_pic.c
+icon_pic.c:71:7: warning: excess elements in array initializer
+       0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+       ^
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:71:7: warning: excess elements in array initializer
+icon_pic.c:71:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+       0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+       ^
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:72:7: warning: excess elements in array initializer
+icon_pic.c:72:7: warning: (near initialization for 'icon_move_up')
+icon_pic.c:73:1: warning: excess elements in array initializer
+ };
+ ^
+icon_pic.c:73:1: warning: (near initialization for 'icon_move_up')
+icon_pic.c:79:7: warning: excess elements in array initializer
+       0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+       ^
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:79:7: warning: excess elements in array initializer
+icon_pic.c:79:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+       0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00
+       ^
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:80:7: warning: excess elements in array initializer
+icon_pic.c:80:7: warning: (near initialization for 'icon_move_down')
+icon_pic.c:81:1: warning: excess elements in array initializer
+ };
+ ^
+icon_pic.c:81:1: warning: (near initialization for 'icon_move_down')
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showColorBoard':
+screen_display.c:413:2: error: expected expression before 'if'
+  if ( colorTableInst->colorIndex != NULL )
+  ^
+screen_display.c:411:12: warning: variable 'colorBorderAbsPos' set but not used [-Wunused-but-set-variable]
+  AreaRange colorBorderAbsPos;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+11:46:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showColorBoard':
+screen_display.c:415:35: error: expected expression before 'color_u16'
+   showBorder( &colorBorderAbsPos, color_u16 borderColor );
+                                   ^
+screen_display.c:420:12: warning: unused variable 'colorIndex' [-Wunused-variable]
+  color_u8 *colorIndex;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+12:15:32 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showColorBoard':
+screen_display.c:452:12: warning: unused variable 'colorIndex' [-Wunused-variable]
+  color_u8 *colorIndex;
+            ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1136 KBytes program size (code + initialized data).
+Info:               129929 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+12:20:37 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1136 KBytes program size (code + initialized data).
+Info:               129929 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+14:47:08 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:595:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:599:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:603:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:607:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:611:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:615:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:619:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:623:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1137 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:03:46 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainHomeInit':
+screen.c:656:13: error: 'ScreenHome' has no member named 'txtScrollxOffset'
+  scrHomeInst->txtScrollxOffset = 0;//当前滚动偏移量
+             ^
+make: *** [obj/default/screen.o] Error 1
+15:03:52 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainHomeInit':
+screen.c:656:13: error: 'ScreenHome' has no member named 'txtScrollxOffset'
+  scrHomeInst->txtScrollxOffset = 0;//当前滚动偏移量
+             ^
+make: *** [obj/default/screen.o] Error 1
+15:05:18 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainHome':
+screen_display.c:585:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->numBar), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:589:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->txtCatalog), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:598:14: warning: unused variable 'turnCatalogBarY' [-Wunused-variable]
+   ScrollBarY turnCatalogBarY;
+              ^
+screen_display.c:597:13: warning: unused variable 'turnCatalogBarArea' [-Wunused-variable]
+   AreaRange turnCatalogBarArea;//文件上下翻动条
+             ^
+screen_display.c:595:9: warning: unused variable 'txtScrollSpacing' [-Wunused-variable]
+   short txtScrollSpacing;//滚动文本循环时文本尾与新文本头的间隔
+         ^
+screen_display.c:594:9: warning: unused variable 'txtScrollwidth' [-Wunused-variable]
+   short txtScrollwidth;//滚动文本的真实像素宽度（可以超出屏幕宽度）
+         ^
+screen_display.c:593:9: warning: unused variable 'txtScrollxOffset' [-Wunused-variable]
+   short txtScrollxOffset;//当前滚动偏移量
+         ^
+screen_display.c:592:9: warning: unused variable 'txtScrollrow' [-Wunused-variable]
+   short txtScrollrow;//可滚动的某行行数（一次只有一行可以滚动）
+         ^
+screen_display.c:591:8: warning: unused variable 'txtScrollable' [-Wunused-variable]
+   bool txtScrollable;//某行允许水平滚动否
+        ^
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:622:8: warning: unused variable 'pageInfoVisible' [-Wunused-variable]
+   bool pageInfoVisible;
+        ^
+screen_display.c:621:18: warning: unused variable 'pageInfo' [-Wunused-variable]
+   ScreenPageInfo pageInfo;
+                  ^
+screen_display.c:620:13: warning: unused variable 'pageInfoArea' [-Wunused-variable]
+   AreaRange pageInfoArea;
+             ^
+screen_display.c:618:13: warning: unused variable 'openPageInfoAreaPos' [-Wunused-variable]
+   AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+             ^
+screen_display.c:617:13: warning: unused variable 'turnNextPageAreaPos' [-Wunused-variable]
+   AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+             ^
+screen_display.c:616:13: warning: unused variable 'turnBackPageAreaPos' [-Wunused-variable]
+   AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+             ^
+screen_display.c:614:11: warning: unused variable 'txtBook' [-Wunused-variable]
+   TagList txtBook;
+           ^
+screen_display.c:613:13: warning: unused variable 'txtBookArea' [-Wunused-variable]
+   AreaRange txtBookArea;//电子书区域
+             ^
+screen_display.c:611:12: warning: unused variable 'txtColorIndex' [-Wunused-variable]
+   color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:610:12: warning: unused variable 'bkgColorIndex' [-Wunused-variable]
+   color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:608:13: warning: unused variable 'borderColor' [-Wunused-variable]
+   color_u16 borderColor;//上下边界颜色
+             ^
+screen_display.c:607:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:644:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:648:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:652:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:656:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:660:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:664:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:668:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:672:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c: In function 'showTagList':
+screen_display.c:417:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:05:28 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+[ebook_1 build complete]
+15:25:56 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+In file included from screen.h:13:0,
+                 from screen.c:13:
+screen_type.h:332:2: error: unknown type name 'ProgressBarX'
+  ProgressBarX prgBarX;
+  ^
+In file included from screen.c:13:0:
+screen.h:30:30: error: unknown type name 'ProgressBarX'
+ bool setDefaultProgressBarX( ProgressBarX *prgBarInst, short width, short height );
+                              ^
+screen.c:190:30: error: unknown type name 'ProgressBarX'
+ bool setDefaultProgressBarX( ProgressBarX *prgBarInst, short width, short height )
+                              ^
+screen.c: In function 'ScreenMainPageInfoInit':
+screen.c:796:2: warning: implicit declaration of function 'setDefaultProgressBarX' [-Wimplicit-function-declaration]
+  status = status && setDefaultProgressBarX( &(scrPageInfoInst->prgBarX), width - (prgBarMarginX<<1), prgBarHeight );
+  ^
+make: *** [obj/default/screen.o] Error 1
+15:26:14 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c:414:6: error: conflicting types for 'showTagList'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+In file included from screen_display.c:9:0:
+screen_display.h:43:6: note: previous declaration of 'showTagList' was here
+ bool showTagList( const TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset );
+      ^
+screen_display.c: In function 'showScreenMainHome':
+screen_display.c:585:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->numBar), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:589:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->txtCatalog), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:595:14: warning: unused variable 'turnCatalogBarY' [-Wunused-variable]
+   ScrollBarY turnCatalogBarY;
+              ^
+screen_display.c:594:13: warning: unused variable 'turnCatalogBarArea' [-Wunused-variable]
+   AreaRange turnCatalogBarArea;//文件上下翻动条
+             ^
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:619:8: warning: unused variable 'pageInfoVisible' [-Wunused-variable]
+   bool pageInfoVisible;
+        ^
+screen_display.c:618:18: warning: unused variable 'pageInfo' [-Wunused-variable]
+   ScreenPageInfo pageInfo;
+                  ^
+screen_display.c:617:13: warning: unused variable 'pageInfoArea' [-Wunused-variable]
+   AreaRange pageInfoArea;
+             ^
+screen_display.c:615:13: warning: unused variable 'openPageInfoAreaPos' [-Wunused-variable]
+   AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+             ^
+screen_display.c:614:13: warning: unused variable 'turnNextPageAreaPos' [-Wunused-variable]
+   AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+             ^
+screen_display.c:613:13: warning: unused variable 'turnBackPageAreaPos' [-Wunused-variable]
+   AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+             ^
+screen_display.c:611:11: warning: unused variable 'txtBook' [-Wunused-variable]
+   TagList txtBook;
+           ^
+screen_display.c:610:13: warning: unused variable 'txtBookArea' [-Wunused-variable]
+   AreaRange txtBookArea;//电子书区域
+             ^
+screen_display.c:608:12: warning: unused variable 'txtColorIndex' [-Wunused-variable]
+   color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:607:12: warning: unused variable 'bkgColorIndex' [-Wunused-variable]
+   color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:605:13: warning: unused variable 'borderColor' [-Wunused-variable]
+   color_u16 borderColor;//上下边界颜色
+             ^
+screen_display.c:604:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:641:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:645:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:649:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:653:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:657:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:661:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:665:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:669:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c: In function 'showTagList':
+screen_display.c:417:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+make: *** [obj/default/screen_display.o] Error 1
+15:27:36 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c:414:6: error: conflicting types for 'showTagList'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+In file included from screen_display.c:9:0:
+screen_display.h:43:6: note: previous declaration of 'showTagList' was here
+ bool showTagList( const TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset );
+      ^
+screen_display.c: In function 'showScreenMainHome':
+screen_display.c:614:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->numBar), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:618:2: warning: passing argument 1 of 'showTagList' discards 'const' qualifier from pointer target type
+  showTagList( &(scrHomeInst->txtCatalog), &subModuAbsPos, scrHomeInst->listYOffset );
+  ^
+screen_display.c:414:6: note: expected 'struct TagList *' but argument is of type 'const struct TagList *'
+ bool showTagList( TagList *TagListInst, const AreaRange *absPos, const short tagListYOffset )
+      ^
+screen_display.c:624:14: warning: unused variable 'turnCatalogBarY' [-Wunused-variable]
+   ScrollBarY turnCatalogBarY;
+              ^
+screen_display.c:623:13: warning: unused variable 'turnCatalogBarArea' [-Wunused-variable]
+   AreaRange turnCatalogBarArea;//文件上下翻动条
+             ^
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:648:8: warning: unused variable 'pageInfoVisible' [-Wunused-variable]
+   bool pageInfoVisible;
+        ^
+screen_display.c:647:18: warning: unused variable 'pageInfo' [-Wunused-variable]
+   ScreenPageInfo pageInfo;
+                  ^
+screen_display.c:646:13: warning: unused variable 'pageInfoArea' [-Wunused-variable]
+   AreaRange pageInfoArea;
+             ^
+screen_display.c:644:13: warning: unused variable 'openPageInfoAreaPos' [-Wunused-variable]
+   AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+             ^
+screen_display.c:643:13: warning: unused variable 'turnNextPageAreaPos' [-Wunused-variable]
+   AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+             ^
+screen_display.c:642:13: warning: unused variable 'turnBackPageAreaPos' [-Wunused-variable]
+   AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+             ^
+screen_display.c:640:11: warning: unused variable 'txtBook' [-Wunused-variable]
+   TagList txtBook;
+           ^
+screen_display.c:639:13: warning: unused variable 'txtBookArea' [-Wunused-variable]
+   AreaRange txtBookArea;//电子书区域
+             ^
+screen_display.c:637:12: warning: unused variable 'txtColorIndex' [-Wunused-variable]
+   color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:636:12: warning: unused variable 'bkgColorIndex' [-Wunused-variable]
+   color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:634:13: warning: unused variable 'borderColor' [-Wunused-variable]
+   color_u16 borderColor;//上下边界颜色
+             ^
+screen_display.c:633:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:670:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:674:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:678:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:682:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:686:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:690:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:694:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:698:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+15:28:11 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c:440:6: error: conflicting types for 'showProgressBarX'
+ bool showProgressBarX( const ProgressBarX *prgBarXInst, const AreaRange *absPos )
+      ^
+In file included from screen_display.c:9:0:
+screen_display.h:52:6: note: previous declaration of 'showProgressBarX' was here
+ bool showProgressBarX( ProgressBarX *prgBarXInst, const AreaRange *absPos );
+      ^
+screen_display.c: In function 'showScreenMainHome':
+screen_display.c:624:14: warning: unused variable 'turnCatalogBarY' [-Wunused-variable]
+   ScrollBarY turnCatalogBarY;
+              ^
+screen_display.c:623:13: warning: unused variable 'turnCatalogBarArea' [-Wunused-variable]
+   AreaRange turnCatalogBarArea;//文件上下翻动条
+             ^
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:648:8: warning: unused variable 'pageInfoVisible' [-Wunused-variable]
+   bool pageInfoVisible;
+        ^
+screen_display.c:647:18: warning: unused variable 'pageInfo' [-Wunused-variable]
+   ScreenPageInfo pageInfo;
+                  ^
+screen_display.c:646:13: warning: unused variable 'pageInfoArea' [-Wunused-variable]
+   AreaRange pageInfoArea;
+             ^
+screen_display.c:644:13: warning: unused variable 'openPageInfoAreaPos' [-Wunused-variable]
+   AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+             ^
+screen_display.c:643:13: warning: unused variable 'turnNextPageAreaPos' [-Wunused-variable]
+   AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+             ^
+screen_display.c:642:13: warning: unused variable 'turnBackPageAreaPos' [-Wunused-variable]
+   AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+             ^
+screen_display.c:640:11: warning: unused variable 'txtBook' [-Wunused-variable]
+   TagList txtBook;
+           ^
+screen_display.c:639:13: warning: unused variable 'txtBookArea' [-Wunused-variable]
+   AreaRange txtBookArea;//电子书区域
+             ^
+screen_display.c:637:12: warning: unused variable 'txtColorIndex' [-Wunused-variable]
+   color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:636:12: warning: unused variable 'bkgColorIndex' [-Wunused-variable]
+   color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:634:13: warning: unused variable 'borderColor' [-Wunused-variable]
+   color_u16 borderColor;//上下边界颜色
+             ^
+screen_display.c:633:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:670:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:674:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:678:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:682:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:686:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:690:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:694:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:698:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+15:28:40 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainHome':
+screen_display.c:624:14: warning: unused variable 'turnCatalogBarY' [-Wunused-variable]
+   ScrollBarY turnCatalogBarY;
+              ^
+screen_display.c:623:13: warning: unused variable 'turnCatalogBarArea' [-Wunused-variable]
+   AreaRange turnCatalogBarArea;//文件上下翻动条
+             ^
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:648:8: warning: unused variable 'pageInfoVisible' [-Wunused-variable]
+   bool pageInfoVisible;
+        ^
+screen_display.c:647:18: warning: unused variable 'pageInfo' [-Wunused-variable]
+   ScreenPageInfo pageInfo;
+                  ^
+screen_display.c:646:13: warning: unused variable 'pageInfoArea' [-Wunused-variable]
+   AreaRange pageInfoArea;
+             ^
+screen_display.c:644:13: warning: unused variable 'openPageInfoAreaPos' [-Wunused-variable]
+   AreaRange openPageInfoAreaPos;//点击该区域（中），打开或关闭页数进度条窗口
+             ^
+screen_display.c:643:13: warning: unused variable 'turnNextPageAreaPos' [-Wunused-variable]
+   AreaRange turnNextPageAreaPos;//点击该区域（右），翻到下一页
+             ^
+screen_display.c:642:13: warning: unused variable 'turnBackPageAreaPos' [-Wunused-variable]
+   AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
+             ^
+screen_display.c:640:11: warning: unused variable 'txtBook' [-Wunused-variable]
+   TagList txtBook;
+           ^
+screen_display.c:639:13: warning: unused variable 'txtBookArea' [-Wunused-variable]
+   AreaRange txtBookArea;//电子书区域
+             ^
+screen_display.c:637:12: warning: unused variable 'txtColorIndex' [-Wunused-variable]
+   color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:636:12: warning: unused variable 'bkgColorIndex' [-Wunused-variable]
+   color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+            ^
+screen_display.c:634:13: warning: unused variable 'borderColor' [-Wunused-variable]
+   color_u16 borderColor;//上下边界颜色
+             ^
+screen_display.c:633:7: warning: unused variable 'borderVisible' [-Wunused-variable]
+  bool borderVisible;
+       ^
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:670:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:674:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:678:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:682:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:686:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:690:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:694:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:698:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:32:08 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:670:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag1), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:674:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmHour), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:678:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:682:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editBkgColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:686:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editWordColor), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:690:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageMod), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:694:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->tag2), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagBlock *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+screen_display.c:698:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editTurnPageSec), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:33:54 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainSetting':
+screen_display.c:678:2: warning: passing argument 1 of 'showIconBlock' from incompatible pointer type
+  showIconBlock( &(scrSettingInst->editAlarmMinute), &subModuAbsPos );
+  ^
+screen_display.c:325:6: note: expected 'const struct IconBlock *' but argument is of type 'const struct TagIconGroup *'
+ bool showIconBlock( const IconBlock *iconPtr, const AreaRange *absPos )
+      ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:34:05 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:35:44 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129927 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+15:51:06 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainBookInit':
+screen.c:732:13: error: 'ScreenBook' has no member named 'borderVisible'
+  scrBookInst->borderVisible = true;
+             ^
+screen.c:733:13: error: 'ScreenBook' has no member named 'borderColor'
+  scrBookInst->borderColor = DEFAULT_BORDER_COLOR;
+             ^
+screen.c:735:13: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  scrBookInst->bkgColorIndex = 0;
+             ^
+screen.c:736:13: error: 'ScreenBook' has no member named 'txtColorIndex'
+  scrBookInst->txtColorIndex = 255;
+             ^
+screen.c:768:69: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
+                                                                     ^
+screen.c:768:109: error: 'ScreenBook' has no member named 'txtColorIndex'
+  ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
+                                                                                                             ^
+make: *** [obj/default/screen.o] Error 1
+15:51:43 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainBookInit':
+screen.c:765:69: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
+                                                                     ^
+screen.c:765:109: error: 'ScreenBook' has no member named 'txtColorIndex'
+  ColorInfo colorSel = { DEFAULT_BORDER_COLOR, color_form[scrBookInst->bkgColorIndex], color_form[scrBookInst->txtColorIndex] };
+                                                                                                             ^
+make: *** [obj/default/screen.o] Error 1
+15:56:01 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:632:44: error: 'ScreenBook' has no member named 'borderVisible'
+  bkgBorderColor.borderVisible = scrBookInst->borderVisible;
+                                            ^
+screen_display.c:633:42: error: 'ScreenBook' has no member named 'borderColor'
+  bkgBorderColor.borderColor = scrBookInst->borderColor;
+                                          ^
+screen_display.c:634:39: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  bkgBorderColor.bkgColor = scrBookInst->bkgColorIndex;
+                                       ^
+screen_display.c:631:12: warning: variable 'bkgBorderColor' set but not used [-Wunused-but-set-variable]
+  ColorInfo bkgBorderColor;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+15:58:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'screenMainBookInit':
+screen.c:732:13: error: 'ScreenBook' has no member named 'bkgBorderColor'
+  scrBookInst->bkgBorderColor = defaultColorInfo;
+             ^
+make: *** [obj/default/screen.o] Error 1
+15:59:19 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:632:44: error: 'ScreenBook' has no member named 'borderVisible'
+  bkgBorderColor.borderVisible = scrBookInst->borderVisible;
+                                            ^
+screen_display.c:633:42: error: 'ScreenBook' has no member named 'borderColor'
+  bkgBorderColor.borderColor = scrBookInst->borderColor;
+                                          ^
+screen_display.c:634:39: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  bkgBorderColor.bkgColor = scrBookInst->bkgColorIndex;
+                                       ^
+screen_display.c:631:12: warning: variable 'bkgBorderColor' set but not used [-Wunused-but-set-variable]
+  ColorInfo bkgBorderColor;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+15:59:43 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:632:44: error: 'ScreenBook' has no member named 'borderVisible'
+  bkgBorderColor.borderVisible = scrBookInst->borderVisible;
+                                            ^
+screen_display.c:633:42: error: 'ScreenBook' has no member named 'borderColor'
+  bkgBorderColor.borderColor = scrBookInst->borderColor;
+                                          ^
+screen_display.c:634:39: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  bkgBorderColor.bkgColor = scrBookInst->bkgColorIndex;
+                                       ^
+screen_display.c:631:12: warning: variable 'bkgBorderColor' set but not used [-Wunused-but-set-variable]
+  ColorInfo bkgBorderColor;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+16:00:30 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:632:44: error: 'ScreenBook' has no member named 'borderVisible'
+  bkgBorderColor.borderVisible = scrBookInst->borderVisible;
+                                            ^
+screen_display.c:633:42: error: 'ScreenBook' has no member named 'borderColor'
+  bkgBorderColor.borderColor = scrBookInst->borderColor;
+                                          ^
+screen_display.c:634:39: error: 'ScreenBook' has no member named 'bkgColorIndex'
+  bkgBorderColor.bkgColor = scrBookInst->bkgColorIndex;
+                                       ^
+screen_display.c:631:12: warning: variable 'bkgBorderColor' set but not used [-Wunused-but-set-variable]
+  ColorInfo bkgBorderColor;
+            ^
+make: *** [obj/default/screen_display.o] Error 1
+16:29:08 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling icon_pic.c to obj/default/icon_pic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/icon_pic.o icon_pic.c
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenMainBook':
+screen_display.c:649:3: error: incompatible type for argument 2 of 'showScreenPageInfo'
+   showScreenPageInfo( &(scrBookInst->pageInfo), subModuAbsPos );
+   ^
+screen_display.c:431:6: note: expected 'const struct AreaRange *' but argument is of type 'AreaRange'
+ bool showScreenPageInfo( const ScreenPageInfo *scrPageInfoInst, const AreaRange *absPos )
+      ^
+make: *** [obj/default/screen_display.o] Error 1
+16:29:28 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1138 KBytes program size (code + initialized data).
+Info:               129926 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:43:15 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScrollBarY':
+screen_display.c:452:31: warning: initialization discards 'const' qualifier from pointer target type
+   AreaRange *barBaseAreaPtr = &(scrollBarYInst->barBaseArea);
+                               ^
+screen_display.c: In function 'showProgressBarX':
+screen_display.c:517:30: warning: initialization discards 'const' qualifier from pointer target type
+  AreaRange *dotBaseAreaPtr = &(prgBarXInst->dotBaseArea);
+                              ^
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1139 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:44:25 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScrollBarY':
+screen_display.c:452:31: warning: initialization discards 'const' qualifier from pointer target type
+   AreaRange *barBaseAreaPtr = &(scrollBarYInst->barBaseArea);
+                               ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1139 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:44:49 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1139 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:50:09 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1139 KBytes program size (code + initialized data).
+Info:               129926 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+18:56:01 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreenPageInfo':
+screen_display.c:510:2: warning: implicit declaration of function 'showTagBlcok' [-Wimplicit-function-declaration]
+  showTagBlcok( &(scrPageInfoInst->tagPagePercTage), &subModuAbsPos );
+  ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+obj/default/screen_display.o: In function `showScreenPageInfo':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen_display.c:510: undefined reference to `showTagBlcok'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare\software\ebook_1/screen_display.c:514: undefined reference to `showTagBlcok'
+collect2.exe: error: ld returned 1 exit status
+make: *** [ebook_1.elf] Error 1
+18:56:21 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1139 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:37:09 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling icon_pic.c to obj/default/icon_pic.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/icon_pic.o icon_pic.c
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagList':
+screen.c:705:13: error: 'TagList' has no member named 'elemArea'
+  TagListInst->elemArea = elemAreaArray;
+             ^
+make: *** [obj/default/screen.o] Error 1
+20:47:06 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+screen.c: In function 'setDefaultTagList':
+screen.c:709:13: warning: unused variable 'curElemAreaPtr' [-Wunused-variable]
+  AreaRange *curElemAreaPtr;
+             ^
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1140 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+20:47:34 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1140 KBytes program size (code + initialized data).
+Info:               129925 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:18:16 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showTagList':
+screen_display.c:584:2: error: expected ';' before 'if'
+  if ( )
+  ^
+make: *** [obj/default/screen_display.o] Error 1
+21:19:17 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1141 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+21:56:07 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1141 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+22:09:08 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:04:29 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c:27:1: error: expected identifier or '(' before '{' token
+ {
+ ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:116:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:112:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+make: *** [obj/default/screen_display.o] Error 1
+23:04:46 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c:27:1: error: expected identifier or '(' before '{' token
+ {
+ ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:117:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:113:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+make: *** [obj/default/screen_display.o] Error 1
+23:05:48 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:118:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:114:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:21:33 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:39:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:46:8: error: redeclaration of 'xPos' with no linkage
+  short xPos;
+        ^
+screen_display.c:33:8: note: previous declaration of 'xPos' was here
+  short xPos;
+        ^
+screen_display.c:46:8: warning: unused variable 'xPos' [-Wunused-variable]
+  short xPos;
+        ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:121:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:122:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:136:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:132:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+make: *** [obj/default/screen_display.o] Error 1
+23:22:07 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:39:18: warning: assignment discards 'const' qualifier from pointer target type
+    curExceptArea = &(exceptAreaArray[i]);
+                  ^
+screen_display.c:47:8: warning: unused variable 'xPos' [-Wunused-variable]
+  short xPos;
+        ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:122:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:123:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:137:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:133:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:22:36 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:47:8: warning: unused variable 'xPos' [-Wunused-variable]
+  short xPos;
+        ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:122:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:123:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * exceptAreaNum );;
+                     ^
+screen_display.c:137:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:133:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129923 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:26:46 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:53:8: error: expected expression before ')' token
+   if ( )
+        ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:129:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:130:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:144:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:140:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+make: *** [obj/default/screen_display.o] Error 1
+23:39:19 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:37:2: warning: statement with no effect [-Wunused-value]
+  exceptXposInRow[width] == 'e';
+  ^
+screen_display.c:53:18: warning: unused variable 'xMax' [-Wunused-variable]
+  short xMin = 1, xMax = 1;
+                  ^
+screen_display.c:53:8: warning: unused variable 'xMin' [-Wunused-variable]
+  short xMin = 1, xMax = 1;
+        ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:151:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:152:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:166:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:162:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129922 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:40:58 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'getXVaildRange':
+screen_display.c:37:2: warning: statement with no effect [-Wunused-value]
+  exceptXposInRow[width] == 'e';
+  ^
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:151:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:152:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:166:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:162:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129922 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:41:27 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:151:21: warning: initialization from incompatible pointer type
+  short *xMinArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:152:21: warning: initialization from incompatible pointer type
+  short *xMaxArray = (char *)malloc( sizeof(short) * (exceptAreaNum+1) );;
+                     ^
+screen_display.c:166:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:162:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129922 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:42:27 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showBkgAndBorder':
+screen_display.c:166:31: warning: initialization discards 'const' qualifier from pointer target type
+    AreaRange *curExceptArea = &(exceptAreaArray[i]);
+                               ^
+screen_display.c:162:9: warning: unused variable 'areaOccurNum' [-Wunused-variable]
+   short areaOccurNum = 0;
+         ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129922 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+23:43:04 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1142 KBytes program size (code + initialized data).
+Info:               129922 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+00:04:23 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+screen_display.c: In function 'showScreen':
+screen_display.c:1137:44: error: 'tftlcdScreenInst' undeclared (first use in this function)
+  const ScreenContainer *tftlcdScreenPtr = &tftlcdScreenInst;
+                                            ^
+screen_display.c:1137:44: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [obj/default/screen_display.o] Error 1
+00:05:50 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling screen_display.c to obj/default/screen_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen_display.o screen_display.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1146 KBytes program size (code + initialized data).
+Info:               129919 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+00:08:45 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+main.c: In function 'main':
+main.c:25:2: warning: implicit declaration of function 'screenInit' [-Wimplicit-function-declaration]
+  status = status && screenInit();
+  ^
+main.c:28:2: warning: implicit declaration of function 'showScreen' [-Wimplicit-function-declaration]
+  status = status && showScreen( );
+  ^
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1146 KBytes program size (code + initialized data).
+Info:               129919 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]
+00:09:52 **** Incremental Build of configuration Nios II for project ebook_1 ****
+make all 
+Info: Building ../ebook_1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_1_bsp/
+[BSP build complete]
+Info: Compiling main.c to obj/default/main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_1_bsp//HAL/inc -I../ebook_1_bsp/ -I../ebook_1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
+Info: Linking ebook_1.elf
+nios2-elf-g++  -T'../ebook_1_bsp//linker.x' -msys-crt0='../ebook_1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_1_bsp/   -Wl,-Map=ebook_1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/time_count.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook_1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1555426020 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook_1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_1.elf) 1146 KBytes program size (code + initialized data).
+Info:               129919 KBytes free for stack + heap.
+Info: Creating ebook_1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
+[ebook_1 build complete]

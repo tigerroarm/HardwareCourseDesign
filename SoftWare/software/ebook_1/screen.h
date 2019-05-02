@@ -14,6 +14,9 @@
 #include "font_manage.h"
 #include "txt_read.h"
 
+//整个屏幕变量
+extern ScreenContainer tftlcdScreenInst;
+
 //设置区域范围
 bool setAreaRange( AreaRange *areaPtr, short x_min, short x_max, short y_min, short y_max );
 //居中设置区域范围
@@ -27,18 +30,18 @@ bool setDefaultTagBlock( TagBlock *tagPtr, char *text, short width, short height
 //设置默认图标
 bool setDefaultIconBlock( IconBlock *iconPtr, const alt_u8 *iconModel, short width, short height, short iconXSize, short iconYSize );
 //设置默认进度条
-bool setDefaultProgressBar( ProgressBar *prgBarInst, short width, short height );
+bool setDefaultProgressBarX( ProgressBarX *prgBarInst, short width, short height );
 //设置默认垂直滚动条
 bool setDefaultScrollBarY( ScrollBarY *scrollBarYInst, short width, short height, float barYRatio );
 //设置默认取色板信息
-void setDefaultColorTable( ColorTable *colorPickerInst, color_u8 *colorSel, short width, short height );
+void setDefaultColorBoard( ColorBoard *colorPickerInst, color_u8 *colorSel, short width, short height );
 
 //设置默认文本标签列表
 bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight, TextList *textListPtr, bool elemBorderVisible,\
 						ColorInfo *colorInfoPtr );
 
 //设置默认标签组
-bool setDefaultTagBlockGroup( TagBlockGroup *tagGroupInst, AreaFmt *tagStaticPos, AreaFmt *tagVarPos, short width, short height,\
+bool setDefaultTagGroup( TagGroup *tagGroupInst, AreaFmt *tagStaticPos, AreaFmt *tagVarPos, short width, short height,\
 			char *tagStaText, char *tagVarText );
 //设置默认可编辑数字(动态标签+静态图标)
 bool setDefaultNumEditGroup( TagIconGroup *numEditGrpInst, short width, short height, short numMax, short numMin, short num, char *unitName );

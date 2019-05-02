@@ -168,7 +168,7 @@ typedef struct
 
 	AreaRange varTagArea;
 	TagBlock varTag;
-} TagBlockGroup;
+} TagGroup;
 
 
 //图标模块
@@ -247,7 +247,7 @@ typedef struct
 
 	short elemNum;//列表元素总个数
 
-	AreaRange *elemArea;//列表元素区域（数组）
+//	AreaRange *elemArea;//列表元素区域（数组）
 	TagBlock *elemBlock;//列表元素显示信息(数组)
 
 } TagList;
@@ -266,7 +266,7 @@ typedef struct
 	AreaRange barBaseArea;//滚动条基本区域（偏移量为0）
 	IconBlock iconBar;//滚动条图标
 
-	AreaRange barMoveArea;//滚动条可以运动的区域
+	AreaRange barMoveArea;//滚动条可以运动的区域(用于点击该区域，则滚动条会相应的移动)
 	short barYoffset;//滚动条纵向偏移量
 	short barYOffsetMax;
 	short barHeight;//滚动条高度
@@ -280,16 +280,18 @@ typedef struct
 {
 	ColorInfo bkgBorderColor;
 
-	AreaRange axisArea;//运动轴
+	AreaRange axisArea;//运动轴（虽然叫运动轴，但它不运动，而是另外一个点在它上面运动）
 	IconBlock axis;
 
 	AreaRange dotBaseArea;//进度点基本区域（无偏移量时）
 	IconBlock dot;
 
+	AreaRange clickArea;//用户点击区，点击该区便可以使进度点移动
+
 	short xOffset;
 	short xOffsetMax;
 
-} ProgressBar;
+} ProgressBarX;
 
 //屏幕一：电子书书名页面(HOME)
 typedef struct
@@ -311,7 +313,8 @@ typedef struct
 
 	bool txtScrollable;//某行允许水平滚动否
 	short txtScrollrow;//可滚动的某行行数（一次只有一行可以滚动）
-	short txtScrollxOffset;//当前滚动偏移量
+	short txtScrollXOffset;//当前滚动偏移量
+	short txtScrollXStepSize;//水平滚动步长
 	short txtScrollwidth;//滚动文本的真实像素宽度（可以超出屏幕宽度）
 	short txtScrollSpacing;//滚动文本循环时文本尾与新文本头的间隔
 
@@ -328,7 +331,7 @@ typedef struct
 	ColorInfo bkgBorderColor;
 
 	AreaRange prgBarArea;//水平进度条
-	ProgressBar prgBarX;
+	ProgressBarX prgBarX;
 
 	AreaRange tagPagePercTageArea;//"百分数进度"（标签组），格式为"53.33%"
 	TagBlock tagPagePercTage;
@@ -346,13 +349,11 @@ typedef struct
 //屏幕二：电子书txt文本页面（BOOK）
 typedef struct
 {
-	bool borderVisible;
-	color_u16 borderColor;//上下边界颜色
-
-	color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
-	color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
+	ColorInfo bookColorInfo;
+	//注：ColorInfo中的 "背景颜色","字体颜色" 可编辑，颜色源信息在SEETING页面内存储
 
 	AreaRange txtBookArea;//电子书区域
+	AreaRange txtBookNarrowArea;//电子书小区域，当页面进度信息显示时，电子书区域下方会被覆盖一部分，范围减小
 	TagList txtBook;
 
 	AreaRange turnBackPageAreaPos;//点击该区域（左），翻到上一页
@@ -380,13 +381,13 @@ typedef struct
 	TagIconGroup editAlarmMinute;
 
 	AreaRange editBkgColorArea;//编辑背景颜色
-	TagBlockGroup editBkgColor;
+	TagGroup editBkgColor;
 
 	AreaRange editWordColorArea;//编辑文本颜色
-	TagBlockGroup editWordColor;
+	TagGroup editWordColor;
 
 	AreaRange editTurnPageModArea;//自动翻页与手动翻页切换
-	TagBlockGroup editTurnPageMod;
+	TagGroup editTurnPageMod;
 
 	AreaRange tag2Area;//"翻页定时"
 	TagBlock tag2;
@@ -394,8 +395,11 @@ typedef struct
 	AreaRange editTurnPageSecArea;//编辑自动翻页时间间隔
 	TagIconGroup editTurnPageSec;
 
-
 	bool turnPageMod;//翻页模式
+
+	//电子书BOOK页面的颜色信息
+	color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)
+	color_u8 txtColorIndex;//字体颜色(因为要编辑该颜色，所以设置为256色)
 
 } ScreenSetting;
 
@@ -412,10 +416,10 @@ typedef struct
 	//256色->16位色，颜色映射表
 	const color_u16 *colorSpace;
 
-	//选中的颜色在映射表中的位置
+	//选中的颜色在映射表中的位置（数据在指针指向的color_u8类型变量中）
 	color_u8 *colorIndex;
 
-} ColorTable;
+} ColorBoard;
 
 //屏幕四：电子书拾色器页面（COLOR_PICKER）（目前保留，暂时不做）
 typedef struct
@@ -424,7 +428,7 @@ typedef struct
 
 	AreaRange colorPickerArea;//取色板
 
-	ColorTable colorPicker;
+	ColorBoard colorPicker;
 
 } ScreenColorPicker;
 

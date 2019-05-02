@@ -22,6 +22,8 @@ typedef struct
 } ColorRGB;
 
 //8位色与16位色的映射表
+#define COLOR_FORM_X_NUM 16//横向颜色个数
+#define COLOR_FORM_Y_NUM 16//纵向颜色个数
 #define COLOR_FORM_SIZE 256
 extern const color_u16 color_form[];
 

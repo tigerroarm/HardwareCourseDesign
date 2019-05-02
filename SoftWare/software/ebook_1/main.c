@@ -11,18 +11,23 @@
 #include "system.h"
 #include "sys/alt_irq.h"
 #include "altera_up_avalon_parallel_port_regs.h"
-#include "stdbool.h"
+
+#include "screen.h"
+#include "screen_display.h"
 
 int main( void )
 {
 
-	bool x = true;
+	bool status = true;
 
 	//1.读取并保存SD卡中的所有txt文件的文件名
 
+
 	//2.初始化ScreenContainer屏幕显示信息结构体
+	status = status && screenInit();
 
 	//3.执行屏幕显示函数
+	status = status && showScreen( );
 
 	return 0;
 }

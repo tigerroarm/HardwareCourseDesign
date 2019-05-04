@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'ED2platform'
  * SOPC Builder design path: ../../ED2platform.sopcinfo
  *
- * Generated: Fri Apr 26 15:14:38 CST 2019
+ * Generated: Sat May 04 13:04:59 CST 2019
  */
 
 /*
@@ -62,6 +62,7 @@
 #include "Altera_UP_SD_Card_Avalon_Interface.h"
 #include "altera_avalon_jtag_uart.h"
 #include "altera_avalon_sysid_qsys.h"
+#include "altera_avalon_timer.h"
 #include "altera_up_avalon_parallel_port.h"
 
 /*
@@ -71,6 +72,9 @@
 ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( CPU, cpu);
 ALTERA_AVALON_JTAG_UART_INSTANCE ( JTAG_UART, jtag_uart);
 ALTERA_AVALON_SYSID_QSYS_INSTANCE ( SYSID0, sysid0);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMER_1S, timer_1s);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMER_SCROLLX, timer_scrollX);
+ALTERA_AVALON_TIMER_INSTANCE ( TIMER_TOUCH, timer_touch);
 ALTERA_UP_AVALON_PARALLEL_PORT_INSTANCE ( LED_GREEN, led_green);
 ALTERA_UP_AVALON_PARALLEL_PORT_INSTANCE ( LED_RED, led_red);
 ALTERA_UP_AVALON_PARALLEL_PORT_INSTANCE ( PUSH_BUTTONS, push_buttons);
@@ -100,6 +104,9 @@ void alt_irq_init ( const void* base )
 
 void alt_sys_init( void )
 {
+    ALTERA_AVALON_TIMER_INIT ( TIMER_1S, timer_1s);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_SCROLLX, timer_scrollX);
+    ALTERA_AVALON_TIMER_INIT ( TIMER_TOUCH, timer_touch);
     ALTERA_AVALON_JTAG_UART_INIT ( JTAG_UART, jtag_uart);
     ALTERA_AVALON_SYSID_QSYS_INIT ( SYSID0, sysid0);
     ALTERA_UP_AVALON_PARALLEL_PORT_INIT ( LED_GREEN, led_green);

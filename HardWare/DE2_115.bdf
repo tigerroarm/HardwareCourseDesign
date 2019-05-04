@@ -86,6 +86,7 @@ agreement for further details.
 		(line (pt 125 12)(pt 129 8))
 	)
 	(text "VCC" (rect 144 7 164 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 0 1096 64 1112))
 )
 (pin
 	(input)
@@ -102,6 +103,7 @@ agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 156 17)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 8 1136 72 1152))
 )
 (pin
 	(output)
@@ -568,6 +570,7 @@ agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 248 1056 312 1072))
 )
 (pin
 	(output)
@@ -585,6 +588,7 @@ agreement for further details.
 		(line (pt 114 4)(pt 110 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 248 208 312 224))
 )
 (pin
 	(output)
@@ -602,12 +606,13 @@ agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 248 248 312 264))
 )
 (pin
 	(output)
 	(rect 72 480 248 496)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "SD_CLK" (rect 5 4 48 16)(font "Arial" ))
+	(text "SD_CLK" (rect 5 4 47 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -619,6 +624,7 @@ agreement for further details.
 		(line (pt 98 4)(pt 94 8))
 	)
 	(rotate180)
+	(annotation_block (location)(rect 248 496 312 512))
 )
 (pin
 	(bidir)
@@ -713,12 +719,13 @@ agreement for further details.
 	)
 	(rotate180)
 	(text "VCC" (rect 152 -1 172 9)(font "Arial" (font_size 6)))
+	(annotation_block (location)(rect 248 288 312 304))
 )
 (pin
 	(bidir)
 	(rect 72 448 248 464)
 	(text "BIDIR" (rect 151 6 175 16)(font "Arial" (font_size 6)))
-	(text "SD_DAT0" (rect 5 4 54 16)(font "Arial" ))
+	(text "SD_DAT0" (rect 5 4 53 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 120 12)(pt 98 12))

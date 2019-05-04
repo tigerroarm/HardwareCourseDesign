@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'ED2platform'
  * SOPC Builder design path: ../../ED2platform.sopcinfo
  *
- * Generated: Fri Apr 26 15:14:38 CST 2019
+ * Generated: Sat May 04 13:05:00 CST 2019
  */
 
 /*
@@ -159,6 +159,7 @@
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
+#define __ALTERA_AVALON_TIMER
 #define __ALTERA_NIOS2_GEN2
 #define __ALTERA_UP_AVALON_PARALLEL_PORT
 #define __ALTERA_UP_AVALON_SRAM
@@ -208,7 +209,7 @@
 
 #define ALT_INCLUDE_INSTRUCTION_RELATED_EXCEPTION_API
 #define ALT_MAX_FD 32
-#define ALT_SYS_CLK none
+#define ALT_SYS_CLK TIMER_1S
 #define ALT_TIMESTAMP_CLK none
 
 
@@ -346,7 +347,7 @@
 
 #define ALT_MODULE_CLASS_slider_switch altera_up_avalon_parallel_port
 #define SLIDER_SWITCH_BASE 0x82014a0
-#define SLIDER_SWITCH_IRQ 2
+#define SLIDER_SWITCH_IRQ 5
 #define SLIDER_SWITCH_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define SLIDER_SWITCH_NAME "/dev/slider_switch"
 #define SLIDER_SWITCH_SPAN 16
@@ -379,7 +380,7 @@
 #define SYSID0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID0_NAME "/dev/sysid0"
 #define SYSID0_SPAN 8
-#define SYSID0_TIMESTAMP 1555426020
+#define SYSID0_TIMESTAMP 1556942243
 #define SYSID0_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -465,12 +466,90 @@
 
 
 /*
+ * timer_1s configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_timer_1s altera_avalon_timer
+#define TIMER_1S_ALWAYS_RUN 0
+#define TIMER_1S_BASE 0x8200040
+#define TIMER_1S_COUNTER_SIZE 32
+#define TIMER_1S_FIXED_PERIOD 1
+#define TIMER_1S_FREQ 50000000
+#define TIMER_1S_IRQ 2
+#define TIMER_1S_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_1S_LOAD_VALUE 49999999
+#define TIMER_1S_MULT 1.0
+#define TIMER_1S_NAME "/dev/timer_1s"
+#define TIMER_1S_PERIOD 1
+#define TIMER_1S_PERIOD_UNITS "s"
+#define TIMER_1S_RESET_OUTPUT 0
+#define TIMER_1S_SNAPSHOT 1
+#define TIMER_1S_SPAN 32
+#define TIMER_1S_TICKS_PER_SEC 1
+#define TIMER_1S_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_1S_TYPE "altera_avalon_timer"
+
+
+/*
+ * timer_scrollX configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_timer_scrollX altera_avalon_timer
+#define TIMER_SCROLLX_ALWAYS_RUN 0
+#define TIMER_SCROLLX_BASE 0x8200020
+#define TIMER_SCROLLX_COUNTER_SIZE 32
+#define TIMER_SCROLLX_FIXED_PERIOD 0
+#define TIMER_SCROLLX_FREQ 50000000
+#define TIMER_SCROLLX_IRQ 6
+#define TIMER_SCROLLX_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_SCROLLX_LOAD_VALUE 49999
+#define TIMER_SCROLLX_MULT 0.001
+#define TIMER_SCROLLX_NAME "/dev/timer_scrollX"
+#define TIMER_SCROLLX_PERIOD 1
+#define TIMER_SCROLLX_PERIOD_UNITS "ms"
+#define TIMER_SCROLLX_RESET_OUTPUT 0
+#define TIMER_SCROLLX_SNAPSHOT 1
+#define TIMER_SCROLLX_SPAN 32
+#define TIMER_SCROLLX_TICKS_PER_SEC 1000
+#define TIMER_SCROLLX_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_SCROLLX_TYPE "altera_avalon_timer"
+
+
+/*
+ * timer_touch configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_timer_touch altera_avalon_timer
+#define TIMER_TOUCH_ALWAYS_RUN 0
+#define TIMER_TOUCH_BASE 0x8200000
+#define TIMER_TOUCH_COUNTER_SIZE 32
+#define TIMER_TOUCH_FIXED_PERIOD 0
+#define TIMER_TOUCH_FREQ 50000000
+#define TIMER_TOUCH_IRQ 4
+#define TIMER_TOUCH_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define TIMER_TOUCH_LOAD_VALUE 49999
+#define TIMER_TOUCH_MULT 0.001
+#define TIMER_TOUCH_NAME "/dev/timer_touch"
+#define TIMER_TOUCH_PERIOD 1
+#define TIMER_TOUCH_PERIOD_UNITS "ms"
+#define TIMER_TOUCH_RESET_OUTPUT 0
+#define TIMER_TOUCH_SNAPSHOT 1
+#define TIMER_TOUCH_SPAN 32
+#define TIMER_TOUCH_TICKS_PER_SEC 1000
+#define TIMER_TOUCH_TIMEOUT_PULSE_OUTPUT 0
+#define TIMER_TOUCH_TYPE "altera_avalon_timer"
+
+
+/*
  * touch_ctrl configuration
  *
  */
 
 #define ALT_MODULE_CLASS_touch_ctrl altera_avalon_pio
-#define TOUCH_CTRL_BASE 0x8201400
+#define TOUCH_CTRL_BASE 0x8200060
 #define TOUCH_CTRL_BIT_CLEARING_EDGE_REGISTER 0
 #define TOUCH_CTRL_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define TOUCH_CTRL_CAPTURE 0

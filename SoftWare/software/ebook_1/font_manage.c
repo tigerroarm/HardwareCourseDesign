@@ -9,7 +9,7 @@
 
 extern const alt_u8 ascii_font_x8y16[];
 
-alt_u8 *getAsciiFont( char asciiVal )
+const alt_u8 *getAsciiFont( char asciiVal )
 {
 	if ( asciiVal < 0 )
 	{
@@ -21,7 +21,7 @@ alt_u8 *getAsciiFont( char asciiVal )
 
 extern const alt_u8 gbk_font_x16y16[];
 
-alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte )
+const alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte )
 {
 
 	if ( gbkLowByte < 0x40 )//·ÇGBK±àÂë

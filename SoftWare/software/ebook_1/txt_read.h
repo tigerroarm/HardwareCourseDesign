@@ -18,27 +18,31 @@
 //最多读取SD卡中的99个文件
 #define TXT_FILES_NUM_MAX 99
 
-typedef struct
-{
-	TextType txtFileName;//文件名（省略.txt）
-	int curPageNum;//当前阅读页数
-	int totalPageNum;//总页数
-	float curPagePercent;//阅读进度百分数(%)
-	unsigned int curBytePos;
-	unsigned int fileSizeInBytes;
 
-} TxtFile;
 
 //SD卡根目录下所有txt文件的信息
 typedef struct
 {
-	TxtFile *txtFileList;//动态数组
+	TxtFile *txtFileList;//动态数组（第一次使用时需要malloc分配空间）
 	int txtFilesNum;//最大值为99，即最多读取SD卡中的99个文件
 	int curOpenFileIndex;//当前打开的txt文件下标
 } TxtFilesInfo;
 
 extern TxtFilesInfo txtFilesInfoSpace;
 extern char txtBookSpace[][BOOK_ROW_BYTES+1];
+
+
+
+
+//读取SD卡根目录下的所有.txt文件（文件名存储时去掉.txt）
+//读取后的所有文件信息存储到变量txtFilesInfoSpace中
+bool readAlltxtFilesOfSDcard( );
+
+//翻页模式枚举类型
+enum bookTurnPageType { BOOK_PAGE_SET=0, BOOK_PAGE_END=1, BOOK_PAGE_NEXT=2, BOOK_PAGE_PRE=3, BOOK_PAGE_JUMP=4 };
+
+//读取SD卡中的文本内容(txtBookInst里面有当前打开电子书的阅读进度)
+bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPagePct );
 
 
 #endif /* TXTSD_H_ */

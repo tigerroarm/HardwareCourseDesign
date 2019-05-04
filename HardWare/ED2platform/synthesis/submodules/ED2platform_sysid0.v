@@ -36,7 +36,7 @@ module ED2platform_sysid0 (
 
   wire    [ 31: 0] readdata;
   //control_slave, which is an e_avalon_slave
-  assign readdata = address ? 1555426020 : 305419896;
+  assign readdata = address ? 1556942243 : 305419896;
 
 endmodule
 

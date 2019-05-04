@@ -21,7 +21,7 @@ int main( void )
 	bool status = true;
 
 	//1.读取并保存SD卡中的所有txt文件的文件名
-
+	status = status && readAlltxtFilesOfSDcard( );
 
 	//2.初始化ScreenContainer屏幕显示信息结构体
 	status = status && screenInit();

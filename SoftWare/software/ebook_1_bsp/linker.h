@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'ED2platform'
  * SOPC Builder design path: ../../ED2platform.sopcinfo
  *
- * Generated: Fri Apr 26 15:14:38 CST 2019
+ * Generated: Sat May 04 13:05:00 CST 2019
  */
 
 /*

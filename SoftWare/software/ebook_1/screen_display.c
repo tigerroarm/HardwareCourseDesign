@@ -5,7 +5,7 @@
  *      Author: 12757
  */
 
-#include "stdlib.h"
+#include <stdlib.h>
 #include "screen_display.h"
 #include "screen.h"
 
@@ -304,7 +304,7 @@ bool showTagBlock( const TagBlock *tagPtr, const AreaRange *absPos )
 
 			short objYSize = tagPtr->objYSize;
 
-			alt_u8 *objPicPtr;
+			const alt_u8 *objPicPtr;
 
 			short objXSize;
 
@@ -466,7 +466,7 @@ bool showTagWithYOffset( const TagBlock *tagPtr, const AreaRange *absPos, const 
 
 			short objYSize = tagPtr->objYSize;
 
-			alt_u8 *objPicPtr;
+			const alt_u8 *objPicPtr;
 
 
 			short objXSize;

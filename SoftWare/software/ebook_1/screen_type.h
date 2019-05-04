@@ -11,9 +11,10 @@
 #ifndef SCREEN_TYPE_H_
 #define SCREEN_TYPE_H_
 
-#include "stdbool.h"
-#include "alt_types.h"
+#include <stdbool.h>
+#include <alt_types.h>
 #include "color.h"
+
 
 
 
@@ -42,6 +43,7 @@
 //电子书区域每一行的字节数
 #define BOOK_ROW_BYTES 34 //min( 320/(16+2)*2, 320/(8+1) ),再向下取偶数
 #define BOOK_ROW_HEIGHT (SRC_WORD_SIZE_Y + 2)
+#define BOOK_ROW_WIDTH (( BOOK_ROW_BYTES >> 1) * ( SRC_WORD_SIZE_X + DEFAULT_WORD_SPACING ))
 #define BOOK_COL_NUM 21 //SCR_MAIN_HEIGHT / BOOK_ROW_HEIGHT
 
 //目录列表的元素高度
@@ -205,6 +207,18 @@ typedef struct
 	short valueMin;
 } TagIconGroup;
 
+//单个txt文件的信息
+typedef struct
+{
+	TextType txtFileName;//文件名（省略.txt）
+	int curPageNum;//当前阅读页数
+	int totalPageNum;//总页数
+	float curPagePercent;//阅读进度百分数(%)
+	unsigned int curBytePos;
+	unsigned int fileSizeInBytes;
+
+} TxtFile;
+
 
 //屏幕上边栏：时钟显示区域
 typedef struct
@@ -339,9 +353,7 @@ typedef struct
 	AreaRange tagPageNumArea;//页数标签，格式为：" 1234/99999", 1234为当前页数，99999为总页数
 	TagBlock tagPageNum;
 
-	int curPageNum;//当前阅读页数
-	int totalPageNum;//总页数
-	float curPagePercent;//阅读进度百分数(%)
+	const TxtFile *txtFileInfo;//指向的结构体里面有阅读进度信息，还有当前打开文件的文件名
 
 } ScreenPageInfo;
 

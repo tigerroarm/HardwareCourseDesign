@@ -674,7 +674,7 @@ bool setDefaultTagList( TagList *TagListInst, short elemWidth, short elemHeight,
 	status = status && setAreaRange( &(TagListInst->elemBaseArea), 1, elemWidth, 1, elemHeight );
 	//计算文本所在区域
 	//计算文本宽度(使用中文尺寸来估计）
-	short textWidth = ( BOOK_ROW_BYTES >> 1) * ( SRC_WORD_SIZE_X + DEFAULT_WORD_SPACING );
+	short textWidth = BOOK_ROW_WIDTH;
 	short marginXL = ( elemWidth - textWidth )>>1;
 	short marginXR = elemWidth - marginXL - textWidth;
 	short marginYU = ( elemHeight - SRC_WORD_SIZE_Y )>>1;
@@ -785,9 +785,8 @@ bool ScreenMainPageInfoInit( ScreenPageInfo *scrPageInfoInst, short width, short
 {
 	//基本信息
 	scrPageInfoInst->bkgBorderColor = defaultColorInfo;
-	scrPageInfoInst->curPageNum = 0;
-	scrPageInfoInst->curPagePercent = 0;
-	scrPageInfoInst->totalPageNum = 0;
+	scrPageInfoInst->txtFileInfo = NULL;
+
 
 	bool status = true;
 

@@ -27,6 +27,11 @@
    }
    element Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136318976";
@@ -63,7 +68,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
@@ -89,7 +94,7 @@
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum _tags
@@ -121,6 +126,11 @@
    }
    element led_green.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320144";
@@ -137,6 +147,11 @@
    }
    element led_red.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320096";
@@ -153,6 +168,11 @@
    }
    element push_buttons.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320176";
@@ -172,27 +192,6 @@
          type = "boolean";
       }
    }
-   element sdram.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "0";
-         type = "String";
-      }
-   }
-   element sdram.wire
-   {
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
-   }
    element seg7_0to3
    {
       datum _sortIndex
@@ -203,6 +202,11 @@
    }
    element seg7_0to3.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320128";
@@ -219,6 +223,11 @@
    }
    element seg7_4to7.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320112";
@@ -235,6 +244,11 @@
    }
    element slider_switch.avalon_parallel_port_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320160";
@@ -251,6 +265,11 @@
    }
    element sram.avalon_sram_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "134217728";
@@ -272,9 +291,19 @@
          value = "3";
          type = "int";
       }
+      datum sopceditor_expanded
+      {
+         value = "1";
+         type = "boolean";
+      }
    }
    element sysid0.control_slave
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320192";
@@ -291,6 +320,11 @@
    }
    element tftlcd_base_ctrl.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320032";
@@ -307,6 +341,11 @@
    }
    element tftlcd_cmd.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320048";
@@ -323,9 +362,77 @@
    }
    element tftlcd_data.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320080";
+         type = "String";
+      }
+   }
+   element timer_1s
+   {
+      datum _sortIndex
+      {
+         value = "20";
+         type = "int";
+      }
+   }
+   element timer_1s.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "136314944";
+         type = "String";
+      }
+   }
+   element timer_scrollX
+   {
+      datum _sortIndex
+      {
+         value = "21";
+         type = "int";
+      }
+   }
+   element timer_scrollX.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "136314912";
+         type = "String";
+      }
+   }
+   element timer_touch
+   {
+      datum _sortIndex
+      {
+         value = "22";
+         type = "int";
+      }
+   }
+   element timer_touch.s1
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "136314880";
          type = "String";
       }
    }
@@ -339,9 +446,14 @@
    }
    element touch_ctrl.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
-         value = "136320000";
+         value = "136314976";
          type = "String";
       }
    }
@@ -355,6 +467,11 @@
    }
    element touch_msg.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320016";
@@ -371,6 +488,11 @@
    }
    element touch_pen_intr.s1
    {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "136320064";
@@ -510,7 +632,7 @@
   <parameter name="dataAddrWidth" value="28" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x8000000' /><slave name='sram.avalon_sram_slave' start='0x8000000' end='0x8200000' /><slave name='cpu.debug_mem_slave' start='0x8200800' end='0x8201000' /><slave name='Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave' start='0x8201000' end='0x8201400' /><slave name='touch_ctrl.s1' start='0x8201400' end='0x8201410' /><slave name='touch_msg.s1' start='0x8201410' end='0x8201420' /><slave name='tftlcd_base_ctrl.s1' start='0x8201420' end='0x8201430' /><slave name='tftlcd_cmd.s1' start='0x8201430' end='0x8201440' /><slave name='touch_pen_intr.s1' start='0x8201440' end='0x8201450' /><slave name='tftlcd_data.s1' start='0x8201450' end='0x8201460' /><slave name='led_red.avalon_parallel_port_slave' start='0x8201460' end='0x8201470' /><slave name='seg7_4to7.avalon_parallel_port_slave' start='0x8201470' end='0x8201480' /><slave name='seg7_0to3.avalon_parallel_port_slave' start='0x8201480' end='0x8201490' /><slave name='led_green.avalon_parallel_port_slave' start='0x8201490' end='0x82014A0' /><slave name='slider_switch.avalon_parallel_port_slave' start='0x82014A0' end='0x82014B0' /><slave name='push_buttons.avalon_parallel_port_slave' start='0x82014B0' end='0x82014C0' /><slave name='sysid0.control_slave' start='0x82014C0' end='0x82014C8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x82014C8' end='0x82014D0' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x8000000' /><slave name='sram.avalon_sram_slave' start='0x8000000' end='0x8200000' /><slave name='timer_touch.s1' start='0x8200000' end='0x8200020' /><slave name='timer_scrollX.s1' start='0x8200020' end='0x8200040' /><slave name='timer_1s.s1' start='0x8200040' end='0x8200060' /><slave name='touch_ctrl.s1' start='0x8200060' end='0x8200070' /><slave name='cpu.debug_mem_slave' start='0x8200800' end='0x8201000' /><slave name='Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave' start='0x8201000' end='0x8201400' /><slave name='touch_msg.s1' start='0x8201410' end='0x8201420' /><slave name='tftlcd_base_ctrl.s1' start='0x8201420' end='0x8201430' /><slave name='tftlcd_cmd.s1' start='0x8201430' end='0x8201440' /><slave name='touch_pen_intr.s1' start='0x8201440' end='0x8201450' /><slave name='tftlcd_data.s1' start='0x8201450' end='0x8201460' /><slave name='led_red.avalon_parallel_port_slave' start='0x8201460' end='0x8201470' /><slave name='seg7_4to7.avalon_parallel_port_slave' start='0x8201470' end='0x8201480' /><slave name='seg7_0to3.avalon_parallel_port_slave' start='0x8201480' end='0x8201490' /><slave name='led_green.avalon_parallel_port_slave' start='0x8201490' end='0x82014A0' /><slave name='slider_switch.avalon_parallel_port_slave' start='0x82014A0' end='0x82014B0' /><slave name='push_buttons.avalon_parallel_port_slave' start='0x82014B0' end='0x82014C0' /><slave name='sysid0.control_slave' start='0x82014C0' end='0x82014C8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x82014C8' end='0x82014D0' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -556,7 +678,7 @@
   <parameter name="instruction_master_high_performance_paddr_size" value="0" />
   <parameter name="instruction_master_paddr_base" value="0" />
   <parameter name="instruction_master_paddr_size" value="0" />
-  <parameter name="internalIrqMaskSystemInfo" value="15" />
+  <parameter name="internalIrqMaskSystemInfo" value="127" />
   <parameter name="io_regionbase" value="0" />
   <parameter name="io_regionsize" value="0" />
   <parameter name="master_addr_map" value="false" />
@@ -913,6 +1035,50 @@
   <parameter name="simDrivenValue" value="0" />
   <parameter name="width" value="16" />
  </module>
+ <module name="timer_1s" kind="altera_avalon_timer" version="15.0" enabled="1">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="true" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="SEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
+ <module
+   name="timer_scrollX"
+   kind="altera_avalon_timer"
+   version="15.0"
+   enabled="1">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="false" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="MSEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
+ <module
+   name="timer_touch"
+   kind="altera_avalon_timer"
+   version="15.0"
+   enabled="1">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="false" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="MSEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="watchdogPulse" value="2" />
+ </module>
  <module name="touch_ctrl" kind="altera_avalon_pio" version="15.0" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -1114,7 +1280,34 @@
    start="cpu.data_master"
    end="touch_ctrl.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201400" />
+  <parameter name="baseAddress" value="0x08200060" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.0"
+   start="cpu.data_master"
+   end="timer_1s.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08200040" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.0"
+   start="cpu.data_master"
+   end="timer_scrollX.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08200020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.0"
+   start="cpu.data_master"
+   end="timer_touch.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x08200000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1231,6 +1424,21 @@
    start="sys_sdram_pll.sys_clk"
    end="touch_ctrl.clk" />
  <connection
+   kind="clock"
+   version="15.0"
+   start="sys_sdram_pll.sys_clk"
+   end="timer_1s.clk" />
+ <connection
+   kind="clock"
+   version="15.0"
+   start="sys_sdram_pll.sys_clk"
+   end="timer_scrollX.clk" />
+ <connection
+   kind="clock"
+   version="15.0"
+   start="sys_sdram_pll.sys_clk"
+   end="timer_touch.clk" />
+ <connection
    kind="interrupt"
    version="15.0"
    start="cpu.irq"
@@ -1242,7 +1450,7 @@
    version="15.0"
    start="cpu.irq"
    end="slider_switch.interrupt">
-  <parameter name="irqNumber" value="2" />
+  <parameter name="irqNumber" value="5" />
  </connection>
  <connection kind="interrupt" version="15.0" start="cpu.irq" end="jtag_uart.irq">
   <parameter name="irqNumber" value="0" />
@@ -1253,6 +1461,19 @@
    start="cpu.irq"
    end="touch_pen_intr.irq">
   <parameter name="irqNumber" value="3" />
+ </connection>
+ <connection kind="interrupt" version="15.0" start="cpu.irq" end="timer_1s.irq">
+  <parameter name="irqNumber" value="2" />
+ </connection>
+ <connection
+   kind="interrupt"
+   version="15.0"
+   start="cpu.irq"
+   end="timer_scrollX.irq">
+  <parameter name="irqNumber" value="6" />
+ </connection>
+ <connection kind="interrupt" version="15.0" start="cpu.irq" end="timer_touch.irq">
+  <parameter name="irqNumber" value="4" />
  </connection>
  <connection
    kind="reset"
@@ -1352,6 +1573,21 @@
  <connection
    kind="reset"
    version="15.0"
+   start="cpu.debug_reset_request"
+   end="timer_1s.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
+   start="cpu.debug_reset_request"
+   end="timer_scrollX.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
+   start="cpu.debug_reset_request"
+   end="timer_touch.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
    start="sys_sdram_pll.reset_source"
    end="cpu.reset" />
  <connection
@@ -1439,6 +1675,21 @@
    version="15.0"
    start="sys_sdram_pll.reset_source"
    end="touch_ctrl.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
+   start="sys_sdram_pll.reset_source"
+   end="timer_1s.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
+   start="sys_sdram_pll.reset_source"
+   end="timer_scrollX.reset" />
+ <connection
+   kind="reset"
+   version="15.0"
+   start="sys_sdram_pll.reset_source"
+   end="timer_touch.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

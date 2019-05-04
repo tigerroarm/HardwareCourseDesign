@@ -47,7 +47,7 @@ module ED2platform (
 		input  wire        touch_pen_intr_export  // touch_pen_intr.export
 	);
 
-	wire         sys_sdram_pll_sys_clk_clk;                                                              // sys_sdram_pll:sys_clk_clk -> [Altera_UP_SD_Card_Avalon_Interface_0:i_clock, cpu:clk, irq_mapper:clk, jtag_uart:clk, led_green:clk, led_red:clk, mm_interconnect_0:sys_sdram_pll_sys_clk_clk, push_buttons:clk, rst_controller:clk, sdram:clk, seg7_0to3:clk, seg7_4to7:clk, slider_switch:clk, sram:clk, sysid0:clock, tftlcd_base_ctrl:clk, tftlcd_cmd:clk, tftlcd_data:clk, touch_ctrl:clk, touch_msg:clk, touch_pen_intr:clk]
+	wire         sys_sdram_pll_sys_clk_clk;                                                              // sys_sdram_pll:sys_clk_clk -> [Altera_UP_SD_Card_Avalon_Interface_0:i_clock, cpu:clk, irq_mapper:clk, jtag_uart:clk, led_green:clk, led_red:clk, mm_interconnect_0:sys_sdram_pll_sys_clk_clk, push_buttons:clk, rst_controller:clk, sdram:clk, seg7_0to3:clk, seg7_4to7:clk, slider_switch:clk, sram:clk, sysid0:clock, tftlcd_base_ctrl:clk, tftlcd_cmd:clk, tftlcd_data:clk, timer_1s:clk, timer_scrollX:clk, timer_touch:clk, touch_ctrl:clk, touch_msg:clk, touch_pen_intr:clk]
 	wire  [31:0] cpu_data_master_readdata;                                                               // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
 	wire         cpu_data_master_waitrequest;                                                            // mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
 	wire         cpu_data_master_debugaccess;                                                            // cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
@@ -172,12 +172,30 @@ module ED2platform (
 	wire   [1:0] mm_interconnect_0_touch_ctrl_s1_address;                                                // mm_interconnect_0:touch_ctrl_s1_address -> touch_ctrl:address
 	wire         mm_interconnect_0_touch_ctrl_s1_write;                                                  // mm_interconnect_0:touch_ctrl_s1_write -> touch_ctrl:write_n
 	wire  [31:0] mm_interconnect_0_touch_ctrl_s1_writedata;                                              // mm_interconnect_0:touch_ctrl_s1_writedata -> touch_ctrl:writedata
+	wire         mm_interconnect_0_timer_1s_s1_chipselect;                                               // mm_interconnect_0:timer_1s_s1_chipselect -> timer_1s:chipselect
+	wire  [15:0] mm_interconnect_0_timer_1s_s1_readdata;                                                 // timer_1s:readdata -> mm_interconnect_0:timer_1s_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_1s_s1_address;                                                  // mm_interconnect_0:timer_1s_s1_address -> timer_1s:address
+	wire         mm_interconnect_0_timer_1s_s1_write;                                                    // mm_interconnect_0:timer_1s_s1_write -> timer_1s:write_n
+	wire  [15:0] mm_interconnect_0_timer_1s_s1_writedata;                                                // mm_interconnect_0:timer_1s_s1_writedata -> timer_1s:writedata
+	wire         mm_interconnect_0_timer_scrollx_s1_chipselect;                                          // mm_interconnect_0:timer_scrollX_s1_chipselect -> timer_scrollX:chipselect
+	wire  [15:0] mm_interconnect_0_timer_scrollx_s1_readdata;                                            // timer_scrollX:readdata -> mm_interconnect_0:timer_scrollX_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_scrollx_s1_address;                                             // mm_interconnect_0:timer_scrollX_s1_address -> timer_scrollX:address
+	wire         mm_interconnect_0_timer_scrollx_s1_write;                                               // mm_interconnect_0:timer_scrollX_s1_write -> timer_scrollX:write_n
+	wire  [15:0] mm_interconnect_0_timer_scrollx_s1_writedata;                                           // mm_interconnect_0:timer_scrollX_s1_writedata -> timer_scrollX:writedata
+	wire         mm_interconnect_0_timer_touch_s1_chipselect;                                            // mm_interconnect_0:timer_touch_s1_chipselect -> timer_touch:chipselect
+	wire  [15:0] mm_interconnect_0_timer_touch_s1_readdata;                                              // timer_touch:readdata -> mm_interconnect_0:timer_touch_s1_readdata
+	wire   [2:0] mm_interconnect_0_timer_touch_s1_address;                                               // mm_interconnect_0:timer_touch_s1_address -> timer_touch:address
+	wire         mm_interconnect_0_timer_touch_s1_write;                                                 // mm_interconnect_0:timer_touch_s1_write -> timer_touch:write_n
+	wire  [15:0] mm_interconnect_0_timer_touch_s1_writedata;                                             // mm_interconnect_0:timer_touch_s1_writedata -> timer_touch:writedata
 	wire         irq_mapper_receiver0_irq;                                                               // push_buttons:irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                                               // slider_switch:irq -> irq_mapper:receiver1_irq
 	wire         irq_mapper_receiver2_irq;                                                               // jtag_uart:av_irq -> irq_mapper:receiver2_irq
 	wire         irq_mapper_receiver3_irq;                                                               // touch_pen_intr:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                                               // timer_1s:irq -> irq_mapper:receiver4_irq
+	wire         irq_mapper_receiver5_irq;                                                               // timer_scrollX:irq -> irq_mapper:receiver5_irq
+	wire         irq_mapper_receiver6_irq;                                                               // timer_touch:irq -> irq_mapper:receiver6_irq
 	wire  [31:0] cpu_irq_irq;                                                                            // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, led_green:reset, led_red:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, push_buttons:reset, rst_translator:in_reset, sdram:reset_n, seg7_0to3:reset, seg7_4to7:reset, slider_switch:reset, sram:reset, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
+	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, led_green:reset, led_red:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, push_buttons:reset, rst_translator:in_reset, sdram:reset_n, seg7_0to3:reset, seg7_4to7:reset, slider_switch:reset, sram:reset, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, timer_1s:reset_n, timer_scrollX:reset_n, timer_touch:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                     // rst_controller:reset_req -> [cpu:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                                                          // cpu:debug_reset_request -> rst_controller:reset_in0
 	wire         sys_sdram_pll_reset_source_reset;                                                       // sys_sdram_pll:reset_source_reset -> rst_controller:reset_in1
@@ -420,6 +438,39 @@ module ED2platform (
 		.bidir_port (lcd_data_export)                              // external_connection.export
 	);
 
+	ED2platform_timer_1s timer_1s (
+		.clk        (sys_sdram_pll_sys_clk_clk),                //   clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),          // reset.reset_n
+		.address    (mm_interconnect_0_timer_1s_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_1s_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_1s_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_1s_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_1s_s1_write),     //      .write_n
+		.irq        (irq_mapper_receiver4_irq)                  //   irq.irq
+	);
+
+	ED2platform_timer_scrollX timer_scrollx (
+		.clk        (sys_sdram_pll_sys_clk_clk),                     //   clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),               // reset.reset_n
+		.address    (mm_interconnect_0_timer_scrollx_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_scrollx_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_scrollx_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_scrollx_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_scrollx_s1_write),     //      .write_n
+		.irq        (irq_mapper_receiver5_irq)                       //   irq.irq
+	);
+
+	ED2platform_timer_scrollX timer_touch (
+		.clk        (sys_sdram_pll_sys_clk_clk),                   //   clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),             // reset.reset_n
+		.address    (mm_interconnect_0_timer_touch_s1_address),    //    s1.address
+		.writedata  (mm_interconnect_0_timer_touch_s1_writedata),  //      .writedata
+		.readdata   (mm_interconnect_0_timer_touch_s1_readdata),   //      .readdata
+		.chipselect (mm_interconnect_0_timer_touch_s1_chipselect), //      .chipselect
+		.write_n    (~mm_interconnect_0_timer_touch_s1_write),     //      .write_n
+		.irq        (irq_mapper_receiver6_irq)                     //   irq.irq
+	);
+
 	ED2platform_tftlcd_base_ctrl touch_ctrl (
 		.clk        (sys_sdram_pll_sys_clk_clk),                  //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),            //               reset.reset_n
@@ -566,6 +617,21 @@ module ED2platform (
 		.tftlcd_data_s1_readdata                                              (mm_interconnect_0_tftlcd_data_s1_readdata),                                              //                                                         .readdata
 		.tftlcd_data_s1_writedata                                             (mm_interconnect_0_tftlcd_data_s1_writedata),                                             //                                                         .writedata
 		.tftlcd_data_s1_chipselect                                            (mm_interconnect_0_tftlcd_data_s1_chipselect),                                            //                                                         .chipselect
+		.timer_1s_s1_address                                                  (mm_interconnect_0_timer_1s_s1_address),                                                  //                                              timer_1s_s1.address
+		.timer_1s_s1_write                                                    (mm_interconnect_0_timer_1s_s1_write),                                                    //                                                         .write
+		.timer_1s_s1_readdata                                                 (mm_interconnect_0_timer_1s_s1_readdata),                                                 //                                                         .readdata
+		.timer_1s_s1_writedata                                                (mm_interconnect_0_timer_1s_s1_writedata),                                                //                                                         .writedata
+		.timer_1s_s1_chipselect                                               (mm_interconnect_0_timer_1s_s1_chipselect),                                               //                                                         .chipselect
+		.timer_scrollX_s1_address                                             (mm_interconnect_0_timer_scrollx_s1_address),                                             //                                         timer_scrollX_s1.address
+		.timer_scrollX_s1_write                                               (mm_interconnect_0_timer_scrollx_s1_write),                                               //                                                         .write
+		.timer_scrollX_s1_readdata                                            (mm_interconnect_0_timer_scrollx_s1_readdata),                                            //                                                         .readdata
+		.timer_scrollX_s1_writedata                                           (mm_interconnect_0_timer_scrollx_s1_writedata),                                           //                                                         .writedata
+		.timer_scrollX_s1_chipselect                                          (mm_interconnect_0_timer_scrollx_s1_chipselect),                                          //                                                         .chipselect
+		.timer_touch_s1_address                                               (mm_interconnect_0_timer_touch_s1_address),                                               //                                           timer_touch_s1.address
+		.timer_touch_s1_write                                                 (mm_interconnect_0_timer_touch_s1_write),                                                 //                                                         .write
+		.timer_touch_s1_readdata                                              (mm_interconnect_0_timer_touch_s1_readdata),                                              //                                                         .readdata
+		.timer_touch_s1_writedata                                             (mm_interconnect_0_timer_touch_s1_writedata),                                             //                                                         .writedata
+		.timer_touch_s1_chipselect                                            (mm_interconnect_0_timer_touch_s1_chipselect),                                            //                                                         .chipselect
 		.touch_ctrl_s1_address                                                (mm_interconnect_0_touch_ctrl_s1_address),                                                //                                            touch_ctrl_s1.address
 		.touch_ctrl_s1_write                                                  (mm_interconnect_0_touch_ctrl_s1_write),                                                  //                                                         .write
 		.touch_ctrl_s1_readdata                                               (mm_interconnect_0_touch_ctrl_s1_readdata),                                               //                                                         .readdata
@@ -587,6 +653,9 @@ module ED2platform (
 		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
 		.receiver3_irq (irq_mapper_receiver3_irq),       // receiver3.irq
+		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
+		.receiver5_irq (irq_mapper_receiver5_irq),       // receiver5.irq
+		.receiver6_irq (irq_mapper_receiver6_irq),       // receiver6.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 

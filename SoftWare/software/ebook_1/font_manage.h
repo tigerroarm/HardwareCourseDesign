@@ -24,7 +24,7 @@ typedef unsigned char alt_u8;
 #define ASCII_X8_Y16_ARRAY_SIZE ( ASCII_LETTER_BYTES * 128 )
 
 //得到ASCII字符的地址
-alt_u8 *getAsciiFont( char asciiVal );
+const alt_u8 *getAsciiFont( char asciiVal );
 
 //GBK字符尺寸：16*16
 #define GBK_X_SIZE 16
@@ -35,7 +35,7 @@ alt_u8 *getAsciiFont( char asciiVal );
 #define GBK_X16_Y16_ARRAY_SIZE ( GBK_WORD_BYTES * 23940 )
 
 //得到GBK中文字符的地址
-alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte );
+const alt_u8 *getGbkFont( alt_u8 gbkHighByte, alt_u8 gbkLowByte );
 
 //各种icon的尺寸定义
 

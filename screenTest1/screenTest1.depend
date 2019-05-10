@@ -1,0 +1,93 @@
+# depslib dependency file v1.0
+1557414391 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\ascii_font.c
+	"font_manage.h"
+
+1557413699 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\font_manage.h
+
+1557364595 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\color.c
+	"color.h"
+
+1557364337 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\color.h
+
+1557415627 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\font_manage.c
+	"font_manage.h"
+
+1557414198 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\gbk_font.c
+	"font_manage.h"
+
+1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\icon_pic.c
+	"font_manage.h"
+
+1557425630 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"screen.h"
+	"font_manage.h"
+	"icon_pic_extern.h"
+	"test_value.h"
+	"color.h"
+
+1557396944 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.h
+	<stdio.h>
+	"screen_type.h"
+	"font_manage.h"
+	"txt_read.h"
+
+1557391283 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_type.h
+	<stdbool.h>
+	"alt_types.h"
+	"color.h"
+
+1556960425 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\alt_types.h
+
+1556950403 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.h
+	"screen_type.h"
+
+1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\icon_pic_extern.h
+
+1557425444 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.c
+	<stdlib.h>
+	"screen_display.h"
+	"screen.h"
+	"test_value.h"
+
+1557417969 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.h
+	"screen_type.h"
+
+1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.c
+	"time_count.h"
+
+1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.h
+
+1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.c
+	"touch_resp.h"
+
+1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.h
+
+1557425193 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"txt_read.h"
+	"screen.h"
+	"test_value.h"
+
+1557424219 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"screen.h"
+	"screen_display.h"
+	"test_value.h"
+
+1557425675 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.c
+	<stdio.h>
+	<stdlib.h>
+	"test_value.h"
+	"alt_types.h"
+
+1557382791 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.h
+	<stdbool.h>
+	"screen_type.h"
+	"txt_read.h"
+

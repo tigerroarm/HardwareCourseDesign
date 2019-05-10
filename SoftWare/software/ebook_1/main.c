@@ -6,7 +6,7 @@
  */
 
 #include <stdio.h>
-#include <alt_types.h>
+#include "alt_types.h"
 #include <unistd.h>
 #include "system.h"
 #include "sys/alt_irq.h"

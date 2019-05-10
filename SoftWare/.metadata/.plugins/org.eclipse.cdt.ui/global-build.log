@@ -578,3 +578,6 @@ Info:               129918 KBytes free for stack + heap.
 Info: Creating ebook_1.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source ebook_1.elf >ebook_1.objdump
 [ebook_1 build complete]
+16:59:39 **** Build of configuration Nios II for project ebook_1_bsp ****
+make all 
+[BSP build complete]

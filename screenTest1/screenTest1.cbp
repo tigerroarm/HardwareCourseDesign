@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="screenTest1" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/screenTest1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/screenTest1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="alt_types.h" />
+		<Unit filename="ascii_font.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="color.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="color.h" />
+		<Unit filename="font_manage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="font_manage.h" />
+		<Unit filename="gbk_font.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="icon_pic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="icon_pic_extern.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="screen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="screen.h" />
+		<Unit filename="screen_display.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="screen_display.h" />
+		<Unit filename="screen_type.h" />
+		<Unit filename="test_value.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="test_value.h" />
+		<Unit filename="time_count.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="time_count.h" />
+		<Unit filename="touch_resp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="touch_resp.h" />
+		<Unit filename="txt_read.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="txt_read.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

@@ -12,7 +12,7 @@
 #define SCREEN_TYPE_H_
 
 #include <stdbool.h>
-#include <alt_types.h>
+#include "alt_types.h"
 #include "color.h"
 
 

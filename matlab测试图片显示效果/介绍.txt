@@ -1,0 +1,1 @@
+ShowTxtImage.m为matlab导入文本文档中16bit颜色数组的代码

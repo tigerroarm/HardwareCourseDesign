@@ -885,7 +885,7 @@
 										<fullscreen-action>false</fullscreen-action>
 										<node nodeId="1372710005721" orientation="HORIZONTAL" divider="0.1925373134328358">
 											<node nodeId="1375985011088" orientation="VERTICAL" divider="0.504054054054054">
-												<leaf id="3" nodeId="1375985003630">
+												<leaf id="1" nodeId="1375985003630">
 													<placeholders>
 														<placeholder>dock.single.Clock\ Domains\ \-\ Beta</placeholder>
 														<placeholder>dock.single.IP\ Catalog</placeholder>
@@ -938,7 +938,7 @@
 											<node nodeId="1372710005725" orientation="VERTICAL" divider="0.5952380952380952">
 												<node nodeId="1372710005727" orientation="HORIZONTAL" divider="0.6742804471297805">
 													<node nodeId="1372710005733" orientation="VERTICAL" divider="0.75">
-														<leaf id="4" nodeId="1372710005735">
+														<leaf id="2" nodeId="1372710005735">
 															<placeholders>
 																<placeholder>dock.single.Connections</placeholder>
 																<placeholder>dock.single.System\ Contents</placeholder>
@@ -961,13 +961,6 @@
 															<placeholder-map>
 																<version>0</version>
 																<format>dock.PlaceholderList</format>
-																<entry>
-																	<key shared="false">
-																		<placeholder>dock.single.Address\ Map</placeholder>
-																	</key>
-																	<item key="convert" type="b">true</item>
-																	<item key="convert-keys" type="a"/>
-																</entry>
 																<entry>
 																	<key shared="false">
 																		<placeholder>dock.single.Assignments</placeholder>
@@ -993,13 +986,6 @@
 																		<placeholder>dock.single.Schematic</placeholder>
 																	</key>
 																</entry>
-																<entry>
-																	<key shared="false">
-																		<placeholder>dock.single.Interconnect\ Requirements</placeholder>
-																	</key>
-																	<item key="convert" type="b">true</item>
-																	<item key="convert-keys" type="a"/>
-																</entry>
 															</placeholder-map>
 														</leaf>
 														<leaf id="-1" nodeId="1372710005737">
@@ -1009,7 +995,7 @@
 														</leaf>
 													</node>
 													<node nodeId="1389812802503" orientation="VERTICAL" divider="0.6704331450094162">
-														<leaf id="1" nodeId="1389812800464">
+														<leaf id="3" nodeId="1389812800464">
 															<placeholders>
 																<placeholder>dock.single.Details</placeholder>
 																<placeholder>dock.single.Parameters</placeholder>
@@ -1048,7 +1034,7 @@
 														</leaf>
 													</node>
 												</node>
-												<leaf id="2" nodeId="1372710005745">
+												<leaf id="4" nodeId="1372710005745">
 													<placeholders>
 														<placeholder>dock.single.Messages</placeholder>
 														<placeholder>dock.single.Generation\ Messages</placeholder>
@@ -1137,26 +1123,6 @@
 											<children ignore="false"/>
 										</child>
 									</children>
-								</child>
-								<child>
-									<layout factory="predefined" placeholder="dock.single.Parameters">
-										<replacement id="dockablesingle Parameters"/>
-										<delegate id="delegate_ccontrol backup factory id">
-											<id>Parameters</id>
-											<area/>
-										</delegate>
-									</layout>
-									<children ignore="false"/>
-								</child>
-								<child>
-									<layout factory="predefined" placeholder="dock.single.Messages">
-										<replacement id="dockablesingle Messages"/>
-										<delegate id="delegate_ccontrol backup factory id">
-											<id>Messages</id>
-											<area/>
-										</delegate>
-									</layout>
-									<children ignore="false"/>
 								</child>
 								<child>
 									<layout factory="predefined" placeholder="dock.single.IP\ Catalog">
@@ -1275,6 +1241,26 @@
 											<children ignore="false"/>
 										</child>
 									</children>
+								</child>
+								<child>
+									<layout factory="predefined" placeholder="dock.single.Parameters">
+										<replacement id="dockablesingle Parameters"/>
+										<delegate id="delegate_ccontrol backup factory id">
+											<id>Parameters</id>
+											<area/>
+										</delegate>
+									</layout>
+									<children ignore="false"/>
+								</child>
+								<child>
+									<layout factory="predefined" placeholder="dock.single.Messages">
+										<replacement id="dockablesingle Messages"/>
+										<delegate id="delegate_ccontrol backup factory id">
+											<id>Messages</id>
+											<area/>
+										</delegate>
+									</layout>
+									<children ignore="false"/>
 								</child>
 							</children>
 						</root>
@@ -1691,7 +1677,7 @@
 											<placeholder>dock.single.Parameters</placeholder>
 											<backup-path>
 												<node location="RIGHT" size="0.8074626865671641" id="1372710005721"/>
-												<node location="TOP" size="0.75" id="1372710005725"/>
+												<node location="TOP" size="0.5952380952380952" id="1372710005725"/>
 												<node location="RIGHT" size="0.3257195528702195" id="1372710005727"/>
 												<node location="TOP" size="0.6704331450094162" id="1389812802503"/>
 												<leaf id="1389812800464"/>

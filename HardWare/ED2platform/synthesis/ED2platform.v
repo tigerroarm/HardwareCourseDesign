@@ -5,18 +5,15 @@
 `timescale 1 ps / 1 ps
 module ED2platform (
 		input  wire        clk_clk,               //            clk.clk
-		input  wire [3:0]  key_export,            //            key.export
 		output wire [2:0]  lcd_base_ctrl_export,  //  lcd_base_ctrl.export
 		output wire [2:0]  lcd_cmd_export,        //        lcd_cmd.export
 		inout  wire [15:0] lcd_data_export,       //       lcd_data.export
-		output wire [8:0]  ledgreen_export,       //       ledgreen.export
-		output wire [17:0] ledred_export,         //         ledred.export
+		output wire [15:0] pen_smp_period_export, // pen_smp_period.export
 		input  wire        reset_reset_n,         //          reset.reset_n
 		inout  wire        sd_card_b_SD_cmd,      //        sd_card.b_SD_cmd
 		inout  wire        sd_card_b_SD_dat,      //               .b_SD_dat
 		inout  wire        sd_card_b_SD_dat3,     //               .b_SD_dat3
 		output wire        sd_card_o_SD_clock,    //               .o_SD_clock
-		output wire        sdram_clk_clk,         //      sdram_clk.clk
 		output wire [12:0] sdram_wire_addr,       //     sdram_wire.addr
 		output wire [1:0]  sdram_wire_ba,         //               .ba
 		output wire        sdram_wire_cas_n,      //               .cas_n
@@ -26,28 +23,11 @@ module ED2platform (
 		output wire [3:0]  sdram_wire_dqm,        //               .dqm
 		output wire        sdram_wire_ras_n,      //               .ras_n
 		output wire        sdram_wire_we_n,       //               .we_n
-		output wire [6:0]  seg7l_HEX4,            //          seg7l.HEX4
-		output wire [6:0]  seg7l_HEX5,            //               .HEX5
-		output wire [6:0]  seg7l_HEX6,            //               .HEX6
-		output wire [6:0]  seg7l_HEX7,            //               .HEX7
-		output wire [6:0]  sge7r_HEX0,            //          sge7r.HEX0
-		output wire [6:0]  sge7r_HEX1,            //               .HEX1
-		output wire [6:0]  sge7r_HEX2,            //               .HEX2
-		output wire [6:0]  sge7r_HEX3,            //               .HEX3
-		inout  wire [15:0] sram_DQ,               //           sram.DQ
-		output wire [19:0] sram_ADDR,             //               .ADDR
-		output wire        sram_LB_N,             //               .LB_N
-		output wire        sram_UB_N,             //               .UB_N
-		output wire        sram_CE_N,             //               .CE_N
-		output wire        sram_OE_N,             //               .OE_N
-		output wire        sram_WE_N,             //               .WE_N
-		input  wire [17:0] sw_export,             //             sw.export
 		output wire [2:0]  touch_ctrl_export,     //     touch_ctrl.export
 		input  wire [1:0]  touch_msg_export,      //      touch_msg.export
 		input  wire        touch_pen_intr_export  // touch_pen_intr.export
 	);
 
-	wire         sys_sdram_pll_sys_clk_clk;                                                              // sys_sdram_pll:sys_clk_clk -> [Altera_UP_SD_Card_Avalon_Interface_0:i_clock, cpu:clk, irq_mapper:clk, jtag_uart:clk, led_green:clk, led_red:clk, mm_interconnect_0:sys_sdram_pll_sys_clk_clk, push_buttons:clk, rst_controller:clk, sdram:clk, seg7_0to3:clk, seg7_4to7:clk, slider_switch:clk, sram:clk, sysid0:clock, tftlcd_base_ctrl:clk, tftlcd_cmd:clk, tftlcd_data:clk, timer_1s:clk, timer_scrollX:clk, timer_touch:clk, touch_ctrl:clk, touch_msg:clk, touch_pen_intr:clk]
 	wire  [31:0] cpu_data_master_readdata;                                                               // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
 	wire         cpu_data_master_waitrequest;                                                            // mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
 	wire         cpu_data_master_debugaccess;                                                            // cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
@@ -69,48 +49,6 @@ module ED2platform (
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_read;                                     // mm_interconnect_0:jtag_uart_avalon_jtag_slave_read -> jtag_uart:av_read_n
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_write;                                    // mm_interconnect_0:jtag_uart_avalon_jtag_slave_write -> jtag_uart:av_write_n
 	wire  [31:0] mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata;                                // mm_interconnect_0:jtag_uart_avalon_jtag_slave_writedata -> jtag_uart:av_writedata
-	wire         mm_interconnect_0_push_buttons_avalon_parallel_port_slave_chipselect;                   // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_chipselect -> push_buttons:chipselect
-	wire  [31:0] mm_interconnect_0_push_buttons_avalon_parallel_port_slave_readdata;                     // push_buttons:readdata -> mm_interconnect_0:push_buttons_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_push_buttons_avalon_parallel_port_slave_address;                      // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_address -> push_buttons:address
-	wire         mm_interconnect_0_push_buttons_avalon_parallel_port_slave_read;                         // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_read -> push_buttons:read
-	wire   [3:0] mm_interconnect_0_push_buttons_avalon_parallel_port_slave_byteenable;                   // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_byteenable -> push_buttons:byteenable
-	wire         mm_interconnect_0_push_buttons_avalon_parallel_port_slave_write;                        // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_write -> push_buttons:write
-	wire  [31:0] mm_interconnect_0_push_buttons_avalon_parallel_port_slave_writedata;                    // mm_interconnect_0:push_buttons_avalon_parallel_port_slave_writedata -> push_buttons:writedata
-	wire         mm_interconnect_0_slider_switch_avalon_parallel_port_slave_chipselect;                  // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_chipselect -> slider_switch:chipselect
-	wire  [31:0] mm_interconnect_0_slider_switch_avalon_parallel_port_slave_readdata;                    // slider_switch:readdata -> mm_interconnect_0:slider_switch_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_slider_switch_avalon_parallel_port_slave_address;                     // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_address -> slider_switch:address
-	wire         mm_interconnect_0_slider_switch_avalon_parallel_port_slave_read;                        // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_read -> slider_switch:read
-	wire   [3:0] mm_interconnect_0_slider_switch_avalon_parallel_port_slave_byteenable;                  // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_byteenable -> slider_switch:byteenable
-	wire         mm_interconnect_0_slider_switch_avalon_parallel_port_slave_write;                       // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_write -> slider_switch:write
-	wire  [31:0] mm_interconnect_0_slider_switch_avalon_parallel_port_slave_writedata;                   // mm_interconnect_0:slider_switch_avalon_parallel_port_slave_writedata -> slider_switch:writedata
-	wire         mm_interconnect_0_led_green_avalon_parallel_port_slave_chipselect;                      // mm_interconnect_0:led_green_avalon_parallel_port_slave_chipselect -> led_green:chipselect
-	wire  [31:0] mm_interconnect_0_led_green_avalon_parallel_port_slave_readdata;                        // led_green:readdata -> mm_interconnect_0:led_green_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_led_green_avalon_parallel_port_slave_address;                         // mm_interconnect_0:led_green_avalon_parallel_port_slave_address -> led_green:address
-	wire         mm_interconnect_0_led_green_avalon_parallel_port_slave_read;                            // mm_interconnect_0:led_green_avalon_parallel_port_slave_read -> led_green:read
-	wire   [3:0] mm_interconnect_0_led_green_avalon_parallel_port_slave_byteenable;                      // mm_interconnect_0:led_green_avalon_parallel_port_slave_byteenable -> led_green:byteenable
-	wire         mm_interconnect_0_led_green_avalon_parallel_port_slave_write;                           // mm_interconnect_0:led_green_avalon_parallel_port_slave_write -> led_green:write
-	wire  [31:0] mm_interconnect_0_led_green_avalon_parallel_port_slave_writedata;                       // mm_interconnect_0:led_green_avalon_parallel_port_slave_writedata -> led_green:writedata
-	wire         mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_chipselect;                      // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_chipselect -> seg7_0to3:chipselect
-	wire  [31:0] mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_readdata;                        // seg7_0to3:readdata -> mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_address;                         // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_address -> seg7_0to3:address
-	wire         mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_read;                            // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_read -> seg7_0to3:read
-	wire   [3:0] mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_byteenable;                      // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_byteenable -> seg7_0to3:byteenable
-	wire         mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_write;                           // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_write -> seg7_0to3:write
-	wire  [31:0] mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_writedata;                       // mm_interconnect_0:seg7_0to3_avalon_parallel_port_slave_writedata -> seg7_0to3:writedata
-	wire         mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_chipselect;                      // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_chipselect -> seg7_4to7:chipselect
-	wire  [31:0] mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_readdata;                        // seg7_4to7:readdata -> mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_address;                         // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_address -> seg7_4to7:address
-	wire         mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_read;                            // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_read -> seg7_4to7:read
-	wire   [3:0] mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_byteenable;                      // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_byteenable -> seg7_4to7:byteenable
-	wire         mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_write;                           // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_write -> seg7_4to7:write
-	wire  [31:0] mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_writedata;                       // mm_interconnect_0:seg7_4to7_avalon_parallel_port_slave_writedata -> seg7_4to7:writedata
-	wire         mm_interconnect_0_led_red_avalon_parallel_port_slave_chipselect;                        // mm_interconnect_0:led_red_avalon_parallel_port_slave_chipselect -> led_red:chipselect
-	wire  [31:0] mm_interconnect_0_led_red_avalon_parallel_port_slave_readdata;                          // led_red:readdata -> mm_interconnect_0:led_red_avalon_parallel_port_slave_readdata
-	wire   [1:0] mm_interconnect_0_led_red_avalon_parallel_port_slave_address;                           // mm_interconnect_0:led_red_avalon_parallel_port_slave_address -> led_red:address
-	wire         mm_interconnect_0_led_red_avalon_parallel_port_slave_read;                              // mm_interconnect_0:led_red_avalon_parallel_port_slave_read -> led_red:read
-	wire   [3:0] mm_interconnect_0_led_red_avalon_parallel_port_slave_byteenable;                        // mm_interconnect_0:led_red_avalon_parallel_port_slave_byteenable -> led_red:byteenable
-	wire         mm_interconnect_0_led_red_avalon_parallel_port_slave_write;                             // mm_interconnect_0:led_red_avalon_parallel_port_slave_write -> led_red:write
-	wire  [31:0] mm_interconnect_0_led_red_avalon_parallel_port_slave_writedata;                         // mm_interconnect_0:led_red_avalon_parallel_port_slave_writedata -> led_red:writedata
 	wire         mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_chipselect;  // mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_chipselect -> Altera_UP_SD_Card_Avalon_Interface_0:i_avalon_chip_select
 	wire  [31:0] mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_readdata;    // Altera_UP_SD_Card_Avalon_Interface_0:o_avalon_readdata -> mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_readdata
 	wire         mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_waitrequest; // Altera_UP_SD_Card_Avalon_Interface_0:o_avalon_waitrequest -> mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_waitrequest
@@ -119,13 +57,6 @@ module ED2platform (
 	wire   [3:0] mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_byteenable;  // mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_byteenable -> Altera_UP_SD_Card_Avalon_Interface_0:i_avalon_byteenable
 	wire         mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_write;       // mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_write -> Altera_UP_SD_Card_Avalon_Interface_0:i_avalon_write
 	wire  [31:0] mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_writedata;   // mm_interconnect_0:Altera_UP_SD_Card_Avalon_Interface_0_avalon_sdcard_slave_writedata -> Altera_UP_SD_Card_Avalon_Interface_0:i_avalon_writedata
-	wire  [15:0] mm_interconnect_0_sram_avalon_sram_slave_readdata;                                      // sram:readdata -> mm_interconnect_0:sram_avalon_sram_slave_readdata
-	wire  [19:0] mm_interconnect_0_sram_avalon_sram_slave_address;                                       // mm_interconnect_0:sram_avalon_sram_slave_address -> sram:address
-	wire         mm_interconnect_0_sram_avalon_sram_slave_read;                                          // mm_interconnect_0:sram_avalon_sram_slave_read -> sram:read
-	wire   [1:0] mm_interconnect_0_sram_avalon_sram_slave_byteenable;                                    // mm_interconnect_0:sram_avalon_sram_slave_byteenable -> sram:byteenable
-	wire         mm_interconnect_0_sram_avalon_sram_slave_readdatavalid;                                 // sram:readdatavalid -> mm_interconnect_0:sram_avalon_sram_slave_readdatavalid
-	wire         mm_interconnect_0_sram_avalon_sram_slave_write;                                         // mm_interconnect_0:sram_avalon_sram_slave_write -> sram:write
-	wire  [15:0] mm_interconnect_0_sram_avalon_sram_slave_writedata;                                     // mm_interconnect_0:sram_avalon_sram_slave_writedata -> sram:writedata
 	wire  [31:0] mm_interconnect_0_sysid0_control_slave_readdata;                                        // sysid0:readdata -> mm_interconnect_0:sysid0_control_slave_readdata
 	wire   [0:0] mm_interconnect_0_sysid0_control_slave_address;                                         // mm_interconnect_0:sysid0_control_slave_address -> sysid0:address
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_readdata;                                         // cpu:debug_mem_slave_readdata -> mm_interconnect_0:cpu_debug_mem_slave_readdata
@@ -187,19 +118,20 @@ module ED2platform (
 	wire   [2:0] mm_interconnect_0_timer_touch_s1_address;                                               // mm_interconnect_0:timer_touch_s1_address -> timer_touch:address
 	wire         mm_interconnect_0_timer_touch_s1_write;                                                 // mm_interconnect_0:timer_touch_s1_write -> timer_touch:write_n
 	wire  [15:0] mm_interconnect_0_timer_touch_s1_writedata;                                             // mm_interconnect_0:timer_touch_s1_writedata -> timer_touch:writedata
-	wire         irq_mapper_receiver0_irq;                                                               // push_buttons:irq -> irq_mapper:receiver0_irq
-	wire         irq_mapper_receiver1_irq;                                                               // slider_switch:irq -> irq_mapper:receiver1_irq
-	wire         irq_mapper_receiver2_irq;                                                               // jtag_uart:av_irq -> irq_mapper:receiver2_irq
-	wire         irq_mapper_receiver3_irq;                                                               // touch_pen_intr:irq -> irq_mapper:receiver3_irq
-	wire         irq_mapper_receiver4_irq;                                                               // timer_1s:irq -> irq_mapper:receiver4_irq
-	wire         irq_mapper_receiver5_irq;                                                               // timer_scrollX:irq -> irq_mapper:receiver5_irq
-	wire         irq_mapper_receiver6_irq;                                                               // timer_touch:irq -> irq_mapper:receiver6_irq
+	wire         mm_interconnect_0_pen_smp_speed_s1_chipselect;                                          // mm_interconnect_0:pen_smp_speed_s1_chipselect -> pen_smp_speed:chipselect
+	wire  [31:0] mm_interconnect_0_pen_smp_speed_s1_readdata;                                            // pen_smp_speed:readdata -> mm_interconnect_0:pen_smp_speed_s1_readdata
+	wire   [1:0] mm_interconnect_0_pen_smp_speed_s1_address;                                             // mm_interconnect_0:pen_smp_speed_s1_address -> pen_smp_speed:address
+	wire         mm_interconnect_0_pen_smp_speed_s1_write;                                               // mm_interconnect_0:pen_smp_speed_s1_write -> pen_smp_speed:write_n
+	wire  [31:0] mm_interconnect_0_pen_smp_speed_s1_writedata;                                           // mm_interconnect_0:pen_smp_speed_s1_writedata -> pen_smp_speed:writedata
+	wire         irq_mapper_receiver0_irq;                                                               // jtag_uart:av_irq -> irq_mapper:receiver0_irq
+	wire         irq_mapper_receiver1_irq;                                                               // timer_1s:irq -> irq_mapper:receiver1_irq
+	wire         irq_mapper_receiver2_irq;                                                               // timer_scrollX:irq -> irq_mapper:receiver2_irq
+	wire         irq_mapper_receiver3_irq;                                                               // timer_touch:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                                               // touch_pen_intr:irq -> irq_mapper:receiver4_irq
 	wire  [31:0] cpu_irq_irq;                                                                            // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, led_green:reset, led_red:reset, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, push_buttons:reset, rst_translator:in_reset, sdram:reset_n, seg7_0to3:reset, seg7_4to7:reset, slider_switch:reset, sram:reset, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, timer_1s:reset_n, timer_scrollX:reset_n, timer_touch:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
+	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, pen_smp_speed:reset_n, rst_translator:in_reset, sdram:reset_n, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, timer_1s:reset_n, timer_scrollX:reset_n, timer_touch:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
 	wire         rst_controller_reset_out_reset_req;                                                     // rst_controller:reset_req -> [cpu:reset_req, rst_translator:reset_req_in]
-	wire         cpu_debug_reset_request_reset;                                                          // cpu:debug_reset_request -> rst_controller:reset_in0
-	wire         sys_sdram_pll_reset_source_reset;                                                       // sys_sdram_pll:reset_source_reset -> rst_controller:reset_in1
-	wire         rst_controller_001_reset_out_reset;                                                     // rst_controller_001:reset_out -> sys_sdram_pll:ref_reset_reset
+	wire         cpu_debug_reset_request_reset;                                                          // cpu:debug_reset_request -> rst_controller:reset_in1
 
 	Altera_UP_SD_Card_Avalon_Interface altera_up_sd_card_avalon_interface_0 (
 		.i_avalon_chip_select (mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_chipselect),  // avalon_sdcard_slave.chipselect
@@ -210,7 +142,7 @@ module ED2platform (
 		.i_avalon_writedata   (mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_writedata),   //                    .writedata
 		.o_avalon_readdata    (mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_readdata),    //                    .readdata
 		.o_avalon_waitrequest (mm_interconnect_0_altera_up_sd_card_avalon_interface_0_avalon_sdcard_slave_waitrequest), //                    .waitrequest
-		.i_clock              (sys_sdram_pll_sys_clk_clk),                                                              //                 clk.clk
+		.i_clock              (clk_clk),                                                                                //                 clk.clk
 		.i_reset_n            (~rst_controller_reset_out_reset),                                                        //               reset.reset_n
 		.b_SD_cmd             (sd_card_b_SD_cmd),                                                                       //         conduit_end.export
 		.b_SD_dat             (sd_card_b_SD_dat),                                                                       //                    .export
@@ -219,7 +151,7 @@ module ED2platform (
 	);
 
 	ED2platform_cpu cpu (
-		.clk                                 (sys_sdram_pll_sys_clk_clk),                         //                       clk.clk
+		.clk                                 (clk_clk),                                           //                       clk.clk
 		.reset_n                             (~rst_controller_reset_out_reset),                   //                     reset.reset_n
 		.reset_req                           (rst_controller_reset_out_reset_req),                //                          .reset_req
 		.d_address                           (cpu_data_master_address),                           //               data_master.address
@@ -250,7 +182,7 @@ module ED2platform (
 	);
 
 	ED2platform_jtag_uart jtag_uart (
-		.clk            (sys_sdram_pll_sys_clk_clk),                                 //               clk.clk
+		.clk            (clk_clk),                                                   //               clk.clk
 		.rst_n          (~rst_controller_reset_out_reset),                           //             reset.reset_n
 		.av_chipselect  (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),  // avalon_jtag_slave.chipselect
 		.av_address     (mm_interconnect_0_jtag_uart_avalon_jtag_slave_address),     //                  .address
@@ -259,51 +191,22 @@ module ED2platform (
 		.av_write_n     (~mm_interconnect_0_jtag_uart_avalon_jtag_slave_write),      //                  .write_n
 		.av_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                  .waitrequest
-		.av_irq         (irq_mapper_receiver2_irq)                                   //               irq.irq
+		.av_irq         (irq_mapper_receiver0_irq)                                   //               irq.irq
 	);
 
-	ED2platform_led_green led_green (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                         //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                    //                      reset.reset
-		.address    (mm_interconnect_0_led_green_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_led_green_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_led_green_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_led_green_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_led_green_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_led_green_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_led_green_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.LEDG       (ledgreen_export)                                                    //         external_interface.export
-	);
-
-	ED2platform_led_red led_red (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                       //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                  //                      reset.reset
-		.address    (mm_interconnect_0_led_red_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_led_red_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_led_red_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_led_red_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_led_red_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_led_red_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_led_red_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.LEDR       (ledred_export)                                                    //         external_interface.export
-	);
-
-	ED2platform_push_buttons push_buttons (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                            //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                       //                      reset.reset
-		.address    (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.KEY        (key_export),                                                           //         external_interface.export
-		.irq        (irq_mapper_receiver0_irq)                                              //                  interrupt.irq
+	ED2platform_pen_smp_speed pen_smp_speed (
+		.clk        (clk_clk),                                       //                 clk.clk
+		.reset_n    (~rst_controller_reset_out_reset),               //               reset.reset_n
+		.address    (mm_interconnect_0_pen_smp_speed_s1_address),    //                  s1.address
+		.write_n    (~mm_interconnect_0_pen_smp_speed_s1_write),     //                    .write_n
+		.writedata  (mm_interconnect_0_pen_smp_speed_s1_writedata),  //                    .writedata
+		.chipselect (mm_interconnect_0_pen_smp_speed_s1_chipselect), //                    .chipselect
+		.readdata   (mm_interconnect_0_pen_smp_speed_s1_readdata),   //                    .readdata
+		.out_port   (pen_smp_period_export)                          // external_connection.export
 	);
 
 	ED2platform_sdram sdram (
-		.clk            (sys_sdram_pll_sys_clk_clk),                //   clk.clk
+		.clk            (clk_clk),                                  //   clk.clk
 		.reset_n        (~rst_controller_reset_out_reset),          // reset.reset_n
 		.az_addr        (mm_interconnect_0_sdram_s1_address),       //    s1.address
 		.az_be_n        (~mm_interconnect_0_sdram_s1_byteenable),   //      .byteenable_n
@@ -325,88 +228,15 @@ module ED2platform (
 		.zs_we_n        (sdram_wire_we_n)                           //      .export
 	);
 
-	ED2platform_seg7_0to3 seg7_0to3 (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                         //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                    //                      reset.reset
-		.address    (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.HEX0       (sge7r_HEX0),                                                        //         external_interface.export
-		.HEX1       (sge7r_HEX1),                                                        //                           .export
-		.HEX2       (sge7r_HEX2),                                                        //                           .export
-		.HEX3       (sge7r_HEX3)                                                         //                           .export
-	);
-
-	ED2platform_seg7_4to7 seg7_4to7 (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                         //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                    //                      reset.reset
-		.address    (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.HEX4       (seg7l_HEX4),                                                        //         external_interface.export
-		.HEX5       (seg7l_HEX5),                                                        //                           .export
-		.HEX6       (seg7l_HEX6),                                                        //                           .export
-		.HEX7       (seg7l_HEX7)                                                         //                           .export
-	);
-
-	ED2platform_slider_switch slider_switch (
-		.clk        (sys_sdram_pll_sys_clk_clk),                                             //                        clk.clk
-		.reset      (rst_controller_reset_out_reset),                                        //                      reset.reset
-		.address    (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_address),    // avalon_parallel_port_slave.address
-		.byteenable (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_byteenable), //                           .byteenable
-		.chipselect (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_chipselect), //                           .chipselect
-		.read       (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_read),       //                           .read
-		.write      (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_write),      //                           .write
-		.writedata  (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_writedata),  //                           .writedata
-		.readdata   (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_readdata),   //                           .readdata
-		.SW         (sw_export),                                                             //         external_interface.export
-		.irq        (irq_mapper_receiver1_irq)                                               //                  interrupt.irq
-	);
-
-	ED2platform_sram sram (
-		.clk           (sys_sdram_pll_sys_clk_clk),                              //                clk.clk
-		.reset         (rst_controller_reset_out_reset),                         //              reset.reset
-		.SRAM_DQ       (sram_DQ),                                                // external_interface.export
-		.SRAM_ADDR     (sram_ADDR),                                              //                   .export
-		.SRAM_LB_N     (sram_LB_N),                                              //                   .export
-		.SRAM_UB_N     (sram_UB_N),                                              //                   .export
-		.SRAM_CE_N     (sram_CE_N),                                              //                   .export
-		.SRAM_OE_N     (sram_OE_N),                                              //                   .export
-		.SRAM_WE_N     (sram_WE_N),                                              //                   .export
-		.address       (mm_interconnect_0_sram_avalon_sram_slave_address),       //  avalon_sram_slave.address
-		.byteenable    (mm_interconnect_0_sram_avalon_sram_slave_byteenable),    //                   .byteenable
-		.read          (mm_interconnect_0_sram_avalon_sram_slave_read),          //                   .read
-		.write         (mm_interconnect_0_sram_avalon_sram_slave_write),         //                   .write
-		.writedata     (mm_interconnect_0_sram_avalon_sram_slave_writedata),     //                   .writedata
-		.readdata      (mm_interconnect_0_sram_avalon_sram_slave_readdata),      //                   .readdata
-		.readdatavalid (mm_interconnect_0_sram_avalon_sram_slave_readdatavalid)  //                   .readdatavalid
-	);
-
-	ED2platform_sys_sdram_pll sys_sdram_pll (
-		.ref_clk_clk        (clk_clk),                            //      ref_clk.clk
-		.ref_reset_reset    (rst_controller_001_reset_out_reset), //    ref_reset.reset
-		.sys_clk_clk        (sys_sdram_pll_sys_clk_clk),          //      sys_clk.clk
-		.sdram_clk_clk      (sdram_clk_clk),                      //    sdram_clk.clk
-		.reset_source_reset (sys_sdram_pll_reset_source_reset)    // reset_source.reset
-	);
-
 	ED2platform_sysid0 sysid0 (
-		.clock    (sys_sdram_pll_sys_clk_clk),                       //           clk.clk
+		.clock    (clk_clk),                                         //           clk.clk
 		.reset_n  (~rst_controller_reset_out_reset),                 //         reset.reset_n
 		.readdata (mm_interconnect_0_sysid0_control_slave_readdata), // control_slave.readdata
 		.address  (mm_interconnect_0_sysid0_control_slave_address)   //              .address
 	);
 
 	ED2platform_tftlcd_base_ctrl tftlcd_base_ctrl (
-		.clk        (sys_sdram_pll_sys_clk_clk),                        //                 clk.clk
+		.clk        (clk_clk),                                          //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),                  //               reset.reset_n
 		.address    (mm_interconnect_0_tftlcd_base_ctrl_s1_address),    //                  s1.address
 		.write_n    (~mm_interconnect_0_tftlcd_base_ctrl_s1_write),     //                    .write_n
@@ -417,7 +247,7 @@ module ED2platform (
 	);
 
 	ED2platform_tftlcd_base_ctrl tftlcd_cmd (
-		.clk        (sys_sdram_pll_sys_clk_clk),                  //                 clk.clk
+		.clk        (clk_clk),                                    //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),            //               reset.reset_n
 		.address    (mm_interconnect_0_tftlcd_cmd_s1_address),    //                  s1.address
 		.write_n    (~mm_interconnect_0_tftlcd_cmd_s1_write),     //                    .write_n
@@ -428,7 +258,7 @@ module ED2platform (
 	);
 
 	ED2platform_tftlcd_data tftlcd_data (
-		.clk        (sys_sdram_pll_sys_clk_clk),                   //                 clk.clk
+		.clk        (clk_clk),                                     //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),             //               reset.reset_n
 		.address    (mm_interconnect_0_tftlcd_data_s1_address),    //                  s1.address
 		.write_n    (~mm_interconnect_0_tftlcd_data_s1_write),     //                    .write_n
@@ -439,40 +269,40 @@ module ED2platform (
 	);
 
 	ED2platform_timer_1s timer_1s (
-		.clk        (sys_sdram_pll_sys_clk_clk),                //   clk.clk
+		.clk        (clk_clk),                                  //   clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),          // reset.reset_n
 		.address    (mm_interconnect_0_timer_1s_s1_address),    //    s1.address
 		.writedata  (mm_interconnect_0_timer_1s_s1_writedata),  //      .writedata
 		.readdata   (mm_interconnect_0_timer_1s_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_1s_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_1s_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver4_irq)                  //   irq.irq
+		.irq        (irq_mapper_receiver1_irq)                  //   irq.irq
 	);
 
 	ED2platform_timer_scrollX timer_scrollx (
-		.clk        (sys_sdram_pll_sys_clk_clk),                     //   clk.clk
+		.clk        (clk_clk),                                       //   clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),               // reset.reset_n
 		.address    (mm_interconnect_0_timer_scrollx_s1_address),    //    s1.address
 		.writedata  (mm_interconnect_0_timer_scrollx_s1_writedata),  //      .writedata
 		.readdata   (mm_interconnect_0_timer_scrollx_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_scrollx_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_scrollx_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver5_irq)                       //   irq.irq
+		.irq        (irq_mapper_receiver2_irq)                       //   irq.irq
 	);
 
 	ED2platform_timer_scrollX timer_touch (
-		.clk        (sys_sdram_pll_sys_clk_clk),                   //   clk.clk
+		.clk        (clk_clk),                                     //   clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),             // reset.reset_n
 		.address    (mm_interconnect_0_timer_touch_s1_address),    //    s1.address
 		.writedata  (mm_interconnect_0_timer_touch_s1_writedata),  //      .writedata
 		.readdata   (mm_interconnect_0_timer_touch_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_touch_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_touch_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver6_irq)                     //   irq.irq
+		.irq        (irq_mapper_receiver3_irq)                     //   irq.irq
 	);
 
 	ED2platform_tftlcd_base_ctrl touch_ctrl (
-		.clk        (sys_sdram_pll_sys_clk_clk),                  //                 clk.clk
+		.clk        (clk_clk),                                    //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),            //               reset.reset_n
 		.address    (mm_interconnect_0_touch_ctrl_s1_address),    //                  s1.address
 		.write_n    (~mm_interconnect_0_touch_ctrl_s1_write),     //                    .write_n
@@ -483,7 +313,7 @@ module ED2platform (
 	);
 
 	ED2platform_touch_msg touch_msg (
-		.clk      (sys_sdram_pll_sys_clk_clk),               //                 clk.clk
+		.clk      (clk_clk),                                 //                 clk.clk
 		.reset_n  (~rst_controller_reset_out_reset),         //               reset.reset_n
 		.address  (mm_interconnect_0_touch_msg_s1_address),  //                  s1.address
 		.readdata (mm_interconnect_0_touch_msg_s1_readdata), //                    .readdata
@@ -491,7 +321,7 @@ module ED2platform (
 	);
 
 	ED2platform_touch_pen_intr touch_pen_intr (
-		.clk        (sys_sdram_pll_sys_clk_clk),                      //                 clk.clk
+		.clk        (clk_clk),                                        //                 clk.clk
 		.reset_n    (~rst_controller_reset_out_reset),                //               reset.reset_n
 		.address    (mm_interconnect_0_touch_pen_intr_s1_address),    //                  s1.address
 		.write_n    (~mm_interconnect_0_touch_pen_intr_s1_write),     //                    .write_n
@@ -499,11 +329,11 @@ module ED2platform (
 		.chipselect (mm_interconnect_0_touch_pen_intr_s1_chipselect), //                    .chipselect
 		.readdata   (mm_interconnect_0_touch_pen_intr_s1_readdata),   //                    .readdata
 		.in_port    (touch_pen_intr_export),                          // external_connection.export
-		.irq        (irq_mapper_receiver3_irq)                        //                 irq.irq
+		.irq        (irq_mapper_receiver4_irq)                        //                 irq.irq
 	);
 
 	ED2platform_mm_interconnect_0 mm_interconnect_0 (
-		.sys_sdram_pll_sys_clk_clk                                            (sys_sdram_pll_sys_clk_clk),                                                              //                                    sys_sdram_pll_sys_clk.clk
+		.clk_100_clk_clk                                                      (clk_clk),                                                                                //                                              clk_100_clk.clk
 		.cpu_reset_reset_bridge_in_reset_reset                                (rst_controller_reset_out_reset),                                                         //                          cpu_reset_reset_bridge_in_reset.reset
 		.cpu_data_master_address                                              (cpu_data_master_address),                                                                //                                          cpu_data_master.address
 		.cpu_data_master_waitrequest                                          (cpu_data_master_waitrequest),                                                            //                                                         .waitrequest
@@ -542,27 +372,11 @@ module ED2platform (
 		.jtag_uart_avalon_jtag_slave_writedata                                (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),                                //                                                         .writedata
 		.jtag_uart_avalon_jtag_slave_waitrequest                              (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest),                              //                                                         .waitrequest
 		.jtag_uart_avalon_jtag_slave_chipselect                               (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),                               //                                                         .chipselect
-		.led_green_avalon_parallel_port_slave_address                         (mm_interconnect_0_led_green_avalon_parallel_port_slave_address),                         //                     led_green_avalon_parallel_port_slave.address
-		.led_green_avalon_parallel_port_slave_write                           (mm_interconnect_0_led_green_avalon_parallel_port_slave_write),                           //                                                         .write
-		.led_green_avalon_parallel_port_slave_read                            (mm_interconnect_0_led_green_avalon_parallel_port_slave_read),                            //                                                         .read
-		.led_green_avalon_parallel_port_slave_readdata                        (mm_interconnect_0_led_green_avalon_parallel_port_slave_readdata),                        //                                                         .readdata
-		.led_green_avalon_parallel_port_slave_writedata                       (mm_interconnect_0_led_green_avalon_parallel_port_slave_writedata),                       //                                                         .writedata
-		.led_green_avalon_parallel_port_slave_byteenable                      (mm_interconnect_0_led_green_avalon_parallel_port_slave_byteenable),                      //                                                         .byteenable
-		.led_green_avalon_parallel_port_slave_chipselect                      (mm_interconnect_0_led_green_avalon_parallel_port_slave_chipselect),                      //                                                         .chipselect
-		.led_red_avalon_parallel_port_slave_address                           (mm_interconnect_0_led_red_avalon_parallel_port_slave_address),                           //                       led_red_avalon_parallel_port_slave.address
-		.led_red_avalon_parallel_port_slave_write                             (mm_interconnect_0_led_red_avalon_parallel_port_slave_write),                             //                                                         .write
-		.led_red_avalon_parallel_port_slave_read                              (mm_interconnect_0_led_red_avalon_parallel_port_slave_read),                              //                                                         .read
-		.led_red_avalon_parallel_port_slave_readdata                          (mm_interconnect_0_led_red_avalon_parallel_port_slave_readdata),                          //                                                         .readdata
-		.led_red_avalon_parallel_port_slave_writedata                         (mm_interconnect_0_led_red_avalon_parallel_port_slave_writedata),                         //                                                         .writedata
-		.led_red_avalon_parallel_port_slave_byteenable                        (mm_interconnect_0_led_red_avalon_parallel_port_slave_byteenable),                        //                                                         .byteenable
-		.led_red_avalon_parallel_port_slave_chipselect                        (mm_interconnect_0_led_red_avalon_parallel_port_slave_chipselect),                        //                                                         .chipselect
-		.push_buttons_avalon_parallel_port_slave_address                      (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_address),                      //                  push_buttons_avalon_parallel_port_slave.address
-		.push_buttons_avalon_parallel_port_slave_write                        (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_write),                        //                                                         .write
-		.push_buttons_avalon_parallel_port_slave_read                         (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_read),                         //                                                         .read
-		.push_buttons_avalon_parallel_port_slave_readdata                     (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_readdata),                     //                                                         .readdata
-		.push_buttons_avalon_parallel_port_slave_writedata                    (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_writedata),                    //                                                         .writedata
-		.push_buttons_avalon_parallel_port_slave_byteenable                   (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_byteenable),                   //                                                         .byteenable
-		.push_buttons_avalon_parallel_port_slave_chipselect                   (mm_interconnect_0_push_buttons_avalon_parallel_port_slave_chipselect),                   //                                                         .chipselect
+		.pen_smp_speed_s1_address                                             (mm_interconnect_0_pen_smp_speed_s1_address),                                             //                                         pen_smp_speed_s1.address
+		.pen_smp_speed_s1_write                                               (mm_interconnect_0_pen_smp_speed_s1_write),                                               //                                                         .write
+		.pen_smp_speed_s1_readdata                                            (mm_interconnect_0_pen_smp_speed_s1_readdata),                                            //                                                         .readdata
+		.pen_smp_speed_s1_writedata                                           (mm_interconnect_0_pen_smp_speed_s1_writedata),                                           //                                                         .writedata
+		.pen_smp_speed_s1_chipselect                                          (mm_interconnect_0_pen_smp_speed_s1_chipselect),                                          //                                                         .chipselect
 		.sdram_s1_address                                                     (mm_interconnect_0_sdram_s1_address),                                                     //                                                 sdram_s1.address
 		.sdram_s1_write                                                       (mm_interconnect_0_sdram_s1_write),                                                       //                                                         .write
 		.sdram_s1_read                                                        (mm_interconnect_0_sdram_s1_read),                                                        //                                                         .read
@@ -572,34 +386,6 @@ module ED2platform (
 		.sdram_s1_readdatavalid                                               (mm_interconnect_0_sdram_s1_readdatavalid),                                               //                                                         .readdatavalid
 		.sdram_s1_waitrequest                                                 (mm_interconnect_0_sdram_s1_waitrequest),                                                 //                                                         .waitrequest
 		.sdram_s1_chipselect                                                  (mm_interconnect_0_sdram_s1_chipselect),                                                  //                                                         .chipselect
-		.seg7_0to3_avalon_parallel_port_slave_address                         (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_address),                         //                     seg7_0to3_avalon_parallel_port_slave.address
-		.seg7_0to3_avalon_parallel_port_slave_write                           (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_write),                           //                                                         .write
-		.seg7_0to3_avalon_parallel_port_slave_read                            (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_read),                            //                                                         .read
-		.seg7_0to3_avalon_parallel_port_slave_readdata                        (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_readdata),                        //                                                         .readdata
-		.seg7_0to3_avalon_parallel_port_slave_writedata                       (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_writedata),                       //                                                         .writedata
-		.seg7_0to3_avalon_parallel_port_slave_byteenable                      (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_byteenable),                      //                                                         .byteenable
-		.seg7_0to3_avalon_parallel_port_slave_chipselect                      (mm_interconnect_0_seg7_0to3_avalon_parallel_port_slave_chipselect),                      //                                                         .chipselect
-		.seg7_4to7_avalon_parallel_port_slave_address                         (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_address),                         //                     seg7_4to7_avalon_parallel_port_slave.address
-		.seg7_4to7_avalon_parallel_port_slave_write                           (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_write),                           //                                                         .write
-		.seg7_4to7_avalon_parallel_port_slave_read                            (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_read),                            //                                                         .read
-		.seg7_4to7_avalon_parallel_port_slave_readdata                        (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_readdata),                        //                                                         .readdata
-		.seg7_4to7_avalon_parallel_port_slave_writedata                       (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_writedata),                       //                                                         .writedata
-		.seg7_4to7_avalon_parallel_port_slave_byteenable                      (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_byteenable),                      //                                                         .byteenable
-		.seg7_4to7_avalon_parallel_port_slave_chipselect                      (mm_interconnect_0_seg7_4to7_avalon_parallel_port_slave_chipselect),                      //                                                         .chipselect
-		.slider_switch_avalon_parallel_port_slave_address                     (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_address),                     //                 slider_switch_avalon_parallel_port_slave.address
-		.slider_switch_avalon_parallel_port_slave_write                       (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_write),                       //                                                         .write
-		.slider_switch_avalon_parallel_port_slave_read                        (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_read),                        //                                                         .read
-		.slider_switch_avalon_parallel_port_slave_readdata                    (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_readdata),                    //                                                         .readdata
-		.slider_switch_avalon_parallel_port_slave_writedata                   (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_writedata),                   //                                                         .writedata
-		.slider_switch_avalon_parallel_port_slave_byteenable                  (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_byteenable),                  //                                                         .byteenable
-		.slider_switch_avalon_parallel_port_slave_chipselect                  (mm_interconnect_0_slider_switch_avalon_parallel_port_slave_chipselect),                  //                                                         .chipselect
-		.sram_avalon_sram_slave_address                                       (mm_interconnect_0_sram_avalon_sram_slave_address),                                       //                                   sram_avalon_sram_slave.address
-		.sram_avalon_sram_slave_write                                         (mm_interconnect_0_sram_avalon_sram_slave_write),                                         //                                                         .write
-		.sram_avalon_sram_slave_read                                          (mm_interconnect_0_sram_avalon_sram_slave_read),                                          //                                                         .read
-		.sram_avalon_sram_slave_readdata                                      (mm_interconnect_0_sram_avalon_sram_slave_readdata),                                      //                                                         .readdata
-		.sram_avalon_sram_slave_writedata                                     (mm_interconnect_0_sram_avalon_sram_slave_writedata),                                     //                                                         .writedata
-		.sram_avalon_sram_slave_byteenable                                    (mm_interconnect_0_sram_avalon_sram_slave_byteenable),                                    //                                                         .byteenable
-		.sram_avalon_sram_slave_readdatavalid                                 (mm_interconnect_0_sram_avalon_sram_slave_readdatavalid),                                 //                                                         .readdatavalid
 		.sysid0_control_slave_address                                         (mm_interconnect_0_sysid0_control_slave_address),                                         //                                     sysid0_control_slave.address
 		.sysid0_control_slave_readdata                                        (mm_interconnect_0_sysid0_control_slave_readdata),                                        //                                                         .readdata
 		.tftlcd_base_ctrl_s1_address                                          (mm_interconnect_0_tftlcd_base_ctrl_s1_address),                                          //                                      tftlcd_base_ctrl_s1.address
@@ -647,15 +433,13 @@ module ED2platform (
 	);
 
 	ED2platform_irq_mapper irq_mapper (
-		.clk           (sys_sdram_pll_sys_clk_clk),      //       clk.clk
+		.clk           (clk_clk),                        //       clk.clk
 		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
 		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
 		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
 		.receiver2_irq (irq_mapper_receiver2_irq),       // receiver2.irq
 		.receiver3_irq (irq_mapper_receiver3_irq),       // receiver3.irq
 		.receiver4_irq (irq_mapper_receiver4_irq),       // receiver4.irq
-		.receiver5_irq (irq_mapper_receiver5_irq),       // receiver5.irq
-		.receiver6_irq (irq_mapper_receiver6_irq),       // receiver6.irq
 		.sender_irq    (cpu_irq_irq)                     //    sender.irq
 	);
 
@@ -685,75 +469,12 @@ module ED2platform (
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
 	) rst_controller (
-		.reset_in0      (cpu_debug_reset_request_reset),      // reset_in0.reset
-		.reset_in1      (sys_sdram_pll_reset_source_reset),   // reset_in1.reset
-		.clk            (sys_sdram_pll_sys_clk_clk),          //       clk.clk
+		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
+		.reset_in1      (cpu_debug_reset_request_reset),      // reset_in1.reset
+		.clk            (clk_clk),                            //       clk.clk
 		.reset_out      (rst_controller_reset_out_reset),     // reset_out.reset
 		.reset_req      (rst_controller_reset_out_reset_req), //          .reset_req
 		.reset_req_in0  (1'b0),                               // (terminated)
-		.reset_req_in1  (1'b0),                               // (terminated)
-		.reset_in2      (1'b0),                               // (terminated)
-		.reset_req_in2  (1'b0),                               // (terminated)
-		.reset_in3      (1'b0),                               // (terminated)
-		.reset_req_in3  (1'b0),                               // (terminated)
-		.reset_in4      (1'b0),                               // (terminated)
-		.reset_req_in4  (1'b0),                               // (terminated)
-		.reset_in5      (1'b0),                               // (terminated)
-		.reset_req_in5  (1'b0),                               // (terminated)
-		.reset_in6      (1'b0),                               // (terminated)
-		.reset_req_in6  (1'b0),                               // (terminated)
-		.reset_in7      (1'b0),                               // (terminated)
-		.reset_req_in7  (1'b0),                               // (terminated)
-		.reset_in8      (1'b0),                               // (terminated)
-		.reset_req_in8  (1'b0),                               // (terminated)
-		.reset_in9      (1'b0),                               // (terminated)
-		.reset_req_in9  (1'b0),                               // (terminated)
-		.reset_in10     (1'b0),                               // (terminated)
-		.reset_req_in10 (1'b0),                               // (terminated)
-		.reset_in11     (1'b0),                               // (terminated)
-		.reset_req_in11 (1'b0),                               // (terminated)
-		.reset_in12     (1'b0),                               // (terminated)
-		.reset_req_in12 (1'b0),                               // (terminated)
-		.reset_in13     (1'b0),                               // (terminated)
-		.reset_req_in13 (1'b0),                               // (terminated)
-		.reset_in14     (1'b0),                               // (terminated)
-		.reset_req_in14 (1'b0),                               // (terminated)
-		.reset_in15     (1'b0),                               // (terminated)
-		.reset_req_in15 (1'b0)                                // (terminated)
-	);
-
-	altera_reset_controller #(
-		.NUM_RESET_INPUTS          (1),
-		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
-		.SYNC_DEPTH                (2),
-		.RESET_REQUEST_PRESENT     (0),
-		.RESET_REQ_WAIT_TIME       (1),
-		.MIN_RST_ASSERTION_TIME    (3),
-		.RESET_REQ_EARLY_DSRT_TIME (1),
-		.USE_RESET_REQUEST_IN0     (0),
-		.USE_RESET_REQUEST_IN1     (0),
-		.USE_RESET_REQUEST_IN2     (0),
-		.USE_RESET_REQUEST_IN3     (0),
-		.USE_RESET_REQUEST_IN4     (0),
-		.USE_RESET_REQUEST_IN5     (0),
-		.USE_RESET_REQUEST_IN6     (0),
-		.USE_RESET_REQUEST_IN7     (0),
-		.USE_RESET_REQUEST_IN8     (0),
-		.USE_RESET_REQUEST_IN9     (0),
-		.USE_RESET_REQUEST_IN10    (0),
-		.USE_RESET_REQUEST_IN11    (0),
-		.USE_RESET_REQUEST_IN12    (0),
-		.USE_RESET_REQUEST_IN13    (0),
-		.USE_RESET_REQUEST_IN14    (0),
-		.USE_RESET_REQUEST_IN15    (0),
-		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller_001 (
-		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
-		.clk            (clk_clk),                            //       clk.clk
-		.reset_out      (rst_controller_001_reset_out_reset), // reset_out.reset
-		.reset_req      (),                                   // (terminated)
-		.reset_req_in0  (1'b0),                               // (terminated)
-		.reset_in1      (1'b0),                               // (terminated)
 		.reset_req_in1  (1'b0),                               // (terminated)
 		.reset_in2      (1'b0),                               // (terminated)
 		.reset_req_in2  (1'b0),                               // (terminated)

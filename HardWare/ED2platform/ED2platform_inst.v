@@ -1,17 +1,13 @@
 	ED2platform u0 (
 		.clk_clk               (<connected-to-clk_clk>),               //            clk.clk
-		.key_export            (<connected-to-key_export>),            //            key.export
 		.lcd_base_ctrl_export  (<connected-to-lcd_base_ctrl_export>),  //  lcd_base_ctrl.export
 		.lcd_cmd_export        (<connected-to-lcd_cmd_export>),        //        lcd_cmd.export
 		.lcd_data_export       (<connected-to-lcd_data_export>),       //       lcd_data.export
-		.ledgreen_export       (<connected-to-ledgreen_export>),       //       ledgreen.export
-		.ledred_export         (<connected-to-ledred_export>),         //         ledred.export
 		.reset_reset_n         (<connected-to-reset_reset_n>),         //          reset.reset_n
 		.sd_card_b_SD_cmd      (<connected-to-sd_card_b_SD_cmd>),      //        sd_card.b_SD_cmd
 		.sd_card_b_SD_dat      (<connected-to-sd_card_b_SD_dat>),      //               .b_SD_dat
 		.sd_card_b_SD_dat3     (<connected-to-sd_card_b_SD_dat3>),     //               .b_SD_dat3
 		.sd_card_o_SD_clock    (<connected-to-sd_card_o_SD_clock>),    //               .o_SD_clock
-		.sdram_clk_clk         (<connected-to-sdram_clk_clk>),         //      sdram_clk.clk
 		.sdram_wire_addr       (<connected-to-sdram_wire_addr>),       //     sdram_wire.addr
 		.sdram_wire_ba         (<connected-to-sdram_wire_ba>),         //               .ba
 		.sdram_wire_cas_n      (<connected-to-sdram_wire_cas_n>),      //               .cas_n
@@ -21,24 +17,9 @@
 		.sdram_wire_dqm        (<connected-to-sdram_wire_dqm>),        //               .dqm
 		.sdram_wire_ras_n      (<connected-to-sdram_wire_ras_n>),      //               .ras_n
 		.sdram_wire_we_n       (<connected-to-sdram_wire_we_n>),       //               .we_n
-		.seg7l_HEX4            (<connected-to-seg7l_HEX4>),            //          seg7l.HEX4
-		.seg7l_HEX5            (<connected-to-seg7l_HEX5>),            //               .HEX5
-		.seg7l_HEX6            (<connected-to-seg7l_HEX6>),            //               .HEX6
-		.seg7l_HEX7            (<connected-to-seg7l_HEX7>),            //               .HEX7
-		.sge7r_HEX0            (<connected-to-sge7r_HEX0>),            //          sge7r.HEX0
-		.sge7r_HEX1            (<connected-to-sge7r_HEX1>),            //               .HEX1
-		.sge7r_HEX2            (<connected-to-sge7r_HEX2>),            //               .HEX2
-		.sge7r_HEX3            (<connected-to-sge7r_HEX3>),            //               .HEX3
-		.sram_DQ               (<connected-to-sram_DQ>),               //           sram.DQ
-		.sram_ADDR             (<connected-to-sram_ADDR>),             //               .ADDR
-		.sram_LB_N             (<connected-to-sram_LB_N>),             //               .LB_N
-		.sram_UB_N             (<connected-to-sram_UB_N>),             //               .UB_N
-		.sram_CE_N             (<connected-to-sram_CE_N>),             //               .CE_N
-		.sram_OE_N             (<connected-to-sram_OE_N>),             //               .OE_N
-		.sram_WE_N             (<connected-to-sram_WE_N>),             //               .WE_N
-		.sw_export             (<connected-to-sw_export>),             //             sw.export
 		.touch_ctrl_export     (<connected-to-touch_ctrl_export>),     //     touch_ctrl.export
 		.touch_msg_export      (<connected-to-touch_msg_export>),      //      touch_msg.export
-		.touch_pen_intr_export (<connected-to-touch_pen_intr_export>)  // touch_pen_intr.export
+		.touch_pen_intr_export (<connected-to-touch_pen_intr_export>), // touch_pen_intr.export
+		.pen_smp_period_export (<connected-to-pen_smp_period_export>)  // pen_smp_period.export
 	);
 

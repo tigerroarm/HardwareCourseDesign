@@ -1,33 +1,17 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate D:\hardwaredesign\test1\ED2platform.qsys --block-symbol-file --output-directory=D:\hardwaredesign\test1\ED2platform --family="Cyclone IV E" --part=EP4CE115F29C7
-Progress: Loading test1/ED2platform.qsys
+Info: qsys-generate G:\altera_ED2_115\HardwareCourseDesign\HardWare\ED2platform.qsys --block-symbol-file --output-directory=G:\altera_ED2_115\HardwareCourseDesign\HardWare\ED2platform --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading HardWare/ED2platform.qsys
 Progress: Reading input file
 Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 15.0]
 Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
-Progress: Adding clk_50 [clock_source 15.0]
-Progress: Parameterizing module clk_50
+Progress: Adding clk_100 [clock_source 15.0]
+Progress: Parameterizing module clk_100
 Progress: Adding cpu [altera_nios2_gen2 15.0]
 Progress: Parameterizing module cpu
 Progress: Adding jtag_uart [altera_avalon_jtag_uart 15.0]
 Progress: Parameterizing module jtag_uart
-Progress: Adding led_green [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module led_green
-Progress: Adding led_red [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module led_red
-Progress: Adding push_buttons [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module push_buttons
 Progress: Adding sdram [altera_avalon_new_sdram_controller 15.0]
 Progress: Parameterizing module sdram
-Progress: Adding seg7_0to3 [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module seg7_0to3
-Progress: Adding seg7_4to7 [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module seg7_4to7
-Progress: Adding slider_switch [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module slider_switch
-Progress: Adding sram [altera_up_avalon_sram 15.0]
-Progress: Parameterizing module sram
-Progress: Adding sys_sdram_pll [altera_up_avalon_sys_sdram_pll 15.0]
-Progress: Parameterizing module sys_sdram_pll
 Progress: Adding sysid0 [altera_avalon_sysid_qsys 15.0]
 Progress: Parameterizing module sysid0
 Progress: Adding tftlcd_base_ctrl [altera_avalon_pio 15.0]
@@ -36,6 +20,12 @@ Progress: Adding tftlcd_cmd [altera_avalon_pio 15.0]
 Progress: Parameterizing module tftlcd_cmd
 Progress: Adding tftlcd_data [altera_avalon_pio 15.0]
 Progress: Parameterizing module tftlcd_data
+Progress: Adding timer_1s [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_1s
+Progress: Adding timer_scrollX [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_scrollX
+Progress: Adding timer_touch [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_touch
 Progress: Adding touch_ctrl [altera_avalon_pio 15.0]
 Progress: Parameterizing module touch_ctrl
 Progress: Adding touch_msg [altera_avalon_pio 15.0]
@@ -55,35 +45,19 @@ Info: ip-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate D:\hardwaredesign\test1\ED2platform.qsys --synthesis=VERILOG --output-directory=D:\hardwaredesign\test1\ED2platform\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
-Progress: Loading test1/ED2platform.qsys
+Info: qsys-generate G:\altera_ED2_115\HardwareCourseDesign\HardWare\ED2platform.qsys --synthesis=VERILOG --output-directory=G:\altera_ED2_115\HardwareCourseDesign\HardWare\ED2platform\synthesis --family="Cyclone IV E" --part=EP4CE115F29C7
+Progress: Loading HardWare/ED2platform.qsys
 Progress: Reading input file
 Progress: Adding Altera_UP_SD_Card_Avalon_Interface_0 [Altera_UP_SD_Card_Avalon_Interface 15.0]
 Progress: Parameterizing module Altera_UP_SD_Card_Avalon_Interface_0
-Progress: Adding clk_50 [clock_source 15.0]
-Progress: Parameterizing module clk_50
+Progress: Adding clk_100 [clock_source 15.0]
+Progress: Parameterizing module clk_100
 Progress: Adding cpu [altera_nios2_gen2 15.0]
 Progress: Parameterizing module cpu
 Progress: Adding jtag_uart [altera_avalon_jtag_uart 15.0]
 Progress: Parameterizing module jtag_uart
-Progress: Adding led_green [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module led_green
-Progress: Adding led_red [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module led_red
-Progress: Adding push_buttons [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module push_buttons
 Progress: Adding sdram [altera_avalon_new_sdram_controller 15.0]
 Progress: Parameterizing module sdram
-Progress: Adding seg7_0to3 [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module seg7_0to3
-Progress: Adding seg7_4to7 [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module seg7_4to7
-Progress: Adding slider_switch [altera_up_avalon_parallel_port 15.0]
-Progress: Parameterizing module slider_switch
-Progress: Adding sram [altera_up_avalon_sram 15.0]
-Progress: Parameterizing module sram
-Progress: Adding sys_sdram_pll [altera_up_avalon_sys_sdram_pll 15.0]
-Progress: Parameterizing module sys_sdram_pll
 Progress: Adding sysid0 [altera_avalon_sysid_qsys 15.0]
 Progress: Parameterizing module sysid0
 Progress: Adding tftlcd_base_ctrl [altera_avalon_pio 15.0]
@@ -92,6 +66,12 @@ Progress: Adding tftlcd_cmd [altera_avalon_pio 15.0]
 Progress: Parameterizing module tftlcd_cmd
 Progress: Adding tftlcd_data [altera_avalon_pio 15.0]
 Progress: Parameterizing module tftlcd_data
+Progress: Adding timer_1s [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_1s
+Progress: Adding timer_scrollX [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_scrollX
+Progress: Adding timer_touch [altera_avalon_timer 15.0]
+Progress: Parameterizing module timer_touch
 Progress: Adding touch_ctrl [altera_avalon_pio 15.0]
 Progress: Parameterizing module touch_ctrl
 Progress: Adding touch_msg [altera_avalon_pio 15.0]
@@ -111,43 +91,36 @@ Info: ED2platform: Generating ED2platform "ED2platform" for QUARTUS_SYNTH
 Info: Altera_UP_SD_Card_Avalon_Interface_0: "ED2platform" instantiated Altera_UP_SD_Card_Avalon_Interface "Altera_UP_SD_Card_Avalon_Interface_0"
 Info: cpu: "ED2platform" instantiated altera_nios2_gen2 "cpu"
 Info: jtag_uart: Starting RTL generation for module 'ED2platform_jtag_uart'
-Info: jtag_uart:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=ED2platform_jtag_uart --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0003_jtag_uart_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0003_jtag_uart_gen//ED2platform_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
+Info: jtag_uart:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_jtag_uart/generate_rtl.pl --name=ED2platform_jtag_uart --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0003_jtag_uart_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0003_jtag_uart_gen//ED2platform_jtag_uart_component_configuration.pl  --do_build_sim=0  ]
 Info: jtag_uart: Done RTL generation for module 'ED2platform_jtag_uart'
 Info: jtag_uart: "ED2platform" instantiated altera_avalon_jtag_uart "jtag_uart"
-Info: led_green: Starting Generation of Parallel Port
-Info: led_green: "ED2platform" instantiated altera_up_avalon_parallel_port "led_green"
-Info: led_red: Starting Generation of Parallel Port
-Info: led_red: "ED2platform" instantiated altera_up_avalon_parallel_port "led_red"
-Info: push_buttons: Starting Generation of Parallel Port
-Info: push_buttons: "ED2platform" instantiated altera_up_avalon_parallel_port "push_buttons"
 Info: sdram: Starting RTL generation for module 'ED2platform_sdram'
-Info: sdram:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=ED2platform_sdram --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0007_sdram_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0007_sdram_gen//ED2platform_sdram_component_configuration.pl  --do_build_sim=0  ]
+Info: sdram:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=ED2platform_sdram --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0004_sdram_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0004_sdram_gen//ED2platform_sdram_component_configuration.pl  --do_build_sim=0  ]
 Info: sdram: Done RTL generation for module 'ED2platform_sdram'
 Info: sdram: "ED2platform" instantiated altera_avalon_new_sdram_controller "sdram"
-Info: seg7_0to3: Starting Generation of Parallel Port
-Info: seg7_0to3: "ED2platform" instantiated altera_up_avalon_parallel_port "seg7_0to3"
-Info: seg7_4to7: Starting Generation of Parallel Port
-Info: seg7_4to7: "ED2platform" instantiated altera_up_avalon_parallel_port "seg7_4to7"
-Info: slider_switch: Starting Generation of Parallel Port
-Info: slider_switch: "ED2platform" instantiated altera_up_avalon_parallel_port "slider_switch"
-Info: sram: Starting Generation of SRAM or SSRAM Controller
-Info: sram: "ED2platform" instantiated altera_up_avalon_sram "sram"
-Info: sys_sdram_pll: "ED2platform" instantiated altera_up_avalon_sys_sdram_pll "sys_sdram_pll"
 Info: sysid0: "ED2platform" instantiated altera_avalon_sysid_qsys "sysid0"
 Info: tftlcd_base_ctrl: Starting RTL generation for module 'ED2platform_tftlcd_base_ctrl'
-Info: tftlcd_base_ctrl:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_tftlcd_base_ctrl --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0013_tftlcd_base_ctrl_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0013_tftlcd_base_ctrl_gen//ED2platform_tftlcd_base_ctrl_component_configuration.pl  --do_build_sim=0  ]
+Info: tftlcd_base_ctrl:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_tftlcd_base_ctrl --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0006_tftlcd_base_ctrl_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0006_tftlcd_base_ctrl_gen//ED2platform_tftlcd_base_ctrl_component_configuration.pl  --do_build_sim=0  ]
 Info: tftlcd_base_ctrl: Done RTL generation for module 'ED2platform_tftlcd_base_ctrl'
 Info: tftlcd_base_ctrl: "ED2platform" instantiated altera_avalon_pio "tftlcd_base_ctrl"
 Info: tftlcd_data: Starting RTL generation for module 'ED2platform_tftlcd_data'
-Info: tftlcd_data:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_tftlcd_data --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0014_tftlcd_data_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0014_tftlcd_data_gen//ED2platform_tftlcd_data_component_configuration.pl  --do_build_sim=0  ]
+Info: tftlcd_data:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_tftlcd_data --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0007_tftlcd_data_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0007_tftlcd_data_gen//ED2platform_tftlcd_data_component_configuration.pl  --do_build_sim=0  ]
 Info: tftlcd_data: Done RTL generation for module 'ED2platform_tftlcd_data'
 Info: tftlcd_data: "ED2platform" instantiated altera_avalon_pio "tftlcd_data"
+Info: timer_1s: Starting RTL generation for module 'ED2platform_timer_1s'
+Info: timer_1s:   Generation command is [exec E:/altera/15.0/quartus/bin64//perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64//perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=ED2platform_timer_1s --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0008_timer_1s_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0008_timer_1s_gen//ED2platform_timer_1s_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_1s: Done RTL generation for module 'ED2platform_timer_1s'
+Info: timer_1s: "ED2platform" instantiated altera_avalon_timer "timer_1s"
+Info: timer_scrollX: Starting RTL generation for module 'ED2platform_timer_scrollX'
+Info: timer_scrollX:   Generation command is [exec E:/altera/15.0/quartus/bin64//perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64//perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_timer/generate_rtl.pl --name=ED2platform_timer_scrollX --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0009_timer_scrollX_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0009_timer_scrollX_gen//ED2platform_timer_scrollX_component_configuration.pl  --do_build_sim=0  ]
+Info: timer_scrollX: Done RTL generation for module 'ED2platform_timer_scrollX'
+Info: timer_scrollX: "ED2platform" instantiated altera_avalon_timer "timer_scrollX"
 Info: touch_msg: Starting RTL generation for module 'ED2platform_touch_msg'
-Info: touch_msg:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_touch_msg --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0015_touch_msg_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0015_touch_msg_gen//ED2platform_touch_msg_component_configuration.pl  --do_build_sim=0  ]
+Info: touch_msg:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_touch_msg --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0010_touch_msg_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0010_touch_msg_gen//ED2platform_touch_msg_component_configuration.pl  --do_build_sim=0  ]
 Info: touch_msg: Done RTL generation for module 'ED2platform_touch_msg'
 Info: touch_msg: "ED2platform" instantiated altera_avalon_pio "touch_msg"
 Info: touch_pen_intr: Starting RTL generation for module 'ED2platform_touch_pen_intr'
-Info: touch_pen_intr:   Generation command is [exec C:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- C:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_touch_pen_intr --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0016_touch_pen_intr_gen/ --quartus_dir=C:/altera/15.0/quartus --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0016_touch_pen_intr_gen//ED2platform_touch_pen_intr_component_configuration.pl  --do_build_sim=0  ]
+Info: touch_pen_intr:   Generation command is [exec E:/altera/15.0/quartus/bin64/perl/bin/perl.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/common -I E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio -- E:/altera/15.0/quartus/../ip/altera/sopc_builder_ip/altera_avalon_pio/generate_rtl.pl --name=ED2platform_touch_pen_intr --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0011_touch_pen_intr_gen/ --quartus_dir=E:/altera/15.0/quartus --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0011_touch_pen_intr_gen//ED2platform_touch_pen_intr_component_configuration.pl  --do_build_sim=0  ]
 Info: touch_pen_intr: Done RTL generation for module 'ED2platform_touch_pen_intr'
 Info: touch_pen_intr: "ED2platform" instantiated altera_avalon_pio "touch_pen_intr"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
@@ -164,37 +137,31 @@ Info: avalon_st_adapter_010: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_011: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_012: Inserting error_adapter: error_adapter_0
 Info: avalon_st_adapter_013: Inserting error_adapter: error_adapter_0
-Info: avalon_st_adapter_014: Inserting error_adapter: error_adapter_0
-Info: avalon_st_adapter_015: Inserting error_adapter: error_adapter_0
-Info: avalon_st_adapter_016: Inserting error_adapter: error_adapter_0
-Info: avalon_st_adapter_017: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "ED2platform" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: irq_mapper: "ED2platform" instantiated altera_irq_mapper "irq_mapper"
 Info: rst_controller: "ED2platform" instantiated altera_reset_controller "rst_controller"
 Info: cpu: Starting RTL generation for module 'ED2platform_cpu_cpu'
-Info: cpu:   Generation command is [exec C:/altera/15.0/quartus/bin64/eperlcmd.exe -I C:/altera/15.0/quartus/bin64/perl/lib -I C:/altera/15.0/quartus/sopc_builder/bin/europa -I C:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I C:/altera/15.0/quartus/sopc_builder/bin -I C:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I C:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I C:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I C:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- C:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=ED2platform_cpu_cpu --dir=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0019_cpu_gen/ --quartus_bindir=C:/altera/15.0/quartus/bin64 --verilog --config=C:/Users/lbl/AppData/Local/Temp/alt8002_6028153164641401552.dir/0019_cpu_gen//ED2platform_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
-Info: cpu: # 2019.04.16 22:49:23 (*) Starting Nios II generation
-Info: cpu: # 2019.04.16 22:49:23 (*)   Checking for plaintext license.
-Info: cpu: # 2019.04.16 22:49:26 (*)   Plaintext license not found.
-Info: cpu: # 2019.04.16 22:49:26 (*)   Checking for encrypted license (non-evaluation).
-Info: cpu: # 2019.04.16 22:49:31 (*)   Encrypted license found.  SOF will not be time-limited.
-Info: cpu: # 2019.04.16 22:49:31 (*)   Elaborating CPU configuration settings
-Info: cpu: # 2019.04.16 22:49:31 (*)   Creating all objects for CPU
-Info: cpu: # 2019.04.16 22:49:31 (*)     Testbench
-Info: cpu: # 2019.04.16 22:49:33 (*)     Instruction decoding
-Info: cpu: # 2019.04.16 22:49:33 (*)       Instruction fields
-Info: cpu: # 2019.04.16 22:49:33 (*)       Instruction decodes
-Info: cpu: # 2019.04.16 22:49:33 (*)       Signals for RTL simulation waveforms
-Info: cpu: # 2019.04.16 22:49:34 (*)       Instruction controls
-Info: cpu: # 2019.04.16 22:49:34 (*)     Pipeline frontend
-Info: cpu: # 2019.04.16 22:49:34 (*)     Pipeline backend
-Info: cpu: # 2019.04.16 22:49:41 (*)   Generating RTL from CPU objects
-Info: cpu: # 2019.04.16 22:49:46 (*)   Creating encrypted RTL
-Info: cpu: # 2019.04.16 22:49:46 (*) Done Nios II generation
+Info: cpu:   Generation command is [exec E:/altera/15.0/quartus/bin64/eperlcmd.exe -I E:/altera/15.0/quartus/bin64/perl/lib -I E:/altera/15.0/quartus/sopc_builder/bin/europa -I E:/altera/15.0/quartus/sopc_builder/bin/perl_lib -I E:/altera/15.0/quartus/sopc_builder/bin -I E:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/cpu_lib -I E:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/nios_lib -I E:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -I E:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2 -- E:/altera/15.0/quartus/../ip/altera/nios2_ip/altera_nios2_gen2/generate_rtl.epl --name=ED2platform_cpu_cpu --dir=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0014_cpu_gen/ --quartus_bindir=E:/altera/15.0/quartus/bin64 --verilog --config=C:/Users/12757/AppData/Local/Temp/alt8030_1769679278555663080.dir/0014_cpu_gen//ED2platform_cpu_cpu_processor_configuration.pl  --do_build_sim=0  ]
+Info: cpu: # 2019.05.14 17:58:13 (*) Starting Nios II generation
+Info: cpu: # 2019.05.14 17:58:13 (*)   Checking for plaintext license.
+Info: cpu: # 2019.05.14 17:58:16 (*)   Plaintext license not found.
+Info: cpu: # 2019.05.14 17:58:16 (*)   Checking for encrypted license (non-evaluation).
+Info: cpu: # 2019.05.14 17:58:18 (*)   Encrypted license found.  SOF will not be time-limited.
+Info: cpu: # 2019.05.14 17:58:18 (*)   Elaborating CPU configuration settings
+Info: cpu: # 2019.05.14 17:58:18 (*)   Creating all objects for CPU
+Info: cpu: # 2019.05.14 17:58:18 (*)     Testbench
+Info: cpu: # 2019.05.14 17:58:18 (*)     Instruction decoding
+Info: cpu: # 2019.05.14 17:58:18 (*)       Instruction fields
+Info: cpu: # 2019.05.14 17:58:18 (*)       Instruction decodes
+Info: cpu: # 2019.05.14 17:58:19 (*)       Signals for RTL simulation waveforms
+Info: cpu: # 2019.05.14 17:58:19 (*)       Instruction controls
+Info: cpu: # 2019.05.14 17:58:19 (*)     Pipeline frontend
+Info: cpu: # 2019.05.14 17:58:19 (*)     Pipeline backend
+Info: cpu: # 2019.05.14 17:58:22 (*)   Generating RTL from CPU objects
+Info: cpu: # 2019.05.14 17:58:25 (*)   Creating encrypted RTL
+Info: cpu: # 2019.05.14 17:58:25 (*) Done Nios II generation
 Info: cpu: Done RTL generation for module 'ED2platform_cpu_cpu'
 Info: cpu: "cpu" instantiated altera_nios2_gen2_unit "cpu"
-Info: sys_pll: "sys_sdram_pll" instantiated altera_up_altpll "sys_pll"
-Info: reset_from_locked: "sys_sdram_pll" instantiated altera_up_avalon_reset_from_locked_signal "reset_from_locked"
 Info: cpu_data_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "cpu_data_master_translator"
 Info: jtag_uart_avalon_jtag_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "jtag_uart_avalon_jtag_slave_translator"
 Info: cpu_data_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "cpu_data_master_agent"
@@ -203,30 +170,22 @@ Info: jtag_uart_avalon_jtag_slave_agent_rsp_fifo: "mm_interconnect_0" instantiat
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
 Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
-Info: router_010: "mm_interconnect_0" instantiated altera_merlin_router "router_010"
-Info: router_012: "mm_interconnect_0" instantiated altera_merlin_router "router_012"
+Info: router_005: "mm_interconnect_0" instantiated altera_merlin_router "router_005"
 Info: cpu_data_master_limiter: "mm_interconnect_0" instantiated altera_merlin_traffic_limiter "cpu_data_master_limiter"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_avalon_sc_fifo.v
-Info: sram_avalon_sram_slave_burst_adapter: "mm_interconnect_0" instantiated altera_merlin_burst_adapter "sram_avalon_sram_slave_burst_adapter"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_avalon_st_pipeline_base.v
+Info: Reusing file G:/altera_ED2_115/HardwareCourseDesign/HardWare/ED2platform/synthesis/submodules/altera_avalon_sc_fifo.v
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_demux_001: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux_001"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
-Info: cmd_mux_010: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_010"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: cmd_mux_003: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux_003"
+Info: Reusing file G:/altera_ED2_115/HardwareCourseDesign/HardWare/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
-Info: rsp_demux_010: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_010"
+Info: rsp_demux_003: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux_003"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
+Info: Reusing file G:/altera_ED2_115/HardwareCourseDesign/HardWare/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: rsp_mux_001: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux_001"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: sram_avalon_sram_slave_rsp_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "sram_avalon_sram_slave_rsp_width_adapter"
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_merlin_address_alignment.sv
-Info: Reusing file D:/hardwaredesign/test1/ED2platform/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: Reusing file G:/altera_ED2_115/HardwareCourseDesign/HardWare/ED2platform/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
-Info: avalon_st_adapter_008: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_008"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: error_adapter_0: "avalon_st_adapter_008" instantiated error_adapter "error_adapter_0"
-Info: ED2platform: Done "ED2platform" with 49 modules, 87 files
+Info: ED2platform: Done "ED2platform" with 36 modules, 66 files
 Info: ip-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

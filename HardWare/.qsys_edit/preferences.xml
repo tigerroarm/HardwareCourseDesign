@@ -3,7 +3,7 @@
  <debug showDebugMenu="0" />
  <systemtable filter="All Interfaces">
   <columns>
-   <connections preferredWidth="191" />
+   <connections preferredWidth="143" />
    <irq preferredWidth="34" />
    <name preferredWidth="230" />
    <inputclock preferredWidth="194" />
@@ -19,6 +19,6 @@
  </clocktable>
  <window width="1366" height="728" x="0" y="0" />
  <library
-   expandedCategories="Library/Processors and Peripherals,Library/Basic Functions/Bridges and Adaptors,Library/Interface Protocols/Ethernet/Reference Design Components,Library,Library/Basic Functions,Library/Basic Functions/Bridges and Adaptors/Memory Mapped,Library/Interface Protocols,Library/Interface Protocols/Ethernet,Project,Library/Processors and Peripherals/Peripherals" />
+   expandedCategories="Library/Processors and Peripherals/Peripherals,Library,Library/Processors and Peripherals,Project" />
  <hdlexample language="VERILOG" />
 </preferences>

@@ -80,7 +80,7 @@ module ED2platform_touch_pen_intr (
     end
 
 
-  assign irq = |(data_in      & irq_mask);
+  assign irq = |(edge_capture & irq_mask);
   assign edge_capture_wr_strobe = chipselect && ~write_n && (address == 3);
   always @(posedge clk or negedge reset_n)
     begin
@@ -109,7 +109,7 @@ module ED2platform_touch_pen_intr (
     end
 
 
-  assign edge_detect = d1_data_in ^  d2_data_in;
+  assign edge_detect = ~d1_data_in & d2_data_in;
 
 endmodule
 

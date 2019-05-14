@@ -43,18 +43,12 @@ module ED2platform_cpu_cpu_test_bench (
                                          M_valid,
                                          W_badaddr_reg,
                                          W_bstatus_reg,
-                                         W_cdsr_reg,
-                                         W_cpuid_reg,
                                          W_dst_regnum,
                                          W_estatus_reg,
                                          W_exception_reg,
-                                         W_ienable_reg,
-                                         W_ipending_reg,
                                          W_iw,
                                          W_iw_op,
                                          W_iw_opx,
-                                         W_mem_baddr,
-                                         W_mem_byte_en,
                                          W_pcb,
                                          W_status_reg,
                                          W_valid,
@@ -110,18 +104,12 @@ module ED2platform_cpu_cpu_test_bench (
   input            M_valid;
   input   [ 31: 0] W_badaddr_reg;
   input   [ 31: 0] W_bstatus_reg;
-  input   [ 31: 0] W_cdsr_reg;
-  input   [ 31: 0] W_cpuid_reg;
   input   [  4: 0] W_dst_regnum;
   input   [ 31: 0] W_estatus_reg;
   input   [ 31: 0] W_exception_reg;
-  input   [ 31: 0] W_ienable_reg;
-  input   [ 31: 0] W_ipending_reg;
   input   [ 31: 0] W_iw;
   input   [  5: 0] W_iw_op;
   input   [  5: 0] W_iw_opx;
-  input   [ 27: 0] W_mem_baddr;
-  input   [  3: 0] W_mem_byte_en;
   input   [ 27: 0] W_pcb;
   input   [ 31: 0] W_status_reg;
   input            W_valid;
@@ -193,25 +181,9 @@ module ED2platform_cpu_cpu_test_bench (
   wire             M_bht_wr_data_unfiltered_1_is_x;
   wire             M_bht_wr_en_filtered;
   wire             M_bht_wr_en_unfiltered_is_x;
-  reg     [ 31: 0] W_badaddr_reg_prev;
-  wire             W_badaddr_reg_prev_is_x;
-  reg     [ 31: 0] W_bstatus_reg_prev;
-  wire             W_bstatus_reg_prev_is_x;
-  reg     [ 31: 0] W_cdsr_reg_prev;
-  wire             W_cdsr_reg_prev_is_x;
   reg              W_cmp_result;
-  reg     [ 31: 0] W_cpuid_reg_prev;
-  wire             W_cpuid_reg_prev_is_x;
-  reg     [ 31: 0] W_estatus_reg_prev;
-  wire             W_estatus_reg_prev_is_x;
   reg              W_exc_any_active;
   reg     [ 31: 0] W_exc_highest_pri_exc_id;
-  reg     [ 31: 0] W_exception_reg_prev;
-  wire             W_exception_reg_prev_is_x;
-  reg     [ 31: 0] W_ienable_reg_prev;
-  wire             W_ienable_reg_prev_is_x;
-  reg     [ 31: 0] W_ipending_reg_prev;
-  wire             W_ipending_reg_prev_is_x;
   wire             W_is_opx_inst;
   reg              W_iw_invalid;
   wire             W_op_add;
@@ -342,8 +314,6 @@ module ED2platform_cpu_cpu_test_bench (
   wire             W_op_xorhi;
   wire             W_op_xori;
   reg     [ 31: 0] W_st_data;
-  reg     [ 31: 0] W_status_reg_prev;
-  wire             W_status_reg_prev_is_x;
   reg     [ 27: 0] W_target_pcb;
   reg              W_valid_crst;
   reg              W_valid_hbreak;
@@ -986,83 +956,6 @@ module ED2platform_cpu_cpu_test_bench (
               $write("%0d ns: ERROR: ED2platform_cpu_cpu_test_bench/d_readdatavalid is 'x'\n", $time);
               $stop;
             end
-    end
-
-
-  
-  reg [31:0] trace_handle; // for $fopen
-  initial  
-  begin
-    trace_handle = $fopen("ED2platform_cpu_cpu.tr");
-    $fwrite(trace_handle, "HeaderStart\nVersion 0\nCpuCoreName NiosII/f2\nCpuInstanceName ED2platform_cpu_cpu\nCpuArchName Nios2\nCpuArchRev R1\nCtrlRegPresent 0\nCtrlRegPresent 1\nCtrlRegPresent 2\nCtrlRegPresent 3\nCtrlRegPresent 4\nCtrlRegPresent 5\nCtrlRegPresent 7\nCtrlRegPresent c\nCtrlRegPresent 1f\nExcContainsId 1\nHeaderEnd\n");
-  end
-  assign W_status_reg_prev_is_x = ^(W_status_reg_prev) === 1'bx;
-  assign W_estatus_reg_prev_is_x = ^(W_estatus_reg_prev) === 1'bx;
-  assign W_bstatus_reg_prev_is_x = ^(W_bstatus_reg_prev) === 1'bx;
-  assign W_ienable_reg_prev_is_x = ^(W_ienable_reg_prev) === 1'bx;
-  assign W_ipending_reg_prev_is_x = ^(W_ipending_reg_prev) === 1'bx;
-  assign W_cpuid_reg_prev_is_x = ^(W_cpuid_reg_prev) === 1'bx;
-  assign W_exception_reg_prev_is_x = ^(W_exception_reg_prev) === 1'bx;
-  assign W_badaddr_reg_prev_is_x = ^(W_badaddr_reg_prev) === 1'bx;
-  assign W_cdsr_reg_prev_is_x = ^(W_cdsr_reg_prev) === 1'bx;
-  always @(posedge clk)
-    begin
-      if (~test_has_ended)
-        begin
-          if ((W_status_reg != W_status_reg_prev) || W_status_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 0, W_status_reg);
-              W_status_reg_prev <= W_status_reg;
-            end
-          if ((W_estatus_reg != W_estatus_reg_prev) || W_estatus_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 1, W_estatus_reg);
-              W_estatus_reg_prev <= W_estatus_reg;
-            end
-          if ((W_bstatus_reg != W_bstatus_reg_prev) || W_bstatus_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 2, W_bstatus_reg);
-              W_bstatus_reg_prev <= W_bstatus_reg;
-            end
-          if ((W_ienable_reg != W_ienable_reg_prev) || W_ienable_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 3, W_ienable_reg);
-              W_ienable_reg_prev <= W_ienable_reg;
-            end
-          if ((W_ipending_reg != W_ipending_reg_prev) || W_ipending_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 4, W_ipending_reg);
-              W_ipending_reg_prev <= W_ipending_reg;
-            end
-          if ((W_cpuid_reg != W_cpuid_reg_prev) || W_cpuid_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 5, W_cpuid_reg);
-              W_cpuid_reg_prev <= W_cpuid_reg;
-            end
-          if ((W_exception_reg != W_exception_reg_prev) || W_exception_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 7, W_exception_reg);
-              W_exception_reg_prev <= W_exception_reg;
-            end
-          if ((W_badaddr_reg != W_badaddr_reg_prev) || W_badaddr_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 12, W_badaddr_reg);
-              W_badaddr_reg_prev <= W_badaddr_reg;
-            end
-          if ((W_cdsr_reg != W_cdsr_reg_prev) || W_cdsr_reg_prev_is_x)
-            begin
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h\n", $time, 4, 31, W_cdsr_reg);
-              W_cdsr_reg_prev <= W_cdsr_reg;
-            end
-          if (~reset_n)
-              $fwrite(trace_handle, "%0d ns: %0h,%0h\n", $time, 0, 0);
-          else if (W_valid_hbreak)
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h,%0h,%0h\n", $time, 1, W_pcb, W_wr_dst_reg, W_dst_regnum, W_wr_data_filtered);
-          else if (W_valid_intr)
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h,%0h,%0h\n", $time, 2, W_pcb, W_wr_dst_reg, W_dst_regnum, W_wr_data_filtered);
-          else if (W_valid || W_exc_any_active)
-              $fwrite(trace_handle, "%0d ns: %0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h,%0h\n", $time, 3, W_exc_any_active ? W_exc_highest_pri_exc_id : 0, W_pcb, ~W_iw_invalid, W_iw, W_wr_dst_reg, W_dst_regnum, W_wr_data_filtered, W_mem_baddr, W_st_data, W_mem_byte_en, W_cmp_result, W_target_pcb);
-        end
     end
 
 

@@ -250,7 +250,7 @@ module ED2platform_sdram (
   wire             pending;
   wire             rd_strobe;
   reg     [  2: 0] rd_valid;
-  reg     [ 12: 0] refresh_counter;
+  reg     [ 13: 0] refresh_counter;
   reg              refresh_request;
   wire             rnw_match;
   wire             row_match;
@@ -300,9 +300,9 @@ module ED2platform_sdram (
   always @(posedge clk or negedge reset_n)
     begin
       if (reset_n == 0)
-          refresh_counter <= 5000;
+          refresh_counter <= 10000;
       else if (refresh_counter == 0)
-          refresh_counter <= 781;
+          refresh_counter <= 1562;
       else 
         refresh_counter <= refresh_counter - 1'b1;
     end
@@ -365,7 +365,7 @@ module ED2platform_sdram (
               3'b001: begin
                   i_state <= 3'b011;
                   i_cmd <= {{1{1'b0}},3'h2};
-                  i_count <= 0;
+                  i_count <= 1;
                   i_next <= 3'b010;
               end // 3'b001 
           
@@ -373,7 +373,7 @@ module ED2platform_sdram (
                   i_cmd <= {{1{1'b0}},3'h1};
                   i_refs <= i_refs + 1'b1;
                   i_state <= 3'b011;
-                  i_count <= 3;
+                  i_count <= 7;
                   // Count up init_refresh_commands
                   if (i_refs == 3'h1)
                       i_next <= 3'b111;
@@ -456,7 +456,7 @@ module ED2platform_sdram (
                         begin
                           m_state <= 9'b001000000;
                           m_next <= 9'b010000000;
-                          m_count <= 0;
+                          m_count <= 1;
                           active_cs_n <= 1'b1;
                         end
                       else if (!f_empty)
@@ -486,7 +486,7 @@ module ED2platform_sdram (
                   m_addr <= active_addr[23 : 11];
                   m_data <= active_data;
                   m_dqm <= active_dqm;
-                  m_count <= 1;
+                  m_count <= 2;
                   m_next <= active_rnw ? 9'b000001000 : 9'b000010000;
               end // 9'b000000010 
           
@@ -552,7 +552,7 @@ module ED2platform_sdram (
                         begin
                           m_state <= 9'b000000100;
                           m_next <= 9'b000000001;
-                          m_count <= 1;
+                          m_count <= 2;
                         end
                       else 
                         begin
@@ -584,7 +584,7 @@ module ED2platform_sdram (
                   else 
                     begin
                       m_state <= 9'b001000000;
-                      m_count <= 0;
+                      m_count <= 1;
                     end
               end // 9'b000100000 
           
@@ -602,7 +602,7 @@ module ED2platform_sdram (
                   ack_refresh_request <= 1'b1;
                   m_state <= 9'b000000100;
                   m_cmd <= {{1{1'b0}},3'h1};
-                  m_count <= 3;
+                  m_count <= 7;
                   m_next <= 9'b000000001;
               end // 9'b010000000 
           

@@ -1,0 +1,6 @@
+04:20:59 **** Clean-only build of configuration Nios II for project touch_intr_test3_bsp ****
+make clean 
+[BSP clean complete]
+
+04:21:01 Build Finished (took 1s.430ms)
+

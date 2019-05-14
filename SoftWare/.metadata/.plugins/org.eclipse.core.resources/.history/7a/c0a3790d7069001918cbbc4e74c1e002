@@ -1,0 +1,16 @@
+/*
+ * icon_pic.c
+ *
+ *  Created on: 2019Äê4ÔÂ28ÈÕ
+ *      Author: 12757
+ */
+
+
+#include "font_manage.h"
+
+#define ICON_SETTING_X_SIZE 16
+#define ICON_SETTING_Y_SIZE 16
+#define ICON_SETTING_BYTE_X (ICON_SETTING_X_SIZE/8)
+#define ICON_SETTING_BYTE_Y 16
+#define ICON_SETTING_BYTES (ICON_SETTING_BYTE_X * ICON_SETTING_BYTE_Y)
+alt_u8 icon_setting[ICON_SETTING_BYTES];

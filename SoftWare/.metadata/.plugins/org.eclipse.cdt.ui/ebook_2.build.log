@@ -1,0 +1,9 @@
+05:03:22 **** Incremental Build of configuration Nios II for project ebook_2 ****
+make all 
+Info: Building ../ebook_2_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_2_bsp/
+[BSP build complete]
+[ebook_2 build complete]
+
+05:03:26 Build Finished (took 3s.290ms)
+

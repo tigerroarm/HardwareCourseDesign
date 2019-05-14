@@ -1,3 +1,5 @@
+本工程为触摸驱动库测试工程
+
 去掉了led,switch,button等，终于出现高级版中断注册函数。
 touch_pen_intr 为下降沿触发
 而且对touch_pen的采样进行了低速率化处理

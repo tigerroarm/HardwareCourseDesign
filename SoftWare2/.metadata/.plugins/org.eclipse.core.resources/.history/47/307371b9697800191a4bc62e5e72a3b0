@@ -1,0 +1,24 @@
+/*
+ * sdTest.c
+ *
+ *  Created on: 2019Äê5ÔÂ17ÈÕ
+ *      Author: 12757
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+#include "system.h"
+
+int main( void )
+{
+
+	alt_up_sd_card_dev* sdDevPtr =\
+			alt_up_sd_card_open_dev( ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_NAME );
+
+	bool sdPresent = alt_up_sd_card_is_Present();
+
+	printf( "sdPresent=%s\n", sdPresent ? "true":"false" );
+
+	return 0;
+}

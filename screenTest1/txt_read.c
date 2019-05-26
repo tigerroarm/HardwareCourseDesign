@@ -115,7 +115,8 @@ bool readAlltxtFilesOfSDcard( )
 		curTxtFile = (txtFilesInfoSpace.txtFileList) + i;
 
 		//文件信息填充
-		curTxtFile->curBytePos = 0;//当前阅读到0字节
+		curTxtFile->curPageBytePosStart = 0;//当前阅读到0字节
+		curTxtFile->curPageBytePosEnd = 0;//当前阅读到0字节
 		curTxtFile->curPageNum = 1;//第一页
 		curTxtFile->curPageRatio = 0;//进度(范围0~1)
 		curTxtFile->fileSizeInBytes = 10000;//10000个字节
@@ -140,9 +141,22 @@ bool readAlltxtFilesOfSDcard( )
 
 
 //读取SD卡中的文本内容(txtBookInst里面有当前打开电子书的阅读进度),存储于全局变量txtBookSpace中
-bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPagePct )
+bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPageRatio )
 {
 	bool status = true;
+
+	if ( turnPageSel == BOOK_PAGE_PRE )
+    {
+        printf( "pageChangePre\n" );
+    }
+    else if ( turnPageSel == BOOK_PAGE_NEXT )
+    {
+        printf( "pageChangeNext\n" );
+    }
+    else if ( turnPageSel == BOOK_PAGE_JUMP )
+    {
+        printf( "pageJump\n" );
+    }
 
 	//设计要求：修改txtBookInst中阅读进度，并读取翻页后的文本内容于txtBookSpace中
 	//翻页时，如果是上下翻页时，要保证文本连续性，还要保证换行符对齐一行的开头
@@ -168,4 +182,41 @@ bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel
 
 
 	return status;
+}
+
+//打开SD卡的某个文本
+TxtFile *openTxtFile( short fileIndex )
+{
+    if ( fileIndex < 0 || fileIndex >= txtFilesInfoSpace.txtFilesNum )
+    {
+        return (void*)0;
+    }
+    txtFilesInfoSpace.curOpenFileIndex = fileIndex;
+
+    //调用打开文件函数
+    /*
+
+
+    写吧
+
+    */
+
+    return txtFilesInfoSpace.txtFileList + fileIndex;
+}
+
+//关闭TxtFile问件
+bool closeTxtFile( )
+{
+    txtFilesInfoSpace.curOpenFileIndex = -1;
+
+    //调用关闭文件函数
+
+
+    /*
+
+
+    写吧
+
+    */
+    return true;
 }

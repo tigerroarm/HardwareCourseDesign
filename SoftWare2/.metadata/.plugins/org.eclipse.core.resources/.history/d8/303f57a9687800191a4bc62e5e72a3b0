@@ -1,0 +1,16 @@
+/*
+ * sdTest.c
+ *
+ *  Created on: 2019Äê5ÔÂ17ÈÕ
+ *      Author: 12757
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+
+int main( void )
+{
+
+	return 0;
+}

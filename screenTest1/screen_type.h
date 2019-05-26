@@ -96,6 +96,13 @@ typedef struct
 	short y_max;
 } AreaRange;
 
+//位置结构体
+typedef struct
+{
+    short x_pos;
+    short y_pos;
+} PosType;
+
 //区域定位(通过中心点定位）
 typedef struct
 {
@@ -208,15 +215,24 @@ typedef struct
 //单个txt文件的信息
 typedef struct
 {
+	TextType txtFileReadName;//问件读取时需要用该文件名
 	TextType txtFileName;//文件名（省略.txt）
 	int curPageNum;//当前阅读页数
 	int totalPageNum;//总页数
 	float curPageRatio;//阅读进度比率 = curPageNum / totalPageNum  (范围0~1)
-	unsigned int curBytePos;
-	unsigned int fileSizeInBytes;
+	unsigned int curPageBytePosStart;//本页开始字节数
+	unsigned int curPageBytePosEnd;//本页结束字节数
+	unsigned int fileSizeInBytes;//整个txt文件的字节数
 
 } TxtFile;
 
+//时间变量
+typedef struct
+{
+    short timeHour;//阅读时间,时
+	short timeMinute;//阅读时间,分
+	short timeSecond;//秒（不参与显示，只用于时钟计数）
+} TimeType;
 
 //屏幕上边栏：时钟显示区域
 typedef struct
@@ -226,9 +242,7 @@ typedef struct
 	AreaRange tagTimeArea;//时间标签区域
 	TagBlock tagTime;//时间标签
 
-	short timeHour;//阅读时间,时
-	short timeMinute;//阅读时间,分
-	short timeSecond;//秒（不参与显示，只用于时钟计数）
+    TimeType curTime;//当前时间
 } ScreenHeaderTime;
 
 //屏幕下边栏：基本按钮区
@@ -405,7 +419,7 @@ typedef struct
 	AreaRange editTurnPageSecArea;//编辑自动翻页时间间隔
 	TagIconGroup editTurnPageSec;
 
-	bool turnPageMod;//翻页模式
+    bool autoTurnPage;//翻页模式(ture表示自动翻页，false表示手动翻页)
 
 	//电子书BOOK页面的颜色信息
 	color_u8 bkgColorIndex;//背景颜色(因为要编辑该颜色，所以设置为256色)

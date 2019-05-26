@@ -91,6 +91,7 @@ void storeScreenArrayToFile( void );
 
 int WriteArray2File(FILE* fp, int row, int column);
 
-
+//将屏幕数组置为0
+void clearScreenArray();
 
 #endif // TEST_VALUE_H_INCLUDED

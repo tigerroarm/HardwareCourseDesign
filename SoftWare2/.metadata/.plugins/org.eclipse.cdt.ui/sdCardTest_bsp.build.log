@@ -1,0 +1,6 @@
+13:48:43 **** Clean-only build of configuration Nios II for project sdCardTest_bsp ****
+make clean 
+[BSP clean complete]
+
+13:48:46 Build Finished (took 2s.929ms)
+

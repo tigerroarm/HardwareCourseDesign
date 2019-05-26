@@ -18,54 +18,65 @@
 1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\icon_pic.c
 	"font_manage.h"
 
-1557425630 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.c
+1558872636 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"screen.h"
-	"font_manage.h"
 	"icon_pic_extern.h"
 	"test_value.h"
 	"color.h"
 
-1557396944 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.h
+1558218259 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen.h
 	<stdio.h>
 	"screen_type.h"
 	"font_manage.h"
 	"txt_read.h"
 
-1557391283 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_type.h
+1558876914 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_type.h
 	<stdbool.h>
 	"alt_types.h"
 	"color.h"
 
 1556960425 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\alt_types.h
 
-1556950403 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.h
+1558216604 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.h
 	"screen_type.h"
 
 1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\icon_pic_extern.h
 
-1557425444 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.c
+1558219321 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.c
 	<stdlib.h>
 	"screen_display.h"
 	"screen.h"
 	"test_value.h"
 
-1557417969 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.h
+1558217907 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\screen_display.h
 	"screen_type.h"
 
-1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.c
+1558874821 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.c
 	"time_count.h"
+	"screen.h"
 
-1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.h
+1558876008 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\time_count.h
+	<stdbool.h>
+	"alt_types.h"
+	"screen_type.h"
 
-1556946375 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.c
+1558220119 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.c
+	<stdio.h>
+	<string.h>
 	"touch_resp.h"
+	"screen_display.h"
+	"txt_read.h"
+	"screen.h"
 
-1556946375 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.h
+1558219331 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\touch_resp.h
+	<stdbool.h>
+	"alt_types.h"
+	"screen_type.h"
 
-1557425193 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.c
+1558216604 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\txt_read.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -73,20 +84,21 @@
 	"screen.h"
 	"test_value.h"
 
-1557424219 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\main.c
+1558219405 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"screen.h"
 	"screen_display.h"
 	"test_value.h"
+	"touch_resp.h"
 
-1557425675 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.c
+1558876961 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.c
 	<stdio.h>
 	<stdlib.h>
 	"test_value.h"
 	"alt_types.h"
 
-1557382791 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.h
+1558173459 f:\大学学习资源\第六学期课程\硬件课程设计\screentest1\test_value.h
 	<stdbool.h>
 	"screen_type.h"
 	"txt_read.h"

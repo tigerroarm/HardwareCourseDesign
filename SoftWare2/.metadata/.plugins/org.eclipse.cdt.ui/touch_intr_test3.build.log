@@ -1,9 +1,9 @@
-04:28:13 **** Incremental Build of configuration Nios II for project touch_intr_test3 ****
+14:01:18 **** Build of configuration Nios II for project touch_intr_test3 ****
 make all 
 Info: Building ../touch_intr_test3_bsp/
 E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../touch_intr_test3_bsp/
 [BSP build complete]
 [touch_intr_test3 build complete]
 
-04:28:17 Build Finished (took 3s.314ms)
+14:01:22 Build Finished (took 3s.283ms)
 

@@ -39,10 +39,14 @@ extern char txtBookSpace[][BOOK_ROW_BYTES+1];
 bool readAlltxtFilesOfSDcard( );
 
 //翻页模式枚举类型
-enum bookTurnPageType { BOOK_PAGE_SET=0, BOOK_PAGE_END=1, BOOK_PAGE_NEXT=2, BOOK_PAGE_PRE=3, BOOK_PAGE_JUMP=4 };
+//enum bookTurnPageType { BOOK_PAGE_SET=0, BOOK_PAGE_END=1, BOOK_PAGE_NEXT=2, BOOK_PAGE_PRE=3, BOOK_PAGE_JUMP=4 };
+enum bookTurnPageType { BOOK_PAGE_NEXT=0, BOOK_PAGE_PRE=1, BOOK_PAGE_JUMP=2 };
 
 //读取SD卡中的文本内容(txtBookInst里面有当前打开电子书的阅读进度)
-bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPagePct );
+bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPageRatio );
 
+
+//打开SD卡的某个文本(flieIndex从0开始)
+TxtFile *openTxtFile( short fileIndex );
 
 #endif /* TXTSD_H_ */

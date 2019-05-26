@@ -233,9 +233,13 @@ bool showBkgAndBorder( const ColorInfo *bkgBorderColor, const AreaRange *absPos,
     {
         exceptAreaArrayCopy[i] = exceptAreaArray[i];
     }
-
+//    if ( absPos->y_max == 329 )
+//    {
+//        printf( "borderVisible=%d\n", bkgBorderColor->borderVisible );
+//    }
 	if ( bkgBorderColor->borderVisible )//边界可见
 	{
+
 		//画边界
 		status1 = showBorder( absPos, bkgBorderColor->borderColor );
 		status = status && status1;
@@ -601,6 +605,8 @@ bool showTagWithYOffset( const TagBlock *tagPtr, const AreaRange *absPos, const 
 	//显示TagBlock的背景与边界
 	bool textVisible = (tagPtr->tagColorInfo).objVisible;
 
+//    displayTagBlock( tagPtr, 0 );
+//    displayAreaRange( absPos, 0 );
 
 	short wordPicPtrOffset = 0;
 	short letterPicPtrOffset = 0;
@@ -627,7 +633,11 @@ bool showTagWithYOffset( const TagBlock *tagPtr, const AreaRange *absPos, const 
 	if ( textVisible )//中间的文本需要显示
 	{
 		//处理背景与边界（挖掉text显示区）
-		status1 = showBkgAndBorder( &(tagPtr->tagColorInfo), &absNewPos, &(tagPtr->textArea), 1 );
+		AreaRange exceptArea;
+		exceptArea = tagPtr->textArea;
+		exceptArea.y_max -= yOffset;
+		exceptArea.y_min -= yOffset;
+		status1 = showBkgAndBorder( &(tagPtr->tagColorInfo), &absNewPos, &exceptArea, 1 );
 		status = status && status1;
 
 
@@ -1265,6 +1275,33 @@ bool showColorBoard( const ColorBoard *colorTableInst, const AreaRange *absPos )
 
 
 	//突出选中颜色的边界
+    status1 = showColorSelBorder( colorTableInst, absPos );
+    status = status && status1;
+
+	return status;
+}
+//显示颜色板中选中颜色的边界
+bool showColorSelBorder( const ColorBoard *colorTableInst, const AreaRange *absPos )
+{
+    bool status = true, status1;
+
+    //每个色块
+	const short colorXSize = colorTableInst->colorXSize;//横向长度
+	const short colorYSize = colorTableInst->colorYSize;//纵向长度
+	//色块个数
+	const short colorXNum = colorTableInst->colorXNum;//横向颜色个数
+//	const short colorYNum = colorTableInst->colorYNum;//纵向颜色个数
+//	const short colorSNum = colorXNum * colorYNum;//颜色总个数
+	//颜色映射表
+	const color_u16 *const colorSpace = colorTableInst->colorSpace;
+
+	//区域尺寸
+	short xBasePos = absPos->x_min - 1;
+	short yBasePos = absPos->y_min - 1;
+	short width = absPos->x_max - xBasePos;
+	short height = absPos->y_max - yBasePos;
+
+    //突出选中颜色的边界
 	short borderMargin = 1;//边界距选中块的距离
 
 	if ( colorTableInst->colorIndex != NULL )
@@ -1272,7 +1309,8 @@ bool showColorBoard( const ColorBoard *colorTableInst, const AreaRange *absPos )
 		AreaRange colorBorderPos;//相对位置
 		short colorIndex = *(colorTableInst->colorIndex);
 //		color_u16 borderColor = colorSpace[colorIndex];
-		color_u16 borderColor = 0x0000;
+//		color_u16 borderColor = 0x0000;
+        color_u16 borderColor = 0xffff - colorSpace[colorIndex];
 		short colorYIndex = ( colorIndex + colorXNum ) / colorXNum;//下标从1开始
 		short colorXIndex = colorIndex - (colorYIndex-1) * colorXNum + 1;//下标从1开始
 		//首先计算选中颜色块的外边界
@@ -1314,8 +1352,85 @@ bool showColorBoard( const ColorBoard *colorTableInst, const AreaRange *absPos )
 			status = status && status1;
 		}
 	}
+    return status;
+}
+//清除颜色板中选中颜色的边界
+bool clearColorSelBorder( const ColorBoard *colorTableInst, const AreaRange *absPos )
+{
+    bool status = true, status1;
 
-	return status;
+    //每个色块
+	const short colorXSize = colorTableInst->colorXSize;//横向长度
+	const short colorYSize = colorTableInst->colorYSize;//纵向长度
+	//色块个数
+	const short colorXNum = colorTableInst->colorXNum;//横向颜色个数
+//	const short colorYNum = colorTableInst->colorYNum;//纵向颜色个数
+//	const short colorSNum = colorXNum * colorYNum;//颜色总个数
+	//颜色映射表
+	const color_u16 *const colorSpace = colorTableInst->colorSpace;
+
+
+	//区域尺寸
+//	short xBasePos = absPos->x_min - 1;
+//	short yBasePos = absPos->y_min - 1;
+//	short width = absPos->x_max - xBasePos;
+//	short height = absPos->y_max - yBasePos;
+
+    //找到原先选中的颜色
+//	short borderMargin = 1;//边界距选中块的距离
+
+	if ( colorTableInst->colorIndex != NULL )
+	{
+//		AreaRange colorBorderPos;//相对位置
+		short colorIndex = *(colorTableInst->colorIndex);
+//		color_u16 borderColor = colorSpace[colorIndex];
+
+		short colorYIndex = colorIndex / colorXNum;//下标从0开始
+		short colorXIndex = colorIndex - colorYIndex * colorXNum;//下标从0开始
+
+		//相邻的8个色块重新填充一次，就恢复了
+		ColorInfo blockColor;
+		blockColor.borderVisible = false;
+		blockColor.objVisible = false;
+
+		AreaRange blockColorArea;
+		AreaRange blockColorAbsArea;
+		AreaRange colorSelArea;
+		colorSelArea.x_min = colorXIndex * colorXSize + 1;
+		colorSelArea.x_max = ( colorXIndex + 1 ) * colorXSize;
+        colorSelArea.y_min = colorYIndex * colorXSize + 1;
+		colorSelArea.y_max = ( colorYIndex + 1 ) * colorYSize;
+
+		short xOffset[8] = { -colorXSize, 0, colorXSize,
+                             -colorXSize,    colorXSize,
+                             -colorXSize, 0, colorXSize };
+		short yOffset[8] = { -colorYSize, -colorYSize, -colorYSize,
+                                   0    ,                    0    ,
+                              colorYSize,  colorYSize,  colorYSize };
+        short blockColorIndex[8] = { - colorXNum - 1, - colorXNum, - colorXNum + 1,
+                                            -1      ,                     +1      ,
+                                       colorXNum - 1,   colorXNum,   colorXNum + 1 };
+
+        int i;
+        for ( i = 0; i < 8; i ++ )
+        {
+            blockColorArea.x_min = colorSelArea.x_min + xOffset[i];
+            blockColorArea.x_max = colorSelArea.x_max + xOffset[i];
+            blockColorArea.y_min = colorSelArea.y_min + yOffset[i];
+            blockColorArea.y_max = colorSelArea.y_max + yOffset[i];
+            getAbsPos( absPos, &blockColorArea, &blockColorAbsArea );
+
+            alt_u8 curBlockColorIndex = colorIndex + blockColorIndex[i];
+            blockColor.bkgColor = colorSpace[curBlockColorIndex];
+
+            status1 = showBkgAndBorder( &blockColor, &blockColorAbsArea, NULL, 0 );
+            status = status && status1;
+        }
+
+	}
+
+
+    return status;
 }
 
 
@@ -1375,6 +1490,45 @@ bool showScreenFooter( const ScreenFooterBtn *scrFooterInst, const AreaRange *sc
 
 	return status;
 }
+
+//显示screen_main
+bool showScreenMain( const ScreenContainer *scrContainerInst )
+{
+    bool status = true, status1;
+    //显示screen_main
+
+//**********************测试模式时，设置TYPE为0;  正常运行模式时，设置TYPE为1************************************
+#define SCREEN_MAIN_SHOW_TYPE 1
+
+#if SCREEN_MAIN_SHOW_TYPE == 1
+    short curScreenIndex = (scrContainerInst->mainAreaInfo).curScrIndex;
+	switch( ((scrContainerInst->mainAreaInfo).scrIDStack)[curScreenIndex] )
+#elif SCREEN_MAIN_SHOW_TYPE == 0
+    switch( SCR_HOME )
+#endif // SCREEN_MAIN_SHOW_TYPE
+#undef SCREEN_MAIN_SHOW_TYPE
+	{
+		case SCR_HOME:
+			status1 = showScreenMainHome( &(scrContainerInst->scrHome), &(scrContainerInst->mainArea) );
+			break;
+		case SCR_BOOK:
+			status1 = showScreenMainBook( &(scrContainerInst->scrBook), &(scrContainerInst->mainArea) );
+			break;
+		case SCR_SETTING:
+			status1 = showScreenMainSetting( &(scrContainerInst->scrSetting), &(scrContainerInst->mainArea) );
+			break;
+		case SCR_COLOR_PICKER:
+			status1 = showScreenMainColorPicker( &(scrContainerInst->scrColorPicker), &(scrContainerInst->mainArea) );
+			break;
+		default:
+			status1 = false;
+	}
+
+	status = status && status1;
+
+	return status;
+}
+
 //显示screen_main_home
 bool showScreenMainHome( const ScreenHome *scrHomeInst, const AreaRange *scrMainAbsPos )
 {
@@ -1565,34 +1719,7 @@ bool showScreen( )
 	status = status && status1;
 
 	//显示screen_main
-
-//**********************测试模式时，设置TYPE为0;  正常运行模式时，设置TYPE为1************************************
-#define SCREEN_MAIN_SHOW_TYPE 0
-
-#if SCREEN_MAIN_SHOW_TYPE == 1
-    short curScreenIndex = (tftlcdScreenPtr->mainAreaInfo).curScrIndex;
-	switch( ((tftlcdScreenPtr->mainAreaInfo).scrIDStack)[curScreenIndex] )
-#elif SCREEN_MAIN_SHOW_TYPE == 0
-    switch( SCR_HOME )
-#endif // SCREEN_MAIN_SHOW_TYPE
-#undef SCREEN_MAIN_SHOW_TYPE
-	{
-		case SCR_HOME:
-			status1 = showScreenMainHome( &(tftlcdScreenPtr->scrHome), &(tftlcdScreenPtr->mainArea) );
-			break;
-		case SCR_BOOK:
-			status1 = showScreenMainBook( &(tftlcdScreenPtr->scrBook), &(tftlcdScreenPtr->mainArea) );
-			break;
-		case SCR_SETTING:
-			status1 = showScreenMainSetting( &(tftlcdScreenPtr->scrSetting), &(tftlcdScreenPtr->mainArea) );
-			break;
-		case SCR_COLOR_PICKER:
-			status1 = showScreenMainColorPicker( &(tftlcdScreenPtr->scrColorPicker), &(tftlcdScreenPtr->mainArea) );
-			break;
-		default:
-			status = false;
-	}
-
+    status1 = showScreenMain( tftlcdScreenPtr );
 	status = status && status1;
 
 	return status;

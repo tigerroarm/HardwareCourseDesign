@@ -1,0 +1,6 @@
+21:44:39 **** Clean-only build of configuration Nios II for project sdRead_bsp ****
+make clean 
+[BSP clean complete]
+
+21:44:45 Build Finished (took 5s.488ms)
+

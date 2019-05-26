@@ -1,0 +1,73 @@
+22:04:15 **** Incremental Build of configuration Nios II for project sdRead ****
+make all 
+Info: Building ../sdRead_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../sdRead_bsp/
+[BSP build complete]
+Info: Compiling screen.c to obj/default/screen.o
+nios2-elf-gcc -xc -MP -MMD -c -I../sdRead_bsp//HAL/inc -I../sdRead_bsp/ -I../sdRead_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/screen.o screen.c
+Info: Compiling txt_read.c to obj/default/txt_read.o
+nios2-elf-gcc -xc -MP -MMD -c -I../sdRead_bsp//HAL/inc -I../sdRead_bsp/ -I../sdRead_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/txt_read.o txt_read.c
+Info: Linking sdRead.elf
+nios2-elf-g++  -T'../sdRead_bsp//linker.x' -msys-crt0='../sdRead_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../sdRead_bsp/   -Wl,-Map=sdRead.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o sdRead.elf obj/default/screen.o obj/default/sdTest.o obj/default/txt_read.o -lm -msys-lib=m
+obj/default/screen.o: In function `setDefaultProgressBarX':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:257: undefined reference to `icon_dot'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:257: undefined reference to `icon_dot'
+obj/default/screen.o: In function `setDefaultScrollBarY':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:291: undefined reference to `icon_move_up'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:291: undefined reference to `icon_move_up'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:299: undefined reference to `icon_move_down'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:299: undefined reference to `icon_move_down'
+obj/default/screen.o: In function `setDefaultColorBoard':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:371: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:371: undefined reference to `color_form'
+obj/default/screen.o: In function `setDefaultNumEditGroup':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:552: undefined reference to `icon_plus'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:552: undefined reference to `icon_plus'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:574: undefined reference to `icon_minus'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:574: undefined reference to `icon_minus'
+obj/default/screen.o: In function `screenFooterInit':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:683: undefined reference to `icon_setting'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:683: undefined reference to `icon_setting'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:685: undefined reference to `icon_home'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:685: undefined reference to `icon_home'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:687: undefined reference to `icon_back'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:687: undefined reference to `icon_back'
+obj/default/screen.o: In function `screenMainHomeInit':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:762: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:763: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:764: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:778: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:779: undefined reference to `getColor16BitByRGB'
+obj/default/screen.o:G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:780: more undefined references to `getColor16BitByRGB' follow
+obj/default/screen.o: In function `screenMainBookInit':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:963: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:963: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:965: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:965: undefined reference to `color_form'
+obj/default/screen.o: In function `screenSetCustomInfo':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1235: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1236: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1239: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1240: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1241: undefined reference to `getColor16BitByRGB'
+obj/default/screen.o:G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1247: more undefined references to `getColor16BitByRGB' follow
+obj/default/screen.o: In function `screenSetCustomInfo':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1308: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1308: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1312: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1314: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1316: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1316: undefined reference to `color_form'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1320: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1322: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1323: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1327: undefined reference to `getColor16BitByRGB'
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1329: undefined reference to `getColor16BitByRGB'
+obj/default/screen.o:G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/screen.c:1330: more undefined references to `getColor16BitByRGB' follow
+obj/default/sdTest.o: In function `main':
+G:\altera_ED2_115\HardwareCourseDesign\SoftWare3\software\sdRead/sdTest.c:67: undefined reference to `alt_up_sd_card_find_next_real'
+collect2.exe: error: ld returned 1 exit status
+make: *** [sdRead.elf] Error 1
+
+22:04:22 Build Finished (took 7s.316ms)
+

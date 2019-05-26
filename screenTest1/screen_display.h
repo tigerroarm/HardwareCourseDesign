@@ -61,10 +61,18 @@ bool showProgressBarX( const ProgressBarX *prgBarXInst, const AreaRange *absPos 
 bool showColorBoard( const ColorBoard *colorTableInst, const AreaRange *absPos );
 
 
+//显示颜色板中选中颜色的边界
+bool showColorSelBorder( const ColorBoard *colorTableInst, const AreaRange *absPos );
+//清除颜色板中选中颜色的边界
+bool clearColorSelBorder( const ColorBoard *colorTableInst, const AreaRange *absPos );
+
+
 //显示screen_header
 bool showScreenHeader( const ScreenHeaderTime *scrHeaderInst, const AreaRange *scrHeaderAbsPos );
 //显示screen_footer
 bool showScreenFooter( const ScreenFooterBtn *scrFooterInst, const AreaRange *scrFooterAbsPos );
+//显示screen_main
+bool showScreenMain( const ScreenContainer *scrContainerInst );
 //显示screen_main_home
 bool showScreenMainHome( const ScreenHome *scrHomeInst, const AreaRange *scrMainAbsPos );
 //显示screen_main_book

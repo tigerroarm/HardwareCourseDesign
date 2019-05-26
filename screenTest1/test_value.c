@@ -75,7 +75,9 @@ void displayTxtFile( TxtFile *txtFileInst, int spaceNum )
     printf( "%s", spaceStr );
     printf( "float curPageRatio = %f\n", txtFileInst->curPageRatio );
     printf( "%s", spaceStr );
-    printf( "unsigned int curBytePos = %d\n", txtFileInst->curBytePos );
+    printf( "unsigned int curPageBytePosStart = %d\n", txtFileInst->curPageBytePosStart );
+    printf( "%s", spaceStr );
+    printf( "unsigned int curPageBytePosEnd = %d\n", txtFileInst->curPageBytePosEnd );
     printf( "%s", spaceStr );
     printf( "unsigned int fileSizeInBytes = %d\n", txtFileInst->fileSizeInBytes );
 
@@ -155,9 +157,9 @@ void displayScreenContainer( ScreenContainer *scrContainerInst, int spaceNum )
 //    displayScreenHome( &(scrContainerInst->scrHome), spaceNum + 4 );
 //    printf( "%s}\n", spaceStr );
 
-//    printf( "%sScreenBook scrBook = {\n", spaceStr );
-//    displayScreenBook( &(scrContainerInst->scrBook), spaceNum + 4 );
-//    printf( "%s}\n", spaceStr );
+    printf( "%sScreenBook scrBook = {\n", spaceStr );
+    displayScreenBook( &(scrContainerInst->scrBook), spaceNum + 4 );
+    printf( "%s}\n", spaceStr );
 
 //    printf( "%sScreenSetting scrSetting = {\n", spaceStr );
 //    displayScreenSetting( &(scrContainerInst->scrSetting), spaceNum + 4 );
@@ -245,13 +247,6 @@ void displayScreenHeaderTime( ScreenHeaderTime* scrHeaderInst, int spaceNum )
     displayAreaRange( &(scrHeaderInst->tagTimeArea), spaceNum + 4 );
     printf( "%s}\n", spaceStr );
 
-
-    printf( "%s", spaceStr );
-    printf( "short timeHour = %d\n", scrHeaderInst->timeHour );
-    printf( "%s", spaceStr );
-    printf( "short timeMinute = %d\n", scrHeaderInst->timeMinute );
-    printf( "%s", spaceStr );
-    printf( "short timeSecond = %d\n", scrHeaderInst->timeSecond );
 
     printf( "%sTagBlock tagTime = {\n", spaceStr );
 
@@ -429,11 +424,11 @@ void displayScreenBook( ScreenBook* scrBookInst, int spaceNum )
     printf( "%s}\n", spaceStr );
 
 
-
-    printf( "%sTagList txtBook = {\n", spaceStr );
-    displayTagList ( &(scrBookInst->txtBook), spaceNum + 4 );
-    printf( "%s}\n", spaceStr );
-
+//
+//    printf( "%sTagList txtBook = {\n", spaceStr );
+//    displayTagList ( &(scrBookInst->txtBook), spaceNum + 4 );
+//    printf( "%s}\n", spaceStr );
+//
 
 
     printf( "%s", spaceStr );
@@ -543,7 +538,7 @@ void displayScreenSetting( ScreenSetting* scrSettingInst, int spaceNum )
     printf( "%s", spaceStr );
     printf( "color_u8 txtColorIndex = %d\n", scrSettingInst->txtColorIndex );
     printf( "%s", spaceStr );
-    printf( "bool turnPageMod = %s\n", (scrSettingInst->turnPageMod)?"true":"false" );
+    printf( "bool autoTurnPage = %s\n", (scrSettingInst->autoTurnPage)?"true":"false" );
 
     free(spaceStr);
 
@@ -1178,4 +1173,18 @@ int WriteArray2File(FILE* fp, int row, int column)
 
     return 0;
 }
+//将屏幕数组置为0
+void clearScreenArray()
+{
+    int i, j;
+    for ( i = 0; i < SCR_HEIGHT; i ++ )
+    {
+        for ( j = 0; j < SCR_WIDTH; j ++ )
+        {
+            screenShowSpace[i][j] = 0;
+        }
+    }
 
+
+
+}

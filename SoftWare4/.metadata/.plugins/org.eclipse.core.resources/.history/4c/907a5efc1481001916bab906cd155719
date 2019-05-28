@@ -1,0 +1,78 @@
+/*
+ * tftflcd.h
+ *
+ *  Created on: 2019年5月28日
+ *      Author: 12757
+ */
+
+#ifndef TFTFLCD_H_
+#define TFTFLCD_H_
+
+#include <stdio.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "alt_types.h"
+#include "unistd.h"
+
+typedef struct
+{
+	alt_u16 width;
+	alt_u16 height;
+	alt_u16 dir;//横屏:0   竖屏：1
+	alt_u16 id;//lcd控制器id
+	alt_u16	wramcmd;		//开始写gram指令
+	alt_u16 setxcmd;		//设置x坐标指令
+	alt_u16  setycmd;		//设置y坐标指令
+} TftLcdInfo;
+
+//扫描方向定义
+#define L2R_U2D  0 //从左到右,从上到下
+#define L2R_D2U  1 //从左到右,从下到上
+#define R2L_U2D  2 //从右到左,从上到下
+#define R2L_D2U  3 //从右到左,从下到上
+
+#define U2D_L2R  4 //从上到下,从左到右
+#define U2D_R2L  5 //从上到下,从右到左
+#define D2U_L2R  6 //从下到上,从左到右
+#define D2U_R2L  7 //从下到上,从右到左
+
+#define DFT_SCAN_DIR  L2R_U2D  //默认的扫描方向
+
+
+void delay(int time);
+
+//基本lcd操作函数
+void LCD_WR_REG(alt_u16 cmd);
+void LCD_WR_DATA(alt_u16 data);
+alt_u16 LCD_RD_DATA(); //读data
+
+//读写reg以及参数
+void LCD_WriteReg(alt_u16 LCD_Reg,alt_u16 LCD_RegValue);
+alt_u16 LCD_ReadReg(alt_u16 LCD_Reg); //写控制后读，用下面的函数
+
+//LCD初始化
+void LCD_init();
+void LCD5310_init();
+
+//LCD方向设定
+void LCD_Display_Dir(alt_u8 dir);//横屏竖屏设定
+void LCD_Scan_Dir(alt_u8 dir);//扫描显示方向设定
+//LCD窗口设定
+void LCD_Set_Window(alt_u16 sx,alt_u16 sy,alt_u16 width,alt_u16 height);	//设置窗口
+
+//GRAM配置
+void LCD_WriteRAM(alt_u16 RGB_Code);
+void LCD_WriteRAM_Prepare(void);
+
+//LCD功能函数
+void LCD_SetCursor(alt_u16 Xpos, alt_u16 Ypos);
+void LCD_DrawPoint(alt_u16 x,alt_u16 y,alt_u16 color);
+void LCD_DrawLine(alt_u16 x1, alt_u16 y1, alt_u16 x2, alt_u16 y2, alt_u16 color);
+void LCD_Clear(alt_u16 color);
+void LCD_Color_Fill(alt_u16 sx,alt_u16 sy,alt_u16 ex,alt_u16 ey,alt_u16 *color);
+void LCD_Fast_DrawPoint(alt_u16 x,alt_u16 y,alt_u16 color);
+
+
+
+
+#endif /* TFTFLCD_H_ */

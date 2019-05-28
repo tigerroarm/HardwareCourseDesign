@@ -1,0 +1,57 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdio.h>
+#include "tftlcd.h"
+
+int main()
+{
+	//LCD³õÊ¼»¯
+	LCD_init();
+
+	//ÆÁÄ»Çå³ý
+	LCD_Clear(0xffff);
+	LCD_Clear(0x1458);
+
+	int i,j;
+	while(1)
+	{
+		for (i=0; i< 100; i++){
+			for(j=0;  j< 100; j++){
+				LCD_Fast_DrawPoint(i,j, 0x9784);
+			}
+		}
+	}
+
+	LCD_Set_Window(50,50,50,50);
+
+	alt_u16 colorTable[50*50];
+	for ( i = 0; i < 50; i ++ )
+	{
+		for ( j = 0; j < 50; j ++ )
+		{
+			colorTable[i*50+j] = i * j;
+		}
+	}
+
+	LCD_Color_Fill(50,50,50,50,colorTable);
+
+
+
+	return 0;
+}
+
+

@@ -1,0 +1,91 @@
+/*
+ * sdread.c
+ *
+ *  Created on: 2019年5月26日
+ *      Author: 12757
+ */
+
+
+#include <errno.h>
+#include <priv/alt_file.h>
+#include <io.h>
+#include <stdio.h>
+#include <string.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+
+#include "sdread.h"
+
+
+//读取文本内容，读取size个字节，放入缓存buffer
+short int fread_txt( short int file_handle, alt_u8 *buffer, int size )
+{
+	 short int ch = -1;
+
+	    if ((file_handle >= 0) && (file_handle < MAX_FILES_OPENED))
+	    {
+	        if (active_files[file_handle].in_use)
+	        {
+	            if (active_files[file_handle].current_byte_position < active_files[file_handle].file_size_in_bytes)
+	            {
+	                int data_sector = boot_sector_data.data_sector_offset + (active_files[file_handle].current_cluster_index - 2)*boot_sector_data.sectors_per_cluster +
+	                                  active_files[file_handle].current_sector_in_cluster;
+
+	                if ((active_files[file_handle].current_byte_position > 0) && ((active_files[file_handle].current_byte_position % 512) == 0))
+	                {
+	                    // Read in a new sector of data.
+	                    if (active_files[file_handle].current_sector_in_cluster == boot_sector_data.sectors_per_cluster - 1)
+	                    {
+	                        // Go to the next cluster.
+	                        unsigned short int next_cluster;
+	                        if (get_cluster_flag(active_files[file_handle].current_cluster_index, &next_cluster))
+	                        {
+	                            if ((next_cluster & 0x0000fff8) == 0x0000fff8)
+	                            {
+	                                /* End of file */
+	                                return -1;
+	                            }
+	                            else
+	                            {
+	                                active_files[file_handle].current_cluster_index = next_cluster;
+									active_files[file_handle].current_sector_in_cluster = 0;
+	                                data_sector = boot_sector_data.data_sector_offset + (active_files[file_handle].current_cluster_index - 2)*boot_sector_data.sectors_per_cluster +
+	                                  active_files[file_handle].current_sector_in_cluster;
+	                            }
+	                        }
+	                        else
+	                        {
+	                            return -2;
+	                        }
+	                    }
+	                    else
+	                    {
+	                        active_files[file_handle].current_sector_in_cluster = active_files[file_handle].current_sector_in_cluster + 1;
+	                        data_sector = data_sector + 1;
+	                    }
+	                }
+	                // Reading te first byte of the file.
+	                if (current_sector_index != (data_sector + fat_partition_offset_in_512_byte_sectors))
+	                {
+	                    if (!Read_Sector_Data(data_sector, fat_partition_offset_in_512_byte_sectors))
+	                    {
+							return -2;
+	                    }
+	                }
+
+	                ch = (unsigned char) IORD_8DIRECT(buffer_memory, (active_files[file_handle].current_byte_position % 512));
+	                active_files[file_handle].current_byte_position = active_files[file_handle].current_byte_position + 1;
+	            }
+	        }
+	    }
+
+	return ch;
+
+}
+
+//文本指针偏移
+short int fseek_txt( short int file_handle, int offset, enum fseekType fromwhere)
+{
+
+	return 0;
+}
+

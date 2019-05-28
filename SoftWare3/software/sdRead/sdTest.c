@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "Altera_UP_SD_Card_Avalon_Interface.h"
+#include "sdread.h"
 #include "system.h"
 
 int main( void )
@@ -47,24 +48,10 @@ int main( void )
 		return 0;
 	}
 
-	//读取之后的文件
-//	while( catalogStatus == 0 )
-//	{
-//		catalogStatus = alt_up_sd_card_find_next( fileNameStore );
-//		if ( catalogStatus == 0 )
-//		{
-//			printf( "file[%d]:%s\n", curFileIndex, fileNameStore );
-//			curFileIndex++;
-//		}
-//		else if ( catalogStatus == -1 )
-//		{
-//			printf( "end of files\n" );
-//			break;
-//		}
-//	}
+
 	while( catalogStatus == 0 )
 	{
-		catalogStatus = alt_up_sd_card_find_next_real( realfileNameStore );
+		catalogStatus = alt_up_sd_card_find_next( realfileNameStore );
 		if ( catalogStatus == 0 )
 		{
 			printf( "file[%d]:%s\n", realcurFileIndex, realfileNameStore );

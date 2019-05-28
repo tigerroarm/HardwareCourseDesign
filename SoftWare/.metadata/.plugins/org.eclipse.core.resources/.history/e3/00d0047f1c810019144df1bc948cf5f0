@@ -1,0 +1,390 @@
+/*
+ * touch.c
+ *
+ *  Created on: 2019年5月9日
+ *      Author: lbl
+ */
+#include "touch.h"
+#include <math.h>
+#include <unistd.h>
+#include "alt_types.h"
+
+
+TouchPos touchPosInst;
+
+unsigned intnirq_isr_context;// 定义全局变量以储存isr_context指针
+
+volatile int edge_capture;
+
+
+
+
+//默认为touchtype=0的数据.
+unsigned char CMD_RDX=0XD0;
+unsigned char CMD_RDY=0X90;
+
+//延时函数
+void delay_us(int x){
+	int i;
+	int end = x*100;
+	for(i = 0; i < end; i++);
+}
+
+/*
+ * RT_MISO	msg[0]			RT_MOSI	ctrl[1]
+ * RT_PEN	pen_intr[0]		RT_BUSY	msg[1]
+ * RT_CS	ctrl[0]			RT_CLK	ctrl[2]
+ */
+
+//SPI写数据
+//向触摸屏IC写入1byte数据
+//MOSI：主设备输出，从设备读入
+//num:要写入的数据
+void TP_Write_Byte(unsigned char num)
+{
+	unsigned char count=0;
+	int clk;
+	int temp = IORD(RT_MOSI_BASE, 0);
+	usleep(1);
+
+	for(count=0;count<8;count++)
+	{
+		if(num&0x80)temp = (temp&0xfffffffd)|0x00000002;//ctr[1] = 1
+		else temp = temp&0xfffffffd;//ctr[1] = 0
+
+		IOWR(RT_MOSI_BASE, 0, temp);
+		usleep(1);
+
+		num<<=1;
+
+		clk = IORD(RT_CLK_BASE, 0);
+
+		clk = clk&0xfffffffb;//ctr[2] = 0
+		IOWR(RT_CLK_BASE, 0, clk);
+		usleep(1);
+
+		clk = clk|0x00000004;//ctr[2] = 1
+		IOWR(RT_CLK_BASE, 0, clk);		//上升沿有效
+		usleep(1);
+	}
+}
+
+//MISO：主设备读入，从设备输出
+unsigned short int TP_Read_AD(unsigned char CMD)
+{
+	unsigned char count=0;
+	unsigned short int Num=0;
+	int clk;
+	int DOUT;
+	/*
+	TCLK=0;		//先拉低时钟
+	TDIN=0; 	//拉低数据线
+	TCS=0; 		//选中触摸屏IC
+	*/
+	int temp = IORD(RT_MOSI_BASE, 0); // ctr[2:0] = 000
+	temp = temp&0xfffffff8;
+	usleep(1);
+	IOWR(RT_MOSI_BASE, 0, temp);
+	usleep(1);
+
+	TP_Write_Byte(CMD);//发送命令字
+	usleep(6);//ADS7846的转换时间最长为6us
+
+	//TCLK=0;
+	clk = IORD(RT_CLK_BASE, 0); usleep(1);
+	clk = clk&0xfffffffb;
+	IOWR(RT_CLK_BASE, 0, clk); usleep(1);//ctr[2] = 0
+
+
+	//TCLK=1;		//给1个时钟，清除BUSY
+	clk = IORD(RT_CLK_BASE, 0); usleep(1);
+	clk = clk|0x00000004;
+	IOWR(RT_CLK_BASE, 0, clk); usleep(1);//ctr[2] = 1
+
+
+	//TCLK=0;
+	clk = IORD(RT_CLK_BASE, 0); usleep(1);
+	clk = clk&0xfffffffb;
+	IOWR(RT_CLK_BASE, 0, clk);usleep(1);//ctr[2] = 0
+
+
+	for(count=0;count<16;count++)//读出16位数据,只有高12位有效
+	{
+		Num<<=1;
+
+		//TCLK=0;	//下降沿有效
+		clk = IORD(RT_CLK_BASE, 0); usleep(1);
+		clk = clk&0xfffffffb;
+		IOWR(RT_CLK_BASE, 0, clk);usleep(1);//ctr[2] = 0
+
+		//TCLK=1;
+		clk = IORD(RT_CLK_BASE, 0); usleep(1);
+		clk = clk|0x00000004;
+		IOWR(RT_CLK_BASE, 0, clk);usleep(1);//ctr[2] = 1
+
+		DOUT = IORD(RT_MISO_BASE,0); usleep(1);
+		DOUT = DOUT&0x00000001;
+		if(DOUT)Num++;
+	}
+
+	Num>>=4;   	//只有高12位有效.
+
+	//TCS=1;		//释放片选
+	temp = IORD(RT_CS_BASE,0); usleep(1);
+	temp = temp|0x00000001;
+	IOWR(RT_CS_BASE, 0, temp); usleep(1);
+
+	return(Num);
+}
+
+//读取一个坐标值(x或者y)
+//连续读取READ_TIMES次数据,对这些数据升序排列,
+//然后去掉最低和最高LOST_VAL个数,取平均值
+//xy:指令（CMD_RDX/CMD_RDY）
+//返回值:读到的数据
+#define READ_TIMES 5 	//读取次数
+#define LOST_VAL 1	  	//丢弃值
+unsigned short int TP_Read_XOY(unsigned char xy){
+	unsigned short int i, j;
+	unsigned short int buf[READ_TIMES];
+	unsigned short int sum=0;
+	unsigned short int temp;
+	for(i=0;i<READ_TIMES;i++)buf[i]=TP_Read_AD(xy);
+	for(i=0;i<READ_TIMES-1; i++)//排序
+	{
+		for(j=i+1;j<READ_TIMES;j++)
+		{
+			if(buf[i]>buf[j])//升序排列
+			{
+				temp=buf[i];
+				buf[i]=buf[j];
+				buf[j]=temp;
+			}
+		}
+	}
+	sum=0;
+	for(i=LOST_VAL;i<READ_TIMES-LOST_VAL;i++)sum+=buf[i];
+	temp=sum/(READ_TIMES-2*LOST_VAL);
+	return temp;
+
+}
+
+//读取x,y坐标
+//最小值不能少于100.
+//x,y:读取到的坐标值
+//返回值:0,失败;1,成功。
+unsigned char TP_Read_XY(unsigned short int *x,unsigned short int *y)
+{
+	unsigned short int xtemp,ytemp;
+	xtemp=TP_Read_XOY(CMD_RDX);
+	ytemp=TP_Read_XOY(CMD_RDY);
+	//if(xtemp<100||ytemp<100)return 0;//读数失败
+	*x=xtemp;
+	*y=ytemp;
+	return 1;//读数成功
+}
+
+//连续2次读取触摸屏IC,且这两次的偏差不能超过
+//ERR_RANGE,满足条件,则认为读数正确,否则读数错误.
+//该函数能大大提高准确度
+//x,y:读取到的坐标值
+//返回值:0,失败;1,成功。
+#define ERR_RANGE 50 //误差范围
+unsigned char TP_Read_XY2(unsigned short int *x,unsigned short int *y)
+{
+	unsigned short int x1,y1;
+	unsigned short int x2,y2;
+	unsigned char flag;
+    flag=TP_Read_XY(&x1,&y1);
+    if(flag==0)return(0);
+    flag=TP_Read_XY(&x2,&y2);
+    if(flag==0)return(0);
+    if(((x2<=x1&&x1<x2+ERR_RANGE)||(x1<=x2&&x2<x1+ERR_RANGE))//前后两次采样在+-50内
+    &&((y2<=y1&&y1<y2+ERR_RANGE)||(y1<=y2&&y2<y1+ERR_RANGE)))
+    {
+        *x=(x1+x2)/2;
+        *y=(y1+y2)/2;
+        return 1;
+    }else return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+//触摸按键扫描
+//tp:0,屏幕坐标;1,物理坐标(校准等特殊场合用)
+//返回值:当前触屏状态.
+//0,触屏无触摸;1,触屏有触摸
+unsigned char TP_Scan(unsigned char tp){
+	int PEN = IORD(RT_PEN_BASE, 0);
+	PEN = PEN&0x00000001;
+	if(PEN==0)//有按键按下
+	{
+		if(tp)TP_Read_XY2(&tp_dev.x[0],&tp_dev.y[0]);//读取物理坐标
+		else if(TP_Read_XY2(&tp_dev.x[0],&tp_dev.y[0]))//读取屏幕坐标
+		{
+	 		tp_dev.x[0]=tp_dev.xfac*tp_dev.x[0]+tp_dev.xoff;//将结果转换为屏幕坐标
+			tp_dev.y[0]=tp_dev.yfac*tp_dev.y[0]+tp_dev.yoff;
+	 	}
+		if((tp_dev.sta&TP_PRES_DOWN)==0)//之前没有被按下
+		{
+			tp_dev.sta=TP_PRES_DOWN|TP_CATH_PRES;//按键按下
+			tp_dev.x[4]=tp_dev.x[0];//记录第一次按下时的坐标
+			tp_dev.y[4]=tp_dev.y[0];
+		}
+	}else
+	{
+		if(tp_dev.sta&TP_PRES_DOWN)//之前是被按下的
+		{
+			tp_dev.sta&=~(1<<7);//标记按键松开
+		}else//之前就没有被按下
+		{
+			tp_dev.x[4]=0;
+			tp_dev.y[4]=0;
+			tp_dev.x[0]=0xffff;
+			tp_dev.y[0]=0xffff;
+		}
+	}
+	return tp_dev.sta&TP_PRES_DOWN;//返回当前的触屏状态
+}
+
+//////////////////////////////////////////////////////////////////////////
+//保存在EEPROM里面的地址区间基址,占用13个字节(RANGE:SAVE_ADDR_BASE~SAVE_ADDR_BASE+12)
+//保存校准参数
+extern unsigned char adjdata[14];//声明存在外部全局变量
+unsigned char* add = &adjdata[0];
+void TP_Save_Adjdata(void)
+{
+	int temp;
+	//保存校正结果!
+	temp=tp_dev.xfac*100000000;	//保存x校正因素
+    *((int*)(add)) = temp;		//AT24CXX_WriteLenByte(SAVE_ADDR_BASE,temp,4);
+	temp=tp_dev.yfac*100000000;	//保存y校正因素
+	*((int*)(add+4)) = temp;	//AT24CXX_WriteLenByte(SAVE_ADDR_BASE+4,temp,4);
+	//保存x偏移量
+    *((short*)(add+8)) = tp_dev.xoff; 	//AT24CXX_WriteLenByte(SAVE_ADDR_BASE+8,tp_dev.xoff,2);
+	//保存y偏移量
+    *((short*)(add+10)) = tp_dev.yoff; 	//AT24CXX_WriteLenByte(SAVE_ADDR_BASE+10,tp_dev.yoff,2);
+	//保存触屏类型
+	*(add+12) = tp_dev.touchtype;		//AT24CXX_WriteOneByte(SAVE_ADDR_BASE+12,tp_dev.touchtype);
+	temp=0X0A;//标记校准过了
+	*(add+13) = temp;					//AT24CXX_WriteOneByte(SAVE_ADDR_BASE+13,temp);
+}
+
+//得到保存在EEPROM里面的校准值
+//返回值：1，成功获取数据
+//        0，获取失败，要重新校准
+unsigned char TP_Get_Adjdata(void){
+	int tempfac;
+	unsigned char temp;
+	temp = *(add+13);	//读取标记字,看是否校准过！
+	if(temp==0X0A)//触摸屏已经校准过了
+	{
+		tempfac=*((int*)(add));
+		tp_dev.xfac=(float)tempfac/100000000;//得到x校准参数
+		tempfac=*((int*)(add+4));
+		tp_dev.yfac=(float)tempfac/100000000;//得到y校准参数
+		//得到x偏移量
+		tp_dev.xoff=*((short*)(add+8));
+		//得到y偏移量
+		tp_dev.yoff=*((short*)(add+10));
+		tp_dev.touchtype=*(add+12);			//读取触屏类型标记
+		if(tp_dev.touchtype)//X,Y方向与屏幕相反
+		{
+			CMD_RDX=0X90;
+			CMD_RDY=0XD0;
+		}else				   //X,Y方向与屏幕相同
+		{
+			CMD_RDX=0XD0;
+			CMD_RDY=0X90;
+		}
+		return 1;
+	}
+	return 0;
+
+}
+
+
+//校准点参数：(0,1)与(2,3)，(0,2)与(1,3),(1,2)与(0,3)，这三组点的距离
+const unsigned char TP_ADJDIS_TBL[3][4]={{0,1,2,3},{0,2,1,3},{1,2,0,3}};//校准距离计算表
+//触摸屏校准代码
+
+
+//触摸屏初始化
+//返回值:0,没有进行校准
+//       1,进行过校准
+unsigned char TP_Init(void)
+{
+
+	IOWR(TOUCH_MSG_BASE, 1, 0x00000000);
+	IOWR(TOUCH_PEN_INTR_BASE, 1, 0x00000000);
+	IOWR(TOUCH_CTRL_BASE, 1, 0x00000007);
+	//定义相关端口的输入输出
+
+	//设定touch_pen低速率采样周期（单位ms）（最小单位是0.16384ms)
+	float smpPeriod = 1;
+	IOWR_ALTERA_AVALON_PIO_DATA( PEN_SMP_SPEED_BASE, (alt_u16)(smpPeriod / 0.16384 ));
+
+	//中断初始化
+	IOWR_ALTERA_AVALON_PIO_IRQ_MASK(RT_PEN_BASE, 1);// 使能中断
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(RT_PEN_BASE, 1);// 清中断边沿捕获寄存器
+	// 注册ISR
+	void* edge_capture_ptr = (void*) &edge_capture;
+
+//	int register_flag = 2;
+//	alt_irq_register(
+//		TOUCH_PEN_INTR_IRQ,
+//		edge_capture_ptr,
+//		intr_scan_headler );
+	alt_ic_isr_register(
+		  TOUCH_PEN_INTR_IRQ_INTERRUPT_CONTROLLER_ID,// 中断控制器标号，从system.h复制
+		  TOUCH_PEN_INTR_IRQ,    // 硬件中断号，从system.h复制
+	      intr_scan_headler ,             // 中断服务子函数
+	      NULL,       // 指向与设备驱动实例相关的数据结构体
+	      NULL);                  // flags，保留未用
+//	printf("%d\n", register_flag);
+//	alt_irq_init(ALT_IRQ_BASE); //使能中断
+	return 1;
+}
+
+void physical2logical(unsigned short xp, unsigned short yp, unsigned short* addx,  unsigned short* addy){						//转换物理坐标到逻辑坐标
+	unsigned short tempx, tempy;
+	double xfac = -0.087397;//(320-1)/(170-3820)
+	double xoff = 1-3820*xfac;
+	double yfac = -0.126385;//(480-1)/(120-3910)
+	double yoff = 1-3910*yfac;
+	tempx = (unsigned short)(xoff + xfac*xp);
+	tempy = (unsigned short)(yoff + yfac*yp);
+
+	if(tempx > 320) *addx = 320;
+	else if( tempx < 1) *addx = 1;
+	else *addx = tempx;
+
+	if(tempy > 480) *addy = 480;
+	else if( tempy < 1) *addy = 1;
+	else *addy = tempy;
+
+	return;
+}
+
+
+void intr_scan_headler(void* isr_context){
+
+	int PEN = IORD(RT_PEN_BASE, 0);
+
+	printf( "PEN=%d\n", PEN );
+
+	usleep(10000);
+
+
+
+	touchPosInst.touchComeFlag = true;
+
+	unsigned short tempx, tempy;
+
+	TP_Read_XY2(&tempx, &tempy);//读取物理坐标
+	physical2logical(tempx, tempy, &(touchPosInst.pos_x), &(touchPosInst.pos_y));
+
+	IOWR_ALTERA_AVALON_PIO_EDGE_CAP(RT_PEN_BASE, 0x1);// 清中断边沿捕获寄存器
+
+	return;
+}

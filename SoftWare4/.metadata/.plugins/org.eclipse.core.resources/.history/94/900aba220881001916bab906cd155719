@@ -1,0 +1,49 @@
+/*
+ * tftflcd.h
+ *
+ *  Created on: 2019年5月28日
+ *      Author: 12757
+ */
+
+#ifndef TFTFLCD_H_
+#define TFTFLCD_H_
+
+#include <stdio.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "alt_types.h"
+#include "unistd.h"
+
+typedef struct
+{
+	alt_u16 width;
+	alt_u16 height;
+	alt_u16 dir;//横屏:0   竖屏：1
+	alt_u16 id;//lcd控制器id
+} TftLcdInfo;
+
+alt_u16 POINT_COLOR=0x1234;
+
+void delay(int time);
+
+alt_u16 LCD_ReadReg(alt_u16 LCD_Reg); //写控制后读，用下面的函数
+alt_u16 LCD_RD_DATA(); //读data
+
+void LCD_init();
+void LCD_WR_REG(alt_u16 cmd);
+void LCD_WR_DATA(alt_u16 data);
+void Display_init();
+void LCD_SetCursor(alt_u16 Xpos, alt_u16 Ypos);
+void LCD_Color_Fill(alt_u16 sx,alt_u16 sy,alt_u16 ex,alt_u16 ey);
+
+void LCD_Fast_DrawPoint(alt_u16 x,alt_u16 y,alt_u16 color);
+void LCD_DrawPoint(alt_u16 x,alt_u16 y);
+void LCD_WriteRAM_Prepare();
+void LCD_DrawLine(alt_u16 x1, alt_u16 y1, alt_u16 x2, alt_u16 y2);
+
+void LCD_Scan_Dir(alt_u8 dir);
+void LCD_Clear(alt_u16 color);
+
+
+
+#endif /* TFTFLCD_H_ */

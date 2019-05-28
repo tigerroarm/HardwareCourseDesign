@@ -1,0 +1,700 @@
+!SESSION 2019-05-28 09:20:39.536 -----------------------------------------------
+eclipse.buildId=4.3.2.M20140221-1700
+java.version=1.8.0_05
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -pluginCustomization E:/altera/15.0/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -pluginCustomization E:/altera/15.0/nios2eds/bin/eclipse_nios2/plugin_customization.ini
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-28 10:10:54.644
+!MESSAGE Indexed 'lcdPinTest_bsp' (83 sources, 65 headers) in 2.46 sec: 1,548 declarations; 4,892 references; 117 unresolved inclusions; 6 syntax errors; 211 unresolved names (3.17%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-28 10:11:09.587
+!MESSAGE Indexed 'lcdPinTest' (0 sources, 0 headers) in 0.00 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@61650e2d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.opentype,Open Element,
+		Open an element in an Editor,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@61650e2d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@50e86638,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.text.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.cdt.ui.category.refactoring,Refactor - C++,C/C++ Refactorings,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@50e86638,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for F3:
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5acee0a3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F3,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.opendecl,Open Declaration,
+		Open an editor on the selected element's declaration(s),
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5acee0a3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for F4:
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c00809b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(F4,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.type.hierarchy,Open Type Hierarchy,
+		Open a type hierarchy on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c00809b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for ALT+CTRL+I:
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@555df150,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+I,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.include.browser,Open Include Browser,
+		Open an include browser on the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@555df150,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for CTRL+SHIFT+G:
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@46978465,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.findrefs,References,
+		Search for references to the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@46978465,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for CTRL+G:
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6bf1bfec,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+G,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.search.finddecl,Declaration,
+		Search for declarations of the selected element in the workspace,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6bf1bfec,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for ALT+CTRL+H:
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@73edfe51,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(ALT+CTRL+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.edit.open.call.hierarchy,Open Call Hierarchy,
+		Open the call hierarchy for the selected element,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@73edfe51,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 10:15:03.550
+!MESSAGE A conflict occurred for CTRL+SHIFT+H:
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4980460d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cEditorScope,,,system)
+Binding(CTRL+SHIFT+H,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.navigate.open.type.in.hierarchy,Open Type in Hierarchy,
+		Open a type in the type hierarchy view,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4980460d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.cViewScope,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:30:36.745
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:30:40.687
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:32:50.095
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:32:51.143
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:32:54.558
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:36:36.148
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:36:37.036
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:36:40.157
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:41:06.468
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:41:07.857
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:41:11.289
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:43:26.489
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:43:27.638
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:43:30.690
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:45:04.167
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:45:05.280
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:45:08.539
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcdPinTest/lcdPinTest.elf]
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-28 11:47:59.461
+!MESSAGE Indexed 'lcd_display_bsp' (83 sources, 65 headers) in 1.08 sec: 1,548 declarations; 4,892 references; 117 unresolved inclusions; 6 syntax errors; 211 unresolved names (3.17%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-05-28 11:48:06.715
+!MESSAGE Indexed 'lcd_display' (0 sources, 0 headers) in 0.00 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0.00%)
+
+!ENTRY org.eclipse.jface 2 0 2019-05-28 11:51:49.988
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 11:51:49.988
+!MESSAGE A conflict occurred for ALT+ARROW_RIGHT:
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.forwardMacroExpansion,Forward,
+		Step forward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7a75660d,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_RIGHT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.forwardHistory,Forward History,
+		Move forward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@19811d75,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-05-28 11:51:49.988
+!MESSAGE A conflict occurred for ALT+ARROW_LEFT:
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.cdt.ui.hover.backwardMacroExpansion,Back,
+		Step backward in macro expansions,
+		Category(org.eclipse.cdt.ui.category.source,Source,Source commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2e4e40a7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.cdt.ui.macroExpansionHoverScope,,,system)
+Binding(ALT+ARROW_LEFT,
+	ParameterizedCommand(Command(org.eclipse.ui.navigate.backwardHistory,Backward History,
+		Move backward in the editor navigation history,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@cb7051e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:52:20.938
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:52:23.119
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 11:52:26.603
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:10:45.965
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:10:47.141
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:10:50.684
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:11:45.893
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:11:46.773
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:11:49.974
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:17:20.731
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:17:21.679
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:17:24.882
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:21:40.705
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:21:41.876
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:21:45.108
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:23:57.542
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:23:58.446
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:24:01.678
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:35:03.385
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:35:04.328
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:35:07.482
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:43:13.336
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:43:14.450
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:43:18.171
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:44:06.778
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:44:07.693
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:44:10.792
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:45:21.909
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:45:22.876
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:45:25.966
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:46:08.786
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:46:10.022
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:46:13.213
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:47:00.007
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:47:01.090
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:47:04.199
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:55:40.232
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:55:43.493
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:59:05.925
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:59:06.967
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 12:59:10.215
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:53:06.775
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:53:07.852
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:53:14.670
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:55:36.102
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:55:37.450
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:55:43.794
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:57:10.869
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:57:11.871
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 13:57:18.025
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:05:23.487
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:05:24.449
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:05:27.779
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:11:28.992
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:11:30.618
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:11:33.716
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:26:31.351
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:26:32.499
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:26:36.071
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:28:30.670
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:28:32.185
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:28:35.661
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:37:01.849
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:37:02.885
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:37:09.070
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:39:17.355
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:39:18.343
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:39:21.450
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:45:04.417
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:45:05.476
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:45:08.657
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:47:49.814
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:47:50.850
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:47:54.046
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:48:55.550
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:48:56.951
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:49:00.068
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:51:44.211
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:51:45.450
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:51:48.844
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:52:51.671
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:52:52.709
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:52:55.834
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:56:52.155
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:56:53.201
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:56:56.482
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:59:09.697
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:59:13.008
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:59:40.319
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:59:41.385
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 14:59:44.727
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:00:14.128
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:00:15.167
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:00:18.436
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:00:55.945
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:00:57.002
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:01:00.169
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:03:11.973
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:03:13.062
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:03:16.118
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:04:59.372
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:05:00.312
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:05:03.643
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:12:35.672
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:12:36.824
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:12:40.181
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:13:13.492
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:13:14.732
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:13:17.897
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:14:27.706
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:14:28.754
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:14:32.090
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:16:52.647
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:16:53.667
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:16:56.902
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:18:18.700
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:18:19.767
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:18:23.019
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:19:35.787
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:19:36.855
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:19:40.016
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:22:01.191
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:22:02.688
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:22:06.467
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:22:06.973
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:22:10.352
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:07.411
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:07.421
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:08.385
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:11.354
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:49.505
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:50.526
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:26:53.550
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:27:52.148
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:27:53.163
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:27:56.347
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:30:49.173
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:30:50.248
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:30:53.496
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:31:49.575
+!MESSAGE Terminated Launch with connection: 10USB-Blaster on localhost [USB-0]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:31:50.653
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --stop --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254]
+
+!ENTRY com.altera.sbtgui.launch 1 0 2019-05-28 15:31:53.917
+!MESSAGE Executing: [E:/altera/15.0/quartus\bin64\cygwin\bin\bash.exe, -c, nios2-download '--cable=USB-Blaster on localhost [USB-0]' --device=1 --instance=0 --go --sidp=0x82014c0 --id=0x12345678 --timestamp=1557864254 /cygdrive/g/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display/lcd_display.elf]

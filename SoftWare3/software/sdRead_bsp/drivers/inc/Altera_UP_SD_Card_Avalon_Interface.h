@@ -27,8 +27,15 @@ typedef struct alt_up_sd_card_dev {
     typedef enum e_bool { false = 0, true = 1 } bool;
 #endif
 
+
+//我临时加的，方便调用函数
+bool Read_Sector_Data(int sector_index, int partition_offset);
+bool get_cluster_flag(unsigned int cluster_index, unsigned short int *flag);
+
 //////////////////////////////////////////////////////////////////////////
 // HAL system functions
+
+
 
 alt_up_sd_card_dev* alt_up_sd_card_open_dev(const char *name);
 /* Open an SD Card Interface if it is connected to the system. */

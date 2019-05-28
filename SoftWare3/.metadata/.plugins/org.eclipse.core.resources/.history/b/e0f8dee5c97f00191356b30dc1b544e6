@@ -1,0 +1,29 @@
+/*
+ * sdread.h
+ *
+ *  Created on: 2019年5月26日
+ *      Author: 12757
+ */
+
+#ifndef SDREAD_H_
+#define SDREAD_H_
+
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+
+//直接从Altera_UP_SD_Card_Avalon_Interface.c里复制的宏定义
+#define MAX_FILES_OPENED				20
+extern t_file_record active_files[MAX_FILES_OPENED];
+
+
+
+
+//读取文本内容，读取size个字节，放入缓存buffer
+short int fread_txt( short int file_handle, alt_u8 *buffer, int size );
+
+//fseek_txt的fromwhere类型
+enum fseekType { SEEK_SET_TXT=0, SEEK_CUR_TXT=1, SEEK_END_TXT=2 };
+//文本指针偏移
+short int fseek_txt( short int file_handle, int offset, enum fseekType fromwhere);
+
+
+#endif /* SDREAD_H_ */

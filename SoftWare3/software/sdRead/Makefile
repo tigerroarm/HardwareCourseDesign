@@ -142,7 +142,10 @@ ACDS_VERSION := 15.0
 ELF := sdRead.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := sdTest.c
+C_SRCS += sdTest.c
+C_SRCS += txt_read.c
+C_SRCS += screen.c
+C_SRCS += sdread.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -9,8 +9,8 @@ Advanced Class 2016.</br>
 - HardWare 是硬件工程，设计完毕基本不改动。
 - SoftWare中为上层软件工程。其中 .sof 文件是硬件工程比特流文件；.sopcinfo 是硬件系统的描述文件，用于生成板级支持包bsp. 
 - SoftWare2 是触摸驱动软件工程，其中 .sof 文件是硬件工程比特流文件；.sopcinfo 是硬件系统的描述文件，用于生成板级支持包bsp. 
-
 - SoftWare3 是SD卡读取文件工程，其中 .sof 文件是硬件工程比特流文件；.sopcinfo 是硬件系统的描述文件，用于生成板级支持包bsp. 
+- SoftWare4 是屏幕显示驱动工程，其中 .sof 文件是硬件工程比特流文件；.sopcinfo 是硬件系统的描述文件，用于生成板级支持包bsp. 
 
 
 

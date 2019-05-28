@@ -1,0 +1,9 @@
+11:45:00 **** Incremental Build of configuration Nios II for project lcdPinTest ****
+make all 
+Info: Building ../lcdPinTest_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lcdPinTest_bsp/
+[BSP build complete]
+[lcdPinTest build complete]
+
+11:45:03 Build Finished (took 2s.830ms)
+

@@ -1,0 +1,95 @@
+/*
+ * sdread.h
+ *
+ *  Created on: 2019年5月26日
+ *      Author: 12757
+ */
+
+#ifndef SDREAD_H_
+#define SDREAD_H_
+
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+
+//直接从Altera_UP_SD_Card_Avalon_Interface.c里复制的宏定义
+/******************************************************************************/
+/******  LOCAL DATA STRUCTURES  ***********************************************/
+/******************************************************************************/
+
+
+typedef struct s_FAT_12_16_boot_sector {
+	unsigned char jump_instruction[3];
+	char OEM_name[8];
+	unsigned short int sector_size_in_bytes;
+	unsigned char sectors_per_cluster;
+	unsigned short int reserved_sectors;
+	unsigned char number_of_FATs;
+	unsigned short int max_number_of_dir_entires;
+	unsigned short int number_of_sectors_in_partition;
+	unsigned char media_descriptor;
+	unsigned short int number_of_sectors_per_table;
+	unsigned short int number_of_sectors_per_track;
+	unsigned short int number_of_heads;
+	unsigned int number_of_hidden_sectors;
+	unsigned int total_sector_count_if_above_32MB;
+	unsigned char drive_number;
+	unsigned char current_head;
+	unsigned char boot_signature;
+	unsigned char volume_id[4];
+	char volume_label[11];
+	unsigned char file_system_type[8];
+	unsigned char bits_for_cluster_index;
+	unsigned int first_fat_sector_offset;
+	unsigned int second_fat_sector_offset;
+	unsigned int root_directory_sector_offset;
+	unsigned int data_sector_offset;
+} t_FAT_12_16_boot_sector;
+
+
+typedef struct s_file_record {
+	unsigned char name[8];
+	unsigned char extension[3];
+	unsigned char attributes;
+	unsigned short int create_time;
+	unsigned short int create_date;
+	unsigned short int last_access_date;
+	unsigned short int last_modified_time;
+	unsigned short int last_modified_date;
+	unsigned short int start_cluster_index;
+	unsigned int file_size_in_bytes;
+	/* The following fields are only used when a file has been created or opened. */
+	unsigned int current_cluster_index;
+    unsigned int current_sector_in_cluster;
+	unsigned int current_byte_position;
+    // Absolute location of the file record on the SD Card.
+    unsigned int file_record_cluster;
+    unsigned int file_record_sector_in_cluster;
+    short int    file_record_offset;
+    // Is this record in use and has the file been modified.
+    unsigned int home_directory_cluster;
+    bool         modified;
+	bool		 in_use;
+} t_file_record;
+
+
+typedef struct s_find_data {
+	unsigned int directory_root_cluster; // 0 means root directory.
+	unsigned int current_cluster_index;
+	unsigned int current_sector_in_cluster;
+	short int file_index_in_sector;
+	bool valid;
+} t_find_data;
+extern t_file_record active_files[MAX_FILES_OPENED];
+
+
+
+
+//读取文本内容，读取size个字节，放入缓存buffer
+short int fread_txt( short int file_handle, alt_u8 *buffer, int size );
+
+//fseek_txt的fromwhere类型
+enum fseekType { SEEK_SET_TXT=0, SEEK_CUR_TXT=1, SEEK_END_TXT=2 };
+//文本指针偏移
+short int fseek_txt( short int file_handle, int offset, enum fseekType fromwhere);
+
+
+#endif /* SDREAD_H_ */

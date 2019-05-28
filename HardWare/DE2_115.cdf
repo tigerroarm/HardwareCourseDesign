@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE115F29) Path("G:/altera_ED2_115/test1/") File("DE2_115.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE115F29) Path("G:/altera_ED2_115/HardwareCourseDesign/HardWare/") File("DE2_115.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

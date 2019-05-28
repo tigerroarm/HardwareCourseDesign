@@ -1,0 +1,6 @@
+10:10:53 **** Clean-only build of configuration Nios II for project lcdPinTest_bsp ****
+make clean 
+[BSP clean complete]
+
+10:10:56 Build Finished (took 3s.101ms)
+

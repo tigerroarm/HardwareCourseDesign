@@ -1,0 +1,21 @@
+15:31:38 **** Incremental Build of configuration Nios II for project lcd_display ****
+make all 
+Info: Building ../lcd_display_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lcd_display_bsp/
+[BSP build complete]
+Info: Compiling lcd_display.c to obj/default/lcd_display.o
+nios2-elf-gcc -xc -MP -MMD -c -I../lcd_display_bsp//HAL/inc -I../lcd_display_bsp/ -I../lcd_display_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/lcd_display.o lcd_display.c
+Info: Linking lcd_display.elf
+nios2-elf-g++  -T'../lcd_display_bsp//linker.x' -msys-crt0='../lcd_display_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../lcd_display_bsp/   -Wl,-Map=lcd_display.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o lcd_display.elf obj/default/lcd_display.o obj/default/tftlcd.o -lm -msys-lib=m
+nios2-elf-insert lcd_display.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1557864254 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare4" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare4/software/lcd_display_bsp/../../ED2platform.sopcinfo
+Info: (lcd_display.elf) 77 KBytes program size (code + initialized data).
+Info:                   130987 KBytes free for stack + heap.
+Info: Creating lcd_display.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source lcd_display.elf >lcd_display.objdump
+[lcd_display build complete]
+15:31:46 **** Incremental Build of configuration Nios II for project lcd_display ****
+make all 
+Info: Building ../lcd_display_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lcd_display_bsp/
+[BSP build complete]
+[lcd_display build complete]

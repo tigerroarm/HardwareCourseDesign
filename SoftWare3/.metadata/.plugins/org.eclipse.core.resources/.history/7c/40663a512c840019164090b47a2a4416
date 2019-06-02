@@ -1,0 +1,40 @@
+/*
+ * main.c
+ *
+ *  Created on: 2019年5月14日
+ *      Author: Administrator
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+#include "sdread.h"
+#include "system.h"
+#include "txt_read.h"
+#include "test_value.h"
+
+int main( void )
+{
+	bool status = readAlltxtFilesOfSDcard( );
+	displayStatus( "readAlltxtFilesOfSDcard( )", "main()", status );
+
+
+	displayTxtFilesInfo( &txtFilesInfoSpace, 0 );
+
+	//测试打开文件函数
+	if ( txtFilesInfoSpace.txtFilesNum > 0 )
+	{
+		char *curFileStr = txtFilesInfoSpace.txtFileList[0].txtFileReadName.text;
+		//打开文件
+		short curFileHandle = fopen_txt( curFileStr );
+		txtFilesInfoSpace.curFileHandle = curFileHandle;
+
+		printf( "curFileHandle = %d\n", curFileHandle );
+
+		//关闭文件
+		short status = fclose_txt( curFileHandle );
+		printf( "fclose status = %d\n", status );
+	}
+
+	return 0;
+}

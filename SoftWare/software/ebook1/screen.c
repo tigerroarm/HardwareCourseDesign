@@ -656,7 +656,7 @@ bool screenHeaderInit( ScreenHeaderTime *scrHeaderInst, short width, short heigh
 
 
 	//时间文本为"00:00"(0时0分)
-	status1 = setDefaultTagBlock( &(scrHeaderInst->tagTime), "00:00", width - (marginX<<1), height - (marginY<<1) );
+	status1 = setDefaultTagBlock( &(scrHeaderInst->tagTime), "00:00:00", width - (marginX<<1), height - (marginY<<1) );
 	status = status && status1;
 //	(scrHeaderInst->tagTime).borderVisible = false;
 
@@ -743,7 +743,7 @@ bool screenMainHomeInit( ScreenHome *scrHomeInst, short width, short height, con
 	catalogList.textNum = listElemNum;
 	catalogList.textArray = (TextType*)malloc( sizeof(TextType) * listElemNum );
 	TextType *catalogAry = catalogList.textArray;
-	TxtFile *txtFileArray = txtFilesInfoPtr->txtFileList;
+	const TxtFile *txtFileArray = txtFilesInfoPtr->txtFileList;
 
 	for ( i = 0; i < listElemNum; i ++ )
 	{
@@ -1181,7 +1181,7 @@ bool screenMainSettingInit( ScreenSetting *scrSettingInst, short width, short he
 	status1 = setAreaRange( &(scrSettingInst->editTurnPageSecArea), trunPageSecMarginXL+1, trunPageSecMarginXL+numEditGrpWidth, \
 				tag2CenterY - (numEditGrpHeight>>1)+1, tag2CenterY + (numEditGrpHeight>>1) );
     status = status && status1;
-	status1 = setDefaultNumEditGroup( &(scrSettingInst->editTurnPageSec), numEditGrpWidth, numEditGrpHeight, 30, 0, 8, "秒" );
+	status1 = setDefaultNumEditGroup( &(scrSettingInst->editTurnPageSec), numEditGrpWidth, numEditGrpHeight, 30, 1, 8, "秒" );
     status = status && status1;
 
 	return status;
@@ -1261,8 +1261,11 @@ void screenSetCustomInfo( ScreenContainer *screenContainerInst )
 	scrHomeInst->turnCatalogBarY.iconMoveDown.iconColorInfo.bkgColor = getColor16BitByRGB( 119, 202, 200 );
 	scrHomeInst->turnCatalogBarY.iconBar.iconColorInfo.bkgColor = getColor16BitByRGB( 158, 172, 155 );
 	scrHomeInst->listYOffset = scrHomeInst->listYStepSize * 2.5;
-	scrHomeInst->turnCatalogBarY.barYoffset = \
-                scrHomeInst->turnCatalogBarY.barYOffsetMax * scrHomeInst->listYOffset / scrHomeInst->listYOffsetMax;
+	if ( scrHomeInst->listYOffsetMax > 0 )
+    {
+        scrHomeInst->turnCatalogBarY.barYoffset = \
+                    scrHomeInst->turnCatalogBarY.barYOffsetMax * scrHomeInst->listYOffset / scrHomeInst->listYOffsetMax;
+    }
 //	scrHomeInst->listYOffset = 17;
 
 //4.BOOK页面
@@ -1355,5 +1358,36 @@ void screenSetCustomInfo( ScreenContainer *screenContainerInst )
 
 	//6.1 指向的颜色
 	scrColorPickerInst->colorPicker.colorIndex = &(scrSettingInst->bkgColorIndex);
+
+}
+
+
+//screen信息同步函数
+//同步设置页面的信息
+void screenSyncSettingColor()
+{
+	ScreenSetting *scrSettingInst = &(tftlcdScreenInst.scrSetting);
+	//同步文本颜色
+    scrSettingInst->editWordColor.varTag.tagColorInfo.bkgColor = color_form[scrSettingInst->txtColorIndex];
+    //同步背景颜色
+    scrSettingInst->editBkgColor.varTag.tagColorInfo.bkgColor = color_form[scrSettingInst->bkgColorIndex];
+}
+//同步电子书页面的颜色
+void screenSyncBookColor()
+{
+    TagBlock *txtBookTag = tftlcdScreenInst.scrBook.txtBook.elemBlock;
+
+    ScreenSetting *scrSettingInst = &(tftlcdScreenInst.scrSetting);
+    alt_u16 bookBkgColor = color_form[scrSettingInst->bkgColorIndex];
+    alt_u16 bookWordColor = color_form[scrSettingInst->txtColorIndex];
+
+    int txtBookTagNum = tftlcdScreenInst.scrBook.txtBook.elemNum;
+
+    int i;
+    for ( i = 0; i < txtBookTagNum; i ++ )
+    {
+        txtBookTag[i].tagColorInfo.bkgColor = bookBkgColor;
+        txtBookTag[i].tagColorInfo.objColor = bookWordColor;
+    }
 
 }

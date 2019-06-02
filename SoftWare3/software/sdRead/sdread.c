@@ -128,9 +128,8 @@ typedef struct s_find_data {
 extern t_file_record active_files[MAX_FILES_OPENED];
 extern t_FAT_12_16_boot_sector boot_sector_data;
 extern int fat_partition_offset_in_512_byte_sectors;
-extern int fat_partition_size_in_512_byte_sectors;
 extern unsigned int current_sector_index;
-extern volatile char		*buffer_memory;
+extern volatile char *buffer_memory;
 ///////////////////////////////////////////////////////////////////////////
 // Local Functions
 ///////////////////////////////////////////////////////////////////////////
@@ -142,76 +141,253 @@ extern volatile char		*buffer_memory;
 //自定义函数
 
 
-//读取文本内容，读取size个字节，放入缓存buffer
-short int fread_txt( short int file_handle, alt_u8 *buffer, int size )
+//读取文本内容，读取size个字节，放入缓存buffer,返回值为真实读取的字节数
+int fread_txt( short file_handle, alt_u8 *buffer, int numInByte )
 {
-	 short int ch = -1;
+	//校验file_handle
+	if ( file_handle < 0 || file_handle >= MAX_FILES_OPENED )
+	{
+		return -1;
+	}
+	//该文件如果没有打开
+	if ( !active_files[file_handle].in_use )
+	{
+		return -1;
+	}
 
-	    if ((file_handle >= 0) && (file_handle < MAX_FILES_OPENED))
-	    {
-	        if (active_files[file_handle].in_use)
-	        {
-	            if (active_files[file_handle].current_byte_position < active_files[file_handle].file_size_in_bytes)
-	            {
-	                int data_sector = boot_sector_data.data_sector_offset + (active_files[file_handle].current_cluster_index - 2)*boot_sector_data.sectors_per_cluster +
-	                                  active_files[file_handle].current_sector_in_cluster;
+	//获得active_files[]对应的元素指针
+	t_file_record *curActiveFile = active_files + file_handle;
 
-	                if ((active_files[file_handle].current_byte_position > 0) && ((active_files[file_handle].current_byte_position % 512) == 0))
-	                {
-	                    // Read in a new sector of data.
-	                    if (active_files[file_handle].current_sector_in_cluster == boot_sector_data.sectors_per_cluster - 1)
-	                    {
-	                        // Go to the next cluster.
-	                        unsigned short int next_cluster;
-	                        if (get_cluster_flag(active_files[file_handle].current_cluster_index, &next_cluster))
-	                        {
-	                            if ((next_cluster & 0x0000fff8) == 0x0000fff8)
-	                            {
-	                                /* End of file */
-	                                return -1;
-	                            }
-	                            else
-	                            {
-	                                active_files[file_handle].current_cluster_index = next_cluster;
-									active_files[file_handle].current_sector_in_cluster = 0;
-	                                data_sector = boot_sector_data.data_sector_offset + (active_files[file_handle].current_cluster_index - 2)*boot_sector_data.sectors_per_cluster +
-	                                  active_files[file_handle].current_sector_in_cluster;
-	                            }
-	                        }
-	                        else
-	                        {
-	                            return -2;
-	                        }
-	                    }
-	                    else
-	                    {
-	                        active_files[file_handle].current_sector_in_cluster = active_files[file_handle].current_sector_in_cluster + 1;
-	                        data_sector = data_sector + 1;
-	                    }
-	                }
-	                // Reading te first byte of the file.
-	                if (current_sector_index != (data_sector + fat_partition_offset_in_512_byte_sectors))
-	                {
-	                    if (!Read_Sector_Data(data_sector, fat_partition_offset_in_512_byte_sectors))
-	                    {
-							return -2;
-	                    }
-	                }
+	//numInByte如果超过了文本剩下的字节数，就进行限制
+	if ( numInByte > (curActiveFile->file_size_in_bytes - curActiveFile->current_byte_position) )
+	{
+		numInByte = (curActiveFile->file_size_in_bytes - curActiveFile->current_byte_position);
+	}
 
-	                ch = (unsigned char) IORD_8DIRECT(buffer_memory, (active_files[file_handle].current_byte_position % 512));
-	                active_files[file_handle].current_byte_position = active_files[file_handle].current_byte_position + 1;
-	            }
-	        }
-	    }
+	//当前读取的字节数
+	unsigned int bufferIndex = 0;
 
-	return ch;
+	//current_byte_position从0开始，file_size_in_bytes-1为读取最后一个，file_size_in_bytes说明读完了
+	while ( curActiveFile->current_byte_position < curActiveFile->file_size_in_bytes && bufferIndex < numInByte )
+	{
+		int data_sector = boot_sector_data.data_sector_offset + \
+				(curActiveFile->current_cluster_index - 2)*boot_sector_data.sectors_per_cluster + \
+				 curActiveFile->current_sector_in_cluster;
 
+		//当前读取的字节不为文本的第一个字节，而且正好位于新扇区，这样保证FAT表可以正常工作，链表首做特殊处理（即避开FAT表首）
+		if ((curActiveFile->current_byte_position > 0) && ((curActiveFile->current_byte_position % 512) == 0))
+		{
+			// Read in a new sector of data.
+			//如果读到了一个簇的结束，就读下一个簇
+			if (curActiveFile->current_sector_in_cluster == boot_sector_data.sectors_per_cluster - 1)
+			{
+				// Go to the next cluster.
+				unsigned short int next_cluster;
+				if (get_cluster_flag(curActiveFile->current_cluster_index, &next_cluster))
+				{
+					if ((next_cluster & 0x0000fff8) == 0x0000fff8)
+					{
+						/* End of file */
+						break;
+					}
+					else
+					{
+						//用新簇替换旧簇
+						curActiveFile->current_cluster_index = next_cluster;
+						//簇内扇区偏移为0
+						curActiveFile->current_sector_in_cluster = 0;
+						//重新计算data_sector
+						data_sector = boot_sector_data.data_sector_offset + (curActiveFile->current_cluster_index - 2)*boot_sector_data.sectors_per_cluster +
+						  curActiveFile->current_sector_in_cluster;
+					}
+				}
+				else
+				{
+					//不支持除FAT16外的FAT表
+					return -1;
+				}
+			}
+			else//簇不变
+			{
+				curActiveFile->current_sector_in_cluster = curActiveFile->current_sector_in_cluster + 1;
+				data_sector = data_sector + 1;
+			}
+		}
+
+		//如果读取的扇区发生变化，就读新扇区。current_sector_index存储的是之前读取的扇区位置,
+		//(data_sector + fat_partition_offset_in_512_byte_sectors)是现在要读取的扇区位置
+		if (current_sector_index != (data_sector + fat_partition_offset_in_512_byte_sectors))
+		{
+			if (!Read_Sector_Data(data_sector, fat_partition_offset_in_512_byte_sectors))
+			{
+				return -1;
+			}
+		}
+		//将读到的数据存入缓存
+		int curByteOfSector = (curActiveFile->current_byte_position % 512);
+
+		int i_max = curByteOfSector + numInByte - bufferIndex;
+		if ( i_max > 512 )
+		{
+			i_max = 512;
+		}
+
+		int i;
+		for ( i = curByteOfSector; i < i_max; i ++ )
+		{
+			//取出扇区中的值，返回
+			buffer[bufferIndex] = (unsigned char) IORD_8DIRECT(buffer_memory, i );
+			bufferIndex ++;
+			//调整读取的下标
+			curActiveFile->current_byte_position = curActiveFile->current_byte_position + 1;
+		}
+	}
+
+	return bufferIndex;//返回实际读取的字节数
 }
 
-//文本指针偏移
-short int fseek_txt( short int file_handle, int offset, enum fseekType fromwhere)
+//文本指针偏移(返回0,成功； 返回-1，失败)
+short fseek_txt( short file_handle, int offset, enum fseekType fromwhere )
 {
+	//校验file_handle
+	if ( file_handle < 0 || file_handle >= MAX_FILES_OPENED )
+	{
+		return -1;
+	}
+	//该文件如果没有打开
+	if ( !active_files[file_handle].in_use )
+	{
+		return -1;
+	}
 
+	int status = 0;
+
+	//获得active_files[]对应的元素指针
+	t_file_record *curActiveFile = active_files + file_handle;
+	unsigned char sectors_per_cluster = boot_sector_data.sectors_per_cluster;
+	//之前的簇数
+	int preCluster = ((curActiveFile->current_byte_position) >> 9) / sectors_per_cluster;
+
+
+	//current_byte_position从0开始，file_size_in_bytes-1为读取最后一个，file_size_in_bytes说明读完了
+	int currentByte = 0;
+
+	switch( fromwhere )
+	{
+		case SEEK_SET_TXT://移到文件开头
+			currentByte = offset;
+			break;
+
+		case SEEK_CUR_TXT://当前位置偏移
+			currentByte = curActiveFile->current_byte_position + offset;
+			break;
+
+		case SEEK_END_TXT://移到文件结尾
+			currentByte = curActiveFile->file_size_in_bytes + offset;
+			break;
+		default:
+			return -1;
+	}
+
+	if ( currentByte > curActiveFile->file_size_in_bytes )
+	{
+		curActiveFile->current_byte_position = curActiveFile->file_size_in_bytes;
+	}
+	else if ( currentByte < 0 )
+	{
+		curActiveFile->current_byte_position = 0;
+	}
+	else
+	{
+		curActiveFile->current_byte_position = currentByte;
+	}
+
+	//计算簇数、扇区数
+	int curSector = (curActiveFile->current_byte_position) >> 9;
+	int curCluster = curSector / sectors_per_cluster;
+	int sectorInCluster = curSector % sectors_per_cluster;
+	curActiveFile->current_sector_in_cluster = sectorInCluster;
+
+	//根据簇数查找FAT表
+	int fatClusterNum = 0;//查找fat表的次数(延着链表向后找)
+	if ( curSector < preCluster )//FAT表需要查找上一个簇，则只能从FAT表首重新找
+	{
+		curActiveFile->current_cluster_index = curActiveFile->start_cluster_index;
+		fatClusterNum = curCluster;
+	}
+	else//直接向后找
+	{
+		fatClusterNum = curCluster - preCluster;
+	}
+
+	//FAT表查找簇
+	int i;
+	unsigned short int next_cluster;
+	for ( i = 0; i < fatClusterNum; i ++ )
+	{
+		if (get_cluster_flag(curActiveFile->current_cluster_index, &next_cluster))
+		{
+			if ((next_cluster & 0x0000fff8) == 0x0000fff8)
+			{
+				/* End of file */
+				break;
+			}
+			else
+			{
+				//用新簇替换旧簇
+				curActiveFile->current_cluster_index = next_cluster;
+			}
+		}
+		else
+		{
+			//不支持除FAT16外的FAT表
+			return -1;
+		}
+	}
 	return 0;
 }
 
+
+//获取当前读取文件的位置(返回值)
+long ftell_txt( short file_handle )
+{
+	//校验file_handle
+	if ( file_handle < 0 || file_handle >= MAX_FILES_OPENED )
+	{
+		return -1;
+	}
+	//该文件如果没有打开
+	if ( !active_files[file_handle].in_use )
+	{
+		return -1;
+	}
+	//返回当前读取字节数
+	return active_files[file_handle].current_byte_position;
+}
+
+
+//打开文件
+//input: fileReadName( 包含 .TXT )
+//Output: file_handle
+//An index to the file record assigned to the specified file.
+//-1 is returned if the file could not be opened.
+//Return -2 if the specified file has already been opened previously.
+short fopen_txt( char *fileReadName )
+{
+	fclose_txt( 0 );//无论上一个关没关，先关了上一个
+	return alt_up_sd_card_fopen( fileReadName, false );
+}
+
+
+//关闭文件
+//input: file_handle
+//output: 0:成功 -1:失败(可能关闭了未打开的文件)
+int fclose_txt( short file_handle )
+{
+	bool status = alt_up_sd_card_fclose( file_handle );
+	if ( status )
+	{
+		return 0;
+	}
+	return -1;
+}

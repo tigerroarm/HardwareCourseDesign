@@ -10,58 +10,102 @@
 #include "Altera_UP_SD_Card_Avalon_Interface.h"
 #include "sdread.h"
 #include "system.h"
+#include "txt_read.h"
+#include "test_value.h"
+#include "unistd.h"
 
 int main( void )
 {
-	//SD卡设备信息初始化
-	alt_up_sd_card_dev* sdDevPtr =\
-			alt_up_sd_card_open_dev( ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_NAME );
 
-	//检查SD卡是否在板子上插着
-	bool sdPresent = alt_up_sd_card_is_Present();
-	printf( "sdPresent=%s\n", sdPresent ? "true":"false" );
-
-	//检查SD卡是否为FAT16文件系统
-	bool sdFat16 = alt_up_sd_card_is_FAT16();
-	printf( "sdFat16=%s\n", sdFat16 ? "true":"false" );
+	usleep( 100000 );
+	bool status = readAlltxtFilesOfSDcard( );
+	displayStatus( "readAlltxtFilesOfSDcard( )", "main()", status );
 
 
-	//读取根目录下所有文件
-	//读取根目录下第一个目录
-	int curFileIndex = 1;
-	int realcurFileIndex = 2;
-	char rootDir[2] = { '.', 0 };
-//	char rootDir[10] = { "lala/." };
-	char fileNameStore[100];
-	char realfileNameStore[100];
-	short catalogStatus;
-	catalogStatus = alt_up_sd_card_find_first( rootDir, realfileNameStore );
+//	displayTxtFilesInfo( &txtFilesInfoSpace, 0 );
 
-	if ( catalogStatus == 0 )
+	//测试打开文件函数
+	if ( txtFilesInfoSpace.txtFilesNum > 0 )
 	{
-		printf( "file[%d]:%s\n", curFileIndex, realfileNameStore );
-		curFileIndex ++;
-	}
-	else
-	{
-		printf( "rootDir == \" %s \" is valid\n", rootDir );
-		return 0;
-	}
+		char *curFileStr = txtFilesInfoSpace.txtFileList[0].txtFileReadName.text;
+		//打开文件
+		short curFileHandle = fopen_txt( curFileStr );
+		txtFilesInfoSpace.curFileHandle = curFileHandle;
 
+		printf( "curFileHandle = %d\n", curFileHandle );
 
-	while( catalogStatus == 0 )
-	{
-		catalogStatus = alt_up_sd_card_find_next( realfileNameStore );
-		if ( catalogStatus == 0 )
+		alt_u8 textSapce[5000];
+
+		int readByte[20] = { 1000, 1369, 2789, 1247, 3155, \
+				             4598, 211,   513,  500, 1023,
+				             0 };
+
+		int preByteNum = 0;
+		int curByteNum = 0;
+		int realReadByte = 0;
+		int i;
+//		for ( i = 0; i < 11; i ++ )
+//		{
+//			realReadByte = fread_txt( curFileHandle, textSapce, readByte[i] );
+//			preByteNum = curByteNum;
+//			curByteNum = ftell_txt( curFileHandle );
+//			printf( "realReadByte = %d\n", realReadByte );
+//			printf( "curByteNum = %d\n", curByteNum );
+//			printf( "readByte[%d] = %d ,  curByteNum - preByteNum = %d\n", i, readByte[i], curByteNum - preByteNum );
+//
+//			int j;
+//			for ( j = 0; j < realReadByte; j ++ )
+//			{
+//				printf( "%c", textSapce[j] );
+//			}
+//			if ( (j%50) == 0 )
+//			{
+//				printf( "\n" );
+//			}
+//			printf( "\n" );
+//		}
+//
+		fseek_txt( curFileHandle, 0, SEEK_CUR_TXT );
+		curByteNum = ftell_txt( curFileHandle );
+		printf( "curByteNum = %d\n", curByteNum );
+
+		fseek_txt( curFileHandle, 0, SEEK_SET_TXT );
+		curByteNum = ftell_txt( curFileHandle );
+		printf( "curByteNum = %d\n", curByteNum );
+
+		fseek_txt( curFileHandle, 0, SEEK_END_TXT );
+		curByteNum = ftell_txt( curFileHandle );
+		printf( "curByteNum = %d\n", curByteNum );
+
+		for ( i = 0; i < 5; i ++ )
 		{
-			printf( "file[%d]:%s\n", realcurFileIndex, realfileNameStore );
-			realcurFileIndex++;
+			fseek_txt( curFileHandle, -1000, SEEK_CUR_TXT );
+			curByteNum = ftell_txt( curFileHandle );
+			printf( "curByteNum = %d\n", curByteNum );
 		}
-		else if ( catalogStatus == -1 )
+
+		realReadByte = fread_txt( curFileHandle, textSapce, 20 );
+		preByteNum = curByteNum;
+
+		curByteNum = ftell_txt( curFileHandle );
+		printf( "curByteNum = %d\n", curByteNum );
+
+		int j;
+		for ( j = 0; j < realReadByte; j ++ )
 		{
-			printf( "end of files\n" );
-			break;
+			printf( "%c", textSapce[j] );
 		}
+		if ( (j%50) == 0 )
+		{
+			printf( "\n" );
+		}
+		printf( "\n" );
+
+
+		//关闭文件
+		short status = fclose_txt( curFileHandle );
+		printf( "fclose status = %d\n", status );
 	}
+
 	return 0;
 }

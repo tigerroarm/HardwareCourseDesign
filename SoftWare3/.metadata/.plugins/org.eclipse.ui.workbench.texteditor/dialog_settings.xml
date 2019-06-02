@@ -2,26 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="get_cluster_flag" key="selection"/>
+		<item value="current_cluster_index" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="current_cluster_index"/>
+			<item value="active_files[file_handle]."/>
+			<item value="current_sector_index"/>
 			<item value="get_cluster_flag"/>
-			<item value="buffer_memory"/>
-			<item value="Read_Sector_Data"/>
+			<item value="t_file_record"/>
 			<item value="active_files"/>
-			<item value="alt_up_sd_card_dev"/>
+			<item value="file_size_in_bytes"/>
+			<item value="read"/>
 		</list>
 		<list key="replacehistory">
+			<item value="curActiveFile-&gt;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="273" key="DIALOG_WIDTH"/>
 		<item value="1|Microsoft YaHei UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Microsoft YaHei UI" key="DIALOG_FONT_NAME"/>
 		<item value="400" key="DIALOG_HEIGHT"/>
-		<item value="864" key="DIALOG_X_ORIGIN"/>
-		<item value="342" key="DIALOG_Y_ORIGIN"/>
+		<item value="803" key="DIALOG_X_ORIGIN"/>
+		<item value="336" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

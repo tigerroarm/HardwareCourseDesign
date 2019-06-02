@@ -1,0 +1,21 @@
+/*
+ * main.c
+ *
+ *  Created on: 2019Äê5ÔÂ14ÈÕ
+ *      Author: Administrator
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+#include "sdread.h"
+#include "system.h"
+
+int main( void )
+{
+	bool status = readAlltxtFilesOfSDcard( );
+
+
+
+	return 0;
+}

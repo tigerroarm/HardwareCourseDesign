@@ -1,0 +1,60 @@
+/*
+ * main.c
+ *
+ *  Created on: 2019年5月14日
+ *      Author: Administrator
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Altera_UP_SD_Card_Avalon_Interface.h"
+#include "sdread.h"
+#include "system.h"
+#include "txt_read.h"
+#include "test_value.h"
+#include "unistd.h"
+
+int main( void )
+{
+
+	usleep( 100000 );
+	bool status = readAlltxtFilesOfSDcard( );
+	displayStatus( "readAlltxtFilesOfSDcard( )", "main()", status );
+
+
+//	displayTxtFilesInfo( &txtFilesInfoSpace, 0 );
+
+	//测试打开文件函数
+	if ( txtFilesInfoSpace.txtFilesNum > 0 )
+	{
+		char *curFileStr = txtFilesInfoSpace.txtFileList[0].txtFileReadName.text;
+		//打开文件
+		short curFileHandle = fopen_txt( curFileStr );
+		txtFilesInfoSpace.curFileHandle = curFileHandle;
+
+		printf( "curFileHandle = %d\n", curFileHandle );
+
+		alt_u8 textSapce[5000];
+
+		int readByte[20] = { 1000, 1369, 2789, 1247, 3155, \
+				             4598, 211,   513,  500, 1023,
+				             0 };
+
+		int preByteNum = 0;
+		int curByteNum = 0;
+		int i;
+		for ( i = 0; i < 11; i ++ )
+		{
+			fread_txt( curFileHandle, textSapce, readByte[i] );
+			preByteNum = curByteNum;
+			curByteNum = ftell_txt( curFileHandle );
+			printf( "readByte[%d] = %d ,  curByteNum - preByteNum = %d\n", i, readByte[i], curByteNum - preByteNum );
+		}
+
+		//关闭文件
+		short status = fclose_txt( curFileHandle );
+		printf( "fclose status = %d\n", status );
+	}
+
+	return 0;
+}

@@ -41,7 +41,8 @@
 
 
 //电子书区域每一行的字节数
-#define BOOK_ROW_BYTES 34 //min( 320/(16+2)*2, 320/(8+1) ),再向下取偶数
+//#define BOOK_ROW_BYTES 34 //min( 320/(16+2)*2, 320/(8+1) ),再向下取偶数
+#define BOOK_ROW_BYTES 68//由于增加unicode编码,所以
 #define BOOK_ROW_HEIGHT (SCR_WORD_SIZE_Y + 2)
 #define BOOK_ROW_WIDTH (( BOOK_ROW_BYTES >> 1) * ( SCR_WORD_SIZE_X + DEFAULT_WORD_SPACING ))
 #define BOOK_COL_NUM 21 //SCR_MAIN_HEIGHT / BOOK_ROW_HEIGHT
@@ -217,13 +218,11 @@ typedef struct
 {
 	TextType txtFileReadName;//问件读取时需要用该文件名
 	TextType txtFileName;//文件名（省略.txt）
-	int curPageNum;//当前阅读页数
-	int totalPageNum;//总页数
 	float curPageRatio;//阅读进度比率 = curPageNum / totalPageNum  (范围0~1)
 	unsigned int curPageBytePosStart;//本页开始字节数
 	unsigned int curPageBytePosEnd;//本页结束字节数
 	unsigned int fileSizeInBytes;//整个txt文件的字节数
-
+	char encodingFmt;//文本编码格式
 } TxtFile;
 
 //时间变量

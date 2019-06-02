@@ -1,0 +1,238 @@
+/*
+ * txt_read.c
+ *
+ *  Created on: 2019年4月27日
+ *      Author: 12757
+ */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "txt_read.h"
+#include "screen.h"
+
+
+//临时存储从SD卡中读出的文件名
+char sdCardFileName[TXT_FILE_NAME_SIZE];
+
+TxtFilesInfo txtFilesInfoSpace;
+
+//char txtBookSpace[BOOK_COL_NUM][BOOK_ROW_BYTES+1] = {"hahaha","lalala","gauguagua"};
+//char txtBookSpace[BOOK_COL_NUM][BOOK_ROW_BYTES+1] = { "慕涤佬巨神","楼主说的对",{0},"我是华科菜鸡" };
+char txtBookSpace[BOOK_COL_NUM][BOOK_ROW_BYTES+1] = {
+    "内容简介:",
+    "    唐门外门弟子唐三，因偷学内门绝",
+    "学为唐门所不容，跳崖明志时却来到了",
+    "另一个世界，一个属于武魂的世界。名",
+    "叫斗罗大陆。",
+    "    这里没有魔法，没有斗气，没有武",
+    "术，却有神奇的武魂。这里的每个人，",
+    "在自己六岁的时候，都会在武魂殿中令",
+    "武魂觉醒。武魂有动物，有植物，有器",
+    "物，它们可以辅助人们的日常生活。而",
+    "其中一些特别出色的武魂却可以用来修",
+    "炼，这个职业，是斗罗大陆上最为强大",
+    "也是最重要的职业，——魂师。",
+    "    当唐门暗器来到斗罗大陆，当唐三",
+    "武魂觉醒，他能否在这片武魂的世界重",
+    "塑唐门辉煌？",
+    "    职业等级：魂士、魂师、大魂师、",
+    "魂尊、魂宗、魂王、魂帝、魂圣、斗罗",
+    "、封号斗罗。",
+    "  Please do not split Enlish words",
+    "into two lines"
+};
+
+
+
+//读取SD卡根目录下的所有.txt文件(最多99个,宏定义为TXT_FILES_NUM_MAX=99)（文件名存储时去掉.txt）
+//读取后的所有文件信息存储到变量txtFilesInfoSpace中
+bool readAlltxtFilesOfSDcard( )
+{
+	bool status = true;
+
+	//txtFilesInfoSpace是全局变量，可直接使用
+	//((txtFilesInfoSpace.txtFileList)[i]).TextType.text里面存储的字符串空间需要malloc
+
+	txtFilesInfoSpace.curOpenFileIndex = 0;//第一个文本
+	txtFilesInfoSpace.curFileHandle = 0;
+	txtFilesInfoSpace.txtFilesNum = 0;
+
+
+	//SD卡设备信息初始化
+	alt_up_sd_card_dev* sdDevPtr =\
+			alt_up_sd_card_open_dev( ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_NAME );
+
+	//检查SD卡是否在板子上插着
+	bool sdPresent = alt_up_sd_card_is_Present();
+	printf( "sdPresent=%s\n", sdPresent ? "true":"false" );
+	if ( !sdPresent )
+	{
+		return false;
+	}
+
+	//检查SD卡是否为FAT16文件系统
+	bool sdFat16 = alt_up_sd_card_is_FAT16();
+	printf( "sdFat16=%s\n", sdFat16 ? "true":"false" );
+	if ( !sdFat16 )
+	{
+		return false;
+	}
+
+	//判断根文件下有多少个TXT文件
+
+	//读取根目录下所有文件
+	//读取根目录下第一个目录
+
+	char rootDir[2] = { '.', 0 };
+	char fileReadNameStore[13];
+	short catalogStatus;
+	catalogStatus = alt_up_sd_card_find_first( rootDir, fileReadNameStore );
+
+	if ( catalogStatus == -1 )//根目录下没有文件
+	{
+		printf( "No file in root dir\n" );
+		return false;
+	}
+	else if ( catalogStatus == 0 )//成功读到第一个文件
+	{
+		printf( "file[%d]:%s\n", txtFilesInfoSpace.txtFilesNum+1, fileReadNameStore );
+		txtFilesInfoSpace.txtFilesNum = 1;
+	}
+	else
+	{
+		printf( "rootDir == \" %s \" is valid\n", rootDir );
+		return false;
+	}
+
+	while( catalogStatus == 0 && txtFilesInfoSpace.txtFilesNum < TXT_FILES_NUM_MAX )
+	{
+		catalogStatus = alt_up_sd_card_find_next( fileReadNameStore );
+		if ( catalogStatus == 0 )
+		{
+			printf( "file[%d]:%s\n", txtFilesInfoSpace.txtFilesNum, fileReadNameStore );
+			//如果为TXT文件，就保存下来
+			int i;
+			int dotOccur = 0;
+			int dotOccurIndex = 0;
+			for ( i = 0; i < 13; i ++ )//寻找'.'
+			{
+				if ( fileReadNameStore[i] == '.' )
+				{
+					dotOccur = 1;
+					dotOccurIndex = i;
+				}
+			}
+			if ( dotOccur &&
+				fileReadNameStore[dotOccurIndex+1] == 'T' &&
+				fileReadNameStore[dotOccurIndex+2] == 'X' && \
+				fileReadNameStore[dotOccurIndex+3] == 'T' )
+			{
+				TxtFile *curTxtFile = txtFilesInfoSpace.txtFileList + txtFilesInfoSpace.txtFilesNum;
+				txtFilesInfoSpace.txtFilesNum ++;
+
+				curTxtFile->txtFileReadName.textLen = strlen( fileReadNameStore );
+				curTxtFile->txtFileReadName.text = malloc( curTxtFile->txtFileReadName.textLen + 1 );
+				strcpy( curTxtFile->txtFileReadName.text, fileReadNameStore );
+
+				curTxtFile->txtFileName.textLen = curTxtFile->txtFileReadName.textLen - 4;
+				curTxtFile->txtFileReadName.text = malloc( curTxtFile->txtFileName.textLen + 1 );
+				char *tempStr = curTxtFile->txtFileReadName.text;
+				for( i = 0; i < dotOccurIndex; i ++ )
+				{
+					tempStr[i] = fileReadNameStore[i];
+				}
+				tempStr[dotOccurIndex] = 0;//结束标志
+			}
+		}
+		else if ( catalogStatus == -1 )
+		{
+			printf( "end of files\n" );
+			break;
+		}
+	}
+
+	return status;
+
+}
+
+
+//读取SD卡中的文本内容(txtBookInst里面有当前打开电子书的阅读进度),存储于全局变量txtBookSpace中
+bool readBookOfTxtFile( TxtFile *txtBookInst,  enum bookTurnPageType turnPageSel, float jumpPageRatio )
+{
+	bool status = true;
+
+	if ( turnPageSel == BOOK_PAGE_PRE )
+    {
+        printf( "pageChangePre\n" );
+    }
+    else if ( turnPageSel == BOOK_PAGE_NEXT )
+    {
+        printf( "pageChangeNext\n" );
+    }
+    else if ( turnPageSel == BOOK_PAGE_JUMP )
+    {
+        printf( "pageJump\n" );
+    }
+
+	//设计要求：修改txtBookInst中阅读进度，并读取翻页后的文本内容于txtBookSpace中
+	//翻页时，如果是上下翻页时，要保证文本连续性，还要保证换行符对齐一行的开头
+	//如果是页首，页尾，就向页首页尾文本顶齐
+	//如果是页面跳转，就通过进度百分数jumpPagePct计算要跳转的页数，然后找到附近最近的换行符，如果一个显示域内找不到换行符,就随便
+    //英文单词不可拆开于两行
+
+	//填充文本内容要保证不超出BOOK文本显示框宽度，BOOK文本字符的间隔可以在screen_type.h中查询到
+
+	//在screen.h库中又一个方便的函数，可以获取文本中汉字与字母的分布表(返回动态数组，记得free)
+	//该函数为:char *getWordLetterArrange( char *str, short len );
+
+	/*
+	 *
+	 *
+	 * ********************************************请开始你的表演
+	 *
+	 *
+	 */
+
+
+
+
+
+	return status;
+}
+
+//打开SD卡的某个文本
+TxtFile *openTxtFile( short fileIndex )
+{
+    if ( fileIndex < 0 || fileIndex >= txtFilesInfoSpace.txtFilesNum )
+    {
+        return (void*)0;
+    }
+    txtFilesInfoSpace.curOpenFileIndex = fileIndex;
+
+    //调用打开文件函数
+    /*
+
+
+    写吧
+
+    */
+
+    return txtFilesInfoSpace.txtFileList + fileIndex;
+}
+
+//关闭TxtFile问件
+bool closeTxtFile( )
+{
+    txtFilesInfoSpace.curOpenFileIndex = -1;
+
+    //调用关闭文件函数
+
+
+    /*
+
+
+    写吧
+
+    */
+    return true;
+}

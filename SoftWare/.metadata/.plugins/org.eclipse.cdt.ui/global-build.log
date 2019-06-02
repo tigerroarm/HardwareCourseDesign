@@ -1,21 +1,26 @@
-17:03:14 **** Incremental Build of configuration Nios II for project ebook1 ****
+14:02:11 **** Incremental Build of configuration Nios II for project ebook2 ****
 make all 
-Info: Building ../ebook1_bsp/
-E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook1_bsp/
+Info: Building ../ebook2_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook2_bsp/
 [BSP build complete]
-Info: Compiling main.c to obj/default/main.o
-nios2-elf-gcc -xc -MP -MMD -c -I../ebook1_bsp//HAL/inc -I../ebook1_bsp/ -I../ebook1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/main.o main.c
-Info: Linking ebook1.elf
-nios2-elf-g++  -T'../ebook1_bsp//linker.x' -msys-crt0='../ebook1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook1_bsp/   -Wl,-Map=ebook1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/test_value.o obj/default/tftlcd.o obj/default/time_count.o obj/default/touch.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
-nios2-elf-insert ebook1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1557864254 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook1_bsp/../../ED2platform.sopcinfo
-Info: (ebook1.elf) 1230 KBytes program size (code + initialized data).
-Info:              129833 KBytes free for stack + heap.
-Info: Creating ebook1.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source ebook1.elf >ebook1.objdump
-[ebook1 build complete]
-17:03:22 **** Incremental Build of configuration Nios II for project ebook1 ****
-make all 
-Info: Building ../ebook1_bsp/
-E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook1_bsp/
-[BSP build complete]
-[ebook1 build complete]
+Info: Compiling sdread.c to obj/default/sdread.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook2_bsp//HAL/inc -I../ebook2_bsp/ -I../ebook2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/sdread.o sdread.c
+sdread.c: In function 'fread_txt':
+sdread.c:189:5: warning: implicit declaration of function 'get_cluster_flag' [-Wimplicit-function-declaration]
+     if (get_cluster_flag(curActiveFile->current_cluster_index, &next_cluster))
+     ^
+sdread.c:224:4: warning: implicit declaration of function 'Read_Sector_Data' [-Wimplicit-function-declaration]
+    if (!Read_Sector_Data(data_sector, fat_partition_offset_in_512_byte_sectors))
+    ^
+sdread.c: In function 'fseek_txt':
+sdread.c:266:6: warning: unused variable 'status' [-Wunused-variable]
+  int status = 0;
+      ^
+Info: Linking ebook2.elf
+nios2-elf-g++  -T'../ebook2_bsp//linker.x' -msys-crt0='../ebook2_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook2_bsp/   -Wl,-Map=ebook2.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook2.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/sdread.o obj/default/test_value.o obj/default/tftlcd.o obj/default/time_count.o obj/default/touch.o obj/default/touch_resp.o obj/default/txt_read.o -lm -msys-lib=m
+nios2-elf-insert ebook2.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1557864254 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook2_bsp/../../ED2platform.sopcinfo
+Info: (ebook2.elf) 1263 KBytes program size (code + initialized data).
+Info:              129800 KBytes free for stack + heap.
+Info: Creating ebook2.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook2.elf >ebook2.objdump
+[ebook2 build complete]

@@ -51,88 +51,110 @@ bool readAlltxtFilesOfSDcard( )
 	bool status = true;
 
 	//txtFilesInfoSpace是全局变量，可直接使用
-	//txtFilesInfoSpace.txtFileList指针需要malloc数组
-	//((txtFilesInfoSpace.txtFileList)[i]).TextType.text里面存储的字符串空间也需要malloc
-
-	/*
-	 *
-	 *
-	 * ********************************************请开始你的表演
-	 *
-	 *
-	 */
-
-
-	//以下为测试环境下的代码，即随便塞一堆数据给变量txtFilesInfoSpace，这样就能在SD卡尚未调通时不影响其他函数测试
-	//当然，李远哲可以参考以下代码写SD卡调通时的readAlltxtFilesOfSDcard函数代码
+	//((txtFilesInfoSpace.txtFileList)[i]).TextType.text里面存储的字符串空间需要malloc
 
 	txtFilesInfoSpace.curOpenFileIndex = 0;//第一个文本
+	txtFilesInfoSpace.curFileHandle = 0;
+	txtFilesInfoSpace.txtFilesNum = 0;
 
-	#define TXT_FILES_NUM 25
-	int filesNum = TXT_FILES_NUM;
-//    int filesNum = 1;
-	txtFilesInfoSpace.txtFilesNum = filesNum;//文件总个数
 
-	txtFilesInfoSpace.txtFileList = ( TxtFile *)malloc( sizeof(TxtFile) * filesNum );
-//    txtFilesInfoSpace.txtFileList = NULL;
+	//SD卡设备信息初始化
+	alt_up_sd_card_dev* sdDevPtr =\
+			alt_up_sd_card_open_dev( ALTERA_UP_SD_CARD_AVALON_INTERFACE_0_NAME );
 
-//    char tempFilesName[1][40] = { "哈哈哈哈哈哈活动和覅和覅u火速" };
-
-	char tempFilesName[TXT_FILES_NUM][40] = {
-			"华中科技大学电子信息与通信学院",
-			"华科巨佬",
-			"斗罗大陆",
-			"ED2-115开发板资料",
-			"仙剑奇侠传3",
-			"Good night!",
-			"What are you 弄啥嘞？？？？？你在吗",
-			"Leave me alone",
-			"なんでもないや",
-			"哈哈哈哈哈哈哈哈嗝",
-			"涤佬是怎么炼成的",
-			"硬件课设",
-			"微波电路",
-			"Come on, baby",
-			"altera",
-			"nios 2",
-			"七个白雪公主和一个小矮人",
-			"无线电波",
-			"人工智能",
-			"快乐医疗",
-			"还好没有乱码，GBK还是很优秀",
-			"名侦探柯南",
-			"滚筒洗衣机",
-			"步步高点读机，哪里不会点哪里",
-			"final music"
-	};
-
-	TxtFile *curTxtFile;
-	int i;
-	for ( i = 0; i < filesNum; i ++ )
+	//检查SD卡是否在板子上插着
+	bool sdPresent = alt_up_sd_card_is_Present();
+	printf( "sdPresent=%s\n", sdPresent ? "true":"false" );
+	if ( !sdPresent )
 	{
-        //数组偏移
-		curTxtFile = (txtFilesInfoSpace.txtFileList) + i;
-
-		//文件信息填充
-		curTxtFile->curPageBytePosStart = 0;//当前阅读到0字节
-		curTxtFile->curPageBytePosEnd = 0;//当前阅读到0字节
-		curTxtFile->curPageNum = 1;//第一页
-		curTxtFile->curPageRatio = 0;//进度(范围0~1)
-		curTxtFile->fileSizeInBytes = 10000;//10000个字节
-		curTxtFile->totalPageNum = curTxtFile->fileSizeInBytes / ( BOOK_ROW_BYTES * BOOK_COL_NUM );
-
-		//字符串长度
-		int textLen = strlen(tempFilesName[i]);
-		(curTxtFile->txtFileName).textLen = textLen;
-
-		//字符串存储空间malloc
-        char *tempPtr = (char*)malloc( sizeof(char) * (textLen+1) );
-        (curTxtFile->txtFileName).text = tempPtr;
-
-        //存储文件名
-        strcpy( tempPtr, tempFilesName[i] );
+		return false;
 	}
 
+	//检查SD卡是否为FAT16文件系统
+	bool sdFat16 = alt_up_sd_card_is_FAT16();
+	printf( "sdFat16=%s\n", sdFat16 ? "true":"false" );
+	if ( !sdFat16 )
+	{
+		return false;
+	}
+
+	//判断根文件下有多少个TXT文件
+
+	//读取根目录下所有文件
+	//读取根目录下第一个目录
+
+	char rootDir[2] = { '.', 0 };
+	char fileReadNameStore[13];
+	short catalogStatus;
+	catalogStatus = alt_up_sd_card_find_first( rootDir, fileReadNameStore );
+
+	if ( catalogStatus == -1 )//根目录下没有文件
+	{
+		printf( "No file in root dir\n" );
+		return false;
+	}
+	else if ( catalogStatus == 0 )//成功读到第一个文件
+	{
+		printf( "file[%d]:%s\n", txtFilesInfoSpace.txtFilesNum, fileReadNameStore );
+		txtFilesInfoSpace.txtFilesNum = 0;
+	}
+	else
+	{
+		printf( "rootDir == \" %s \" is valid\n", rootDir );
+		return false;
+	}
+	int i;
+	while( catalogStatus == 0 && txtFilesInfoSpace.txtFilesNum < TXT_FILES_NUM_MAX )
+	{
+		//清空fileReadNameStore
+		for ( i = 0; i < 13; i ++ )
+		{
+			fileReadNameStore[i] = 0;
+		}
+		catalogStatus = alt_up_sd_card_find_next( fileReadNameStore );
+		if ( catalogStatus == 0 )
+		{
+			//printf( "file[%d]:%s\n", txtFilesInfoSpace.txtFilesNum, fileReadNameStore );
+			//如果为TXT文件，就保存下来
+
+			int dotOccur = 0;
+			int dotOccurIndex = 0;
+			for ( i = 0; i < 13; i ++ )//寻找'.'
+			{
+				if ( fileReadNameStore[i] == '.' )
+				{
+					dotOccur = 1;
+					dotOccurIndex = i;
+				}
+			}
+			if ( dotOccur &&
+				fileReadNameStore[dotOccurIndex+1] == 'T' &&
+				fileReadNameStore[dotOccurIndex+2] == 'X' && \
+				fileReadNameStore[dotOccurIndex+3] == 'T' )
+			{
+				TxtFile *curTxtFile = txtFilesInfoSpace.txtFileList + txtFilesInfoSpace.txtFilesNum;
+				txtFilesInfoSpace.txtFilesNum ++;
+
+				curTxtFile->txtFileReadName.textLen = strlen( fileReadNameStore );
+				curTxtFile->txtFileReadName.text = malloc( curTxtFile->txtFileReadName.textLen + 1 );
+				strcpy( curTxtFile->txtFileReadName.text, fileReadNameStore );
+
+				curTxtFile->txtFileName.textLen = curTxtFile->txtFileReadName.textLen - 4;
+				curTxtFile->txtFileName.text = malloc( curTxtFile->txtFileName.textLen + 1 );
+				char *tempStr = curTxtFile->txtFileName.text;
+				for( i = 0; i < dotOccurIndex; i ++ )
+				{
+					tempStr[i] = fileReadNameStore[i];
+				}
+				tempStr[dotOccurIndex] = 0;//结束标志
+			}
+		}
+		else if ( catalogStatus == -1 )
+		{
+			printf( "end of files\n" );
+			break;
+		}
+	}
 
 	return status;
 
@@ -219,3 +241,6 @@ bool closeTxtFile( )
     */
     return true;
 }
+
+
+

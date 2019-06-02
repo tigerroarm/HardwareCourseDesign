@@ -23,9 +23,10 @@
 //SD卡根目录下所有txt文件的信息
 typedef struct
 {
-	TxtFile *txtFileList;//动态数组（第一次使用时需要malloc分配空间）
+	TxtFile txtFileList[TXT_FILES_NUM_MAX];//静态数组，大小为TXT_FILES_NUM_MAX
 	int txtFilesNum;//最大值为99，即最多读取SD卡中的99个文件
 	int curOpenFileIndex;//当前打开的txt文件下标
+	short int curFileHandle;
 } TxtFilesInfo;
 
 extern TxtFilesInfo txtFilesInfoSpace;

@@ -122,6 +122,15 @@ bool scrFooterResp( ScreenFooterBtn *scrFooterInst, ScrMainAreaInfo *mainAreaInf
     status1 = getAbsPos( absPos, &(scrFooterInst->iconBackArea), &tempAbsArea );// ºóÍË¼üÇøÓò
     posValid = posValidInAbsPos( touchPos, &tempAbsArea );
 
+    if ( (mainAreaInfo->scrIDStack)[mainAreaInfo->curScrIndex] == SCR_COLOR_PICKER )
+    {
+        screenSyncSettingColor();
+    }
+    if ( (mainAreaInfo->scrIDStack)[mainAreaInfo->curScrIndex] == SCR_SETTING )
+    {
+        screenSyncBookColor();
+    }
+
     if(posValid){
 
         if(mainAreaInfo->curScrIndex){
@@ -443,7 +452,7 @@ bool scrMainSettingResp( ScreenSetting *scrSettingInst, ScrMainAreaInfo *mainAre
             (scrSettingInst->editTurnPageSec).value = (scrSettingInst->editTurnPageSec).valueMin;
         }
         else{
-            (scrSettingInst->editAlarmHour).value++;
+            (scrSettingInst->editTurnPageSec).value++;
         }
 
         tempStr = scrSettingInst->editTurnPageSec.valueTag.tagText.text;

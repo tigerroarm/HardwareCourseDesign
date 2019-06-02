@@ -146,6 +146,7 @@ C_SRCS += sdTest.c
 C_SRCS += txt_read.c
 C_SRCS += screen.c
 C_SRCS += sdread.c
+C_SRCS += test_value.c
 CXX_SRCS :=
 ASM_SRCS :=
 

@@ -1,0 +1,234 @@
+/*
+ * time_count.c
+ *
+ *  Created on: 2019年4月27日
+ *      Author: 12757
+ */
+
+#include "time_count.h"
+#include "screen.h"
+#include "sys/alt_irq.h"
+#include "system.h"
+#include "altera_avalon_timer_regs.h" // 定时器
+#include "screen_display.h"
+
+TimeTaskInfo timeFlag;
+unsigned int timer_isr_context;// 定义全局变量以储存isr_context指针
+
+//上边栏时间显示变化中断的响应任务(每隔1分钟时间变化一次）
+bool scrHeaderTimeResp( ScreenHeaderTime *scrHeaderInst, AreaRange *absPos )
+{
+    bool status = true;
+    bool status1;
+
+    //要管理时间切换，还要管理自动翻页,还要在闹钟时间到时时报警
+    if ( timeFlag.timeChangeFlag )
+    {
+        timeFlag.timeChangeFlag = false;
+        //修改上边栏显示时间
+
+      //  printf("%d",timeFlag.curSecondsCount);
+//    	printf("%d \n",timeFlag.curATPSecCount);
+	   //timeFlag.curSecondsCount
+	   char strTmp [10];
+
+	   int hour = timeFlag.curSecondsCount / 3600;
+	   int min = timeFlag.curSecondsCount / 60;
+	   int sec = timeFlag.curSecondsCount % 60;
+
+	   if(hour >= 10 && min >=10 && sec >=10){
+		   sprintf(strTmp,"%d:%d:%d", hour,min,sec);
+	   }else if(hour < 10 && min >=10 && sec >=10){
+		   sprintf(strTmp,"0%d:%d:%d", hour,min,sec);
+	   }else if(hour < 10 && min <10 && sec >=10){
+		   sprintf(strTmp,"0%d:0%d:%d", hour,min,sec);
+	   }else if(hour < 10 && min <10 && sec <10){
+		   sprintf(strTmp,"0%d:0%d:0%d", hour,min,sec);
+	   }else if(hour < 10 && min >=10 && sec <10){
+		   sprintf(strTmp,"0%d:%d:0%d", hour,min,sec);
+	   }else if(hour >= 10 && min <10 && sec >=10){
+		   sprintf(strTmp,"%d:0%d:%d", hour,min,sec);
+	   }else if(hour >= 10 && min <10 && sec <10){
+		   sprintf(strTmp,"%d:0%d:%d", hour,min,sec);
+	   }else if(hour >= 10 && min >=10 && sec <10){
+		   sprintf(strTmp,"%d:%d:0%d", hour,min,sec);
+	   }else{
+		   sprintf(strTmp,"%d:%d:%d", hour,min,sec);
+	   }
+
+	   AreaRange tmprange;
+	   //得到子模块的绝对位置
+	   getAbsPos(absPos, &(scrHeaderInst->tagTimeArea), &tmprange);
+	   //更改显示字符串
+	   scrHeaderInst->tagTime.tagText.text = strTmp;
+
+	   showTagBlock( &(scrHeaderInst->tagTime), &tmprange );
+    }
+
+    if ( timeFlag.autoTurnPageFlag )
+    {
+        timeFlag.autoTurnPageFlag = false;
+        //翻页
+        if(tftlcdScreenInst.scrSetting.autoTurnPage && tftlcdScreenInst.mainAreaInfo.scrIDStack[tftlcdScreenInst.mainAreaInfo.curScrIndex] == SCR_BOOK)
+        {
+            //自动翻页
+            readBookOfTxtFile( tftlcdScreenInst.scrBook.pageInfo.txtFileInfo,  BOOK_PAGE_NEXT, 0 );
+//            printf("自动翻页了");
+        }
+    }
+
+    if ( timeFlag.alarmFlag )
+    {
+        //想方设法提醒读者休息，可以屏幕弹出"该休息了",也可以疯狂闪LED灯。
+
+		//背光打开
+//            printf("背光一闪一闪");
+		//一个简单的测试
+		if( timeFlag.alarmSecCount % 2 == 0 )
+		{
+			scrHeaderInst->bkgBorderColor.bkgColor = getColor16BitByRGB( 250, 0, 0 );
+		}
+		else
+		{
+			scrHeaderInst->bkgBorderColor.bkgColor = getColor16BitByRGB( 210, 125, 33 );
+		}
+		showScreenHeader( &(tftlcdScreenInst.scrHeader), &(tftlcdScreenInst.headerArea));
+		timeFlag.alarmSecCount ++;
+
+    }
+
+    return status;
+}
+
+//时间中断函数
+void timeCount1s_handler( void* isr_context )
+{
+	//1.清除中断状态，开启新的计时
+	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_1S_BASE,
+		  ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
+
+	//3.修改时间
+	timeFlag.curSecondsCount ++;
+	//printf("%d",timeFlag.curSecondsCount);
+
+	//每隔一分钟修改一次显示时间
+//    if ( timeFlag.curSecondsCount % 60 == 0 )
+//    {
+		timeFlag.timeChangeFlag = true;
+//    }
+
+	//如果自动翻页开启
+	if ( tftlcdScreenInst.scrSetting.autoTurnPage )
+	{
+		if ( timeFlag.curATPSecCount < 0 )
+		{
+			timeFlag.curATPSecCount = 0;
+		}
+		else
+		{
+			//计时+1
+			timeFlag.curATPSecCount ++;
+			//如果自动翻页到时
+			if ( timeFlag.curATPSecCount >= timeFlag.autoTPSeconds )
+			{
+				timeFlag.curATPSecCount = 0;
+				timeFlag.autoTurnPageFlag = true;
+			}
+		}
+	}
+	else
+	{
+		timeFlag.curATPSecCount = 0;
+	}
+
+	//如果到了闹钟时间
+	if ( timeFlag.alarmFlag == false )//之前为非闹钟状态
+	{
+		if ( timeFlag.curSecondsCount >= timeFlag.alarmSeconds )
+		{
+			//开启处理alarm标志
+			timeFlag.alarmFlag = true;
+			timeFlag.alarmSecCount = 0;
+			timeFlag.curSecondsCount = timeFlag.alarmSeconds;
+		}
+	}
+
+
+	//到了24小时,或者时间有误
+	if ( timeFlag.curSecondsCount < 0 || timeFlag.curSecondsCount >= 86400 )
+	{
+		timeFlag.curSecondsCount = 0;
+	}
+
+	return;
+}
+
+//时间格式转换（时分秒 -> 秒 )
+int getTimeInSeconds( TimeType* timePtr )
+{
+    if ( timePtr == (void*)0 )
+    {
+        return -1;
+    }
+
+    int secVal;
+
+    secVal = timePtr->timeHour * 3600 + timePtr->timeMinute * 60 + timePtr->timeSecond;
+
+    return secVal;
+}
+
+void Timer_Initial(void)
+{
+	//timeFlag初始化
+//	tftlcdScreenInst.scrSetting.autoTurnPage = true;
+	timeFlag.autoTPSeconds = 5;
+	timeFlag.curATPSecCount = 0;
+	timeFlag.alarmSecCount = 0;
+	timeFlag.alarmSeconds = 15;
+	timeFlag.alarmFlag = false;
+
+	// 改写timer_isr_context指针以匹配alt_irq_register()函数原型
+
+	  void* isr_context_ptr = (void*) &timer_isr_context;
+	  // 设置PERIOD寄存器
+	  // PERIODH << 16 | PERIODL = 计数器周期因子 * 系统时钟频率因子 - 1
+	  // PERIODH << 16 | PERIODL = 5m*100M - 1 = 499999 = 0x7A11F
+	  IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_1S_BASE, 0x0007);
+	  IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_1S_BASE, 0xA11F);
+
+	  // 设置CONTROL寄存器
+	  //    位数 |  3   |  2   |  1   |  0  |
+	  // CONTROL | STOP | START| CONT | ITO |
+	  // ITO   1，产生IRO；                      0，不产生IRQ
+	  // CONT  1，计数器连续运行直到STOP被置一；   0，计数到0停止
+	  // START 1，计数器开始运行；                0，无影响
+	  // STOP  1，计数器停止运行；                0，无影响
+	  IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_1S_BASE,
+	    ALTERA_AVALON_TIMER_CONTROL_START_MSK |// START = 1
+	    ALTERA_AVALON_TIMER_CONTROL_CONT_MSK  |// CONT  = 1
+	    ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);  // ITO   = 1
+	  // 注册定时器中断
+	  alt_ic_isr_register(
+		  TIMER_1S_IRQ_INTERRUPT_CONTROLLER_ID,// 中断控制器标号，从system.h复制
+		  TIMER_1S_IRQ,    // 硬件中断号，从system.h复制
+		  timeCount1s_handler,             // 中断服务子函数
+	      isr_context_ptr,       // 指向与设备驱动实例相关的数据结构体
+	      0x0);                  // flags，保留未用
+}
+
+
+////目录内容横向滚动任务（不搞了）
+//bool scrCatalogScrollXTask( ScreenHome *scrMainHomeInst, AreaRange *absPos )
+//{
+//    bool status = true;
+//    bool status1;
+//    bool posValid;
+//
+//    先对按下的按键进行判断，再进行相应操作
+//
+//
+//
+//
+//    return status;
+//}

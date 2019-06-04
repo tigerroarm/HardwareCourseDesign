@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "screen.h"
+#include "screen_display.h"
+#include "test_value.h"
+#include "touch.h"
+#include "touch_resp.h"
+#include "tftlcd.h"
+#include "time_count.h"
+
+//extern TxtFilesInfo txtFilesInfoSpace;
+
+int main( void )
+{
+
+	bool status = true, status1;
+
+	printf( "haha\n" );
+
+	//一.硬件初始化
+	//1.触摸芯片初始化
+	TP_Init();
+//	//2.LCD屏幕初始化
+	LCD_init();
+	LCD_Clear(0x4698);
+	//3.定时器初始化
+	Timer_Initial();
+
+
+	printf( "haha2\n" );
+	//二.软件初始化
+
+	//1.读取并保存SD卡中的所有txt文件的文件名
+	status = status && readAlltxtFilesOfSDcard( );
+
+    displayStatus( "readAlltxtFilesOfSDcard", "main", status );
+
+    printf( "txtFilesInfoSpace = {\n" );
+    displayTxtFilesInfo( &txtFilesInfoSpace, 4 );
+    printf( "}\n" );
+
+
+	//2.初始化ScreenContainer屏幕显示信息结构体
+	status1 = screenInit();
+	status = status && status1;
+
+	displayStatus( "screenInit", "main", status );
+
+//    printf( "tftlcdScreenInst = {\n" );
+//    displayScreenContainer( &tftlcdScreenInst, 4 );
+//    printf( "}\n" );
+
+	//3.执行屏幕显示函数
+	status1 = showScreen( );
+	status = status && status1;
+
+	displayStatus( "showScreen", "main", status );
+
+	printf( "haha3\n" );
+
+
+	//三.主程序执行
+	//屏幕不忙
+	touchPosFlag.scrTaskBusy = false;
+
+	while( 1 )
+    {
+		scrHeaderTimeResp( &(tftlcdScreenInst.scrHeader), &(tftlcdScreenInst.headerArea) );
+
+		if ( touchPosFlag.touchOccur )
+		{
+			printf( "(x,y) = (%d,%d)\n", touchPosFlag.touchPos.x_pos, touchPosFlag.touchPos.y_pos );
+			touchPosFlag.scrTaskBusy = true;
+			screenRespTask( &tftlcdScreenInst );
+
+		}
+		touchPosFlag.scrTaskBusy = false;
+    }
+
+	return 0;
+}

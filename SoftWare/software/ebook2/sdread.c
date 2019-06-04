@@ -13,7 +13,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include "sdread.h"
-#include "Altera_UP_SD_Card_Avalon_Interface.h"
+
 
 
 //直接从Altera_UP_SD_Card_Avalon_Interface.c里复制的宏定义和结构体定义

@@ -1,4 +1,4 @@
-14:02:11 **** Incremental Build of configuration Nios II for project ebook2 ****
+18:05:53 **** Incremental Build of configuration Nios II for project ebook2 ****
 make all 
 Info: Building ../ebook2_bsp/
 E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook2_bsp/
@@ -6,14 +6,14 @@ E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -
 Info: Compiling sdread.c to obj/default/sdread.o
 nios2-elf-gcc -xc -MP -MMD -c -I../ebook2_bsp//HAL/inc -I../ebook2_bsp/ -I../ebook2_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/sdread.o sdread.c
 sdread.c: In function 'fread_txt':
-sdread.c:189:5: warning: implicit declaration of function 'get_cluster_flag' [-Wimplicit-function-declaration]
+sdread.c:188:5: warning: implicit declaration of function 'get_cluster_flag' [-Wimplicit-function-declaration]
      if (get_cluster_flag(curActiveFile->current_cluster_index, &next_cluster))
      ^
-sdread.c:224:4: warning: implicit declaration of function 'Read_Sector_Data' [-Wimplicit-function-declaration]
+sdread.c:223:4: warning: implicit declaration of function 'Read_Sector_Data' [-Wimplicit-function-declaration]
     if (!Read_Sector_Data(data_sector, fat_partition_offset_in_512_byte_sectors))
     ^
 sdread.c: In function 'fseek_txt':
-sdread.c:266:6: warning: unused variable 'status' [-Wunused-variable]
+sdread.c:265:6: warning: unused variable 'status' [-Wunused-variable]
   int status = 0;
       ^
 Info: Linking ebook2.elf
@@ -25,5 +25,5 @@ Info: Creating ebook2.objdump
 nios2-elf-objdump --disassemble --syms --all-header --source ebook2.elf >ebook2.objdump
 [ebook2 build complete]
 
-14:02:18 Build Finished (took 7s.705ms)
+18:06:01 Build Finished (took 8s.299ms)
 

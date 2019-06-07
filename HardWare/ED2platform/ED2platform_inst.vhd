@@ -1,9 +1,14 @@
 	component ED2platform is
 		port (
 			clk_clk               : in    std_logic                     := 'X';             -- clk
+			epcs_external_dclk    : out   std_logic;                                        -- dclk
+			epcs_external_sce     : out   std_logic;                                        -- sce
+			epcs_external_sdo     : out   std_logic;                                        -- sdo
+			epcs_external_data0   : in    std_logic                     := 'X';             -- data0
 			lcd_base_ctrl_export  : out   std_logic_vector(2 downto 0);                     -- export
 			lcd_cmd_export        : out   std_logic_vector(2 downto 0);                     -- export
 			lcd_data_export       : inout std_logic_vector(15 downto 0) := (others => 'X'); -- export
+			pen_smp_period_export : out   std_logic_vector(15 downto 0);                    -- export
 			reset_reset_n         : in    std_logic                     := 'X';             -- reset_n
 			sd_card_b_SD_cmd      : inout std_logic                     := 'X';             -- b_SD_cmd
 			sd_card_b_SD_dat      : inout std_logic                     := 'X';             -- b_SD_dat
@@ -20,17 +25,21 @@
 			sdram_wire_we_n       : out   std_logic;                                        -- we_n
 			touch_ctrl_export     : out   std_logic_vector(2 downto 0);                     -- export
 			touch_msg_export      : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- export
-			touch_pen_intr_export : in    std_logic                     := 'X';             -- export
-			pen_smp_period_export : out   std_logic_vector(15 downto 0)                     -- export
+			touch_pen_intr_export : in    std_logic                     := 'X'              -- export
 		);
 	end component ED2platform;
 
 	u0 : component ED2platform
 		port map (
 			clk_clk               => CONNECTED_TO_clk_clk,               --            clk.clk
+			epcs_external_dclk    => CONNECTED_TO_epcs_external_dclk,    --  epcs_external.dclk
+			epcs_external_sce     => CONNECTED_TO_epcs_external_sce,     --               .sce
+			epcs_external_sdo     => CONNECTED_TO_epcs_external_sdo,     --               .sdo
+			epcs_external_data0   => CONNECTED_TO_epcs_external_data0,   --               .data0
 			lcd_base_ctrl_export  => CONNECTED_TO_lcd_base_ctrl_export,  --  lcd_base_ctrl.export
 			lcd_cmd_export        => CONNECTED_TO_lcd_cmd_export,        --        lcd_cmd.export
 			lcd_data_export       => CONNECTED_TO_lcd_data_export,       --       lcd_data.export
+			pen_smp_period_export => CONNECTED_TO_pen_smp_period_export, -- pen_smp_period.export
 			reset_reset_n         => CONNECTED_TO_reset_reset_n,         --          reset.reset_n
 			sd_card_b_SD_cmd      => CONNECTED_TO_sd_card_b_SD_cmd,      --        sd_card.b_SD_cmd
 			sd_card_b_SD_dat      => CONNECTED_TO_sd_card_b_SD_dat,      --               .b_SD_dat
@@ -47,7 +56,6 @@
 			sdram_wire_we_n       => CONNECTED_TO_sdram_wire_we_n,       --               .we_n
 			touch_ctrl_export     => CONNECTED_TO_touch_ctrl_export,     --     touch_ctrl.export
 			touch_msg_export      => CONNECTED_TO_touch_msg_export,      --      touch_msg.export
-			touch_pen_intr_export => CONNECTED_TO_touch_pen_intr_export, -- touch_pen_intr.export
-			pen_smp_period_export => CONNECTED_TO_pen_smp_period_export  -- pen_smp_period.export
+			touch_pen_intr_export => CONNECTED_TO_touch_pen_intr_export  -- touch_pen_intr.export
 		);
 

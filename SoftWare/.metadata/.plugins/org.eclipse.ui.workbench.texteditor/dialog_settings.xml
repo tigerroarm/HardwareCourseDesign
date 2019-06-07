@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="openTxtFile" key="selection"/>
+		<item value="debug" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="debug"/>
+			<item value="Read_Sector_Data"/>
+			<item value="screenSyncPageRatio"/>
 			<item value="openTxtFile"/>
 			<item value="TextType"/>
 			<item value="bool"/>
 			<item value="encodingFmt"/>
 			<item value="UCS"/>
-			<item value="readLongFileName"/>
-			<item value="search_data"/>
-			<item value="printf"/>
 		</list>
 		<list key="replacehistory">
 			<item value="fmt"/>

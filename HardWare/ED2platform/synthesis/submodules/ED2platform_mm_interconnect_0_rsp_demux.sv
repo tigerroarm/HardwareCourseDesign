@@ -28,7 +28,7 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         ED2platform_mm_interconnect_0_rsp_demux
-//   ST_DATA_W:           106
+//   ST_DATA_W:           107
 //   ST_CHANNEL_W:        15
 //   NUM_OUTPUTS:         1
 //   VALID_WIDTH:         1
@@ -46,7 +46,7 @@ module ED2platform_mm_interconnect_0_rsp_demux
     // Sink
     // -------------------
     input  [1-1      : 0]   sink_valid,
-    input  [106-1    : 0]   sink_data, // ST_DATA_W=106
+    input  [107-1    : 0]   sink_data, // ST_DATA_W=107
     input  [15-1 : 0]   sink_channel, // ST_CHANNEL_W=15
     input                         sink_startofpacket,
     input                         sink_endofpacket,
@@ -56,7 +56,7 @@ module ED2platform_mm_interconnect_0_rsp_demux
     // Sources 
     // -------------------
     output reg                      src0_valid,
-    output reg [106-1    : 0] src0_data, // ST_DATA_W=106
+    output reg [107-1    : 0] src0_data, // ST_DATA_W=107
     output reg [15-1 : 0] src0_channel, // ST_CHANNEL_W=15
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,

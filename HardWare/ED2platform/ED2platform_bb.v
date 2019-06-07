@@ -1,9 +1,14 @@
 
 module ED2platform (
 	clk_clk,
+	epcs_external_dclk,
+	epcs_external_sce,
+	epcs_external_sdo,
+	epcs_external_data0,
 	lcd_base_ctrl_export,
 	lcd_cmd_export,
 	lcd_data_export,
+	pen_smp_period_export,
 	reset_reset_n,
 	sd_card_b_SD_cmd,
 	sd_card_b_SD_dat,
@@ -20,13 +25,17 @@ module ED2platform (
 	sdram_wire_we_n,
 	touch_ctrl_export,
 	touch_msg_export,
-	touch_pen_intr_export,
-	pen_smp_period_export);	
+	touch_pen_intr_export);	
 
 	input		clk_clk;
+	output		epcs_external_dclk;
+	output		epcs_external_sce;
+	output		epcs_external_sdo;
+	input		epcs_external_data0;
 	output	[2:0]	lcd_base_ctrl_export;
 	output	[2:0]	lcd_cmd_export;
 	inout	[15:0]	lcd_data_export;
+	output	[15:0]	pen_smp_period_export;
 	input		reset_reset_n;
 	inout		sd_card_b_SD_cmd;
 	inout		sd_card_b_SD_dat;
@@ -44,5 +53,4 @@ module ED2platform (
 	output	[2:0]	touch_ctrl_export;
 	input	[1:0]	touch_msg_export;
 	input		touch_pen_intr_export;
-	output	[15:0]	pen_smp_period_export;
 endmodule

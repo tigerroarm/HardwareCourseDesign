@@ -21,7 +21,7 @@
    {
       datum _sortIndex
       {
-         value = "5";
+         value = "6";
          type = "int";
       }
    }
@@ -34,7 +34,7 @@
       }
       datum baseAddress
       {
-         value = "136318976";
+         value = "6144";
          type = "String";
       }
    }
@@ -55,7 +55,7 @@
    {
       datum _sortIndex
       {
-         value = "1";
+         value = "2";
          type = "int";
       }
       datum sopceditor_expanded
@@ -73,7 +73,28 @@
       }
       datum baseAddress
       {
-         value = "136316928";
+         value = "4096";
+         type = "String";
+      }
+   }
+   element epcs
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element epcs.epcs_control_port
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "0";
          type = "String";
       }
    }
@@ -81,7 +102,7 @@
    {
       datum _sortIndex
       {
-         value = "4";
+         value = "5";
          type = "int";
       }
       datum sopceditor_expanded
@@ -104,7 +125,7 @@
       }
       datum baseAddress
       {
-         value = "136320200";
+         value = "7352";
          type = "String";
       }
    }
@@ -133,7 +154,7 @@
       }
       datum baseAddress
       {
-         value = "134217728";
+         value = "7232";
          type = "String";
       }
    }
@@ -141,7 +162,7 @@
    {
       datum _sortIndex
       {
-         value = "3";
+         value = "4";
          type = "int";
       }
       datum sopceditor_expanded
@@ -159,7 +180,7 @@
       }
       datum baseAddress
       {
-         value = "0";
+         value = "268435456";
          type = "String";
       }
    }
@@ -167,7 +188,7 @@
    {
       datum _sortIndex
       {
-         value = "2";
+         value = "1";
          type = "int";
       }
       datum sopceditor_expanded
@@ -185,7 +206,7 @@
       }
       datum baseAddress
       {
-         value = "136320192";
+         value = "7344";
          type = "String";
       }
    }
@@ -193,7 +214,7 @@
    {
       datum _sortIndex
       {
-         value = "9";
+         value = "10";
          type = "int";
       }
    }
@@ -206,7 +227,7 @@
       }
       datum baseAddress
       {
-         value = "136320032";
+         value = "7280";
          type = "String";
       }
    }
@@ -214,7 +235,7 @@
    {
       datum _sortIndex
       {
-         value = "8";
+         value = "9";
          type = "int";
       }
    }
@@ -232,7 +253,7 @@
       }
       datum baseAddress
       {
-         value = "136320048";
+         value = "7296";
          type = "String";
       }
    }
@@ -240,7 +261,7 @@
    {
       datum _sortIndex
       {
-         value = "6";
+         value = "7";
          type = "int";
       }
    }
@@ -253,7 +274,7 @@
       }
       datum baseAddress
       {
-         value = "136320080";
+         value = "7328";
          type = "String";
       }
    }
@@ -261,7 +282,7 @@
    {
       datum _sortIndex
       {
-         value = "12";
+         value = "13";
          type = "int";
       }
    }
@@ -274,7 +295,7 @@
       }
       datum baseAddress
       {
-         value = "136314944";
+         value = "7200";
          type = "String";
       }
    }
@@ -282,7 +303,7 @@
    {
       datum _sortIndex
       {
-         value = "13";
+         value = "14";
          type = "int";
       }
    }
@@ -303,36 +324,7 @@
       }
       datum baseAddress
       {
-         value = "136314912";
-         type = "String";
-      }
-   }
-   element timer_touch
-   {
-      datum _sortIndex
-      {
-         value = "14";
-         type = "int";
-      }
-   }
-   element timer_touch.irq
-   {
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
-   }
-   element timer_touch.s1
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "136314880";
+         value = "7168";
          type = "String";
       }
    }
@@ -340,7 +332,7 @@
    {
       datum _sortIndex
       {
-         value = "11";
+         value = "12";
          type = "int";
       }
    }
@@ -353,7 +345,7 @@
       }
       datum baseAddress
       {
-         value = "136314976";
+         value = "7248";
          type = "String";
       }
    }
@@ -361,7 +353,7 @@
    {
       datum _sortIndex
       {
-         value = "10";
+         value = "11";
          type = "int";
       }
    }
@@ -374,7 +366,7 @@
       }
       datum baseAddress
       {
-         value = "136320016";
+         value = "7264";
          type = "String";
       }
    }
@@ -382,7 +374,7 @@
    {
       datum _sortIndex
       {
-         value = "7";
+         value = "8";
          type = "int";
       }
    }
@@ -395,7 +387,7 @@
       }
       datum baseAddress
       {
-         value = "136320064";
+         value = "7312";
          type = "String";
       }
    }
@@ -421,6 +413,11 @@
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="clk" internal="clk_100.clk_in" type="clock" dir="end" />
+ <interface
+   name="epcs_external"
+   internal="epcs.external"
+   type="conduit"
+   dir="end" />
  <interface
    name="lcd_base_ctrl"
    internal="tftlcd_base_ctrl.external_connection"
@@ -494,10 +491,10 @@
   <parameter name="customInstSlavesSystemInfo_nios_a" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_b" value="&lt;info/&gt;" />
   <parameter name="customInstSlavesSystemInfo_nios_c" value="&lt;info/&gt;" />
-  <parameter name="dataAddrWidth" value="28" />
+  <parameter name="dataAddrWidth" value="29" />
   <parameter name="dataMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="dataMasterHighPerformanceMapParam" value="" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x8000000' /><slave name='pen_smp_speed.s1' start='0x8000000' end='0x8000010' /><slave name='timer_touch.s1' start='0x8200000' end='0x8200020' /><slave name='timer_scrollX.s1' start='0x8200020' end='0x8200040' /><slave name='timer_1s.s1' start='0x8200040' end='0x8200060' /><slave name='touch_ctrl.s1' start='0x8200060' end='0x8200070' /><slave name='cpu.debug_mem_slave' start='0x8200800' end='0x8201000' /><slave name='Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave' start='0x8201000' end='0x8201400' /><slave name='touch_msg.s1' start='0x8201410' end='0x8201420' /><slave name='tftlcd_base_ctrl.s1' start='0x8201420' end='0x8201430' /><slave name='tftlcd_cmd.s1' start='0x8201430' end='0x8201440' /><slave name='touch_pen_intr.s1' start='0x8201440' end='0x8201450' /><slave name='tftlcd_data.s1' start='0x8201450' end='0x8201460' /><slave name='sysid0.control_slave' start='0x82014C0' end='0x82014C8' /><slave name='jtag_uart.avalon_jtag_slave' start='0x82014C8' end='0x82014D0' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='epcs.epcs_control_port' start='0x0' end='0x800' /><slave name='pen_smp_speed.s1' start='0x1C40' end='0x1C50' /><slave name='Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave' start='0x2001000' end='0x2001400' /><slave name='tftlcd_base_ctrl.s1' start='0x2002000' end='0x2002010' /><slave name='tftlcd_cmd.s1' start='0x2003000' end='0x2003010' /><slave name='tftlcd_data.s1' start='0x2004000' end='0x2004010' /><slave name='timer_1s.s1' start='0x2005000' end='0x2005020' /><slave name='timer_scrollX.s1' start='0x2006000' end='0x2006020' /><slave name='touch_ctrl.s1' start='0x2007000' end='0x2007010' /><slave name='touch_msg.s1' start='0x2008000' end='0x2008010' /><slave name='touch_pen_intr.s1' start='0x2009000' end='0x2009010' /><slave name='sdram.s1' start='0x8000000' end='0x10000000' /><slave name='cpu.debug_mem_slave' start='0x10001800' end='0x10002000' /><slave name='sysid0.control_slave' start='0x18002070' end='0x18002078' /><slave name='jtag_uart.avalon_jtag_slave' start='0x18003000' end='0x18003008' /></address-map>]]></parameter>
   <parameter name="data_master_high_performance_paddr_base" value="0" />
   <parameter name="data_master_high_performance_paddr_size" value="0" />
   <parameter name="data_master_paddr_base" value="0" />
@@ -535,8 +532,8 @@
   <parameter name="icache_size" value="4096" />
   <parameter name="icache_tagramBlockType" value="Automatic" />
   <parameter name="impl" value="Fast" />
-  <parameter name="instAddrWidth" value="28" />
-  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='sdram.s1' start='0x0' end='0x8000000' /><slave name='cpu.debug_mem_slave' start='0x8200800' end='0x8201000' /></address-map>]]></parameter>
+  <parameter name="instAddrWidth" value="29" />
+  <parameter name="instSlaveMapParam"><![CDATA[<address-map><slave name='epcs.epcs_control_port' start='0x0' end='0x800' /><slave name='sdram.s1' start='0x8000000' end='0x10000000' /><slave name='cpu.debug_mem_slave' start='0x10001800' end='0x10002000' /></address-map>]]></parameter>
   <parameter name="instructionMasterHighPerformanceAddrWidth" value="1" />
   <parameter name="instructionMasterHighPerformanceMapParam" value="" />
   <parameter name="instruction_master_high_performance_paddr_base" value="0" />
@@ -571,7 +568,7 @@
   <parameter name="ocimem_ramInit" value="false" />
   <parameter name="regfile_ramBlockType" value="Automatic" />
   <parameter name="resetOffset" value="0" />
-  <parameter name="resetSlave" value="sdram.s1" />
+  <parameter name="resetSlave">epcs.epcs_control_port</parameter>
   <parameter name="resetrequest_enabled" value="true" />
   <parameter name="setting_HBreakTest" value="false" />
   <parameter name="setting_HDLSimCachesCleared" value="true" />
@@ -652,6 +649,18 @@
   <parameter name="tmr_enabled" value="false" />
   <parameter name="tracefilename" value="" />
   <parameter name="userDefinedSettings" value="" />
+ </module>
+ <module
+   name="epcs"
+   kind="altera_avalon_epcs_flash_controller"
+   version="15.0"
+   enabled="1">
+  <parameter name="autoInitializationFileName" value="$${FILENAME}_epcs" />
+  <parameter name="autoSelectASMIAtom" value="true" />
+  <parameter name="clockRate" value="100000000" />
+  <parameter name="deviceFamilyString" value="Cyclone IV E" />
+  <parameter name="resetrequest_enabled" value="true" />
+  <parameter name="useASMIAtom" value="false" />
  </module>
  <module
    name="jtag_uart"
@@ -805,22 +814,6 @@
   <parameter name="timeoutPulseOutput" value="false" />
   <parameter name="watchdogPulse" value="2" />
  </module>
- <module
-   name="timer_touch"
-   kind="altera_avalon_timer"
-   version="15.0"
-   enabled="1">
-  <parameter name="alwaysRun" value="false" />
-  <parameter name="counterSize" value="32" />
-  <parameter name="fixedPeriod" value="false" />
-  <parameter name="period" value="1" />
-  <parameter name="periodUnits" value="MSEC" />
-  <parameter name="resetOutput" value="false" />
-  <parameter name="snapshot" value="true" />
-  <parameter name="systemFrequency" value="100000000" />
-  <parameter name="timeoutPulseOutput" value="false" />
-  <parameter name="watchdogPulse" value="2" />
- </module>
  <module name="touch_ctrl" kind="altera_avalon_pio" version="15.0" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -873,7 +866,7 @@
    start="cpu.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x082014c8" />
+  <parameter name="baseAddress" value="0x18003000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -882,7 +875,7 @@
    start="cpu.data_master"
    end="Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201000" />
+  <parameter name="baseAddress" value="0x02001000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -891,7 +884,7 @@
    start="cpu.data_master"
    end="sysid0.control_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x082014c0" />
+  <parameter name="baseAddress" value="0x18002070" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -900,12 +893,21 @@
    start="cpu.data_master"
    end="cpu.debug_mem_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200800" />
+  <parameter name="baseAddress" value="0x10001800" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.0"
+   start="cpu.data_master"
+   end="epcs.epcs_control_port">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="avalon" version="15.0" start="cpu.data_master" end="sdram.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x08000000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -914,7 +916,7 @@
    start="cpu.data_master"
    end="tftlcd_data.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201450" />
+  <parameter name="baseAddress" value="0x02004000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -923,7 +925,7 @@
    start="cpu.data_master"
    end="touch_pen_intr.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201440" />
+  <parameter name="baseAddress" value="0x02009000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -932,7 +934,7 @@
    start="cpu.data_master"
    end="tftlcd_cmd.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201430" />
+  <parameter name="baseAddress" value="0x02003000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -941,7 +943,7 @@
    start="cpu.data_master"
    end="tftlcd_base_ctrl.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201420" />
+  <parameter name="baseAddress" value="0x02002000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -950,7 +952,7 @@
    start="cpu.data_master"
    end="touch_msg.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08201410" />
+  <parameter name="baseAddress" value="0x02008000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -959,7 +961,7 @@
    start="cpu.data_master"
    end="touch_ctrl.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200060" />
+  <parameter name="baseAddress" value="0x02007000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -968,7 +970,7 @@
    start="cpu.data_master"
    end="timer_1s.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200040" />
+  <parameter name="baseAddress" value="0x02005000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -977,16 +979,7 @@
    start="cpu.data_master"
    end="timer_scrollX.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200020" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
- <connection
-   kind="avalon"
-   version="15.0"
-   start="cpu.data_master"
-   end="timer_touch.s1">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200000" />
+  <parameter name="baseAddress" value="0x02006000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -995,7 +988,7 @@
    start="cpu.data_master"
    end="pen_smp_speed.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08000000" />
+  <parameter name="baseAddress" value="0x1c40" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1004,7 +997,16 @@
    start="cpu.instruction_master"
    end="cpu.debug_mem_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x08200800" />
+  <parameter name="baseAddress" value="0x10001800" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="15.0"
+   start="cpu.instruction_master"
+   end="epcs.epcs_control_port">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -1013,7 +1015,7 @@
    start="cpu.instruction_master"
    end="sdram.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0000" />
+  <parameter name="baseAddress" value="0x08000000" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection kind="clock" version="15.0" start="clk_100.clk" end="cpu.clk" />
@@ -1045,17 +1047,24 @@
    version="15.0"
    start="clk_100.clk"
    end="timer_scrollX.clk" />
- <connection kind="clock" version="15.0" start="clk_100.clk" end="timer_touch.clk" />
  <connection
    kind="clock"
    version="15.0"
    start="clk_100.clk"
    end="pen_smp_speed.clk" />
+ <connection kind="clock" version="15.0" start="clk_100.clk" end="epcs.clk" />
  <connection kind="interrupt" version="15.0" start="cpu.irq" end="jtag_uart.irq">
-  <parameter name="irqNumber" value="0" />
+  <parameter name="irqNumber" value="1" />
  </connection>
  <connection kind="interrupt" version="15.0" start="cpu.irq" end="timer_1s.irq">
-  <parameter name="irqNumber" value="1" />
+  <parameter name="irqNumber" value="2" />
+ </connection>
+ <connection
+   kind="interrupt"
+   version="15.0"
+   start="cpu.irq"
+   end="touch_pen_intr.irq">
+  <parameter name="irqNumber" value="3" />
  </connection>
  <connection
    kind="interrupt"
@@ -1064,15 +1073,8 @@
    end="timer_scrollX.irq">
   <parameter name="irqNumber" value="4" />
  </connection>
- <connection kind="interrupt" version="15.0" start="cpu.irq" end="timer_touch.irq">
-  <parameter name="irqNumber" value="3" />
- </connection>
- <connection
-   kind="interrupt"
-   version="15.0"
-   start="cpu.irq"
-   end="touch_pen_intr.irq">
-  <parameter name="irqNumber" value="2" />
+ <connection kind="interrupt" version="15.0" start="cpu.irq" end="epcs.irq">
+  <parameter name="irqNumber" value="0" />
  </connection>
  <connection kind="reset" version="15.0" start="clk_100.clk_reset" end="cpu.reset" />
  <connection
@@ -1139,12 +1141,12 @@
    kind="reset"
    version="15.0"
    start="clk_100.clk_reset"
-   end="timer_touch.reset" />
+   end="pen_smp_speed.reset" />
  <connection
    kind="reset"
    version="15.0"
    start="clk_100.clk_reset"
-   end="pen_smp_speed.reset" />
+   end="epcs.reset" />
  <connection
    kind="reset"
    version="15.0"
@@ -1214,12 +1216,12 @@
    kind="reset"
    version="15.0"
    start="cpu.debug_reset_request"
-   end="timer_touch.reset" />
+   end="pen_smp_speed.reset" />
  <connection
    kind="reset"
    version="15.0"
    start="cpu.debug_reset_request"
-   end="pen_smp_speed.reset" />
+   end="epcs.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.enableEccProtection" value="FALSE" />
  <interconnectRequirement for="$system" name="qsys_mm.insertDefaultSlave" value="FALSE" />

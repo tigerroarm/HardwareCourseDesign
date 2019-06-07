@@ -5,6 +5,10 @@
 `timescale 1 ps / 1 ps
 module ED2platform (
 		input  wire        clk_clk,               //            clk.clk
+		output wire        epcs_external_dclk,    //  epcs_external.dclk
+		output wire        epcs_external_sce,     //               .sce
+		output wire        epcs_external_sdo,     //               .sdo
+		input  wire        epcs_external_data0,   //               .data0
 		output wire [2:0]  lcd_base_ctrl_export,  //  lcd_base_ctrl.export
 		output wire [2:0]  lcd_cmd_export,        //        lcd_cmd.export
 		inout  wire [15:0] lcd_data_export,       //       lcd_data.export
@@ -31,7 +35,7 @@ module ED2platform (
 	wire  [31:0] cpu_data_master_readdata;                                                               // mm_interconnect_0:cpu_data_master_readdata -> cpu:d_readdata
 	wire         cpu_data_master_waitrequest;                                                            // mm_interconnect_0:cpu_data_master_waitrequest -> cpu:d_waitrequest
 	wire         cpu_data_master_debugaccess;                                                            // cpu:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:cpu_data_master_debugaccess
-	wire  [27:0] cpu_data_master_address;                                                                // cpu:d_address -> mm_interconnect_0:cpu_data_master_address
+	wire  [28:0] cpu_data_master_address;                                                                // cpu:d_address -> mm_interconnect_0:cpu_data_master_address
 	wire   [3:0] cpu_data_master_byteenable;                                                             // cpu:d_byteenable -> mm_interconnect_0:cpu_data_master_byteenable
 	wire         cpu_data_master_read;                                                                   // cpu:d_read -> mm_interconnect_0:cpu_data_master_read
 	wire         cpu_data_master_readdatavalid;                                                          // mm_interconnect_0:cpu_data_master_readdatavalid -> cpu:d_readdatavalid
@@ -39,7 +43,7 @@ module ED2platform (
 	wire  [31:0] cpu_data_master_writedata;                                                              // cpu:d_writedata -> mm_interconnect_0:cpu_data_master_writedata
 	wire  [31:0] cpu_instruction_master_readdata;                                                        // mm_interconnect_0:cpu_instruction_master_readdata -> cpu:i_readdata
 	wire         cpu_instruction_master_waitrequest;                                                     // mm_interconnect_0:cpu_instruction_master_waitrequest -> cpu:i_waitrequest
-	wire  [27:0] cpu_instruction_master_address;                                                         // cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
+	wire  [28:0] cpu_instruction_master_address;                                                         // cpu:i_address -> mm_interconnect_0:cpu_instruction_master_address
 	wire         cpu_instruction_master_read;                                                            // cpu:i_read -> mm_interconnect_0:cpu_instruction_master_read
 	wire         cpu_instruction_master_readdatavalid;                                                   // mm_interconnect_0:cpu_instruction_master_readdatavalid -> cpu:i_readdatavalid
 	wire         mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect;                               // mm_interconnect_0:jtag_uart_avalon_jtag_slave_chipselect -> jtag_uart:av_chipselect
@@ -67,6 +71,12 @@ module ED2platform (
 	wire   [3:0] mm_interconnect_0_cpu_debug_mem_slave_byteenable;                                       // mm_interconnect_0:cpu_debug_mem_slave_byteenable -> cpu:debug_mem_slave_byteenable
 	wire         mm_interconnect_0_cpu_debug_mem_slave_write;                                            // mm_interconnect_0:cpu_debug_mem_slave_write -> cpu:debug_mem_slave_write
 	wire  [31:0] mm_interconnect_0_cpu_debug_mem_slave_writedata;                                        // mm_interconnect_0:cpu_debug_mem_slave_writedata -> cpu:debug_mem_slave_writedata
+	wire         mm_interconnect_0_epcs_epcs_control_port_chipselect;                                    // mm_interconnect_0:epcs_epcs_control_port_chipselect -> epcs:chipselect
+	wire  [31:0] mm_interconnect_0_epcs_epcs_control_port_readdata;                                      // epcs:readdata -> mm_interconnect_0:epcs_epcs_control_port_readdata
+	wire   [8:0] mm_interconnect_0_epcs_epcs_control_port_address;                                       // mm_interconnect_0:epcs_epcs_control_port_address -> epcs:address
+	wire         mm_interconnect_0_epcs_epcs_control_port_read;                                          // mm_interconnect_0:epcs_epcs_control_port_read -> epcs:read_n
+	wire         mm_interconnect_0_epcs_epcs_control_port_write;                                         // mm_interconnect_0:epcs_epcs_control_port_write -> epcs:write_n
+	wire  [31:0] mm_interconnect_0_epcs_epcs_control_port_writedata;                                     // mm_interconnect_0:epcs_epcs_control_port_writedata -> epcs:writedata
 	wire         mm_interconnect_0_sdram_s1_chipselect;                                                  // mm_interconnect_0:sdram_s1_chipselect -> sdram:az_cs
 	wire  [31:0] mm_interconnect_0_sdram_s1_readdata;                                                    // sdram:za_data -> mm_interconnect_0:sdram_s1_readdata
 	wire         mm_interconnect_0_sdram_s1_waitrequest;                                                 // sdram:za_waitrequest -> mm_interconnect_0:sdram_s1_waitrequest
@@ -113,11 +123,6 @@ module ED2platform (
 	wire   [2:0] mm_interconnect_0_timer_scrollx_s1_address;                                             // mm_interconnect_0:timer_scrollX_s1_address -> timer_scrollX:address
 	wire         mm_interconnect_0_timer_scrollx_s1_write;                                               // mm_interconnect_0:timer_scrollX_s1_write -> timer_scrollX:write_n
 	wire  [15:0] mm_interconnect_0_timer_scrollx_s1_writedata;                                           // mm_interconnect_0:timer_scrollX_s1_writedata -> timer_scrollX:writedata
-	wire         mm_interconnect_0_timer_touch_s1_chipselect;                                            // mm_interconnect_0:timer_touch_s1_chipselect -> timer_touch:chipselect
-	wire  [15:0] mm_interconnect_0_timer_touch_s1_readdata;                                              // timer_touch:readdata -> mm_interconnect_0:timer_touch_s1_readdata
-	wire   [2:0] mm_interconnect_0_timer_touch_s1_address;                                               // mm_interconnect_0:timer_touch_s1_address -> timer_touch:address
-	wire         mm_interconnect_0_timer_touch_s1_write;                                                 // mm_interconnect_0:timer_touch_s1_write -> timer_touch:write_n
-	wire  [15:0] mm_interconnect_0_timer_touch_s1_writedata;                                             // mm_interconnect_0:timer_touch_s1_writedata -> timer_touch:writedata
 	wire         mm_interconnect_0_pen_smp_speed_s1_chipselect;                                          // mm_interconnect_0:pen_smp_speed_s1_chipselect -> pen_smp_speed:chipselect
 	wire  [31:0] mm_interconnect_0_pen_smp_speed_s1_readdata;                                            // pen_smp_speed:readdata -> mm_interconnect_0:pen_smp_speed_s1_readdata
 	wire   [1:0] mm_interconnect_0_pen_smp_speed_s1_address;                                             // mm_interconnect_0:pen_smp_speed_s1_address -> pen_smp_speed:address
@@ -125,12 +130,12 @@ module ED2platform (
 	wire  [31:0] mm_interconnect_0_pen_smp_speed_s1_writedata;                                           // mm_interconnect_0:pen_smp_speed_s1_writedata -> pen_smp_speed:writedata
 	wire         irq_mapper_receiver0_irq;                                                               // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                                               // timer_1s:irq -> irq_mapper:receiver1_irq
-	wire         irq_mapper_receiver2_irq;                                                               // timer_scrollX:irq -> irq_mapper:receiver2_irq
-	wire         irq_mapper_receiver3_irq;                                                               // timer_touch:irq -> irq_mapper:receiver3_irq
-	wire         irq_mapper_receiver4_irq;                                                               // touch_pen_intr:irq -> irq_mapper:receiver4_irq
+	wire         irq_mapper_receiver2_irq;                                                               // touch_pen_intr:irq -> irq_mapper:receiver2_irq
+	wire         irq_mapper_receiver3_irq;                                                               // timer_scrollX:irq -> irq_mapper:receiver3_irq
+	wire         irq_mapper_receiver4_irq;                                                               // epcs:irq -> irq_mapper:receiver4_irq
 	wire  [31:0] cpu_irq_irq;                                                                            // irq_mapper:sender_irq -> cpu:irq
-	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, pen_smp_speed:reset_n, rst_translator:in_reset, sdram:reset_n, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, timer_1s:reset_n, timer_scrollX:reset_n, timer_touch:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
-	wire         rst_controller_reset_out_reset_req;                                                     // rst_controller:reset_req -> [cpu:reset_req, rst_translator:reset_req_in]
+	wire         rst_controller_reset_out_reset;                                                         // rst_controller:reset_out -> [Altera_UP_SD_Card_Avalon_Interface_0:i_reset_n, cpu:reset_n, epcs:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:cpu_reset_reset_bridge_in_reset_reset, pen_smp_speed:reset_n, rst_translator:in_reset, sdram:reset_n, sysid0:reset_n, tftlcd_base_ctrl:reset_n, tftlcd_cmd:reset_n, tftlcd_data:reset_n, timer_1s:reset_n, timer_scrollX:reset_n, touch_ctrl:reset_n, touch_msg:reset_n, touch_pen_intr:reset_n]
+	wire         rst_controller_reset_out_reset_req;                                                     // rst_controller:reset_req -> [cpu:reset_req, epcs:reset_req, rst_translator:reset_req_in]
 	wire         cpu_debug_reset_request_reset;                                                          // cpu:debug_reset_request -> rst_controller:reset_in1
 
 	Altera_UP_SD_Card_Avalon_Interface altera_up_sd_card_avalon_interface_0 (
@@ -179,6 +184,26 @@ module ED2platform (
 		.debug_mem_slave_write               (mm_interconnect_0_cpu_debug_mem_slave_write),       //                          .write
 		.debug_mem_slave_writedata           (mm_interconnect_0_cpu_debug_mem_slave_writedata),   //                          .writedata
 		.dummy_ci_port                       ()                                                   // custom_instruction_master.readra
+	);
+
+	ED2platform_epcs epcs (
+		.clk           (clk_clk),                                             //               clk.clk
+		.reset_n       (~rst_controller_reset_out_reset),                     //             reset.reset_n
+		.reset_req     (rst_controller_reset_out_reset_req),                  //                  .reset_req
+		.address       (mm_interconnect_0_epcs_epcs_control_port_address),    // epcs_control_port.address
+		.chipselect    (mm_interconnect_0_epcs_epcs_control_port_chipselect), //                  .chipselect
+		.dataavailable (),                                                    //                  .dataavailable
+		.endofpacket   (),                                                    //                  .endofpacket
+		.read_n        (~mm_interconnect_0_epcs_epcs_control_port_read),      //                  .read_n
+		.readdata      (mm_interconnect_0_epcs_epcs_control_port_readdata),   //                  .readdata
+		.readyfordata  (),                                                    //                  .readyfordata
+		.write_n       (~mm_interconnect_0_epcs_epcs_control_port_write),     //                  .write_n
+		.writedata     (mm_interconnect_0_epcs_epcs_control_port_writedata),  //                  .writedata
+		.irq           (irq_mapper_receiver4_irq),                            //               irq.irq
+		.dclk          (epcs_external_dclk),                                  //          external.export
+		.sce           (epcs_external_sce),                                   //                  .export
+		.sdo           (epcs_external_sdo),                                   //                  .export
+		.data0         (epcs_external_data0)                                  //                  .export
 	);
 
 	ED2platform_jtag_uart jtag_uart (
@@ -287,18 +312,7 @@ module ED2platform (
 		.readdata   (mm_interconnect_0_timer_scrollx_s1_readdata),   //      .readdata
 		.chipselect (mm_interconnect_0_timer_scrollx_s1_chipselect), //      .chipselect
 		.write_n    (~mm_interconnect_0_timer_scrollx_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver2_irq)                       //   irq.irq
-	);
-
-	ED2platform_timer_scrollX timer_touch (
-		.clk        (clk_clk),                                     //   clk.clk
-		.reset_n    (~rst_controller_reset_out_reset),             // reset.reset_n
-		.address    (mm_interconnect_0_timer_touch_s1_address),    //    s1.address
-		.writedata  (mm_interconnect_0_timer_touch_s1_writedata),  //      .writedata
-		.readdata   (mm_interconnect_0_timer_touch_s1_readdata),   //      .readdata
-		.chipselect (mm_interconnect_0_timer_touch_s1_chipselect), //      .chipselect
-		.write_n    (~mm_interconnect_0_timer_touch_s1_write),     //      .write_n
-		.irq        (irq_mapper_receiver3_irq)                     //   irq.irq
+		.irq        (irq_mapper_receiver3_irq)                       //   irq.irq
 	);
 
 	ED2platform_tftlcd_base_ctrl touch_ctrl (
@@ -329,7 +343,7 @@ module ED2platform (
 		.chipselect (mm_interconnect_0_touch_pen_intr_s1_chipselect), //                    .chipselect
 		.readdata   (mm_interconnect_0_touch_pen_intr_s1_readdata),   //                    .readdata
 		.in_port    (touch_pen_intr_export),                          // external_connection.export
-		.irq        (irq_mapper_receiver4_irq)                        //                 irq.irq
+		.irq        (irq_mapper_receiver2_irq)                        //                 irq.irq
 	);
 
 	ED2platform_mm_interconnect_0 mm_interconnect_0 (
@@ -365,6 +379,12 @@ module ED2platform (
 		.cpu_debug_mem_slave_byteenable                                       (mm_interconnect_0_cpu_debug_mem_slave_byteenable),                                       //                                                         .byteenable
 		.cpu_debug_mem_slave_waitrequest                                      (mm_interconnect_0_cpu_debug_mem_slave_waitrequest),                                      //                                                         .waitrequest
 		.cpu_debug_mem_slave_debugaccess                                      (mm_interconnect_0_cpu_debug_mem_slave_debugaccess),                                      //                                                         .debugaccess
+		.epcs_epcs_control_port_address                                       (mm_interconnect_0_epcs_epcs_control_port_address),                                       //                                   epcs_epcs_control_port.address
+		.epcs_epcs_control_port_write                                         (mm_interconnect_0_epcs_epcs_control_port_write),                                         //                                                         .write
+		.epcs_epcs_control_port_read                                          (mm_interconnect_0_epcs_epcs_control_port_read),                                          //                                                         .read
+		.epcs_epcs_control_port_readdata                                      (mm_interconnect_0_epcs_epcs_control_port_readdata),                                      //                                                         .readdata
+		.epcs_epcs_control_port_writedata                                     (mm_interconnect_0_epcs_epcs_control_port_writedata),                                     //                                                         .writedata
+		.epcs_epcs_control_port_chipselect                                    (mm_interconnect_0_epcs_epcs_control_port_chipselect),                                    //                                                         .chipselect
 		.jtag_uart_avalon_jtag_slave_address                                  (mm_interconnect_0_jtag_uart_avalon_jtag_slave_address),                                  //                              jtag_uart_avalon_jtag_slave.address
 		.jtag_uart_avalon_jtag_slave_write                                    (mm_interconnect_0_jtag_uart_avalon_jtag_slave_write),                                    //                                                         .write
 		.jtag_uart_avalon_jtag_slave_read                                     (mm_interconnect_0_jtag_uart_avalon_jtag_slave_read),                                     //                                                         .read
@@ -413,11 +433,6 @@ module ED2platform (
 		.timer_scrollX_s1_readdata                                            (mm_interconnect_0_timer_scrollx_s1_readdata),                                            //                                                         .readdata
 		.timer_scrollX_s1_writedata                                           (mm_interconnect_0_timer_scrollx_s1_writedata),                                           //                                                         .writedata
 		.timer_scrollX_s1_chipselect                                          (mm_interconnect_0_timer_scrollx_s1_chipselect),                                          //                                                         .chipselect
-		.timer_touch_s1_address                                               (mm_interconnect_0_timer_touch_s1_address),                                               //                                           timer_touch_s1.address
-		.timer_touch_s1_write                                                 (mm_interconnect_0_timer_touch_s1_write),                                                 //                                                         .write
-		.timer_touch_s1_readdata                                              (mm_interconnect_0_timer_touch_s1_readdata),                                              //                                                         .readdata
-		.timer_touch_s1_writedata                                             (mm_interconnect_0_timer_touch_s1_writedata),                                             //                                                         .writedata
-		.timer_touch_s1_chipselect                                            (mm_interconnect_0_timer_touch_s1_chipselect),                                            //                                                         .chipselect
 		.touch_ctrl_s1_address                                                (mm_interconnect_0_touch_ctrl_s1_address),                                                //                                            touch_ctrl_s1.address
 		.touch_ctrl_s1_write                                                  (mm_interconnect_0_touch_ctrl_s1_write),                                                  //                                                         .write
 		.touch_ctrl_s1_readdata                                               (mm_interconnect_0_touch_ctrl_s1_readdata),                                               //                                                         .readdata

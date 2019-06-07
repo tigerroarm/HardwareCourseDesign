@@ -1,6 +1,10 @@
 	component ED2platform is
 		port (
 			clk_clk               : in    std_logic                     := 'X';             -- clk
+			epcs_external_dclk    : out   std_logic;                                        -- dclk
+			epcs_external_sce     : out   std_logic;                                        -- sce
+			epcs_external_sdo     : out   std_logic;                                        -- sdo
+			epcs_external_data0   : in    std_logic                     := 'X';             -- data0
 			lcd_base_ctrl_export  : out   std_logic_vector(2 downto 0);                     -- export
 			lcd_cmd_export        : out   std_logic_vector(2 downto 0);                     -- export
 			lcd_data_export       : inout std_logic_vector(15 downto 0) := (others => 'X'); -- export

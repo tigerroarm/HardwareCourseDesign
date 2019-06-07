@@ -220,8 +220,34 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to touch_pen_intr
 set_global_assignment -name SOURCE_FILE DE2_115.qsf
 set_location_assignment PIN_AG22 -to touch_pen_intr
 set_global_assignment -name QIP_FILE sysPll.qip
-set_global_assignment -name TOP_LEVEL_ENTITY DE2_115
 set_location_assignment PIN_M23 -to reset_n
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset_n
 set_global_assignment -name VERILOG_FILE touchPenSmp.v
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name CYCLONEIII_CONFIGURATION_DEVICE EPCS64
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name TOP_LEVEL_ENTITY DE2_115
+set_location_assignment PIN_P3 -to epcs_dclk
+set_location_assignment PIN_E2 -to epcs_sce
+set_location_assignment PIN_F4 -to epcs_sdo
+set_location_assignment PIN_N7 -to epcs_data0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_dclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_sce
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_sdo
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_data0
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS INPUT TRI-STATED"
+set_global_assignment -name STRATIX_JTAG_USER_CODE 12345678
+set_global_assignment -name USE_CHECKSUM_AS_USERCODE OFF
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

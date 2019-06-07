@@ -1,9 +1,9 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="bb83ecaec9e3b5f29616"/>
+    <hash md5_digest_80b="5dd28938876597ddb24f"/>
   </project>
   <file_info>
-    <file device="EP4CE115F29C7" path="DE2_115.sof" usercode="0xFFFFFFFF"/>
+    <file device="EP4CE115F29C7" path="DE2_115.sof" usercode="0x12345678"/>
   </file_info>
   <hub_info hub_ir_width="4" ir_width="2" node_addr_width="1" node_count="1"/>
   <node_info>
@@ -99,7 +99,7 @@
     </sld_info>
     <sld_info hpath="ED2platform:inst" name="inst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME ED2platform HAS_SOPCINFO 1 GENERATION_ID 1557864254"/>
+        <assignment_value text="QSYS_NAME ED2platform HAS_SOPCINFO 1 GENERATION_ID 1559872952"/>
       </assignment_values>
       <parameters/>
     </sld_info>

@@ -1,0 +1,6 @@
+07:47:28 **** Clean-only build of configuration Nios II for project ebook_release1_bsp ****
+make clean 
+[BSP clean complete]
+
+07:47:31 Build Finished (took 3s.31ms)
+

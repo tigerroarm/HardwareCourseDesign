@@ -117,6 +117,11 @@ bool alt_up_sd_card_fclose(short int file_handle);
 // This function closes an opened file and saves data to SD Card if necessary.
 
 
+bool get_cluster_flag(unsigned int cluster_index, unsigned short int *flag);
+
+bool Read_Sector_Data(int sector_index, int partition_offset);
+
+
 //////////////////////////////////////////////////////////////////////////
 // file-like operation functions
 

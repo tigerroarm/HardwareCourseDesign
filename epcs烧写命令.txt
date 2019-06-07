@@ -1,0 +1,6 @@
+cd G:/altera_ED2_115/HardwareCourseDesign/SoftwareRelease/software/ebook_release1_bsp/script
+
+./flash_programmer.sh
+
+
+注：flash_programmer.sh中需要在第二行和第四行末尾加一句：--override=E:/altera/15.0/nios2-flash-override.txt

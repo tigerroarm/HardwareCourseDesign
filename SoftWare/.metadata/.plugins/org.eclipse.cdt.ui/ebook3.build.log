@@ -1,9 +1,22 @@
-03:20:49 **** Incremental Build of configuration Nios II for project ebook3 ****
+18:11:53 **** Build of configuration Nios II for project ebook3 ****
 make all 
 Info: Building ../ebook3_bsp/
 E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook3_bsp/
 [BSP build complete]
+Info: Compiling touch_resp.c to obj/default/touch_resp.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook3_bsp//HAL/inc -I../ebook3_bsp/ -I../ebook3_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/touch_resp.o touch_resp.c
+touch_resp.c: In function 'colorBoardResp':
+touch_resp.c:691:10: warning: unused variable 'posValid' [-Wunused-variable]
+     bool posValid;
+          ^
+Info: Linking ebook3.elf
+nios2-elf-g++  -T'../ebook3_bsp//linker.x' -msys-crt0='../ebook3_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook3_bsp/   -Wl,-Map=ebook3.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook3.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/sdread.o obj/default/test_value.o obj/default/tftlcd.o obj/default/time_count.o obj/default/touch.o obj/default/touch_resp.o obj/default/txt_read.o obj/default/ucs2_font.o -lm -msys-lib=m
+nios2-elf-insert ebook3.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x82014c0 --timestamp 1557864254 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftWare" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftWare/software/ebook3_bsp/../../ED2platform.sopcinfo
+Info: (ebook3.elf) 3016 KBytes program size (code + initialized data).
+Info:              128046 KBytes free for stack + heap.
+Info: Creating ebook3.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook3.elf >ebook3.objdump
 [ebook3 build complete]
 
-03:20:52 Build Finished (took 2s.381ms)
+18:12:08 Build Finished (took 14s.889ms)
 

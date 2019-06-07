@@ -1,0 +1,43 @@
+15:10:32 **** Incremental Build of configuration Nios II for project ebook_release1 ****
+make all 
+Info: Building ../ebook_release1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_release1_bsp/
+[BSP build complete]
+Info: Compiling touch.c to obj/default/touch.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ebook_release1_bsp//HAL/inc -I../ebook_release1_bsp/ -I../ebook_release1_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o obj/default/touch.o touch.c
+touch.c: In function 'intr_scan_headler':
+touch.c:345:2: warning: pointer targets in passing argument 3 of 'physical2logical' differ in signedness [-Wpointer-sign]
+  physical2logical(tempx, tempy, &(touchPosFlag.touchPos.x_pos), &(touchPosFlag.touchPos.y_pos));
+  ^
+touch.c:306:6: note: expected 'short unsigned int *' but argument is of type 'short int *'
+ void physical2logical(unsigned short xp, unsigned short yp, unsigned short* addx,  unsigned short* addy){      //转换物理坐标到逻辑坐标
+      ^
+touch.c:345:2: warning: pointer targets in passing argument 4 of 'physical2logical' differ in signedness [-Wpointer-sign]
+  physical2logical(tempx, tempy, &(touchPosFlag.touchPos.x_pos), &(touchPosFlag.touchPos.y_pos));
+  ^
+touch.c:306:6: note: expected 'short unsigned int *' but argument is of type 'short int *'
+ void physical2logical(unsigned short xp, unsigned short yp, unsigned short* addx,  unsigned short* addy){      //转换物理坐标到逻辑坐标
+      ^
+touch.c:329:6: warning: unused variable 'PEN' [-Wunused-variable]
+  int PEN = IORD(RT_PEN_BASE, 0);
+      ^
+Info: Linking ebook_release1.elf
+nios2-elf-g++  -T'../ebook_release1_bsp//linker.x' -msys-crt0='../ebook_release1_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ebook_release1_bsp/   -Wl,-Map=ebook_release1.map   -O0 -g -Wall   -mno-hw-div -mhw-mul -mno-hw-mulx  -o ebook_release1.elf obj/default/ascii_font.o obj/default/color.o obj/default/font_manage.o obj/default/gbk_font.o obj/default/icon_pic.o obj/default/main.o obj/default/screen.o obj/default/screen_display.o obj/default/sdread.o obj/default/tftlcd.o obj/default/time_count.o obj/default/touch.o obj/default/touch_resp.o obj/default/txt_read.o obj/default/ucs2_font.o -lm -msys-lib=m
+nios2-elf-insert ebook_release1.elf --thread_model hal --cpu_name cpu --qsys true --simulation_enabled false --id 305419896 --sidp 0x18002070 --timestamp 1559872952 --stderr_dev jtag_uart --stdin_dev jtag_uart --stdout_dev jtag_uart --sopc_system_name ED2platform --quartus_project_dir "G:/altera_ED2_115/HardwareCourseDesign/SoftwareRelease" --sopcinfo G:/altera_ED2_115/HardwareCourseDesign/SoftwareRelease/software/ebook_release1_bsp/../../ED2platform.sopcinfo
+Info: (ebook_release1.elf) 2993 KBytes program size (code + initialized data).
+Info:                      128078 KBytes free for stack + heap.
+Info: Creating ebook_release1.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ebook_release1.elf >ebook_release1.objdump
+[ebook_release1 build complete]
+15:10:50 **** Build of configuration Nios II for project ebook_release1 ****
+make all 
+Info: Building ../ebook_release1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_release1_bsp/
+[BSP build complete]
+[ebook_release1 build complete]
+15:11:05 **** Incremental Build of configuration Nios II for project ebook_release1 ****
+make all 
+Info: Building ../ebook_release1_bsp/
+E:/altera/15.0/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ebook_release1_bsp/
+[BSP build complete]
+[ebook_release1 build complete]

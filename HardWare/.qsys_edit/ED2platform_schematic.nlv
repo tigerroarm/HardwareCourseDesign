@@ -6,32 +6,35 @@ preplace inst ED2platform.touch_pen_intr -pg 1 -lvl 4 -y 930
 preplace inst ED2platform.timer_scrollX -pg 1 -lvl 4 -y 1050
 preplace inst ED2platform.tftlcd_data -pg 1 -lvl 4 -y 330
 preplace inst ED2platform.Altera_UP_SD_Card_Avalon_Interface_0 -pg 1 -lvl 3 -y 230
-preplace inst ED2platform.touch_ctrl -pg 1 -lvl 4 -y 530
+preplace inst ED2platform.touch_ctrl -pg 1 -lvl 4 -y 480
 preplace inst ED2platform.cpu.cpu -pg 1
-preplace inst ED2platform.timer_touch -pg 1 -lvl 4 -y 1790
 preplace inst ED2platform.tftlcd_base_ctrl -pg 1 -lvl 4 -y 30
+preplace inst ED2platform.pen_smp_speed -pg 1 -lvl 4 -y 130
 preplace inst ED2platform.cpu -pg 1 -lvl 3 -y 880
 preplace inst ED2platform.clk_100 -pg 1 -lvl 1 -y 290
-preplace inst ED2platform.sysid0 -pg 1 -lvl 4 -y 630
+preplace inst ED2platform.sysid0 -pg 1 -lvl 4 -y 700
+preplace inst ED2platform.epcs -pg 1 -lvl 4 -y 580
 preplace inst ED2platform.touch_msg -pg 1 -lvl 4 -y 830
 preplace inst ED2platform.tftlcd_cmd -pg 1 -lvl 4 -y 230
 preplace inst ED2platform.cpu.reset_bridge -pg 1
 preplace inst ED2platform.jtag_uart -pg 1 -lvl 4 -y 1370
 preplace inst ED2platform.cpu.clock_bridge -pg 1
 preplace inst ED2platform.sdram -pg 1 -lvl 4 -y 1690
-preplace netloc INTERCONNECT<net_container>ED2platform</net_container>(SLAVE)timer_scrollX.reset,(SLAVE)tftlcd_cmd.reset,(SLAVE)touch_ctrl.reset,(SLAVE)touch_msg.reset,(MASTER)clk_100.clk_reset,(SLAVE)touch_pen_intr.reset,(SLAVE)tftlcd_data.reset,(SLAVE)sysid0.reset,(MASTER)cpu.debug_reset_request,(SLAVE)tftlcd_base_ctrl.reset,(SLAVE)timer_1s.reset,(SLAVE)timer_touch.reset,(SLAVE)cpu.reset,(SLAVE)sdram.reset,(SLAVE)jtag_uart.reset,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.reset) 1 1 3 NJ 340 530 680 1090
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.touch_msg,(SLAVE)touch_msg.external_connection) 1 0 4 NJ 840 NJ 840 NJ 840 NJ
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.sd_card,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.conduit_end) 1 0 3 NJ 260 NJ 280 NJ
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)clk_100.clk_in_reset,(SLAVE)ED2platform.reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)pen_smp_speed.external_connection,(SLAVE)ED2platform.pen_smp_period) 1 0 4 NJ 160 NJ 160 NJ 160 NJ
+preplace netloc INTERCONNECT<net_container>ED2platform</net_container>(MASTER)cpu.data_master,(SLAVE)cpu.debug_mem_slave,(MASTER)cpu.instruction_master,(SLAVE)touch_ctrl.s1,(SLAVE)sdram.s1,(SLAVE)tftlcd_data.s1,(SLAVE)tftlcd_cmd.s1,(SLAVE)touch_msg.s1,(SLAVE)pen_smp_speed.s1,(SLAVE)touch_pen_intr.s1,(SLAVE)timer_scrollX.s1,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)timer_1s.s1,(SLAVE)epcs.epcs_control_port,(SLAVE)sysid0.control_slave,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave,(SLAVE)tftlcd_base_ctrl.s1) 1 2 2 550 670 1070
 preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)sdram.wire,(SLAVE)ED2platform.sdram_wire) 1 0 4 NJ 1760 NJ 1760 NJ 1760 NJ
-preplace netloc FAN_OUT<net_container>ED2platform</net_container>(SLAVE)tftlcd_data.clk,(SLAVE)sysid0.clk,(SLAVE)touch_msg.clk,(SLAVE)tftlcd_cmd.clk,(SLAVE)timer_touch.clk,(SLAVE)timer_scrollX.clk,(MASTER)clk_100.clk,(SLAVE)cpu.clk,(SLAVE)touch_pen_intr.clk,(SLAVE)timer_1s.clk,(SLAVE)sdram.clk,(SLAVE)touch_ctrl.clk,(SLAVE)jtag_uart.clk,(SLAVE)tftlcd_base_ctrl.clk,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.clk) 1 1 3 NJ 320 510 640 1150
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.reset,(SLAVE)clk_100.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)tftlcd_base_ctrl.external_connection,(SLAVE)ED2platform.lcd_base_ctrl) 1 0 4 NJ 60 NJ 60 NJ 60 NJ
 preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)touch_pen_intr.external_connection,(SLAVE)ED2platform.touch_pen_intr) 1 0 4 NJ 1040 NJ 1040 NJ 1040 NJ
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.lcd_cmd,(SLAVE)tftlcd_cmd.external_connection) 1 0 4 NJ 280 NJ 300 NJ 340 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.conduit_end,(SLAVE)ED2platform.sd_card) 1 0 3 NJ 260 NJ 280 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)tftlcd_cmd.external_connection,(SLAVE)ED2platform.lcd_cmd) 1 0 4 NJ 240 NJ 240 NJ 340 NJ
 preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)clk_100.clk_in,(SLAVE)ED2platform.clk) 1 0 1 NJ
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.lcd_base_ctrl,(SLAVE)tftlcd_base_ctrl.external_connection) 1 0 4 NJ 60 NJ 60 NJ 60 NJ
-preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.touch_ctrl,(SLAVE)touch_ctrl.external_connection) 1 0 4 NJ 560 NJ 560 NJ 560 NJ
-preplace netloc FAN_OUT<net_container>ED2platform</net_container>(SLAVE)touch_pen_intr.irq,(MASTER)cpu.irq,(SLAVE)timer_touch.irq,(SLAVE)timer_scrollX.irq,(SLAVE)timer_1s.irq,(SLAVE)jtag_uart.irq) 1 3 1 1070
-preplace netloc INTERCONNECT<net_container>ED2platform</net_container>(SLAVE)tftlcd_data.s1,(SLAVE)timer_1s.s1,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.avalon_sdcard_slave,(SLAVE)tftlcd_cmd.s1,(SLAVE)sysid0.control_slave,(SLAVE)jtag_uart.avalon_jtag_slave,(SLAVE)touch_ctrl.s1,(SLAVE)touch_pen_intr.s1,(SLAVE)timer_touch.s1,(SLAVE)touch_msg.s1,(SLAVE)sdram.s1,(MASTER)cpu.instruction_master,(SLAVE)tftlcd_base_ctrl.s1,(SLAVE)cpu.debug_mem_slave,(SLAVE)timer_scrollX.s1,(MASTER)cpu.data_master) 1 2 2 550 1020 1110
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)touch_msg.external_connection,(SLAVE)ED2platform.touch_msg) 1 0 4 NJ 840 NJ 840 NJ 840 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.touch_ctrl,(SLAVE)touch_ctrl.external_connection) 1 0 4 NJ 510 NJ 510 NJ 510 NJ
+preplace netloc INTERCONNECT<net_container>ED2platform</net_container>(SLAVE)jtag_uart.reset,(SLAVE)timer_1s.reset,(MASTER)clk_100.clk_reset,(SLAVE)sdram.reset,(SLAVE)tftlcd_cmd.reset,(SLAVE)touch_msg.reset,(SLAVE)epcs.reset,(SLAVE)touch_pen_intr.reset,(SLAVE)timer_scrollX.reset,(SLAVE)touch_ctrl.reset,(MASTER)cpu.debug_reset_request,(SLAVE)tftlcd_base_ctrl.reset,(SLAVE)tftlcd_data.reset,(SLAVE)sysid0.reset,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.reset,(SLAVE)cpu.reset,(SLAVE)pen_smp_speed.reset) 1 1 3 NJ 320 530 690 1090
+preplace netloc FAN_OUT<net_container>ED2platform</net_container>(SLAVE)touch_pen_intr.irq,(MASTER)cpu.irq,(SLAVE)epcs.irq,(SLAVE)timer_1s.irq,(SLAVE)jtag_uart.irq,(SLAVE)timer_scrollX.irq) 1 3 1 1150
+preplace netloc FAN_OUT<net_container>ED2platform</net_container>(MASTER)clk_100.clk,(SLAVE)timer_1s.clk,(SLAVE)epcs.clk,(SLAVE)touch_pen_intr.clk,(SLAVE)sdram.clk,(SLAVE)Altera_UP_SD_Card_Avalon_Interface_0.clk,(SLAVE)touch_msg.clk,(SLAVE)cpu.clk,(SLAVE)jtag_uart.clk,(SLAVE)tftlcd_base_ctrl.clk,(SLAVE)tftlcd_cmd.clk,(SLAVE)tftlcd_data.clk,(SLAVE)touch_ctrl.clk,(SLAVE)sysid0.clk,(SLAVE)timer_scrollX.clk,(SLAVE)pen_smp_speed.clk) 1 1 3 NJ 300 510 650 1130
 preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)ED2platform.lcd_data,(SLAVE)tftlcd_data.external_connection) 1 0 4 NJ 360 NJ 360 NJ 360 NJ
+preplace netloc EXPORT<net_container>ED2platform</net_container>(SLAVE)epcs.external,(SLAVE)ED2platform.epcs_external) 1 0 4 NJ 630 NJ 630 NJ 630 NJ
 levelinfo -pg 1 0 100 1400
 levelinfo -hier ED2platform 110 140 470 830 1240 1390

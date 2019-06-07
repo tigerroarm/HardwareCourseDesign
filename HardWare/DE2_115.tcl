@@ -162,6 +162,14 @@ set_location_assignment PIN_M23 -to reset_n
 #set_location_assignment PIN_AA14 -to HEX7[6]
 
 #============================================================
+# EPCS
+#============================================================
+set_location_assignment PIN_P3 -to epcs_dclk
+set_location_assignment PIN_E2 -to epcs_sce
+set_location_assignment PIN_F4 -to epcs_sdo
+set_location_assignment PIN_N7 -to epcs_data0
+
+#============================================================
 # SDCARD
 #============================================================
 set_location_assignment PIN_AD14 -to SD_CMD
@@ -428,6 +436,11 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to reset_n
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX7[4]
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX7[5]
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HEX7[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_dclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_sce
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_sdo
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to epcs_data0
+
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CMD
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_CLK
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_DAT0

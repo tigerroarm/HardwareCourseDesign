@@ -1,0 +1,136 @@
+# depslib dependency file v1.0
+1559552431 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\ascii_font.c
+	"font_manage.h"
+
+1559552431 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\font_manage.h
+
+1559552431 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\color.c
+	"color.h"
+
+1559552431 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\color.h
+
+1559552431 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\font_manage.c
+	"font_manage.h"
+
+1559552431 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\gbk_font.c
+	"font_manage.h"
+
+1559552431 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\icon_pic.c
+	"font_manage.h"
+
+1559862650 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"screen.h"
+	"screen_display.h"
+	"test_value.h"
+	"touch_resp.h"
+	"time_count.h"
+
+1559629875 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\screen.h
+	<stdio.h>
+	"screen_type.h"
+	"font_manage.h"
+	"txt_read.h"
+
+1559853961 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\screen_type.h
+	<stdbool.h>
+	"alt_types.h"
+	"color.h"
+
+1559552430 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\alt_types.h
+
+1559726321 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\txt_read.h
+	"screen_type.h"
+	"sdread.h"
+
+1559680939 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\sdread.h
+	"screen_type.h"
+
+1559552432 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\screen_display.h
+	"screen_type.h"
+
+1559804853 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\test_value.h
+	<stdbool.h>
+	"screen_type.h"
+	"txt_read.h"
+
+1559678349 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\touch.h
+	<stdio.h>
+	<stdbool.h>
+
+1559552430 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\touch_resp.h
+	<stdbool.h>
+	"alt_types.h"
+	"screen_type.h"
+
+1559678362 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\tftlcd.h
+	<stdio.h>
+	"alt_types.h"
+	"unistd.h"
+
+1559603855 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\time_count.h
+	<stdbool.h>
+	"alt_types.h"
+	"screen_type.h"
+
+1559858404 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\screen.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"screen.h"
+	"icon_pic_extern.h"
+	"test_value.h"
+	"color.h"
+	"time_count.h"
+
+1559552431 f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\icon_pic_extern.h
+
+1559854594 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\screen_display.c
+	<stdlib.h>
+	"screen_display.h"
+	"screen.h"
+	"test_value.h"
+
+1559719962 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\sdread.c
+	<errno.h>
+	<io.h>
+	<stdio.h>
+	<string.h>
+	"sdread.h"
+	"txt_read.h"
+	"stdlib.h"
+
+1559854801 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\test_value.c
+	<stdio.h>
+	<stdlib.h>
+	"test_value.h"
+	"alt_types.h"
+	"txt_read.h"
+
+1559678550 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\time_count.c
+	"time_count.h"
+	"screen.h"
+	"screen_display.h"
+
+1559855368 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\touch_resp.c
+	<stdio.h>
+	<string.h>
+	"touch_resp.h"
+	"screen_display.h"
+	"txt_read.h"
+	"screen.h"
+	"time_count.h"
+	"test_value.h"
+
+1559806903 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\txt_read.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"txt_read.h"
+	"screen.h"
+	"sdread.h"
+
+1559552430 source:f:\大学学习资源\第六学期课程\硬件课程设计\screentest2\ucs2_font.c
+	"font_manage.h"
+
